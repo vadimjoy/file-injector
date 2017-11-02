@@ -91,31 +91,83 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var FileUploader = /** @class */ (function () {
-    function FileUploader(elem, target, callback) {
-        this.files = [];
-        var clip = this;
-        this.elem = elem;
-        this.target = target;
-        this.file_input = this.elem.querySelectorAll('input[type="file"]')[0];
-        this.clip_input = this.elem.querySelectorAll('input[type="text"]')[0];
+    function FileUploader(options, callback) {
+        var upl = this;
+        this.options = {
+            elem: options.elem,
+            imagePreview: options.imagePreview || null
+        };
+        this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0];
+        this.clip_input = this.options.elem.querySelectorAll('input[type="text"]')[0];
         this.clip_input.addEventListener("paste", function (e) {
-            clip.pasteHandler(e);
+            upl.pasteHandler(e);
         });
         this.file_input.addEventListener("change", function (e) {
-            clip.changeFileHandler(e);
+            upl.changeFileHandler(e);
         });
         this.callback = callback;
     }
-    FileUploader.prototype.addFile = function (item) {
-        this.elem.classList.add('test');
-        this.files.push(item);
+    FileUploader.prototype.imageLoad = function (item) {
+        var _this = this;
+        var upl = this;
         var reader = new FileReader();
         var image = new Image();
-        reader.onloadend = function () {
+        /**
+         * Create image info
+         */
+        var current = {
+            filename: item.name,
+            status: "ready",
+            loaded: 0,
+            total: 0
+        };
+        /**
+         * FileReader API
+         */
+        reader.onloadstart = function (e) {
+            if (e.lengthComputable) {
+                current.status = 'start';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                upl.options.imagePreview(current, null);
+            }
+        };
+        reader.onerror = function (e) {
+            current.status = e.code;
+        };
+        reader.onprogress = function (e) {
+            if (e.lengthComputable) {
+                current.status = 'progress';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                upl.options.imagePreview(current, null);
+            }
+        };
+        reader.onload = function (e) {
+            if (e.lengthComputable) {
+                current.status = 'load';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                _this.options.imagePreview(current, null);
+            }
+        };
+        /**
+         * Callback on end of load
+         */
+        reader.onloadend = function (e) {
+            current.status = 'end';
+            current.loaded = e.loaded;
+            current.total = e.total;
             image.src = reader.result;
+            upl.options.imagePreview(current, image);
         };
         reader.readAsDataURL(item);
-        this.target.appendChild(image);
+    };
+    FileUploader.prototype.addFile = function (item) {
+        this.options.elem.classList.add('test');
+        if (item.type.indexOf("image") !== -1) {
+            this.options.imagePreview ? this.imageLoad(item) : null;
+        }
         this.callback(item);
     };
     FileUploader.prototype.pasteHandler = function (e) {
@@ -124,10 +176,8 @@ var FileUploader = /** @class */ (function () {
             if (items) {
                 for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
                     var item = items_1[_i];
-                    if (item.type.indexOf("image") !== -1) {
-                        var file = item.getAsFile();
-                        this.addFile(file);
-                    }
+                    var file = item.getAsFile();
+                    this.addFile(file);
                 }
             }
         }
@@ -137,9 +187,7 @@ var FileUploader = /** @class */ (function () {
         if (items) {
             for (var _i = 0, items_2 = items; _i < items_2.length; _i++) {
                 var item = items_2[_i];
-                if (item.type.indexOf("image") !== -1) {
-                    this.addFile(item);
-                }
+                this.addFile(item);
             }
         }
     };
