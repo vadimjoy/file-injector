@@ -22,8 +22,8 @@ export default class FileInjector {
 
         this.options = {
             elem: options.elem || undefined,
-            imagePreview: options.imagePreview || null
-            readStatus: options.readStatus || null,
+            imagePreview: options.imagePreview || null,
+            readStatus: options.readStatus || null
         };
 
         if (this.options.elem) {
@@ -92,7 +92,7 @@ export default class FileInjector {
                 }
             };
         }
-        
+
         /**
          * Callback on end of load
          */

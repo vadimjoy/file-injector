@@ -14,10 +14,12 @@ function imagePreview(base64) {
      * If image loaded append this in block
      */
     var image = new Image();
-    base64 ? target.appendChild(image.src = base64) : null;
+    image.src = base64;
+
+    target.appendChild(image);
 }
 
-new FileUploader({elem: elem, readStatus: readStatus, imagePreview: imagePreview}, function (file) {
+new FileInjector({elem: elem, readStatus: readStatus, imagePreview: imagePreview}, function (file) {
     /**
      * Get original file
      */

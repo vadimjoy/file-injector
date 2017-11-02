@@ -80,7 +80,7 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"]
     },
     output: {
-        filename: 'file-uploader.js',
+        filename: 'file-injector.js',
         library: 'FileInjector',
         libraryTarget: 'umd',
         libraryExport: "default",
