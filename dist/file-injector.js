@@ -173,7 +173,6 @@ var FileInjector = /** @class */ (function () {
         this.callback(item);
     };
     FileInjector.prototype.pasteHandler = function (e) {
-        var upl = this;
         if (e.clipboardData) {
             var items = e.clipboardData.items;
             if (items) {
@@ -182,23 +181,6 @@ var FileInjector = /** @class */ (function () {
                     if (item.kind === 'file') {
                         var file = item.getAsFile();
                         this.addFile(file);
-                    }
-                    else {
-                        item.getAsString(function (str) {
-                            if (str.indexOf('http') != -1) {
-                                var url = str;
-                                var blob_1 = null;
-                                var xhr_1 = new XMLHttpRequest();
-                                xhr_1.open("GET", url);
-                                xhr_1.responseType = "blob";
-                                xhr_1.onload = function () {
-                                    blob_1 = xhr_1.response;
-                                    console.log(xhr_1.response);
-                                    upl.addFile(blob_1);
-                                };
-                                xhr_1.send();
-                            }
-                        });
                     }
                 }
             }
