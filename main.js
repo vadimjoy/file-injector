@@ -19,7 +19,7 @@ function imagePreview(base64) {
     target.appendChild(image);
 }
 
-new FileInjector({elem: elem, readStatus: readStatus, imagePreview: imagePreview}, function (file) {
+new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus}, function (file) {
     /**
      * Get original file
      */
