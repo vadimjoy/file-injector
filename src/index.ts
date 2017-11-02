@@ -12,31 +12,38 @@ export default class FileUploader {
         elem:Element,
         imagePreview:Function
     };
+
     callback:Function;
     clip_input:Element;
     file_input:Element;
 
     constructor(options:any, callback:Function) {
         var upl = this;
+
         this.options = {
-            elem: options.elem,
+            elem: options.elem || undefined,
             imagePreview: options.imagePreview || null
         };
-        this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0];
-        this.clip_input = this.options.elem.querySelectorAll('input[type="text"]')[0];
-        this.clip_input.addEventListener("paste", (e)=> {
-            upl.pasteHandler(e)
-        });
 
-        this.file_input.addEventListener("change", (e)=> {
+        if (this.options.elem) {
+            this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0] || undefined;
+            this.clip_input = this.options.elem.querySelectorAll('input[type="text"]')[0] || undefined;
+        }
+
+        this.file_input ? this.file_input.addEventListener("change", (e)=> {
             upl.changeFileHandler(e)
-        });
+        }) : null;
+
+        this.clip_input ? this.clip_input.addEventListener("paste", (e)=> {
+            upl.pasteHandler(e)
+        }) : null;
 
         this.callback = callback;
     }
 
     public imageLoad(item:any) {
         let upl = this;
+
         let reader = new FileReader();
         let image = new Image();
 
@@ -45,7 +52,7 @@ export default class FileUploader {
          */
         let current = {
             filename: item.name,
-            status: "ready",
+            status: 'ready',
             loaded: 0,
             total: 0
         };
@@ -99,8 +106,7 @@ export default class FileUploader {
     }
 
     public addFile(item:any) {
-        this.options.elem.classList.add('test');
-        if (item.type.indexOf("image") !== -1) {
+        if (item.type.indexOf('image') !== -1) {
             this.options.imagePreview ? this.imageLoad(item) : null;
         }
         this.callback(item);
@@ -111,8 +117,10 @@ export default class FileUploader {
             var items = e.clipboardData.items;
             if (items) {
                 for (let item of items) {
-                    var file = item.getAsFile();
-                    this.addFile(file);
+                    if (item.kind === 'file') {
+                        var file = item.getAsFile();
+                        this.addFile(file);
+                    }
                 }
             }
         }
@@ -127,3 +135,25 @@ export default class FileUploader {
         }
     }
 }
+
+var elem = document.querySelectorAll('.js-file-uploader')[0];
+var target = document.querySelectorAll('.js-target')[0];
+
+function imagePreview(info:any, image:any) {
+    /**
+     * While image not loaded get info about load process
+     */
+    console.log(info);
+
+    /**
+     * If image loaded append this in block
+     */
+    image ? target.appendChild(image) : null;
+}
+
+new FileUploader({elem: elem, imagePreview: imagePreview}, function (file:any) {
+    /**
+     * Get o file
+     */
+    console.log(file);
+});
