@@ -8,41 +8,101 @@ import './css/common.css'
 import './css/main.css'
 
 export default class FileUploader {
-    elem:Element;
-    target:Element;
+    options:{
+        elem:Element,
+        imagePreview:Function
+    };
     callback:Function;
     clip_input:Element;
     file_input:Element;
-    files:Array<File> = [];
 
-    constructor(elem:Element, target:Element, callback:Function) {
-        var clip = this;
-        this.elem = elem;
-        this.target = target;
-
-        this.file_input = this.elem.querySelectorAll('input[type="file"]')[0];
-        this.clip_input = this.elem.querySelectorAll('input[type="text"]')[0];
+    constructor(options:any, callback:Function) {
+        var upl = this;
+        this.options = {
+            elem: options.elem,
+            imagePreview: options.imagePreview || null
+        };
+        this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0];
+        this.clip_input = this.options.elem.querySelectorAll('input[type="text"]')[0];
         this.clip_input.addEventListener("paste", (e)=> {
-            clip.pasteHandler(e)
+            upl.pasteHandler(e)
         });
 
         this.file_input.addEventListener("change", (e)=> {
-            clip.changeFileHandler(e)
+            upl.changeFileHandler(e)
         });
 
         this.callback = callback;
     }
 
-    public addFile(item:any) {
-        this.elem.classList.add('test');
-        this.files.push(item);
+    public imageLoad(item:any) {
+        let upl = this;
         let reader = new FileReader();
         let image = new Image();
-        reader.onloadend = function () {
-            image.src = reader.result;
+
+        /**
+         * Create image info
+         */
+        let current = {
+            filename: item.name,
+            status: "ready",
+            loaded: 0,
+            total: 0
         };
+
+        /**
+         * FileReader API
+         */
+        reader.onloadstart = (e:any)=> {
+            if (e.lengthComputable) {
+                current.status = 'start';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                upl.options.imagePreview(current, null);
+            }
+        };
+
+        reader.onerror = (e:any)=> {
+            current.status = e.code;
+        };
+
+        reader.onprogress = (e:any) => {
+            if (e.lengthComputable) {
+                current.status = 'progress';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                upl.options.imagePreview(current, null);
+            }
+        };
+
+        reader.onload = (e:any) => {
+            if (e.lengthComputable) {
+                current.status = 'load';
+                current.loaded = e.loaded;
+                current.total = e.total;
+                this.options.imagePreview(current, null);
+            }
+        };
+
+        /**
+         * Callback on end of load
+         */
+        reader.onloadend = (e:any) => {
+            current.status = 'end';
+            current.loaded = e.loaded;
+            current.total = e.total;
+            image.src = reader.result;
+            upl.options.imagePreview(current, image);
+        };
+
         reader.readAsDataURL(item);
-        this.target.appendChild(image);
+    }
+
+    public addFile(item:any) {
+        this.options.elem.classList.add('test');
+        if (item.type.indexOf("image") !== -1) {
+            this.options.imagePreview ? this.imageLoad(item) : null;
+        }
         this.callback(item);
     }
 
@@ -51,10 +111,8 @@ export default class FileUploader {
             var items = e.clipboardData.items;
             if (items) {
                 for (let item of items) {
-                    if (item.type.indexOf("image") !== -1) {
-                        var file = item.getAsFile();
-                        this.addFile(file);
-                    }
+                    var file = item.getAsFile();
+                    this.addFile(file);
                 }
             }
         }
@@ -64,9 +122,7 @@ export default class FileUploader {
         var items = e.target.files;
         if (items) {
             for (let item of items) {
-                if (item.type.indexOf("image") !== -1) {
-                    this.addFile(item);
-                }
+                this.addFile(item);
             }
         }
     }
