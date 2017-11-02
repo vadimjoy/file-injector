@@ -173,6 +173,7 @@ var FileInjector = /** @class */ (function () {
         this.callback(item);
     };
     FileInjector.prototype.pasteHandler = function (e) {
+        var upl = this;
         if (e.clipboardData) {
             var items = e.clipboardData.items;
             if (items) {
@@ -181,6 +182,23 @@ var FileInjector = /** @class */ (function () {
                     if (item.kind === 'file') {
                         var file = item.getAsFile();
                         this.addFile(file);
+                    }
+                    else {
+                        item.getAsString(function (str) {
+                            if (str.indexOf('http') != -1) {
+                                var url = str;
+                                var blob_1 = null;
+                                var xhr_1 = new XMLHttpRequest();
+                                xhr_1.open("GET", url);
+                                xhr_1.responseType = "blob";
+                                xhr_1.onload = function () {
+                                    blob_1 = xhr_1.response;
+                                    console.log(xhr_1.response);
+                                    upl.addFile(blob_1);
+                                };
+                                xhr_1.send();
+                            }
+                        });
                     }
                 }
             }
@@ -198,6 +216,28 @@ var FileInjector = /** @class */ (function () {
     return FileInjector;
 }());
 /* harmony default export */ __webpack_exports__["default"] = (FileInjector);
+var elem = document.querySelectorAll('.js-file-uploader')[0];
+var target = document.querySelectorAll('.js-target')[0];
+function readStatus(status) {
+    /**
+     * While image not loaded get info about load process
+     */
+    console.log(status);
+}
+function imagePreview(base64) {
+    /**
+     * If image loaded append this in block
+     */
+    var image = new Image();
+    image.src = base64;
+    target.appendChild(image);
+}
+new FileInjector({ elem: elem, imagePreview: imagePreview, readStatus: readStatus }, function (file) {
+    /**
+     * Get original file
+     */
+    console.log(file);
+});
 
 
 /***/ }),
