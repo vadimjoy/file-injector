@@ -3,7 +3,8 @@
 #### Example
 
 ###### HTML
-```html              <!-- important wrapper class --> 
+```html              
+                          <!-- important wrapper class --> 
 <div class="file-uploader js-file-uploader">
     <label class="file-uploader__field">
         <!-- optional clipboard catch input -->
