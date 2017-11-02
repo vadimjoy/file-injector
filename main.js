@@ -1,7 +1,7 @@
 var elem = document.querySelectorAll('.js-file-uploader')[0];
 var target = document.querySelectorAll('.js-target')[0];
 
-function imagePreview(info, image) {
+function imagePreview(info, base64) {
     /**
      * While image not loaded get info about load process
      */
@@ -10,7 +10,8 @@ function imagePreview(info, image) {
     /**
      * If image loaded append this in block
      */
-    image ? target.appendChild(image) : null;
+    var image = new Image();
+    image ? target.appendChild(image.src = base64) : null;
 }
 
 new FileUploader({elem: elem, imagePreview: imagePreview}, function (file) {
