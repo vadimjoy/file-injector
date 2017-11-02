@@ -44,7 +44,6 @@ export default class FileUploader {
         let upl = this;
 
         let reader = new FileReader();
-        let image = new Image();
 
         /**
          * Create image info
@@ -97,8 +96,7 @@ export default class FileUploader {
             current.status = 'end';
             current.loaded = e.loaded;
             current.total = e.total;
-            image.src = reader.result;
-            upl.options.imagePreview(current, image);
+            upl.options.imagePreview(current, reader.result);
         };
 
         reader.readAsDataURL(item);
