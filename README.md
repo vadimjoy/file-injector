@@ -4,6 +4,9 @@
 
 ###### HTML
 ```html              
+<!-- wrapper for image preview -->
+<div class="load-target js-target"></div>
+
                           <!-- important wrapper class --> 
 <div class="file-uploader js-file-uploader">
     <label class="file-uploader__field">
