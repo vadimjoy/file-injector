@@ -6,10 +6,11 @@
 import './css/common.css'
 import './css/main.css'
 
-export default class FileUploader {
+export default class FileInjector {
     options:{
         elem:Element,
         imagePreview:Function
+        readStatus:Function
     };
 
     callback:Function;
@@ -22,6 +23,7 @@ export default class FileUploader {
         this.options = {
             elem: options.elem || undefined,
             imagePreview: options.imagePreview || null
+            readStatus: options.readStatus || null,
         };
 
         if (this.options.elem) {
@@ -58,37 +60,39 @@ export default class FileUploader {
         /**
          * FileReader API
          */
-        reader.onloadstart = (e:any)=> {
-            if (e.lengthComputable) {
-                current.status = 'start';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                upl.options.imagePreview(current, null);
-            }
-        };
+        if (this.options.readStatus) {
+            reader.onloadstart = (e:any)=> {
+                if (e.lengthComputable) {
+                    current.status = 'start';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    upl.options.readStatus(current);
+                }
+            };
 
-        reader.onerror = (e:any)=> {
-            current.status = e.code;
-        };
+            reader.onerror = (e:any)=> {
+                current.status = e.code;
+            };
 
-        reader.onprogress = (e:any) => {
-            if (e.lengthComputable) {
-                current.status = 'progress';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                upl.options.imagePreview(current, null);
-            }
-        };
+            reader.onprogress = (e:any) => {
+                if (e.lengthComputable) {
+                    current.status = 'progress';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    upl.options.readStatus(current);
+                }
+            };
 
-        reader.onload = (e:any) => {
-            if (e.lengthComputable) {
-                current.status = 'load';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                this.options.imagePreview(current, null);
-            }
-        };
-
+            reader.onload = (e:any) => {
+                if (e.lengthComputable) {
+                    current.status = 'load';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    this.options.readStatus(current);
+                }
+            };
+        }
+        
         /**
          * Callback on end of load
          */
@@ -96,7 +100,7 @@ export default class FileUploader {
             current.status = 'end';
             current.loaded = e.loaded;
             current.total = e.total;
-            upl.options.imagePreview(current, reader.result);
+            upl.options.imagePreview(reader.result);
         };
 
         reader.readAsDataURL(item);
