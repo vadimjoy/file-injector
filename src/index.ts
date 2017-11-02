@@ -123,23 +123,6 @@ export default class FileInjector {
                         var file = item.getAsFile();
                         this.addFile(file);
                     }
-                    else {
-                        item.getAsString(function (str:any) {
-                            if (str.indexOf('http') != -1) {
-                                let url = str;
-                                let blob = null;
-                                let xhr = new XMLHttpRequest();
-                                xhr.open("GET", url);
-                                xhr.responseType = "blob";
-                                xhr.onload = function () {
-                                    blob = xhr.response;
-                                    console.log(xhr.response);
-                                    upl.addFile(blob);
-                                };
-                                xhr.send();
-                            }
-                        });
-                    }
                 }
             }
         }
