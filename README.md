@@ -1,6 +1,6 @@
 # file-uploader
 
-#### example
+#### Example
 
 ```js
 var elem = document.querySelectorAll('.js-file-uploader')[0];
