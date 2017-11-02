@@ -81,7 +81,7 @@ module.exports = {
     },
     output: {
         filename: 'file-uploader.js',
-        library: 'FileUploader',
+        library: 'FileInjector',
         libraryTarget: 'umd',
         libraryExport: "default",
         path: path.resolve(__dirname, 'dist'),
