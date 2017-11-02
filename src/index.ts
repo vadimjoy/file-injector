@@ -114,6 +114,7 @@ export default class FileInjector {
     }
 
     public pasteHandler(e:any) {
+        let upl = this;
         if (e.clipboardData) {
             var items = e.clipboardData.items;
             if (items) {
@@ -121,6 +122,23 @@ export default class FileInjector {
                     if (item.kind === 'file') {
                         var file = item.getAsFile();
                         this.addFile(file);
+                    }
+                    else {
+                        item.getAsString(function (str:any) {
+                            if (str.indexOf('http') != -1) {
+                                let url = str;
+                                let blob = null;
+                                let xhr = new XMLHttpRequest();
+                                xhr.open("GET", url);
+                                xhr.responseType = "blob";
+                                xhr.onload = function () {
+                                    blob = xhr.response;
+                                    console.log(xhr.response);
+                                    upl.addFile(blob);
+                                };
+                                xhr.send();
+                            }
+                        });
                     }
                 }
             }
@@ -136,3 +154,31 @@ export default class FileInjector {
         }
     }
 }
+
+var elem = document.querySelectorAll('.js-file-uploader')[0];
+var target = document.querySelectorAll('.js-target')[0];
+
+
+function readStatus(status:any) {
+    /**
+     * While image not loaded get info about load process
+     */
+    console.log(status);
+}
+
+function imagePreview(base64:any) {
+    /**
+     * If image loaded append this in block
+     */
+    var image = new Image();
+    image.src = base64;
+
+    target.appendChild(image);
+}
+
+new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus}, function (file:any) {
+    /**
+     * Get original file
+     */
+    console.log(file);
+});
