@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["FileUploader"] = factory();
+		exports["FileInjector"] = factory();
 	else
-		root["FileUploader"] = factory();
+		root["FileInjector"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -90,12 +90,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 
-var FileUploader = /** @class */ (function () {
-    function FileUploader(options, callback) {
+var FileInjector = /** @class */ (function () {
+    function FileInjector(options, callback) {
         var upl = this;
         this.options = {
             elem: options.elem || undefined,
-            imagePreview: options.imagePreview || null
+            imagePreview: options.imagePreview || null,
+            readStatus: options.readStatus || null
         };
         if (this.options.elem) {
             this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0] || undefined;
@@ -109,11 +110,10 @@ var FileUploader = /** @class */ (function () {
         }) : null;
         this.callback = callback;
     }
-    FileUploader.prototype.imageLoad = function (item) {
+    FileInjector.prototype.imageLoad = function (item) {
         var _this = this;
         var upl = this;
         var reader = new FileReader();
-        var image = new Image();
         /**
          * Create image info
          */
@@ -126,33 +126,35 @@ var FileUploader = /** @class */ (function () {
         /**
          * FileReader API
          */
-        reader.onloadstart = function (e) {
-            if (e.lengthComputable) {
-                current.status = 'start';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                upl.options.imagePreview(current, null);
-            }
-        };
-        reader.onerror = function (e) {
-            current.status = e.code;
-        };
-        reader.onprogress = function (e) {
-            if (e.lengthComputable) {
-                current.status = 'progress';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                upl.options.imagePreview(current, null);
-            }
-        };
-        reader.onload = function (e) {
-            if (e.lengthComputable) {
-                current.status = 'load';
-                current.loaded = e.loaded;
-                current.total = e.total;
-                _this.options.imagePreview(current, null);
-            }
-        };
+        if (this.options.readStatus) {
+            reader.onloadstart = function (e) {
+                if (e.lengthComputable) {
+                    current.status = 'start';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    upl.options.readStatus(current);
+                }
+            };
+            reader.onerror = function (e) {
+                current.status = e.code;
+            };
+            reader.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    current.status = 'progress';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    upl.options.readStatus(current);
+                }
+            };
+            reader.onload = function (e) {
+                if (e.lengthComputable) {
+                    current.status = 'load';
+                    current.loaded = e.loaded;
+                    current.total = e.total;
+                    _this.options.readStatus(current);
+                }
+            };
+        }
         /**
          * Callback on end of load
          */
@@ -160,18 +162,17 @@ var FileUploader = /** @class */ (function () {
             current.status = 'end';
             current.loaded = e.loaded;
             current.total = e.total;
-            image.src = reader.result;
-            upl.options.imagePreview(current, image);
+            upl.options.imagePreview(reader.result);
         };
         reader.readAsDataURL(item);
     };
-    FileUploader.prototype.addFile = function (item) {
+    FileInjector.prototype.addFile = function (item) {
         if (item.type.indexOf('image') !== -1) {
             this.options.imagePreview ? this.imageLoad(item) : null;
         }
         this.callback(item);
     };
-    FileUploader.prototype.pasteHandler = function (e) {
+    FileInjector.prototype.pasteHandler = function (e) {
         if (e.clipboardData) {
             var items = e.clipboardData.items;
             if (items) {
@@ -185,7 +186,7 @@ var FileUploader = /** @class */ (function () {
             }
         }
     };
-    FileUploader.prototype.changeFileHandler = function (e) {
+    FileInjector.prototype.changeFileHandler = function (e) {
         var items = e.target.files;
         if (items) {
             for (var _i = 0, items_2 = items; _i < items_2.length; _i++) {
@@ -194,9 +195,9 @@ var FileUploader = /** @class */ (function () {
             }
         }
     };
-    return FileUploader;
+    return FileInjector;
 }());
-/* harmony default export */ __webpack_exports__["default"] = (FileUploader);
+/* harmony default export */ __webpack_exports__["default"] = (FileInjector);
 
 
 /***/ }),
