@@ -114,7 +114,6 @@ export default class FileInjector {
     }
 
     public pasteHandler(e:any) {
-        let upl = this;
         if (e.clipboardData) {
             var items = e.clipboardData.items;
             if (items) {
