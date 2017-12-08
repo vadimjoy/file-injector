@@ -2,11 +2,15 @@ var elem = document.querySelectorAll('.js-file-uploader')[0];
 var target = document.querySelectorAll('.js-target')[0];
 
 
-function readStatus(status) {
+function readStatus(data) {
     /**
      * While image not loaded get info about load process
      */
-    console.log(status);
+    function getPercent(loaded, total) {
+        return Math.floor(loaded / (total / 100));
+    }
+
+    console.log('file: ' + data.filename + '; status: ' + data.status + '; total: ' + getPercent(data.loaded, data.total));
 }
 
 function imagePreview(base64) {
@@ -23,5 +27,5 @@ new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus
     /**
      * Get original file
      */
-    console.log(file);
+    //console.log(file);
 });
