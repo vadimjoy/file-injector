@@ -1,6 +1,14 @@
 var elem = document.querySelectorAll('.js-file-uploader')[0];
 var target = document.querySelectorAll('.js-target')[0];
 
+function sendLog(data, mark) {
+    var body = document.getElementsByTagName('body')[0],
+        log_div = document.createElement('div');
+    mark ? log_div.style.color = mark : null;
+    log_div.appendChild(document.createTextNode(data));
+    body.appendChild(log_div)
+
+}
 
 function readStatus(data) {
     /**
@@ -10,7 +18,11 @@ function readStatus(data) {
         return Math.floor(loaded / (total / 100));
     }
 
-    console.log('file: ' + data.filename + '; status: ' + data.status + '; total: ' + getPercent(data.loaded, data.total));
+    var percent = getPercent(data.loaded, data.total);
+    sendLog('file: ' + data.filename + '; status: ' + data.status + '; total: ' + percent + '%', 'blue');
+    if (percent === 100 && data.status === 'load') {
+        sendLog('file: ' + data.filename + ' ready', 'green');
+    }
 }
 
 function imagePreview(base64) {
@@ -20,7 +32,7 @@ function imagePreview(base64) {
     var image = new Image();
     image.src = base64;
 
-    target.appendChild(image);
+    //target.appendChild(image);
 }
 
 new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus}, function (file) {
