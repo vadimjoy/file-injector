@@ -67,22 +67,34 @@
     line-height: 50px;
 }
 
-.file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator {
-    background-color: #555555;
-}
-
-.file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator:before {
-    content: "CTRL+V";
+.file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator:before,
+.file-uploader.dragenter .file-uploader__indicator_dnd:before {
     color: #ffffff;
     font-family: sans-serif;
     line-height: 50px;
     font-size: 10px;
 }
 
+.file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator {
+    background-color: #555555;
+}
+
+.file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator:before {
+    content: "CTRL+V";
+}
+
 .file-uploader__field input[type="text"]:focus ~ .file-uploader__indicator i {
     display: none;
 }
 
-.file-uploader__field input:focus {
-    background-color: #008800;
+.file-uploader.dragenter .file-uploader__indicator_dnd {
+    background-color: #555555;
+}
+
+.file-uploader.dragenter .file-uploader__indicator_dnd:before {
+    content: "DRAG";
+}
+
+.file-uploader.dragenter .file-uploader__indicator_dnd i {
+    display: none;
 }
