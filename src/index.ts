@@ -168,3 +168,20 @@ export default class FileInjector {
         }
     }
 }
+
+var target = document.querySelectorAll('.js-target')[0];
+
+
+var $injector = new FileInjector('.js-file-uploader');
+
+$injector.readimageprocess = function (status:any) {
+    console.log(status);
+};
+
+$injector.onchangefile = function (file:any) {
+    console.log(file);
+};
+
+$injector.onreadimage = function (image:any) {
+    target.appendChild(image);
+};
