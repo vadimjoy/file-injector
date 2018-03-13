@@ -91,28 +91,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var FileInjector = /** @class */ (function () {
-    function FileInjector(options, callback) {
-        var upl = this;
-        this.options = {
-            elem: options.elem || undefined,
-            imagePreview: options.imagePreview || null,
-            readStatus: options.readStatus || null
-        };
-        if (this.options.elem) {
-            this.file_input = this.options.elem.querySelectorAll('input[type="file"]')[0] || undefined;
-            this.clip_input = this.options.elem.querySelectorAll('input[type="text"]')[0] || undefined;
+    function FileInjector(element, options) {
+        if (options === void 0) { options = {}; }
+        this.element = document.querySelectorAll(element)[0] || undefined;
+        this.dragClass = options.dragClass || 'dragenter';
+        this.readimageprocess = undefined;
+        this.onchangefile = undefined;
+        this.onreadimage = undefined;
+        this.onDragOver = this.onDragOver.bind(this);
+        this.onDragLeave = this.onDragLeave.bind(this);
+        this.onDrop = this.onDrop.bind(this);
+        this.onChangeFile = this.onChangeFile.bind(this);
+        this.onPaste = this.onPaste.bind(this);
+        if (this.element) {
+            this.file_input = this.element.querySelectorAll('input[type="file"]')[0] || undefined;
+            this.clip_input = this.element.querySelectorAll('input[type="text"]')[0] || undefined;
+            this.element.addEventListener("dragover", this.onDragOver, false);
+            this.element.addEventListener("dragleave", this.onDragLeave, false);
+            this.element.addEventListener("drop", this.onDrop, false);
         }
-        this.file_input ? this.file_input.addEventListener("change", function (e) {
-            upl.changeFileHandler(e);
-        }) : null;
-        this.clip_input ? this.clip_input.addEventListener("paste", function (e) {
-            upl.pasteHandler(e);
-        }) : null;
-        this.callback = callback;
+        this.file_input ? this.file_input.addEventListener("change", this.onChangeFile, false) : null;
+        this.clip_input ? this.clip_input.addEventListener("paste", this.onPaste, false) : null;
     }
     FileInjector.prototype.imageLoad = function (item) {
         var _this = this;
-        var upl = this;
         var reader = new FileReader();
         /**
          * Create image info
@@ -126,13 +128,13 @@ var FileInjector = /** @class */ (function () {
         /**
          * FileReader API
          */
-        if (this.options.readStatus) {
+        if (this.readimageprocess) {
             reader.onloadstart = function (e) {
                 if (e.lengthComputable) {
                     current.status = 'start';
                     current.loaded = e.loaded;
                     current.total = e.total;
-                    upl.options.readStatus(current);
+                    _this.readimageprocess.call(_this, current);
                 }
             };
             reader.onerror = function (e) {
@@ -143,7 +145,7 @@ var FileInjector = /** @class */ (function () {
                     current.status = 'progress';
                     current.loaded = e.loaded;
                     current.total = e.total;
-                    upl.options.readStatus(current);
+                    _this.readimageprocess.call(_this, current);
                 }
             };
             reader.onload = function (e) {
@@ -151,7 +153,7 @@ var FileInjector = /** @class */ (function () {
                     current.status = 'load';
                     current.loaded = e.loaded;
                     current.total = e.total;
-                    _this.options.readStatus(current);
+                    _this.readimageprocess.call(_this, current);
                 }
             };
         }
@@ -162,31 +164,58 @@ var FileInjector = /** @class */ (function () {
             current.status = 'end';
             current.loaded = e.loaded;
             current.total = e.total;
-            upl.options.imagePreview(reader.result);
+            var image = new Image();
+            image.src = reader.result;
+            _this.onreadimage.call(_this, image);
         };
         reader.readAsDataURL(item);
     };
     FileInjector.prototype.addFile = function (item) {
         if (item.type.indexOf('image') !== -1) {
-            this.options.imagePreview ? this.imageLoad(item) : null;
+            this.onreadimage ? this.imageLoad(item) : null;
         }
-        this.callback(item);
+        if (this.onchangefile) {
+            this.onchangefile.call(this, item);
+        }
     };
-    FileInjector.prototype.pasteHandler = function (e) {
+    FileInjector.prototype.onDragOver = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.element.classList.add(this.dragClass);
+        return false;
+    };
+    FileInjector.prototype.onDragLeave = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.element.classList.remove(this.dragClass);
+        return false;
+    };
+    FileInjector.prototype.onDrop = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.element.classList.remove(this.dragClass);
+        if (e.dataTransfer) {
+            this.dataToFiles(e.dataTransfer.items);
+        }
+        return false;
+    };
+    FileInjector.prototype.onPaste = function (e) {
         if (e.clipboardData) {
-            var items = e.clipboardData.items;
-            if (items) {
-                for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
-                    var item = items_1[_i];
-                    if (item.kind === 'file') {
-                        var file = item.getAsFile();
-                        this.addFile(file);
-                    }
+            this.dataToFiles(e.clipboardData.items);
+        }
+    };
+    FileInjector.prototype.dataToFiles = function (items) {
+        if (items) {
+            for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
+                var item = items_1[_i];
+                if (item.kind === 'file') {
+                    var file = item.getAsFile();
+                    this.addFile(file);
                 }
             }
         }
     };
-    FileInjector.prototype.changeFileHandler = function (e) {
+    FileInjector.prototype.onChangeFile = function (e) {
         var items = e.target.files;
         if (items) {
             for (var _i = 0, items_2 = items; _i < items_2.length; _i++) {
@@ -198,32 +227,6 @@ var FileInjector = /** @class */ (function () {
     return FileInjector;
 }());
 /* harmony default export */ __webpack_exports__["default"] = (FileInjector);
-var elem = document.querySelectorAll('.js-file-uploader')[0];
-var target = document.querySelectorAll('.js-target')[0];
-/*
-function readStatus(status:any) {
-    /!**
-     * While image not loaded get info about load process
-     *!/
-    console.log(status);
-}
-
-function imagePreview(base64:any) {
-    /!**
-     * If image loaded append this in block
-     *!/
-    var image = new Image();
-    image.src = base64;
-
-    target.appendChild(image);
-}
-
-new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus}, function (file:any) {
-    /!**
-     * Get original file
-     *!/
-    console.log(file);
-});*/
 
 
 /***/ }),
