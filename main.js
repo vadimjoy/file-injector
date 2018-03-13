@@ -1,4 +1,3 @@
-var elem = document.querySelectorAll('.js-file-uploader')[0];
 var target = document.querySelectorAll('.js-target')[0];
 
 function sendLog(data, mark) {
@@ -10,7 +9,9 @@ function sendLog(data, mark) {
 
 }
 
-function readStatus(data) {
+var $injector = new FileInjector('.js-file-uploader');
+
+$injector.readimageprocess = function (data) {
     /**
      * While image not loaded get info about load process
      */
@@ -23,21 +24,12 @@ function readStatus(data) {
     if (percent === 100 && data.status === 'load') {
         sendLog('file: ' + data.filename + ' ready', 'green');
     }
-}
+};
 
-function imagePreview(base64) {
-    /**
-     * If image loaded append this in block
-     */
-    var image = new Image();
-    image.src = base64;
+$injector.onchangefile = function (file) {
+    console.log(file);
+};
 
-    //target.appendChild(image);
-}
-
-new FileInjector({elem: elem, imagePreview: imagePreview, readStatus: readStatus}, function (file) {
-    /**
-     * Get original file
-     */
-    //console.log(file);
-});
+$injector.onreadimage = function (image) {
+    target.appendChild(image);
+};
