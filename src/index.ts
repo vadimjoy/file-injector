@@ -20,10 +20,12 @@ export default class FileInjector {
     } = {}) {
         if (typeof element === 'string') {
             this.element = document.querySelectorAll(element)[0] || undefined;
+
         }
-        else if(typeof  element === 'object') {
+        else {
             this.element = element;
         }
+
         this.dragClass = options.dragClass || 'dragenter';
         this.readimageprocess = undefined;
         this.onchangefile = undefined;
