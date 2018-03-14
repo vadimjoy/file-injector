@@ -39,7 +39,7 @@ export default class FileInjector {
 
         if (this.element) {
             this.file_input = this.element.querySelectorAll('input[type="file"]')[0] || undefined;
-            this.clip_input = this.element.querySelectorAll('input[type="text"]')[0] || undefined;
+            this.clip_input = this.element.querySelectorAll('[data-clip="image"]')[0] || undefined;
 
             this.element.addEventListener("dragover", this.onDragOver, false);
             this.element.addEventListener("dragleave", this.onDragLeave, false);
