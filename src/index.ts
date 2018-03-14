@@ -15,10 +15,15 @@ export default class FileInjector {
     onreadimage:Function;
     dragClass:string;
 
-    constructor(element:string, options:{
+    constructor(element:any, options:{
         dragClass?: string
     } = {}) {
-        this.element = document.querySelectorAll(element)[0] || undefined;
+        if (typeof element === 'string') {
+            this.element = document.querySelectorAll(element)[0] || undefined;
+        }
+        else if(typeof  element === 'object') {
+            this.element = element;
+        }
         this.dragClass = options.dragClass || 'dragenter';
         this.readimageprocess = undefined;
         this.onchangefile = undefined;
