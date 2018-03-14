@@ -93,7 +93,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var FileInjector = /** @class */ (function () {
     function FileInjector(element, options) {
         if (options === void 0) { options = {}; }
-        this.element = document.querySelectorAll(element)[0] || undefined;
+        if (typeof element === 'string') {
+            this.element = document.querySelectorAll(element)[0] || undefined;
+        }
+        else {
+            this.element = element;
+        }
         this.dragClass = options.dragClass || 'dragenter';
         this.readimageprocess = undefined;
         this.onchangefile = undefined;
