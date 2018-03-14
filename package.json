@@ -1,6 +1,6 @@
 {
-  "name": "file-injector",
-  "version": "1.0.0",
+  "name": "file-injectsor",
+  "version": "1.0.1",
   "description": "read images and convert to base64, insert files in different ways",
   "main": "dist/file-injector.js",
   "dependencies": {
