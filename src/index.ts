@@ -1,7 +1,5 @@
 /**
- * @license
- * Copyright Vadim Joy. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
+ * @license пофиг
  */
 import './css/common.css'
 import './css/main.css'
