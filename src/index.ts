@@ -18,7 +18,6 @@ export default class FileInjector {
     } = {}) {
         if (typeof element === 'string') {
             this.element = document.querySelectorAll(element)[0] || undefined;
-
         }
         else {
             this.element = element;
