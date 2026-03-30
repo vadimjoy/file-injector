@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slider Component - Pure UI</title>
+  <title>Textarea Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
   <style>
     body { 
@@ -34,28 +34,29 @@
     .component-grid { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 24px; 
+      gap: 16px; 
     }
   </style>
 </head>
 <body>
   <section class="section">
-    <h2>Slider</h2>
-    
+    <h2>Textarea</h2>
     <div class="size-group">
       <h3>Small</h3>
       <div class="component-grid">
         <div class="ui-field ui-field--sm">
-          <label class="ui-label">Volume: 25%</label>
-          <input type="range" class="ui-slider ui-slider--sm" value="25" min="0" max="100">
+          <label class="ui-label">Default Textarea</label>
+          <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
         </div>
         <div class="ui-field ui-field--sm">
-          <label class="ui-label">Opacity: 50%</label>
-          <input type="range" class="ui-slider ui-slider--sm" value="50" min="0" max="100">
+          <label class="ui-label">Error State</label>
+          <textarea class="ui-textarea ui-textarea--error">Invalid content</textarea>
+          <span class="ui-error">Please correct the error</span>
         </div>
         <div class="ui-field ui-field--sm">
-          <label class="ui-label">Saturation: 75%</label>
-          <input type="range" class="ui-slider ui-slider--sm" value="75" min="0" max="100">
+          <label class="ui-label">Success State</label>
+          <textarea class="ui-textarea ui-textarea--success">Perfect content!</textarea>
+          <span class="ui-success-text">Looks great</span>
         </div>
       </div>
     </div>
@@ -64,16 +65,18 @@
       <h3>Medium</h3>
       <div class="component-grid">
         <div class="ui-field ui-field--md">
-          <label class="ui-label">Volume: 25%</label>
-          <input type="range" class="ui-slider ui-slider--md" value="25" min="0" max="100">
+          <label class="ui-label">Default Textarea</label>
+          <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
         </div>
         <div class="ui-field ui-field--md">
-          <label class="ui-label">Opacity: 50%</label>
-          <input type="range" class="ui-slider ui-slider--md" value="50" min="0" max="100">
+          <label class="ui-label">Error State</label>
+          <textarea class="ui-textarea ui-textarea--error">Invalid content</textarea>
+          <span class="ui-error">Please correct the error</span>
         </div>
         <div class="ui-field ui-field--md">
-          <label class="ui-label">Saturation: 75%</label>
-          <input type="range" class="ui-slider ui-slider--md" value="75" min="0" max="100">
+          <label class="ui-label">Success State</label>
+          <textarea class="ui-textarea ui-textarea--success">Perfect content!</textarea>
+          <span class="ui-success-text">Looks great</span>
         </div>
       </div>
     </div>
@@ -82,16 +85,18 @@
       <h3>Large</h3>
       <div class="component-grid">
         <div class="ui-field ui-field--lg">
-          <label class="ui-label">Volume: 25%</label>
-          <input type="range" class="ui-slider ui-slider--lg" value="25" min="0" max="100">
+          <label class="ui-label">Default Textarea</label>
+          <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
         </div>
         <div class="ui-field ui-field--lg">
-          <label class="ui-label">Opacity: 50%</label>
-          <input type="range" class="ui-slider ui-slider--lg" value="50" min="0" max="100">
+          <label class="ui-label">Error State</label>
+          <textarea class="ui-textarea ui-textarea--error">This is a large textarea field with an error state to demonstrate the visual feedback system.</textarea>
+          <span class="ui-error">Please fix the issues above</span>
         </div>
         <div class="ui-field ui-field--lg">
-          <label class="ui-label">Saturation: 75%</label>
-          <input type="range" class="ui-slider ui-slider--lg" value="75" min="0" max="100">
+          <label class="ui-label">Success State</label>
+          <textarea class="ui-textarea ui-textarea--success">Perfect content!</textarea>
+          <span class="ui-success-text">Looks great</span>
         </div>
       </div>
     </div>
