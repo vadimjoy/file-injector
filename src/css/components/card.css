@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Card
+   ========================================================================== */
+
+.ui-card {
+  background: var(--ui-color-bg);
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-xl);
+  padding: var(--ui-space-6);
+  box-shadow: var(--ui-shadow-xs);
+}
+
+.ui-card__title {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-xl);
+  font-weight: 600;
+  color: var(--ui-color-text);
+  margin: 0 0 var(--ui-space-4) 0;
+}
+
+.ui-card__subtitle {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  color: var(--ui-color-text-muted);
+  margin: 0 0 var(--ui-space-4) 0;
+}

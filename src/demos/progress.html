@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .item { display: flex; flex-direction: column; gap: 6px; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Default</span>
+      <div class="ui-progress"><div class="ui-progress__track"><div class="ui-progress__bar" style="width:60%"></div></div></div>
+    </div>
+    <div class="item"><span class="label">With Label</span>
+      <div class="ui-progress">
+        <div class="ui-progress__header"><span class="ui-progress__label">Progress</span><span class="ui-progress__value">60%</span></div>
+        <div class="ui-progress__track"><div class="ui-progress__bar" style="width:60%"></div></div>
+      </div>
+    </div>
+    <div class="item"><span class="label">Success</span>
+      <div class="ui-progress ui-progress--success"><div class="ui-progress__track"><div class="ui-progress__bar" style="width:80%"></div></div></div>
+    </div>
+    <div class="item"><span class="label">Animated</span>
+      <div class="ui-progress ui-progress--animated"><div class="ui-progress__track"><div class="ui-progress__bar" style="width:45%"></div></div></div>
+    </div>
+  </div>
+</body>
+</html>

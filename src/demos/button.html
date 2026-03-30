@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .grid--sizes { grid-template-columns: repeat(3, 1fr); margin-top: 16px; }
+    .item { display: flex; flex-direction: column; gap: 6px; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+    .spacing { height: 12px; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Primary</span><button class="ui-button ui-button--primary ui-button--md">Button</button></div>
+    <div class="item"><span class="label">Secondary</span><button class="ui-button ui-button--secondary ui-button--md">Button</button></div>
+    <div class="item"><span class="label">Ghost</span><button class="ui-button ui-button--ghost ui-button--md">Button</button></div>
+    <div class="item"><span class="label">Disabled</span><button class="ui-button ui-button--primary ui-button--md" disabled>Button</button></div>
+  </div>
+  <div class="spacing"></div>
+  <div class="grid--sizes">
+    <div class="item"><span class="label">Small</span><button class="ui-button ui-button--primary ui-button--sm">Button</button></div>
+    <div class="item"><span class="label">Medium</span><button class="ui-button ui-button--primary ui-button--md">Button</button></div>
+    <div class="item"><span class="label">Large</span><button class="ui-button ui-button--primary ui-button--lg">Button</button></div>
+  </div>
+</body>
+</html>

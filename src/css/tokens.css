@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Pure UI — Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --ui-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ui-font-size-xs:   11px;
+  --ui-font-size-sm:   13px;
+  --ui-font-size-md:   14px;
+  --ui-font-size-lg:   16px;
+  --ui-font-size-xl:   18px;
+  --ui-line-height:    1.5;
+
+  /* Colors — Light Theme */
+  --ui-color-primary:         #4f46e5;
+  --ui-color-primary-hover:   #4338ca;
+  --ui-color-primary-soft:    rgba(79, 70, 229, 0.10);
+  --ui-color-primary-light:   #eef2ff;
+
+  --ui-color-success:         #16a34a;
+  --ui-color-success-soft:    rgba(22, 163, 74, 0.10);
+  --ui-color-success-light:   #f0fdf4;
+
+  --ui-color-warning:         #d97706;
+  --ui-color-warning-soft:    rgba(217, 119, 6, 0.10);
+  --ui-color-warning-light:   #fffbeb;
+
+  --ui-color-error:           #dc2626;
+  --ui-color-error-soft:      rgba(220, 38, 38, 0.10);
+  --ui-color-error-light:     #fef2f2;
+
+  --ui-color-border:          #e5e7eb;
+  --ui-color-border-strong:   #d1d5db;
+  --ui-color-border-focus:    #4f46e5;
+
+  --ui-color-bg:              #ffffff;
+  --ui-color-bg-subtle:       #f9fafb;
+  --ui-color-bg-hover:        #f3f4f6;
+  --ui-color-bg-disabled:     #f9fafb;
+  --ui-color-bg-overlay:      rgba(0, 0, 0, 0.04);
+
+  --ui-color-text:            #111827;
+  --ui-color-text-secondary:  #374151;
+  --ui-color-text-muted:      #6b7280;
+  --ui-color-text-disabled:   #9ca3af;
+  --ui-color-text-placeholder:#9ca3af;
+
+  /* Border Radius */
+  --ui-radius-xs:  4px;
+  --ui-radius-sm:  6px;
+  --ui-radius-md:  8px;
+  --ui-radius-lg:  12px;
+  --ui-radius-xl:  16px;
+  --ui-radius-full: 9999px;
+
+  /* Shadows */
+  --ui-shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --ui-shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --ui-shadow-focus: 0 0 0 3px var(--ui-color-primary-soft);
+
+  /* Spacing (4px baseline) */
+  --ui-space-1:   4px;
+  --ui-space-2:   8px;
+  --ui-space-3:   12px;
+  --ui-space-4:   16px;
+  --ui-space-5:   20px;
+  --ui-space-6:   24px;
+  --ui-space-8:   32px;
+  --ui-space-10:  40px;
+  --ui-space-12:  48px;
+
+  /* Transitions */
+  --ui-transition-fast:   all 0.15s ease;
+  --ui-transition:        all 0.2s ease;
+  --ui-transition-slow:   all 0.3s ease;
+}
+
+/* Dark Theme — applied via JS to html[data-theme="dark"] */
+[data-theme="dark"] {
+  --ui-color-primary:         #818cf8;
+  --ui-color-primary-hover:   #6366f1;
+  --ui-color-primary-soft:    rgba(129, 140, 248, 0.15);
+  --ui-color-primary-light:   rgba(129, 140, 248, 0.1);
+
+  --ui-color-success:         #4ade80;
+  --ui-color-success-soft:    rgba(74, 222, 128, 0.15);
+  --ui-color-success-light:   rgba(74, 222, 128, 0.08);
+
+  --ui-color-warning:         #fbbf24;
+  --ui-color-warning-soft:    rgba(251, 191, 36, 0.15);
+  --ui-color-warning-light:   rgba(251, 191, 36, 0.08);
+
+  --ui-color-error:           #f87171;
+  --ui-color-error-soft:      rgba(248, 113, 113, 0.15);
+  --ui-color-error-light:     rgba(248, 113, 113, 0.08);
+
+  --ui-color-border:          #374151;
+  --ui-color-border-strong:   #4b5563;
+  --ui-color-border-focus:    #818cf8;
+
+  --ui-color-bg:              #1f2937;
+  --ui-color-bg-subtle:       #111827;
+  --ui-color-bg-hover:        #374151;
+  --ui-color-bg-disabled:     #1f2937;
+  --ui-color-bg-overlay:      rgba(255, 255, 255, 0.05);
+
+  --ui-color-text:            #f9fafb;
+  --ui-color-text-secondary:  #e5e7eb;
+  --ui-color-text-muted:      #9ca3af;
+  --ui-color-text-disabled:   #4b5563;
+  --ui-color-text-placeholder:#6b7280;
+
+  --ui-shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.3);
+  --ui-shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --ui-shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --ui-shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}

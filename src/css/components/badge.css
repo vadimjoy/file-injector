@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Badge
+   ========================================================================== */
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  padding: 3px 8px;
+  border-radius: var(--ui-radius-full);
+  transition: var(--ui-transition-fast);
+}
+
+/* Variants */
+.ui-badge--default {
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text-secondary);
+}
+
+.ui-badge--primary {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+}
+
+.ui-badge--success {
+  background: var(--ui-color-success-light);
+  color: var(--ui-color-success);
+}
+
+.ui-badge--warning {
+  background: var(--ui-color-warning-light);
+  color: var(--ui-color-warning);
+}
+
+.ui-badge--error {
+  background: var(--ui-color-error-light);
+  color: var(--ui-color-error);
+}
+
+/* Sizes */
+.ui-badge--sm {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+.ui-badge--md {
+  font-size: var(--ui-font-size-xs);
+  padding: 3px 8px;
+}
+
+.ui-badge--lg {
+  font-size: var(--ui-font-size-sm);
+  padding: 4px 10px;
+}
+
+/* Dot style */
+.ui-badge--dot::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}

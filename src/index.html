@@ -1,27 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure UI — Component Library</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --showcase-bg: #fafafa; }
+    [data-theme="dark"] { --showcase-bg: #111827; }
+    * { margin: 0; padding: 0; }
+    body {
+      font-family: var(--ui-font-family);
+      background: var(--showcase-bg);
+      color: var(--ui-color-text);
+      padding: 24px;
+    }
+    .showcase { max-width: 900px; margin: 0 auto; }
+    .showcase__header { margin-bottom: 32px; }
+    .showcase__title { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .showcase__subtitle { font-size: 14px; color: var(--ui-color-text-muted); margin-bottom: 16px; }
+    .showcase__theme-toggle { margin-bottom: 24px; }
+    .showcase__section { margin-bottom: 16px; border-radius: 12px; overflow: hidden; border: 1px solid var(--ui-color-border); }
+    .showcase__section-title {
+      background: var(--ui-color-bg);
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .showcase__section-title:hover { background: var(--ui-color-bg-hover); }
+    .showcase__section-title::after { content: '▼'; font-size: 10px; transition: transform 0.2s; }
+    .showcase__section-title.expanded::after { transform: rotate(180deg); }
+    .showcase__iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      display: block;
+    }
+    .showcase__iframe[hidden] { display: none; }
+  </style>
 </head>
 <body>
+  <div class="showcase">
+    <header class="showcase__header">
+      <h1 class="showcase__title">Pure UI</h1>
+      <p class="showcase__subtitle">Minimal CSS Component Library</p>
+      <div class="showcase__theme-toggle">
+        <label class="ui-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span>Dark Theme</span>
+        </label>
+      </div>
+    </header>
 
-<div class="load-target js-target"></div>
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="button">Button</div>
+      <iframe class="showcase__iframe" id="iframe-button" hidden></iframe>
+    </div>
 
-<div class="file-uploader js-file-uploader" draggable="true">
-    <label class="file-uploader__field">
-        <input type="text" data-clip="image">
-        <span class="file-uploader__indicator"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
-    </label>
-    <span class="file-uploader__delimiter"></span>
-    <label class="file-uploader__field">
-        <input type="file" multiple>
-        <span class="file-uploader__indicator"><i class="fa fa-upload" aria-hidden="true"></i></span>
-    </label>
-    <span class="file-uploader__delimiter"></span>
-    <label class="file-uploader__field">
-        <span class="file-uploader__indicator file-uploader__indicator_dnd"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-    </label>
-</div>
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="input">Input</div>
+      <iframe class="showcase__iframe" id="iframe-input" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="checkbox">Checkbox & Radio</div>
+      <iframe class="showcase__iframe" id="iframe-checkbox" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="badge">Badge</div>
+      <iframe class="showcase__iframe" id="iframe-badge" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="progress">Progress</div>
+      <iframe class="showcase__iframe" id="iframe-progress" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="slider">Slider</div>
+      <iframe class="showcase__iframe" id="iframe-slider" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="card">Card</div>
+      <iframe class="showcase__iframe" id="iframe-card" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="file-upload">File Upload</div>
+      <iframe class="showcase__iframe" id="iframe-file-upload" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="tooltip">Tooltip</div>
+      <iframe class="showcase__iframe" id="iframe-tooltip" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="autocomplete">Autocomplete</div>
+      <iframe class="showcase__iframe" id="iframe-autocomplete" hidden></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title" data-iframe="datepicker">Datepicker</div>
+      <iframe class="showcase__iframe" id="iframe-datepicker" hidden></iframe>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+      themeToggle.checked = true;
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('change', (e) => {
+      const t = e.target.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      
+      document.querySelectorAll('iframe').forEach(iframe => {
+        try {
+          iframe.contentDocument.documentElement.setAttribute('data-theme', t);
+        } catch(e) {}
+      });
+    });
+
+    document.querySelectorAll('.showcase__section-title').forEach(el => {
+      const name = el.dataset.iframe;
+      const iframe = document.getElementById(`iframe-${name}`);
+      
+      el.addEventListener('click', () => {
+        const expanded = el.classList.toggle('expanded');
+        if (expanded) {
+          iframe.hidden = false;
+          if (!iframe.src) {
+            iframe.src = `./demos/${name}.html`;
+          }
+        } else {
+          iframe.hidden = true;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

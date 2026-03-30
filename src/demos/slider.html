@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { display: flex; flex-direction: column; gap: 6px; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Default</span><input type="range" class="ui-slider" value="50"></div>
+    <div class="item"><span class="label">Small</span><input type="range" class="ui-slider ui-slider--sm" value="50"></div>
+    <div class="item"><span class="label">Large</span><input type="range" class="ui-slider ui-slider--lg" value="50"></div>
+  </div>
+</body>
+</html>
