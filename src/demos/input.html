@@ -105,13 +105,20 @@
           <input type="email" class="ui-input" placeholder="email@example.com">
         </div>
         <div class="ui-field ui-field--md">
-          <label class="ui-label">With Icon</label>
-          <div class="ui-input-wrapper">
-            <span class="ui-input-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-            </span>
-            <input type="text" class="ui-input" placeholder="Search...">
-          </div>
+          <label class="ui-label">Password Input</label>
+          <input type="password" class="ui-input" placeholder="••••••">
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Number Input</label>
+          <input type="number" class="ui-input" placeholder="123">
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Tel Input</label>
+          <input type="tel" class="ui-input" placeholder="+1 (555) 123-4567">
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">URL Input</label>
+          <input type="url" class="ui-input" placeholder="https://example.com">
         </div>
         <div class="ui-field ui-field--md">
           <label class="ui-label">Error State</label>
@@ -122,6 +129,11 @@
           <label class="ui-label">Success State</label>
           <input type="text" class="ui-input ui-input--success" value="Valid value">
           <span class="ui-success-text">Looks good!</span>
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Warning State</label>
+          <input type="text" class="ui-input ui-input--warning" value="Almost there">
+          <span class="ui-helper">Check your spelling</span>
         </div>
         <div class="ui-field ui-field--md">
           <label class="ui-label">Disabled Input</label>
@@ -139,6 +151,26 @@
           <span class="ui-helper">Helper text</span>
         </div>
         <div class="ui-field ui-field--lg">
+          <label class="ui-label">Email Input</label>
+          <input type="email" class="ui-input" placeholder="email@example.com">
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Password Input</label>
+          <input type="password" class="ui-input" placeholder="••••••">
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Number Input</label>
+          <input type="number" class="ui-input" placeholder="123">
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Tel Input</label>
+          <input type="tel" class="ui-input" placeholder="+1 (555) 123-4567">
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">URL Input</label>
+          <input type="url" class="ui-input" placeholder="https://example.com">
+        </div>
+        <div class="ui-field ui-field--lg">
           <label class="ui-label">Error State</label>
           <input type="text" class="ui-input ui-input--error" value="Invalid value">
           <span class="ui-error">Please enter a valid value</span>
@@ -149,95 +181,13 @@
           <span class="ui-success-text">Looks good!</span>
         </div>
         <div class="ui-field ui-field--lg">
+          <label class="ui-label">Warning State</label>
+          <input type="text" class="ui-input ui-input--warning" value="Almost there">
+          <span class="ui-helper">Check your spelling</span>
+        </div>
+        <div class="ui-field ui-field--lg">
           <label class="ui-label">Disabled Input</label>
           <input type="text" class="ui-input" value="Cannot edit this" disabled>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Selects</h2>
-    <div class="size-group">
-      <h3>Small</h3>
-      <div class="component-grid">
-        <div class="ui-field ui-field--sm">
-          <label class="ui-label">Country</label>
-          <select class="ui-select">
-            <option value="">Select a country...</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="de">Germany</option>
-          </select>
-        </div>
-        <div class="ui-field ui-field--sm">
-          <label class="ui-label">Error State</label>
-          <select class="ui-select ui-select--error">
-            <option value="">Choose...</option>
-            <option value="1">Option 1</option>
-          </select>
-          <span class="ui-error">Please select an option</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="size-group">
-      <h3>Medium</h3>
-      <div class="component-grid">
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Country</label>
-          <select class="ui-select">
-            <option value="">Select a country...</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-          </select>
-        </div>
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Success State</label>
-          <select class="ui-select ui-select--success">
-            <option value="ok">Selected successfully</option>
-          </select>
-          <span class="ui-success-text">Valid selection</span>
-        </div>
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Warning State</label>
-          <select class="ui-select ui-select--warning">
-            <option value="warn">Partial selection</option>
-          </select>
-          <span class="ui-helper">Review your choice</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Textarea</h2>
-    <div class="size-group">
-      <h3>Small</h3>
-      <div class="component-grid">
-        <div class="ui-field ui-field--sm">
-          <label class="ui-label">Default Textarea</label>
-          <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
-        </div>
-        <div class="ui-field ui-field--sm">
-          <label class="ui-label">Error State</label>
-          <textarea class="ui-textarea ui-textarea--error">Invalid content</textarea>
-          <span class="ui-error">Please correct the error</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="size-group">
-      <h3>Medium</h3>
-      <div class="component-grid">
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Default Textarea</label>
-          <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
-        </div>
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Success State</label>
-          <textarea class="ui-textarea ui-textarea--success">Perfect content!</textarea>
-          <span class="ui-success-text">Looks great</span>
         </div>
       </div>
     </div>
