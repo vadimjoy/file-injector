@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Pure UI — Base Reset & Common
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Field Wrapper */
+.ui-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  margin-bottom: var(--ui-space-4);
+}
+
+.ui-field:last-child {
+  margin-bottom: 0;
+}
+
+/* Label */
+.ui-label {
+  display: block;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  font-weight: 500;
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text-secondary);
+  cursor: default;
+}
+
+.ui-field--sm .ui-label { font-size: var(--ui-font-size-sm); }
+.ui-field--lg .ui-label { font-size: var(--ui-font-size-lg); }
+
+/* Helper / Error text */
+.ui-helper {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text-muted);
+}
+
+.ui-error {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-error);
+}
+
+.ui-success-text {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-success);
+}

@@ -1,0 +1,125 @@
+/* ==========================================================================
+   JS-Controlled States
+   These classes are toggled by JavaScript
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Validation States (applied by JS)
+   -------------------------------------------------------------------------- */
+
+.ui-input--error,
+.ui-select--error,
+.ui-textarea--error {
+  border-color: var(--ui-color-error);
+  background: var(--ui-color-error-light);
+}
+
+.ui-input--error:focus,
+.ui-select--error:focus,
+.ui-textarea--error:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-error-soft);
+}
+
+.ui-input--success,
+.ui-select--success,
+.ui-textarea--success {
+  border-color: var(--ui-color-success);
+  background: var(--ui-color-success-light);
+}
+
+.ui-input--success:focus,
+.ui-select--success:focus,
+.ui-textarea--success:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-success-soft);
+}
+
+.ui-input--warning,
+.ui-select--warning,
+.ui-textarea--warning {
+  border-color: var(--ui-color-warning);
+  background: var(--ui-color-warning-light);
+}
+
+.ui-input--warning:focus,
+.ui-select--warning:focus,
+.ui-textarea--warning:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-warning-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive States
+   -------------------------------------------------------------------------- */
+
+/* Tooltip visibility */
+.ui-tooltip-wrapper:hover .ui-tooltip,
+.ui-tooltip-wrapper:focus-within .ui-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ui-tooltip-wrapper:hover .ui-tooltip--bottom,
+.ui-tooltip-wrapper:focus-within .ui-tooltip--bottom {
+  transform: translateX(-50%) translateY(0);
+}
+
+.ui-tooltip-wrapper:hover .ui-tooltip--left,
+.ui-tooltip-wrapper:focus-within .ui-tooltip--left {
+  transform: translateY(-50%) translateX(0);
+}
+
+.ui-tooltip-wrapper:hover .ui-tooltip--right,
+.ui-tooltip-wrapper:focus-within .ui-tooltip--right {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Autocomplete open/close */
+.ui-autocomplete__dropdown.is-open {
+  display: block;
+}
+
+/* Datepicker open/close */
+.ui-datepicker__calendar.is-open {
+  display: block;
+}
+
+/* File upload dragover (JS adds/removes class) */
+.ui-file-upload.is-dragover {
+  border-color: var(--ui-color-primary);
+  background: var(--ui-color-primary-light);
+}
+
+.ui-file-upload.is-dragover .ui-file-upload__icon {
+  color: var(--ui-color-primary);
+}
+
+.ui-file-upload.is-dragover .ui-file-upload__btn {
+  background: var(--ui-color-primary);
+  color: white;
+}
+
+/* --------------------------------------------------------------------------
+   Component States
+   -------------------------------------------------------------------------- */
+
+/* Datepicker selected day */
+.ui-datepicker__day.is-selected {
+  background: var(--ui-color-primary);
+  color: white;
+  font-weight: 500;
+}
+
+.ui-datepicker__day.is-selected:hover {
+  background: var(--ui-color-primary-hover);
+}
+
+/* Autocomplete active item */
+.ui-autocomplete__item.is-active {
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text);
+}
+
+.ui-autocomplete__item.is-highlighted {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+  font-weight: 500;
+}

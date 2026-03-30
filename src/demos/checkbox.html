@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { display: flex; flex-direction: column; gap: 6px; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Checkbox</span><label class="ui-checkbox"><input type="checkbox" checked><span>Checkbox</span></label></div>
+    <div class="item"><span class="label">Radio</span><label class="ui-radio"><input type="radio" name="demo" checked><span>Radio</span></label></div>
+    <div class="item"><span class="label">Disabled</span><label class="ui-checkbox"><input type="checkbox" disabled><span>Disabled</span></label></div>
+    <div class="item"><span class="label">Small</span><label class="ui-checkbox ui-checkbox--sm"><input type="checkbox" checked><span>Small</span></label></div>
+    <div class="item"><span class="label">Large</span><label class="ui-checkbox ui-checkbox--lg"><input type="checkbox" checked><span>Large</span></label></div>
+    <div class="item"><span class="label">Toggle</span><label class="ui-toggle"><input type="checkbox" checked><span>Toggle</span></label></div>
+  </div>
+</body>
+</html>

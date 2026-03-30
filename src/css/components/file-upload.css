@@ -1,0 +1,95 @@
+/* ==========================================================================
+   File Upload
+   ========================================================================== */
+
+.ui-file-upload {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ui-space-2);
+  padding: var(--ui-space-8) var(--ui-space-6);
+  background: var(--ui-color-bg-subtle);
+  border: 2px dashed var(--ui-color-border);
+  border-radius: var(--ui-radius-lg);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+  text-align: center;
+}
+
+.ui-file-upload:hover {
+  border-color: var(--ui-color-primary);
+  background: var(--ui-color-primary-light);
+}
+
+.ui-file-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ui-file-upload__icon {
+  color: var(--ui-color-text-muted);
+  transition: var(--ui-transition-fast);
+}
+
+.ui-file-upload:hover .ui-file-upload__icon {
+  color: var(--ui-color-primary);
+}
+
+.ui-file-upload__title {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  font-weight: 500;
+  color: var(--ui-color-text);
+}
+
+.ui-file-upload__hint {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+}
+
+.ui-file-upload__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  padding: 6px 14px;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ui-color-primary);
+  background: var(--ui-color-bg);
+  border: 1px solid var(--ui-color-primary);
+  border-radius: var(--ui-radius-sm);
+  transition: var(--ui-transition-fast);
+  pointer-events: none;
+}
+
+.ui-file-upload:hover .ui-file-upload__btn {
+  background: var(--ui-color-primary);
+  color: white;
+}
+
+/* Sizes */
+.ui-file-upload--sm {
+  padding: var(--ui-space-5) var(--ui-space-4);
+  border-radius: var(--ui-radius-md);
+}
+
+.ui-file-upload--sm .ui-file-upload__title {
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-file-upload--lg {
+  padding: var(--ui-space-10) var(--ui-space-8);
+  border-radius: var(--ui-radius-xl);
+}
+
+.ui-file-upload--lg .ui-file-upload__title {
+  font-size: var(--ui-font-size-lg);
+}
