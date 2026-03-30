@@ -1,23 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
   <style>
-    body { padding: 20px; background: var(--ui-color-bg); }
-    .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
-    .item { display: flex; flex-direction: column; gap: 6px; }
-    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--ui-color-bg); 
+      padding: 48px 24px; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section { margin-bottom: 48px; }
+    .section h2 { 
+      font-size: 28px; 
+      font-weight: 600; 
+      margin-bottom: 24px; 
+      color: var(--ui-color-text);
+      border-bottom: 1px solid var(--ui-color-border);
+      padding-bottom: 12px;
+    }
+    .size-group { margin-bottom: 32px; }
+    .size-group h3 { 
+      font-size: 14px; 
+      font-weight: 500; 
+      color: var(--ui-color-text-secondary); 
+      margin-bottom: 16px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+    }
+    .badge-row { 
+      display: flex; 
+      gap: 8px; 
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
-  <div class="grid">
-    <div class="item"><span class="label">Default</span><span class="ui-badge ui-badge--default">Badge</span></div>
-    <div class="item"><span class="label">Primary</span><span class="ui-badge ui-badge--primary">Primary</span></div>
-    <div class="item"><span class="label">Success</span><span class="ui-badge ui-badge--success">Success</span></div>
-    <div class="item"><span class="label">Warning</span><span class="ui-badge ui-badge--warning">Warning</span></div>
-    <div class="item"><span class="label">Error</span><span class="ui-badge ui-badge--error">Error</span></div>
-    <div class="item"><span class="label">Dot</span><span class="ui-badge ui-badge--primary ui-badge--dot">Online</span></div>
-  </div>
+  <section class="section">
+    <h2>Badge</h2>
+    
+    <div class="size-group">
+      <h3>Small</h3>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--sm ui-badge--default">Default</span>
+        <span class="ui-badge ui-badge--sm ui-badge--primary">Primary</span>
+        <span class="ui-badge ui-badge--sm ui-badge--success">Success</span>
+        <span class="ui-badge ui-badge--sm ui-badge--warning">Warning</span>
+        <span class="ui-badge ui-badge--sm ui-badge--error">Error</span>
+      </div>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--sm ui-badge--primary ui-badge--dot">New</span>
+        <span class="ui-badge ui-badge--sm ui-badge--success ui-badge--dot">Live</span>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Medium</h3>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--md ui-badge--default">Default</span>
+        <span class="ui-badge ui-badge--md ui-badge--primary">Primary</span>
+        <span class="ui-badge ui-badge--md ui-badge--success">Success</span>
+        <span class="ui-badge ui-badge--md ui-badge--warning">Warning</span>
+        <span class="ui-badge ui-badge--md ui-badge--error">Error</span>
+      </div>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--md ui-badge--primary ui-badge--dot">New Feature</span>
+        <span class="ui-badge ui-badge--md ui-badge--success ui-badge--dot">Active</span>
+        <span class="ui-badge ui-badge--md ui-badge--warning ui-badge--dot">Pending</span>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Large</h3>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--lg ui-badge--default">Default Badge</span>
+        <span class="ui-badge ui-badge--lg ui-badge--primary">Primary Badge</span>
+        <span class="ui-badge ui-badge--lg ui-badge--success">Success Badge</span>
+      </div>
+      <div class="badge-row">
+        <span class="ui-badge ui-badge--lg ui-badge--primary ui-badge--dot">New Release</span>
+        <span class="ui-badge ui-badge--lg ui-badge--error ui-badge--dot">Critical</span>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

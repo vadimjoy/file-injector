@@ -1,20 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
   <style>
-    body { padding: 20px; background: var(--ui-color-bg); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .item { display: flex; flex-direction: column; gap: 6px; }
-    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--ui-color-bg); 
+      padding: 48px 24px; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section { margin-bottom: 48px; }
+    .section h2 { 
+      font-size: 28px; 
+      font-weight: 600; 
+      margin-bottom: 24px; 
+      color: var(--ui-color-text);
+      border-bottom: 1px solid var(--ui-color-border);
+      padding-bottom: 12px;
+    }
+    .size-group { margin-bottom: 32px; }
+    .size-group h3 { 
+      font-size: 14px; 
+      font-weight: 500; 
+      color: var(--ui-color-text-secondary); 
+      margin-bottom: 16px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+    }
+    .component-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 24px; 
+    }
   </style>
 </head>
 <body>
-  <div class="grid">
-    <div class="item"><span class="label">Default</span><input type="range" class="ui-slider" value="50"></div>
-    <div class="item"><span class="label">Small</span><input type="range" class="ui-slider ui-slider--sm" value="50"></div>
-    <div class="item"><span class="label">Large</span><input type="range" class="ui-slider ui-slider--lg" value="50"></div>
-  </div>
+  <section class="section">
+    <h2>Slider</h2>
+    
+    <div class="size-group">
+      <h3>Small</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Volume: 25%</label>
+          <input type="range" class="ui-slider ui-slider--sm" value="25" min="0" max="100">
+        </div>
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Opacity: 75%</label>
+          <input type="range" class="ui-slider ui-slider--sm" value="75" min="0" max="100">
+        </div>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Medium</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Brightness: 50%</label>
+          <input type="range" class="ui-slider ui-slider--md" value="50" min="0" max="100">
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Contrast: 80%</label>
+          <input type="range" class="ui-slider ui-slider--md" value="80" min="0" max="100">
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Saturation: 100%</label>
+          <input type="range" class="ui-slider ui-slider--md" value="100" min="0" max="200">
+        </div>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Large</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Zoom Level: 125%</label>
+          <input type="range" class="ui-slider ui-slider--lg" value="125" min="50" max="200">
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Quality: High (90%)</label>
+          <input type="range" class="ui-slider ui-slider--lg" value="90" min="0" max="100">
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
