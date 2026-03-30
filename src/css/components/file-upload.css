@@ -18,7 +18,8 @@
   text-align: center;
 }
 
-.ui-file-upload:hover {
+.ui-file-upload:hover,
+.ui-file-upload--dragover {
   border-color: var(--ui-color-primary);
   background: var(--ui-color-primary-light);
 }
@@ -37,7 +38,8 @@
   transition: var(--ui-transition-fast);
 }
 
-.ui-file-upload:hover .ui-file-upload__icon {
+.ui-file-upload:hover .ui-file-upload__icon,
+.ui-file-upload--dragover .ui-file-upload__icon {
   color: var(--ui-color-primary);
 }
 

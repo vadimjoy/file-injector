@@ -45,6 +45,46 @@
   color: var(--ui-color-text-placeholder);
 }
 
+/* Validation states */
+.ui-input--error,
+.ui-select--error,
+.ui-textarea--error {
+  border-color: var(--ui-color-error);
+  background: var(--ui-color-error-light);
+}
+
+.ui-input--error:focus,
+.ui-select--error:focus,
+.ui-textarea--error:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-error-soft);
+}
+
+.ui-input--success,
+.ui-select--success,
+.ui-textarea--success {
+  border-color: var(--ui-color-success);
+  background: var(--ui-color-success-light);
+}
+
+.ui-input--success:focus,
+.ui-select--success:focus,
+.ui-textarea--success:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-success-soft);
+}
+
+.ui-input--warning,
+.ui-select--warning,
+.ui-textarea--warning {
+  border-color: var(--ui-color-warning);
+  background: var(--ui-color-warning-light);
+}
+
+.ui-input--warning:focus,
+.ui-select--warning:focus,
+.ui-textarea--warning:focus {
+  box-shadow: 0 0 0 3px var(--ui-color-warning-soft);
+}
+
 /* Input with icon */
 .ui-input-wrapper {
   position: relative;
