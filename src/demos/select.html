@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Component - Pure UI</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--ui-color-bg); 
+      padding: 48px 24px; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section { margin-bottom: 48px; }
+    .section h2 { 
+      font-size: 28px; 
+      font-weight: 600; 
+      margin-bottom: 24px; 
+      color: var(--ui-color-text);
+      border-bottom: 1px solid var(--ui-color-border);
+      padding-bottom: 12px;
+    }
+    .size-group { margin-bottom: 32px; }
+    .size-group h3 { 
+      font-size: 14px; 
+      font-weight: 500; 
+      color: var(--ui-color-text-secondary); 
+      margin-bottom: 16px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+    }
+    .component-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 16px; 
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <h2>Selects</h2>
+    <div class="size-group">
+      <h3>Small</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Country</label>
+          <select class="ui-select">
+            <option value="">Select a country...</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+          </select>
+        </div>
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Error State</label>
+          <select class="ui-select ui-select--error">
+            <option value="">Choose...</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+          </select>
+          <span class="ui-error">Please select an option</span>
+        </div>
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Success State</label>
+          <select class="ui-select ui-select--success">
+            <option value="ok">Selected successfully</option>
+            <option value="opt2">Option 2</option>
+          </select>
+          <span class="ui-success-text">Valid selection</span>
+        </div>
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Warning State</label>
+          <select class="ui-select ui-select--warning">
+            <option value="warn">Partial selection</option>
+          </select>
+          <span class="ui-helper">Review your choice</span>
+        </div>
+        <div class="ui-field ui-field--sm">
+          <label class="ui-label">Disabled</label>
+          <select class="ui-select" disabled>
+            <option>Cannot select</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Medium</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Country</label>
+          <select class="ui-select">
+            <option value="">Select a country...</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+          </select>
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Error State</label>
+          <select class="ui-select ui-select--error">
+            <option value="">Choose an option...</option>
+            <option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+          </select>
+          <span class="ui-error">Selection required</span>
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Success State</label>
+          <select class="ui-select ui-select--success">
+            <option value="ok">Selected successfully</option>
+            <option value="opt2">Option 2</option>
+          </select>
+          <span class="ui-success-text">Valid selection</span>
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Warning State</label>
+          <select class="ui-select ui-select--warning">
+            <option value="warn">Partial selection</option>
+          </select>
+          <span class="ui-helper">Review your choice</span>
+        </div>
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Disabled</label>
+          <select class="ui-select" disabled>
+            <option>Cannot select</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="size-group">
+      <h3>Large</h3>
+      <div class="component-grid">
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Country</label>
+          <select class="ui-select">
+            <option value="">Select a country...</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+          </select>
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Error State</label>
+          <select class="ui-select ui-select--error">
+            <option value="">Choose an option...</option>
+            <option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+          </select>
+          <span class="ui-error">Selection required</span>
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Success State</label>
+          <select class="ui-select ui-select--success">
+            <option value="ok">Successfully selected</option>
+            <option value="opt2">Another option</option>
+          </select>
+          <span class="ui-success-text">Correct selection</span>
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Warning State</label>
+          <select class="ui-select ui-select--warning">
+            <option value="warn">Partial selection</option>
+          </select>
+          <span class="ui-helper">Review your choice</span>
+        </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Disabled State</label>
+          <select class="ui-select" disabled>
+            <option>Cannot change</option>
+          </select>
+        </div>
+      </div>
+    </div>
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Multiple Options</label>
+          <select class="ui-select ui-select--error">
+            <option value="">Choose an option...</option>
+            <option value="opt1">Option One with Long Text</option>
+            <option value="opt2">Option Two with Even Longer Text Description</option>
+            <option value="opt3">Option Three</option>
+          </select>
+          <span class="ui-error">Selection required</span>
+        </div>
+      </div>
+    </div>
+  </section>
+<script src="../js/demo-theme.js"></script>
+</body>
+</html>
