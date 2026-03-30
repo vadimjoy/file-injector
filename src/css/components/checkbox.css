@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Checkbox & Radio
+   ========================================================================== */
+
+.ui-checkbox,
+.ui-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  cursor: pointer;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text);
+  user-select: none;
+}
+
+.ui-checkbox input,
+.ui-radio input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--ui-color-primary);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-checkbox input:focus-visible,
+.ui-radio input:focus-visible {
+  outline: 2px solid var(--ui-color-primary);
+  outline-offset: 2px;
+}
+
+.ui-checkbox:has(input:disabled),
+.ui-radio:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-checkbox:has(input:disabled) input,
+.ui-radio:has(input:disabled) input {
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ui-checkbox--sm,
+.ui-radio--sm {
+  font-size: var(--ui-font-size-sm);
+  gap: var(--ui-space-1);
+}
+
+.ui-checkbox--sm input,
+.ui-radio--sm input {
+  width: 13px;
+  height: 13px;
+}
+
+.ui-checkbox--md input,
+.ui-radio--md input {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-checkbox--lg,
+.ui-radio--lg {
+  font-size: var(--ui-font-size-lg);
+  gap: var(--ui-space-3);
+}
+
+.ui-checkbox--lg input,
+.ui-radio--lg input {
+  width: 20px;
+  height: 20px;
+}

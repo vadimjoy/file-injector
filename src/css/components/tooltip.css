@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Tooltip
+   ========================================================================== */
+
+.ui-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ui-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  max-width: 220px;
+  padding: 6px 10px;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  line-height: 1.4;
+  color: white;
+  background: var(--ui-color-text);
+  border-radius: var(--ui-radius-sm);
+  box-shadow: var(--ui-shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  z-index: 500;
+  transition: opacity var(--ui-transition-fast), transform var(--ui-transition-fast);
+  transform: translateX(-50%) translateY(4px);
+}
+
+.ui-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--ui-color-text);
+}
+
+/* Positions */
+.ui-tooltip--bottom {
+  bottom: auto;
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.ui-tooltip--bottom::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: var(--ui-color-text);
+}
+
+.ui-tooltip--left {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateY(-50%) translateX(4px);
+}
+
+.ui-tooltip--left::after {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--ui-color-text);
+  border-top-color: transparent;
+}
+
+.ui-tooltip--right {
+  bottom: auto;
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.ui-tooltip--right::after {
+  top: 50%;
+  left: auto;
+  right: 100%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: var(--ui-color-text);
+  border-top-color: transparent;
+}

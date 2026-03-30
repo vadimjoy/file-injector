@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+    .demo { height: 50px; display: flex; align-items: center; justify-content: center; background: var(--ui-color-bg-subtle); border-radius: 6px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Top</span>
+      <div class="demo"><div class="ui-tooltip-wrapper"><button class="ui-button ui-button--secondary ui-button--sm">Hover me</button><span class="ui-tooltip">Tooltip text</span></div></div>
+    </div>
+    <div class="item"><span class="label">Bottom</span>
+      <div class="demo"><div class="ui-tooltip-wrapper"><button class="ui-button ui-button--secondary ui-button--sm">Hover me</button><span class="ui-tooltip ui-tooltip--bottom">Tooltip text</span></div></div>
+    </div>
+    <div class="item"><span class="label">Right</span>
+      <div class="demo"><div class="ui-tooltip-wrapper"><button class="ui-button ui-button--secondary ui-button--sm">Hover me</button><span class="ui-tooltip ui-tooltip--right">Tooltip text</span></div></div>
+    </div>
+  </div>
+</body>
+</html>

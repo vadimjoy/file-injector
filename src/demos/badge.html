@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { padding: 20px; background: var(--ui-color-bg); }
+    .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .item { display: flex; flex-direction: column; gap: 6px; }
+    .label { font-size: 11px; color: var(--ui-color-text-muted); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item"><span class="label">Default</span><span class="ui-badge ui-badge--default">Badge</span></div>
+    <div class="item"><span class="label">Primary</span><span class="ui-badge ui-badge--primary">Primary</span></div>
+    <div class="item"><span class="label">Success</span><span class="ui-badge ui-badge--success">Success</span></div>
+    <div class="item"><span class="label">Warning</span><span class="ui-badge ui-badge--warning">Warning</span></div>
+    <div class="item"><span class="label">Error</span><span class="ui-badge ui-badge--error">Error</span></div>
+    <div class="item"><span class="label">Dot</span><span class="ui-badge ui-badge--primary ui-badge--dot">Online</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Progress
+   ========================================================================== */
+
+.ui-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+}
+
+.ui-progress__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-progress__label {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ui-color-text-secondary);
+}
+
+.ui-progress__value {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+}
+
+.ui-progress__track {
+  width: 100%;
+  height: 6px;
+  background: var(--ui-color-bg-hover);
+  border-radius: var(--ui-radius-full);
+  overflow: hidden;
+}
+
+.ui-progress__bar {
+  height: 100%;
+  background: var(--ui-color-primary);
+  border-radius: var(--ui-radius-full);
+  transition: width 0.4s ease;
+}
+
+/* Variants */
+.ui-progress--success .ui-progress__bar { background: var(--ui-color-success); }
+.ui-progress--warning .ui-progress__bar { background: var(--ui-color-warning); }
+.ui-progress--error .ui-progress__bar { background: var(--ui-color-error); }
+
+/* Sizes */
+.ui-progress--sm .ui-progress__track { height: 4px; }
+.ui-progress--lg .ui-progress__track { height: 10px; }
+
+/* Striped */
+.ui-progress--striped .ui-progress__bar {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 16px 16px;
+}
+
+@keyframes ui-progress-stripes {
+  from { background-position: 16px 0; }
+  to   { background-position: 0 0; }
+}
+
+.ui-progress--animated .ui-progress__bar {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 16px 16px;
+  animation: ui-progress-stripes 1s linear infinite;
+}

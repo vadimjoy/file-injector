@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Toggle / Switch
+   ========================================================================== */
+
+.ui-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  cursor: pointer;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text);
+  user-select: none;
+}
+
+.ui-toggle input[type="checkbox"] {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 23px;
+  margin: 0;
+  appearance: none;
+  background: var(--ui-color-border-strong);
+  border-radius: var(--ui-radius-full);
+  cursor: pointer;
+  transition: background var(--ui-transition-fast);
+  outline: none;
+}
+
+.ui-toggle input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 19px;
+  height: 19px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: var(--ui-shadow-sm);
+  transition: transform var(--ui-transition-fast);
+}
+
+.ui-toggle input[type="checkbox"]:checked {
+  background: var(--ui-color-primary);
+}
+
+.ui-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(19px);
+}
+
+.ui-toggle input[type="checkbox"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+}
+
+.ui-toggle:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-toggle:has(input:disabled) input {
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ui-toggle--sm input[type="checkbox"] {
+  width: 34px;
+  height: 19px;
+}
+
+.ui-toggle--sm input[type="checkbox"]::before {
+  width: 15px;
+  height: 15px;
+}
+
+.ui-toggle--sm input[type="checkbox"]:checked::before {
+  transform: translateX(15px);
+}
+
+.ui-toggle--sm {
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-toggle--lg input[type="checkbox"] {
+  width: 54px;
+  height: 29px;
+}
+
+.ui-toggle--lg input[type="checkbox"]::before {
+  width: 25px;
+  height: 25px;
+}
+
+.ui-toggle--lg input[type="checkbox"]:checked::before {
+  transform: translateX(25px);
+}
+
+.ui-toggle--lg {
+  font-size: var(--ui-font-size-lg);
+}

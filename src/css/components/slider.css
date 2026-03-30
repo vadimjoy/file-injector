@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Slider
+   ========================================================================== */
+
+.ui-slider {
+  width: 100%;
+  height: 5px;
+  appearance: none;
+  background: var(--ui-color-border);
+  border-radius: var(--ui-radius-full);
+  outline: none;
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-slider:hover {
+  background: var(--ui-color-border-strong);
+}
+
+.ui-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  background: var(--ui-color-primary);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: var(--ui-shadow-sm);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: var(--ui-shadow-md);
+}
+
+.ui-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+}
+
+.ui-slider::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  background: var(--ui-color-primary);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: var(--ui-shadow-sm);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+}
+
+/* Sizes */
+.ui-slider--sm {
+  height: 3px;
+}
+
+.ui-slider--sm::-webkit-slider-thumb {
+  width: 13px;
+  height: 13px;
+}
+
+.ui-slider--sm::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+}
+
+.ui-slider--lg {
+  height: 7px;
+}
+
+.ui-slider--lg::-webkit-slider-thumb {
+  width: 21px;
+  height: 21px;
+}
+
+.ui-slider--lg::-moz-range-thumb {
+  width: 21px;
+  height: 21px;
+}
