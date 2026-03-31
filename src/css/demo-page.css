@@ -1,0 +1,147 @@
+/* ========================================================================== */
+/*   Pure UI — Demo Base & Utilities                                          */
+/* ========================================================================== */
+
+body.demo-page {
+  font-family: var(--ui-font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  background: var(--ui-color-bg);
+  color: var(--ui-color-text);
+  padding: var(--ui-space-12) var(--ui-space-6);
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body.demo-page {
+    padding: var(--ui-space-8) var(--ui-space-4);
+  }
+}
+
+.demo-section {
+  margin-bottom: var(--ui-space-12);
+}
+
+.demo-section__title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 var(--ui-space-6);
+  color: var(--ui-color-text);
+  border-bottom: 1px solid var(--ui-color-border);
+  padding-bottom: var(--ui-space-3);
+}
+
+.demo-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-5);
+  margin-bottom: var(--ui-space-10);
+}
+
+.demo-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.demo-group__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ui-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.u-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--u-stack-gap, var(--ui-space-4));
+}
+
+.u-stack--relaxed {
+  --u-stack-gap: var(--ui-space-5);
+}
+
+.u-stack--loose {
+  --u-stack-gap: var(--ui-space-6);
+}
+
+.u-grid {
+  --u-grid-min: 280px;
+  --u-grid-gap: var(--ui-space-6);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--u-grid-min), 1fr));
+  gap: var(--u-grid-gap);
+}
+
+.u-grid--compact {
+  --u-grid-gap: var(--ui-space-4);
+}
+
+.u-grid--tight {
+  --u-grid-min: 200px;
+}
+
+.u-grid--wide {
+  --u-grid-min: 320px;
+}
+
+.u-grid--spacious {
+  --u-grid-gap: var(--ui-space-8);
+}
+
+.u-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--u-cluster-gap, var(--ui-space-3));
+}
+
+.u-cluster--compact {
+  --u-cluster-gap: var(--ui-space-2);
+}
+
+.u-cluster--relaxed {
+  --u-cluster-gap: var(--ui-space-4);
+}
+
+.u-cluster--stretch {
+  align-items: stretch;
+}
+
+.demo-box {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-5);
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-color-bg-subtle);
+}
+
+.demo-tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+
+.demo-tooltip__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ui-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.demo-tooltip-grid {
+  margin-top: var(--ui-space-10);
+  --u-grid-gap: var(--ui-space-12);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.u-w-30p { width: 30%; }
+.u-w-45p { width: 45%; }
+.u-w-70p { width: 70%; }
+.u-w-85p { width: 85%; }

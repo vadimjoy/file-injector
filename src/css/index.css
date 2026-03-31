@@ -10,8 +10,11 @@
 
 /* Layer 3: Components */
 @import './components/input.css';
+@import './components/select.css';
+@import './components/textarea.css';
 @import './components/button.css';
 @import './components/checkbox.css';
+@import './components/radio.css';
 @import './components/toggle.css';
 @import './components/slider.css';
 @import './components/badge.css';
