@@ -5,53 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Progress Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
-  <style>
-    body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--ui-color-bg); 
-      padding: 48px 24px; 
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section { margin-bottom: 48px; }
-    .section h2 { 
-      font-size: 28px; 
-      font-weight: 600; 
-      margin-bottom: 24px; 
-      color: var(--ui-color-text);
-      border-bottom: 1px solid var(--ui-color-border);
-      padding-bottom: 12px;
-    }
-    .size-group { margin-bottom: 32px; }
-    .size-group h3 { 
-      font-size: 14px; 
-      font-weight: 500; 
-      color: var(--ui-color-text-secondary); 
-      margin-bottom: 16px; 
-      text-transform: uppercase; 
-      letter-spacing: 0.05em; 
-    }
-    .component-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-      gap: 24px; 
-    }
-  </style>
+  <link rel="stylesheet" href="../css/demo-page.css">
 </head>
-<body>
-  <section class="section">
-    <h2>Progress</h2>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Progress</h2>
     
-    <div class="size-group">
-      <h3>Small</h3>
-      <div class="component-grid">
+    <div class="demo-group">
+      <h3 class="demo-group__title">Small</h3>
+      <div class="u-grid u-grid--wide">
         <div class="ui-progress ui-progress--sm">
           <div class="ui-progress__header">
             <span class="ui-progress__label">Uploading...</span>
             <span class="ui-progress__value">45%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 45%;"></div>
+            <div class="ui-progress__bar u-w-45p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--sm ui-progress--warning">
@@ -60,7 +29,7 @@
             <span class="ui-progress__value">85%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 85%;"></div>
+            <div class="ui-progress__bar u-w-85p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--sm ui-progress--error">
@@ -69,7 +38,7 @@
             <span class="ui-progress__value">Failed</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 30%;"></div>
+            <div class="ui-progress__bar u-w-30p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--sm ui-progress--striped ui-progress--animated">
@@ -78,22 +47,22 @@
             <span class="ui-progress__value">Processing</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 70%;"></div>
+            <div class="ui-progress__bar u-w-70p"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="size-group">
-      <h3>Medium</h3>
-      <div class="component-grid">
+    <div class="demo-group">
+      <h3 class="demo-group__title">Medium</h3>
+      <div class="u-grid u-grid--wide">
         <div class="ui-progress ui-progress--md">
           <div class="ui-progress__header">
             <span class="ui-progress__label">Uploading...</span>
             <span class="ui-progress__value">45%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 45%;"></div>
+            <div class="ui-progress__bar u-w-45p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--md ui-progress--warning">
@@ -102,7 +71,7 @@
             <span class="ui-progress__value">85%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 85%;"></div>
+            <div class="ui-progress__bar u-w-85p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--md ui-progress--error">
@@ -111,7 +80,7 @@
             <span class="ui-progress__value">Failed</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 30%;"></div>
+            <div class="ui-progress__bar u-w-30p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--md ui-progress--striped ui-progress--animated">
@@ -120,22 +89,22 @@
             <span class="ui-progress__value">Processing</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 70%;"></div>
+            <div class="ui-progress__bar u-w-70p"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="size-group">
-      <h3>Large</h3>
-      <div class="component-grid">
+    <div class="demo-group">
+      <h3 class="demo-group__title">Large</h3>
+      <div class="u-grid u-grid--wide">
         <div class="ui-progress ui-progress--lg">
           <div class="ui-progress__header">
             <span class="ui-progress__label">Uploading</span>
             <span class="ui-progress__value">45%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 45%;"></div>
+            <div class="ui-progress__bar u-w-45p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--lg ui-progress--warning">
@@ -144,7 +113,7 @@
             <span class="ui-progress__value">85%</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 85%;"></div>
+            <div class="ui-progress__bar u-w-85p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--lg ui-progress--error">
@@ -153,7 +122,7 @@
             <span class="ui-progress__value">Failed</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 30%;"></div>
+            <div class="ui-progress__bar u-w-30p"></div>
           </div>
         </div>
         <div class="ui-progress ui-progress--lg ui-progress--striped ui-progress--animated">
@@ -162,7 +131,7 @@
             <span class="ui-progress__value">Processing</span>
           </div>
           <div class="ui-progress__track">
-            <div class="ui-progress__bar" style="width: 70%;"></div>
+            <div class="ui-progress__bar u-w-70p"></div>
           </div>
         </div>
       </div>
