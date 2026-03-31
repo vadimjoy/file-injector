@@ -5,39 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
-  <style>
-    body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--ui-color-bg); 
-      padding: 48px 24px; 
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section { margin-bottom: 48px; }
-    .section h2 { 
-      font-size: 28px; 
-      font-weight: 600; 
-      margin-bottom: 24px; 
-      color: var(--ui-color-text);
-      border-bottom: 1px solid var(--ui-color-border);
-      padding-bottom: 12px;
-    }
-    .component-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-      gap: 24px; 
-    }
-  </style>
+  <link rel="stylesheet" href="../css/demo-page.css">
 </head>
-<body>
-  <section class="section">
-    <h2>Card</h2>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Card</h2>
     
-    <div class="component-grid">
+    <div class="u-grid u-grid--wide">
       <div class="ui-card">
         <h3 class="ui-card__title">Card Title</h3>
         <p class="ui-card__subtitle">Card subtitle goes here</p>
-        <p style="font-size:14px;color:var(--ui-color-text);line-height:1.6;">
+        <p class="ui-card__body">
           This is a card component with a title, subtitle, and body content. 
           Cards are used to group related information and actions.
         </p>
@@ -46,10 +24,10 @@
       <div class="ui-card">
         <h3 class="ui-card__title">Feature Card</h3>
         <p class="ui-card__subtitle">With action buttons</p>
-        <p style="font-size:14px;color:var(--ui-color-text);line-height:1.6;margin-bottom:16px;">
+        <p class="ui-card__body">
           This card includes action buttons in the footer area.
         </p>
-        <div style="display:flex;gap:8px;">
+        <div class="ui-card__actions">
           <button class="ui-button ui-button--primary ui-button--sm">Accept</button>
           <button class="ui-button ui-button--ghost ui-button--sm">Cancel</button>
         </div>

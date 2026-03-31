@@ -5,61 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tooltip Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
-  <style>
-    body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--ui-color-bg); 
-      padding: 48px 24px; 
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section { margin-bottom: 48px; }
-    .section h2 { 
-      font-size: 28px; 
-      font-weight: 600; 
-      margin-bottom: 24px; 
-      color: var(--ui-color-text);
-      border-bottom: 1px solid var(--ui-color-border);
-      padding-bottom: 12px;
-    }
-    .component-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-      gap: 48px; 
-      margin-top: 40px;
-    }
-    .tooltip-demo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-    .tooltip-demo h3 {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--ui-color-text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .demo-box {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--ui-color-bg-subtle);
-      border-radius: 8px;
-      padding: 20px;
-      min-width: 120px;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/demo-page.css">
 </head>
-<body>
-  <section class="section">
-    <h2>Tooltip</h2>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Tooltip</h2>
     
-    <div class="component-grid">
-      <div class="tooltip-demo">
-        <h3>Top</h3>
+    <div class="u-grid u-grid--tight demo-tooltip-grid">
+      <div class="demo-tooltip">
+        <h3 class="demo-tooltip__label">Top</h3>
         <div class="demo-box">
           <div class="ui-tooltip-wrapper">
             <button class="ui-button ui-button--secondary ui-button--sm">Hover me</button>
@@ -68,8 +22,8 @@
         </div>
       </div>
       
-      <div class="tooltip-demo">
-        <h3>Bottom</h3>
+      <div class="demo-tooltip">
+        <h3 class="demo-tooltip__label">Bottom</h3>
         <div class="demo-box">
           <div class="ui-tooltip-wrapper">
             <button class="ui-button ui-button--secondary ui-button--sm">Hover me</button>
@@ -78,8 +32,8 @@
         </div>
       </div>
       
-      <div class="tooltip-demo">
-        <h3>Left</h3>
+      <div class="demo-tooltip">
+        <h3 class="demo-tooltip__label">Left</h3>
         <div class="demo-box">
           <div class="ui-tooltip-wrapper">
             <button class="ui-button ui-button--secondary ui-button--sm">Hover me</button>
@@ -88,8 +42,8 @@
         </div>
       </div>
       
-      <div class="tooltip-demo">
-        <h3>Right</h3>
+      <div class="demo-tooltip">
+        <h3 class="demo-tooltip__label">Right</h3>
         <div class="demo-box">
           <div class="ui-tooltip-wrapper">
             <button class="ui-button ui-button--secondary ui-button--sm">Hover me</button>

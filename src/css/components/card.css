@@ -24,3 +24,27 @@
   color: var(--ui-color-text-muted);
   margin: 0 0 var(--ui-space-4) 0;
 }
+
+.ui-card__body {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  line-height: 1.6;
+  color: var(--ui-color-text);
+  margin: 0 0 var(--ui-space-4) 0;
+}
+
+.ui-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-space-2);
+}
+
+.ui-card__actions .ui-button {
+  flex: 1 1 0;
+  min-width: 120px;
+}
+
+.ui-card__actions .ui-button--ghost,
+.ui-card__actions .ui-button--primary {
+  flex: 0 0 auto;
+}

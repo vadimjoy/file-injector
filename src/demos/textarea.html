@@ -5,45 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Textarea Component - Pure UI</title>
   <link rel="stylesheet" href="../css/index.css">
-  <style>
-    body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--ui-color-bg); 
-      padding: 48px 24px; 
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section { margin-bottom: 48px; }
-    .section h2 { 
-      font-size: 28px; 
-      font-weight: 600; 
-      margin-bottom: 24px; 
-      color: var(--ui-color-text);
-      border-bottom: 1px solid var(--ui-color-border);
-      padding-bottom: 12px;
-    }
-    .size-group { margin-bottom: 32px; }
-    .size-group h3 { 
-      font-size: 14px; 
-      font-weight: 500; 
-      color: var(--ui-color-text-secondary); 
-      margin-bottom: 16px; 
-      text-transform: uppercase; 
-      letter-spacing: 0.05em; 
-    }
-    .component-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 16px; 
-    }
-  </style>
+  <link rel="stylesheet" href="../css/demo-page.css">
 </head>
-<body>
-  <section class="section">
-    <h2>Textarea</h2>
-    <div class="size-group">
-      <h3>Small</h3>
-      <div class="component-grid">
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Textarea</h2>
+    <div class="demo-group">
+      <h3 class="demo-group__title">Small</h3>
+      <div class="u-grid u-grid--compact">
         <div class="ui-field ui-field--sm">
           <label class="ui-label">Default Textarea</label>
           <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
@@ -61,9 +30,9 @@
       </div>
     </div>
 
-    <div class="size-group">
-      <h3>Medium</h3>
-      <div class="component-grid">
+    <div class="demo-group">
+      <h3 class="demo-group__title">Medium</h3>
+      <div class="u-grid u-grid--compact">
         <div class="ui-field ui-field--md">
           <label class="ui-label">Default Textarea</label>
           <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
@@ -81,9 +50,9 @@
       </div>
     </div>
 
-    <div class="size-group">
-      <h3>Large</h3>
-      <div class="component-grid">
+    <div class="demo-group">
+      <h3 class="demo-group__title">Large</h3>
+      <div class="u-grid u-grid--compact">
         <div class="ui-field ui-field--lg">
           <label class="ui-label">Default Textarea</label>
           <textarea class="ui-textarea" placeholder="Enter your message..."></textarea>
