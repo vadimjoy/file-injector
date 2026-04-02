@@ -5,11 +5,12 @@
 /* Input wrapper with calendar icon — CSS Grid overlay, no position:absolute */
 .ui-datepicker-trigger {
   display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.ui-datepicker-trigger .ui-input {
+.ui-datepicker__input {
   grid-area: 1 / 1;
-  padding-right: 40px;
   cursor: pointer;
 }
 
@@ -26,16 +27,8 @@
 }
 
 /* Size overrides for trigger */
-.ui-field--sm .ui-datepicker-trigger .ui-input {
-  padding: 6px 32px 6px 10px;
-}
-
 .ui-field--sm .ui-datepicker-trigger .ui-datepicker__icon {
   padding-right: 8px;
-}
-
-.ui-field--lg .ui-datepicker-trigger .ui-input {
-  padding: 13px 48px 13px 17px;
 }
 
 .ui-field--lg .ui-datepicker-trigger .ui-datepicker__icon {
