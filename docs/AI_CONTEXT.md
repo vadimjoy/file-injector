@@ -34,7 +34,7 @@ I-08  --ui-* CSS variables are the ONLY correct way to customize appearance
 
 | Component | Base Class | State Modifiers | Context Modifiers |
 |-----------|------------|-----------------|-------------------|
-| Input | `.ui-input` | `--error` `--success` `--warning` | `--icon-left` `--icon-right` |
+| Input | `.ui-input` | `--error` `--success` `--warning` | `--icon-left` `--icon-right` `--search` `--readonly` |
 | Textarea | `.ui-textarea` | `--error` `--success` `--warning` | — |
 | Select | `.ui-select` | `--error` `--success` `--warning` | — |
 | Checkbox | `.ui-checkbox` | — | `--sm` `--md` `--lg` (own size) |
@@ -49,8 +49,8 @@ I-08  --ui-* CSS variables are the ONLY correct way to customize appearance
 
 | Component | Wrapper Class | Required Children |
 |-----------|---------------|-------------------|
-| Autocomplete | `.ui-autocomplete` | `.ui-autocomplete__input-wrapper` + `.ui-input` + `.ui-autocomplete__dropdown` |
-| Datepicker | `.ui-datepicker` | `.ui-datepicker__input-wrapper` + `.ui-input` + `.ui-datepicker__calendar` |
+| Autocomplete | `.ui-autocomplete-trigger` + `.ui-autocomplete__search-icon` + `.ui-autocomplete__input` | Input must include `ui-input--icon-left` + `.ui-autocomplete__input`; panel stays independent |
+| Datepicker | `.ui-datepicker-trigger` + `.ui-datepicker__icon` + `.ui-datepicker__input` | Input must include `ui-input--icon-right` + `ui-input--readonly` + `.ui-datepicker__input`; calendar is separate component |
 | Input with icon | `.ui-input-wrapper` | `.ui-input-icon` + `.ui-input` |
 
 ### 2.4 Display Components
@@ -127,8 +127,8 @@ I-08  --ui-* CSS variables are the ONLY correct way to customize appearance
 <div class="ui-field ui-field--md">
   <label class="ui-label">Date</label>
   <div class="ui-datepicker">
-    <div class="ui-datepicker__input-wrapper">
-      <input type="text" class="ui-input ui-input--icon-right ui-input--readonly"
+    <div class="ui-datepicker-trigger">
+      <input type="text" class="ui-input ui-input--icon-right ui-input--readonly ui-datepicker__input"
              value="12/25/2024" readonly>
       <span class="ui-datepicker__icon"><!-- calendar SVG --></span>
     </div>

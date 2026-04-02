@@ -194,7 +194,10 @@ Text input field with multiple states and sizes.
 | `.ui-input--error` | Error state styling |
 | `.ui-input--success` | Success state styling |
 | `.ui-input--warning` | Warning state styling |
-| `.ui-input--has-icon-right` | Right-side icon spacing (use together with `.ui-input-icon--right`) |
+| `.ui-input--icon-left` | Adds left padding for leading icon contexts |
+| `.ui-input--icon-right` | Adds right padding for trailing icon contexts |
+| `.ui-input--search` | Balanced padding for icons on both sides |
+| `.ui-input--readonly` | Pointer cursor + hidden caret for non-editable triggers |
 | `.ui-input-wrapper` | Grid container for icon overlay — positions icon and input in the same cell without `position: absolute` |
 | `.ui-input-icon` | Left-side icon inside `.ui-input-wrapper` |
 | `.ui-input-icon--right` | Right-side icon inside `.ui-input-wrapper` |
@@ -231,12 +234,12 @@ Text input field with multiple states and sizes.
   <span class="ui-input-icon">
     <svg><!-- search icon --></svg>
   </span>
-  <input type="text" class="ui-input" placeholder="Search...">
+  <input type="text" class="ui-input ui-input--icon-left" placeholder="Search...">
 </div>
 
 <!-- With right icon (date) -->
 <div class="ui-input-wrapper">
-  <input type="text" class="ui-input ui-input--has-icon-right" placeholder="MM/DD/YYYY" readonly>
+  <input type="text" class="ui-input ui-input--icon-right ui-input--readonly" placeholder="MM/DD/YYYY" readonly>
   <span class="ui-input-icon ui-input-icon--right">
     <svg><!-- calendar icon --></svg>
   </span>
@@ -327,6 +330,7 @@ Search input trigger and list suggestion panel — two independent atomic compon
 |-------|-------------|
 | `.ui-autocomplete-trigger` | Grid container for search input + icon overlay |
 | `.ui-autocomplete__search-icon` | Left search icon inside the trigger |
+| `.ui-autocomplete__input` | Input element that shares grid-area with the icon |
 
 #### List Panel Classes
 
@@ -358,7 +362,7 @@ Search input trigger and list suggestion panel — two independent atomic compon
     <span class="ui-autocomplete__search-icon">
       <svg><!-- search icon --></svg>
     </span>
-    <input type="text" class="ui-input" placeholder="Type to search...">
+    <input type="text" class="ui-input ui-input--icon-left ui-autocomplete__input" placeholder="Type to search...">
   </div>
 </div>
 
@@ -394,6 +398,8 @@ Search input trigger and list suggestion panel — two independent atomic compon
 ```
 
 > **Implementation note:** `.ui-autocomplete-trigger` uses `display: grid` — both the search icon and the input share `grid-area: 1 / 1`. No `position: absolute`. The list panel is `display: block` in normal flow — it pushes adjacent content down.
+
+> **Context modifier rule:** Autocomplete never mutates `.ui-input` internally — always add `.ui-input--icon-left` (и другие модификаторы вроде `--readonly`) + вспомогательный класс `.ui-autocomplete__input`, чтобы явно указать поведение в HTML.
 
 ---
 
@@ -666,6 +672,7 @@ Date input trigger and calendar view — two independent atomic components. The 
 |-------|-------------|
 | `.ui-datepicker-trigger` | Grid container for date input + calendar icon overlay |
 | `.ui-datepicker__icon` | Right-side calendar icon inside the trigger |
+| `.ui-datepicker__input` | Input element that shares grid-area with the icon |
 
 #### Calendar View Classes
 
@@ -700,7 +707,7 @@ Date input trigger and calendar view — two independent atomic components. The 
 <div class="ui-field ui-field--md">
   <label class="ui-label">Appointment Date</label>
   <div class="ui-datepicker-trigger">
-    <input type="text" class="ui-input" placeholder="MM/DD/YYYY" readonly value="03/30/2026">
+    <input type="text" class="ui-input ui-input--icon-right ui-input--readonly ui-datepicker__input" placeholder="MM/DD/YYYY" readonly value="03/30/2026">
     <span class="ui-datepicker__icon">
       <svg><!-- calendar icon --></svg>
     </span>
@@ -742,6 +749,8 @@ Date input trigger and calendar view — two independent atomic components. The 
 ```
 
 > **Implementation note:** `.ui-datepicker-trigger` uses `display: grid` — the calendar icon and the input share `grid-area: 1 / 1`. No `position: absolute`. The calendar widget uses `display: grid` for the day grid (`grid-template-columns: repeat(7, 1fr)`) and `display: block` at the container level — it is in normal flow.
+
+> **Context modifier rule:** Datepicker never alters `.ui-input` извне — всегда добавляй `.ui-input--icon-right`, `.ui-input--readonly` и вспомогательный `.ui-datepicker__input`, чтобы HTML явно отражал контракт компонента.
 
 ---
 
@@ -912,6 +921,10 @@ Container for grouping content.
 | `.ui-card` | Base card container |
 | `.ui-card__title` | Card heading |
 | `.ui-card__subtitle` | Secondary heading |
+| `.ui-card__body` | Rich text content block |
+| `.ui-card__actions` | Flex row for primary/secondary actions |
+| `.ui-card__action` | Action item wrapper applied to buttons/links |
+| `.ui-card__action--fixed` | Modifier to prevent the action from stretching |
 
 #### HTML Example
 
@@ -919,7 +932,11 @@ Container for grouping content.
 <div class="ui-card">
   <h3 class="ui-card__title">Card Title</h3>
   <p class="ui-card__subtitle">Card description text</p>
-  <!-- Content -->
+  <p class="ui-card__body">Cards group related content and actions.</p>
+  <div class="ui-card__actions">
+    <button class="ui-button ui-button--primary ui-button--sm ui-card__action ui-card__action--fixed">Accept</button>
+    <button class="ui-button ui-button--ghost ui-button--sm ui-card__action ui-card__action--fixed">Cancel</button>
+  </div>
 </div>
 ```
 

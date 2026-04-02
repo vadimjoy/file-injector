@@ -24,9 +24,10 @@
   },
   "scripts": {
     "clean": "rimraf dist",
+    "lint:coupling": "node scripts/audit-coupling.js",
     "build:css": "postcss src/css/index.css -o dist/ai-css-kit.css",
     "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/ai-css-kit.min.css",
-    "build": "npm run clean && npm run build:css && npm run build:css:min",
+    "build": "npm run lint:coupling && npm run clean && npm run build:css && npm run build:css:min",
     "prepare": "npm run build"
   },
   "keywords": [

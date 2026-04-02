@@ -39,12 +39,11 @@
   gap: var(--ui-space-2);
 }
 
-.ui-card__actions .ui-button {
+.ui-card__action {
   flex: 1 1 0;
   min-width: 120px;
 }
 
-.ui-card__actions .ui-button--ghost,
-.ui-card__actions .ui-button--primary {
+.ui-card__action--fixed {
   flex: 0 0 auto;
 }
