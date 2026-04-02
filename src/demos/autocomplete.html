@@ -10,105 +10,104 @@
 <body class="demo-page">
   <section class="demo-section">
     <h2 class="demo-section__title">Autocomplete</h2>
-    
+
     <div class="demo-group">
-      <h3 class="demo-group__title">Small</h3>
+      <h3 class="demo-group__title">Triggers</h3>
       <div class="u-grid u-grid--wide">
         <div class="ui-field ui-field--sm">
           <label class="ui-label">Search Users</label>
-          <div class="ui-autocomplete">
-            <div class="ui-autocomplete__input-wrapper">
-              <span class="ui-autocomplete__search-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-              </span>
-              <input type="text" class="ui-input" placeholder="Type to search...">
-            </div>
-            <div class="ui-autocomplete__dropdown is-hidden">
-              <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-                <span class="ui-autocomplete__item-icon">👤</span>
-                <span>John Doe</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">👤</span>
-                <span>Jane Smith</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">👤</span>
-                <span>Bob Johnson</span>
-              </div>
-            </div>
+          <div class="ui-autocomplete-trigger">
+            <span class="ui-autocomplete__search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </span>
+            <input type="text" class="ui-input" placeholder="Type to search...">
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="demo-group">
-      <h3 class="demo-group__title">Medium (with open dropdown)</h3>
-      <div class="u-grid u-grid--wide">
         <div class="ui-field ui-field--md">
           <label class="ui-label">Search Products</label>
-          <div class="ui-autocomplete">
-            <div class="ui-autocomplete__input-wrapper">
-              <span class="ui-autocomplete__search-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-              </span>
-              <input type="text" class="ui-input" placeholder="Type to search...">
-            </div>
-            <div class="ui-autocomplete__dropdown">
-              <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>MacBook Pro</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>iPhone 15</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>iPad Air</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>AirPods Pro</span>
-              </div>
-            </div>
+          <div class="ui-autocomplete-trigger">
+            <span class="ui-autocomplete__search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </span>
+            <input type="text" class="ui-input" placeholder="Laptop, phone..." value="Mac">
+          </div>
+        </div>
+
+        <div class="ui-field ui-field--lg">
+          <label class="ui-label">Search Locations</label>
+          <div class="ui-autocomplete-trigger">
+            <span class="ui-autocomplete__search-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </span>
+            <input type="text" class="ui-input" placeholder="Search for cities...">
           </div>
         </div>
       </div>
     </div>
 
     <div class="demo-group">
-      <h3 class="demo-group__title">Large</h3>
+      <h3 class="demo-group__title">Suggestion Panels</h3>
       <div class="u-grid u-grid--wide">
-        <div class="ui-field ui-field--lg">
-          <label class="ui-label">Search Locations</label>
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Results list</span>
+          <div class="ui-autocomplete-panel">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span class="ui-autocomplete__item-icon">👤</span>
+              <span>John Doe</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">👤</span>
+              <span>Jane Smith</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">👤</span>
+              <span>Bob Johnson</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">👤</span>
+              <span>Amelia Moore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Empty state</span>
+          <div class="ui-autocomplete-panel">
+            <div class="ui-autocomplete__empty">No matches found</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Composed (floating dropdown)</h3>
+      <div class="u-grid u-grid--wide">
+        <div class="ui-field ui-field--md">
+          <label class="ui-label">Search Catalog</label>
           <div class="ui-autocomplete">
             <div class="ui-autocomplete__input-wrapper">
               <span class="ui-autocomplete__search-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
               </span>
-              <input type="text" class="ui-input" placeholder="Search for cities...">
+              <input type="text" class="ui-input" placeholder="Type to search..." value="MacBook">
             </div>
             <div class="ui-autocomplete__dropdown">
               <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-                <span class="ui-autocomplete__item-icon">📍</span>
-                <span>New York, USA</span>
+                <span class="ui-autocomplete__item-icon">📦</span>
+                <span>MacBook Pro 16"</span>
               </div>
               <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📍</span>
-                <span>London, UK</span>
+                <span class="ui-autocomplete__item-icon">📦</span>
+                <span>MacBook Air 13"</span>
               </div>
               <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📍</span>
-                <span>Tokyo, Japan</span>
+                <span class="ui-autocomplete__item-icon">📦</span>
+                <span>Mac Studio</span>
               </div>
               <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📍</span>
-                <span>Paris, France</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📍</span>
-                <span>Sydney, Australia</span>
+                <span class="ui-autocomplete__item-icon">📦</span>
+                <span>Mac Mini</span>
               </div>
             </div>
           </div>
