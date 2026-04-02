@@ -1,50 +1,63 @@
 {
-  "name": "file-injector",
-  "version": "1.0.3",
-  "description": "read images and convert to base64, insert files in different ways",
-  "main": "dist/file-injector.js",
-  "dependencies": {
-    "clean-webpack-plugin": "^0.1.17",
-    "font-awesome": "^4.7.0",
-    "pug-loader": "^2.3.0"
-  },
-  "devDependencies": {
-    "clean-webpack-plugin": "^0.1.17",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "1.1.5",
-    "font-awesome": "^4.7.0",
-    "html-webpack-plugin": "^2.30.1",
-    "style-loader": "^0.19.0",
-    "svg-inline-loader": "^0.8.0",
-    "ts-loader": "^3.1.1",
-    "typescript": "^2.6.1",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+  "name": "ai-css-kit",
+  "version": "0.3.0",
+  "description": "Modern modular CSS component library with tokens, themes, and demo blocks.",
+  "main": "dist/pure-ui.css",
+  "style": "dist/pure-ui.css",
+  "files": [
+    "dist",
+    "src/css",
+    "src/demos",
+    "src/js/demo-theme.js",
+    "README.md",
+    "SPEC.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "style": "./dist/pure-ui.css",
+      "default": "./dist/pure-ui.css"
+    },
+    "./tokens": "./src/css/tokens.css",
+    "./base": "./src/css/base.css",
+    "./components/*": "./src/css/components/*.css"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vadimjoy/file-injector.git"
+    "clean": "rimraf dist",
+    "build:css": "postcss src/css/index.css -o dist/pure-ui.css",
+    "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/pure-ui.min.css",
+    "build": "npm run clean && npm run build:css && npm run build:css:min",
+    "prepare": "npm run build"
   },
   "keywords": [
-    "insert",
-    "file",
-    "insert",
-    "image",
-    "upload",
-    "files",
-    "upload",
-    "images"
+    "css",
+    "components",
+    "design-system",
+    "tokens",
+    "theming",
+    "pure"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadimjoy/pure-ui.git"
+  },
   "author": "Vadim Joy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vadimjoy/file-injector/issues"
+    "url": "https://github.com/vadimjoy/pure-ui/issues"
   },
-  "homepage": "https://github.com/vadimjoy/file-injector#readme"
+  "homepage": "https://github.com/vadimjoy/pure-ui#readme",
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "cssnano": "^6.1.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.4",
+    "rimraf": "^5.0.5"
+  }
 }

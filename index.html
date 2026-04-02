@@ -1,26 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link href="dist/css/common.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure UI — CSS Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfZ6PfrE0tMumjHgNsx3Rp3bIanFkFJxuxMxkvZWS9Vyhi3F7S3Uz+jD06P88GJEY2c7fsa+X1JdZx+X0hm4Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./dist/pure-ui.css">
+  <style>
+    :root { --showcase-bg: #fafafa; }
+    [data-theme="dark"] { --showcase-bg: #111827; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--ui-font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+      background: var(--showcase-bg);
+      color: var(--ui-color-text);
+      padding: 24px;
+    }
+    .showcase { max-width: 980px; margin: 0 auto; }
+    .showcase__header { margin-bottom: 32px; }
+    .showcase__title { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+    .showcase__subtitle { font-size: 16px; color: var(--ui-color-text-muted); margin-bottom: 20px; }
+    .showcase__theme-toggle { margin-bottom: 24px; }
+    .showcase__section { margin-bottom: 20px; border-radius: 16px; overflow: hidden; border: 1px solid var(--ui-color-border); background: var(--ui-color-bg); box-shadow: var(--ui-shadow-sm); }
+    .showcase__section-title {
+      padding: 0;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--ui-color-border);
+      background: var(--ui-color-bg-subtle);
+    }
+    .showcase__section-title a {
+      color: var(--ui-color-text);
+      text-decoration: none;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+    .showcase__section-title a:hover { color: var(--ui-color-primary); }
+    .showcase__section-title i { color: var(--ui-color-primary); }
+    .showcase__iframe {
+      width: 100%;
+      min-height: 320px;
+      border: none;
+      display: block;
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
+  <div class="showcase">
+    <header class="showcase__header">
+      <h1 class="showcase__title">Pure UI</h1>
+      <p class="showcase__subtitle">Модульная CSS-библиотека с тёмной темой из коробки</p>
+      <div class="showcase__theme-toggle">
+        <label class="ui-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span><i class="fa fa-moon-o" aria-hidden="true"></i> Dark theme</span>
+        </label>
+      </div>
+    </header>
 
-<div class="load-target js-target"></div>
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/button.html" target="_blank" rel="noreferrer"><i class="fa fa-bolt" aria-hidden="true"></i>Button</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/button.html"></iframe>
+    </div>
 
-<div class="file-uploader js-file-uploader" draggable="true">
-    <label class="file-uploader__field">
-        <input type="text">
-        <span class="file-uploader__indicator"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
-    </label>
-    <span class="file-uploader__delimiter">или</span>
-    <label class="file-uploader__field">
-        <input type="file" multiple>
-        <span class="file-uploader__indicator"><i class="fa fa-upload" aria-hidden="true"></i></span>
-    </label>
-</div>
-<script type="text/javascript" src="dist/file-injector.js"></script>
-<script type="text/javascript" src="main.js"></script>
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/input.html" target="_blank" rel="noreferrer"><i class="fa fa-i-cursor" aria-hidden="true"></i>Input</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/input.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/checkbox.html" target="_blank" rel="noreferrer"><i class="fa fa-check-square-o" aria-hidden="true"></i>Checkbox</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/checkbox.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/radio.html" target="_blank" rel="noreferrer"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>Radio</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/radio.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/toggle.html" target="_blank" rel="noreferrer"><i class="fa fa-sliders" aria-hidden="true"></i>Toggle</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/toggle.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/badge.html" target="_blank" rel="noreferrer"><i class="fa fa-tag" aria-hidden="true"></i>Badge</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/badge.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/progress.html" target="_blank" rel="noreferrer"><i class="fa fa-tasks" aria-hidden="true"></i>Progress</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/progress.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/slider.html" target="_blank" rel="noreferrer"><i class="fa fa-arrows-h" aria-hidden="true"></i>Slider</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/slider.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/card.html" target="_blank" rel="noreferrer"><i class="fa fa-clone" aria-hidden="true"></i>Card</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/card.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/file-upload.html" target="_blank" rel="noreferrer"><i class="fa fa-upload" aria-hidden="true"></i>File Upload</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/file-upload.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/tooltip.html" target="_blank" rel="noreferrer"><i class="fa fa-commenting-o" aria-hidden="true"></i>Tooltip</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/tooltip.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/autocomplete.html" target="_blank" rel="noreferrer"><i class="fa fa-search" aria-hidden="true"></i>Autocomplete</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/autocomplete.html"></iframe>
+    </div>
+
+    <div class="showcase__section">
+      <div class="showcase__section-title"><a href="./src/demos/datepicker.html" target="_blank" rel="noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i>Datepicker</a></div>
+      <iframe class="showcase__iframe" src="./src/demos/datepicker.html"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle')
+    const savedTheme = localStorage.getItem('theme') || 'light'
+
+    if (savedTheme === 'dark') {
+      themeToggle.checked = true
+      document.documentElement.setAttribute('data-theme', 'dark')
+    }
+
+    function applyThemeToIframes(themeName) {
+      document.querySelectorAll('iframe').forEach((iframe) => {
+        iframe.contentWindow?.postMessage({ type: 'theme', theme: themeName }, '*')
+      })
+    }
+
+    document.querySelectorAll('iframe').forEach((iframe) => {
+      iframe.addEventListener('load', () => {
+        const currentTheme = themeToggle.checked ? 'dark' : 'light'
+        iframe.contentWindow?.postMessage({ type: 'theme', theme: currentTheme }, '*')
+      })
+    })
+
+    themeToggle.addEventListener('change', (e) => {
+      const theme = e.target.checked ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-theme', theme)
+      localStorage.setItem('theme', theme)
+      applyThemeToIframes(theme)
+    })
+
+    setTimeout(() => applyThemeToIframes(savedTheme), 100)
+  </script>
 </body>
 </html>
