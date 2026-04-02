@@ -1,0 +1,115 @@
+/* ==========================================================================
+   AI CSS Kit — Showcase Landing Page
+   ========================================================================== */
+
+:root {
+  --showcase-bg: #f5f7fb;
+}
+
+[data-theme="dark"] {
+  --showcase-bg: #0f172a;
+}
+
+body.showcase-page {
+  font-family: var(--ui-font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  background: var(--showcase-bg);
+  color: var(--ui-color-text);
+  padding: var(--ui-space-6);
+  margin: 0;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body.showcase-page {
+    padding: var(--ui-space-4);
+  }
+}
+
+.showcase-page *,
+.showcase-page *::before,
+.showcase-page *::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.showcase {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.showcase__header {
+  margin-bottom: var(--ui-space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-4);
+}
+
+.showcase__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ui-color-text);
+}
+
+.showcase__subtitle {
+  font-size: 16px;
+  color: var(--ui-color-text-muted);
+}
+
+.showcase__theme-toggle {
+  margin-top: var(--ui-space-2);
+}
+
+.showcase__section {
+  margin-bottom: var(--ui-space-6);
+  border-radius: var(--ui-radius-xl);
+  border: 1px solid var(--ui-color-border);
+  background: var(--ui-color-bg);
+  box-shadow: var(--ui-shadow-sm);
+  overflow: hidden;
+}
+
+.showcase__section-title {
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ui-color-border);
+  background: var(--ui-color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showcase__section-title a {
+  color: var(--ui-color-text);
+  text-decoration: none;
+  padding: var(--ui-space-4) var(--ui-space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  flex: 1;
+}
+
+.showcase__section-title a:hover {
+  color: var(--ui-color-primary);
+}
+
+.showcase__section-title i {
+  color: var(--ui-color-primary);
+}
+
+.showcase__iframe {
+  width: 100%;
+  min-height: 320px;
+  border: none;
+  display: block;
+  background: var(--ui-color-bg);
+}
+
+@media (max-width: 640px) {
+  .showcase__title {
+    font-size: 28px;
+  }
+
+  .showcase__section-title a {
+    padding: var(--ui-space-3) var(--ui-space-4);
+  }
+}
