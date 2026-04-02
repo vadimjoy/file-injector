@@ -218,9 +218,13 @@ ai-css-kit/
 │   │       ├── calendar.css    # standalone — no input dependency
 │   │       ├── autocomplete.css
 │   │       └── ...
-│   ├── demos/                  # one .html per component
-│   └── js/
-│       └── demo-theme.js       # theme sync for demo iframes
+│   └── demos/
+│       ├── *.html              # one demo per component
+│       └── shared/             # showcase + iframe assets
+│           ├── demo-page.css
+│           ├── showcase-page.css
+│           ├── demo-theme.js   # iframe theme sync
+│           └── showcase-page.js# landing toggle logic
 ├── docs/
 │   └── adr/                    # architectural decision records
 ├── dist/                       # build output (do not edit)
