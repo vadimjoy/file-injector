@@ -315,35 +315,72 @@
   box-shadow: 0 0 0 3px var(--ui-color-warning-soft);
 }
 
-/* Input with icon */
+/* Input with icon — CSS Grid overlay, no position:absolute */
 
 .ui-input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+  display: grid;
 }
 
 .ui-input-wrapper .ui-input {
+  grid-area: 1 / 1;
   padding-left: 36px;
 }
 
 .ui-input-wrapper .ui-input-icon {
-  position: absolute;
-  left: 10px;
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  padding-left: 10px;
   color: var(--ui-color-text-muted);
   pointer-events: none;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .ui-input-wrapper .ui-input-icon--right {
-  left: auto;
-  right: 10px;
+  justify-self: end;
+  padding-left: 0;
+  padding-right: 10px;
 }
 
 .ui-input-wrapper .ui-input--has-icon-right {
   padding-left: var(--ui-space-3);
   padding-right: 36px;
+}
+
+/* Size-specific icon offsets */
+
+.ui-field--sm .ui-input-wrapper .ui-input {
+  padding: 6px 10px 6px 30px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input-icon {
+  padding-left: 8px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input--has-icon-right {
+  padding: 6px 30px 6px 10px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input-icon--right {
+  padding-right: 8px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input {
+  padding: 13px 17px 13px 44px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input-icon {
+  padding-left: 14px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input--has-icon-right {
+  padding: 13px 44px 13px 17px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input-icon--right {
+  padding-right: 14px;
 }
 
 /* Sizes */
@@ -376,7 +413,7 @@
   font-size: var(--ui-font-size-md);
   line-height: var(--ui-line-height);
   color: var(--ui-color-text);
-  background: var(--ui-color-bg);
+  background-color: var(--ui-color-bg);
   border: 1px solid var(--ui-color-border);
   border-radius: var(--ui-radius-md);
   transition: var(--ui-transition-fast);
@@ -396,7 +433,7 @@
 }
 
 .ui-select:disabled {
-  background: var(--ui-color-bg-disabled);
+  background-color: var(--ui-color-bg-disabled);
   color: var(--ui-color-text-disabled);
   border-color: var(--ui-color-border);
   cursor: not-allowed;
@@ -404,7 +441,7 @@
 
 .ui-select--error {
   border-color: var(--ui-color-error);
-  background: var(--ui-color-error-light);
+  background-color: var(--ui-color-error-light);
 }
 
 .ui-select--error:focus {
@@ -413,7 +450,7 @@
 
 .ui-select--success {
   border-color: var(--ui-color-success);
-  background: var(--ui-color-success-light);
+  background-color: var(--ui-color-success-light);
 }
 
 .ui-select--success:focus {
@@ -422,7 +459,7 @@
 
 .ui-select--warning {
   border-color: var(--ui-color-warning);
-  background: var(--ui-color-warning-light);
+  background-color: var(--ui-color-warning-light);
 }
 
 .ui-select--warning:focus {
@@ -1187,26 +1224,25 @@
 }
 
 /* ==========================================================================
-   Autocomplete
+   Autocomplete — Trigger Input (standalone, no compound wrapper)
    ========================================================================== */
 
-.ui-autocomplete {
-  position: relative;
+/* Input wrapper with search icon — CSS Grid overlay, no position:absolute */
+
+.ui-autocomplete-trigger {
+  display: grid;
 }
 
-.ui-autocomplete__input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.ui-autocomplete__input-wrapper .ui-input {
+.ui-autocomplete-trigger .ui-input {
+  grid-area: 1 / 1;
   padding-left: 36px;
 }
 
 .ui-autocomplete__search-icon {
-  position: absolute;
-  left: 10px;
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  padding-left: 10px;
   color: var(--ui-color-text-muted);
   pointer-events: none;
   display: flex;
@@ -1214,31 +1250,51 @@
   z-index: 1;
 }
 
-.ui-autocomplete__dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
+/* Size overrides for trigger */
+
+.ui-field--sm .ui-autocomplete-trigger .ui-input {
+  padding: 6px 10px 6px 30px;
+}
+
+.ui-field--sm .ui-autocomplete-trigger .ui-autocomplete__search-icon {
+  padding-left: 8px;
+}
+
+.ui-field--lg .ui-autocomplete-trigger .ui-input {
+  padding: 13px 17px 13px 44px;
+}
+
+.ui-field--lg .ui-autocomplete-trigger .ui-autocomplete__search-icon {
+  padding-left: 14px;
+}
+
+/* ==========================================================================
+   List Widget — Static widget, normal document flow
+   No position:absolute anywhere
+   ========================================================================== */
+
+.ui-autocomplete-panel {
+  display: block;
   background: var(--ui-color-bg);
   border: 1px solid var(--ui-color-border);
   border-radius: var(--ui-radius-md);
-  box-shadow: var(--ui-shadow-lg);
-  max-height: 220px;
+  box-shadow: var(--ui-shadow-md);
   overflow-y: auto;
-  z-index: 200;
 }
 
-.ui-autocomplete__dropdown:empty {
+.ui-autocomplete-panel:empty {
   display: none;
 }
+
+/* --------------------------------------------------------------------------
+   Items
+   -------------------------------------------------------------------------- */
 
 .ui-autocomplete__item {
   display: flex;
   align-items: center;
   gap: var(--ui-space-2);
-  padding: 9px 13px;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-md);
   color: var(--ui-color-text);
   cursor: pointer;
   transition: var(--ui-transition-fast);
@@ -1257,8 +1313,6 @@
 }
 
 .ui-autocomplete__item-icon {
-  width: 16px;
-  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1267,59 +1321,150 @@
 }
 
 .ui-autocomplete__empty {
-  padding: 12px 13px;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-md);
   color: var(--ui-color-text-muted);
   text-align: center;
 }
 
 /* ==========================================================================
-   Datepicker
+   List Panel Size Variants
+   All dimensions strictly follow CSS tokens and size-modifier conventions
    ========================================================================== */
 
-.ui-datepicker {
-  position: relative;
+/* --- Small (--sm) --------------------------------------------------------- */
+
+.ui-autocomplete-panel--sm {
+  min-width: 200px;
+  max-height: 180px;
 }
 
-.ui-datepicker__input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+.ui-autocomplete-panel--sm .ui-autocomplete__item {
+  padding: 6px 10px;
+  font-size: var(--ui-font-size-sm);
 }
 
-.ui-datepicker__input-wrapper .ui-input {
+.ui-autocomplete-panel--sm .ui-autocomplete__item-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.ui-autocomplete-panel--sm .ui-autocomplete__empty {
+  padding: 8px 10px;
+  font-size: var(--ui-font-size-sm);
+}
+
+/* --- Medium (--md) -------------------------------------------------------- */
+
+.ui-autocomplete-panel--md {
+  min-width: 240px;
+  max-height: 220px;
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__item {
+  padding: 9px 13px;
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__item-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__empty {
+  padding: 12px 13px;
+  font-size: var(--ui-font-size-md);
+}
+
+/* --- Large (--lg) --------------------------------------------------------- */
+
+.ui-autocomplete-panel--lg {
+  min-width: 280px;
+  max-height: 260px;
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__item {
+  padding: 12px 16px;
+  font-size: var(--ui-font-size-lg);
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__item-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__empty {
+  padding: 16px 16px;
+  font-size: var(--ui-font-size-lg);
+}
+
+/* ==========================================================================
+   Datepicker — Trigger Input (standalone, no compound wrapper)
+   ========================================================================== */
+
+/* Input wrapper with calendar icon — CSS Grid overlay, no position:absolute */
+
+.ui-datepicker-trigger {
+  display: grid;
+}
+
+.ui-datepicker-trigger .ui-input {
+  grid-area: 1 / 1;
   padding-right: 40px;
   cursor: pointer;
 }
 
 .ui-datepicker__icon {
-  position: absolute;
-  right: 10px;
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: center;
+  padding-right: 10px;
   color: var(--ui-color-text-muted);
   pointer-events: none;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
-.ui-datepicker__calendar {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  min-width: 280px;
+/* Size overrides for trigger */
+
+.ui-field--sm .ui-datepicker-trigger .ui-input {
+  padding: 6px 32px 6px 10px;
+}
+
+.ui-field--sm .ui-datepicker-trigger .ui-datepicker__icon {
+  padding-right: 8px;
+}
+
+.ui-field--lg .ui-datepicker-trigger .ui-input {
+  padding: 13px 48px 13px 17px;
+}
+
+.ui-field--lg .ui-datepicker-trigger .ui-datepicker__icon {
+  padding-right: 14px;
+}
+
+/* ==========================================================================
+   Calendar View — Static widget, normal document flow
+   Uses display:grid for day grid; no position:absolute anywhere
+   ========================================================================== */
+
+.ui-calendar {
+  display: block;
   background: var(--ui-color-bg);
   border: 1px solid var(--ui-color-border);
   border-radius: var(--ui-radius-lg);
-  box-shadow: var(--ui-shadow-lg);
-  z-index: 300;
+  box-shadow: var(--ui-shadow-md);
   overflow: hidden;
 }
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
 
 .ui-datepicker__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--ui-space-3) var(--ui-space-4);
   border-bottom: 1px solid var(--ui-color-border);
 }
 
@@ -1327,14 +1472,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
   border: none;
   background: transparent;
   border-radius: var(--ui-radius-sm);
   cursor: pointer;
   color: var(--ui-color-text-muted);
   transition: var(--ui-transition-fast);
+  flex-shrink: 0;
 }
 
 .ui-datepicker__nav:hover {
@@ -1344,24 +1488,24 @@
 
 .ui-datepicker__month-year {
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-md);
   font-weight: 600;
   color: var(--ui-color-text);
 }
 
+/* --------------------------------------------------------------------------
+   Grid — 7-column CSS Grid, no absolute positioning
+   -------------------------------------------------------------------------- */
+
 .ui-datepicker__grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  padding: var(--ui-space-2);
 }
 
 .ui-datepicker__weekday {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-xs);
   font-weight: 600;
   color: var(--ui-color-text-muted);
   text-transform: uppercase;
@@ -1372,11 +1516,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
   margin: 1px auto;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-sm);
   color: var(--ui-color-text);
   border: none;
   background: transparent;
@@ -1396,7 +1537,7 @@
 
 .ui-datepicker__day--selected {
   background: var(--ui-color-primary);
-  color: white;
+  color: #fff;
   font-weight: 500;
 }
 
@@ -1408,12 +1549,134 @@
   color: var(--ui-color-text-muted);
 }
 
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
 .ui-datepicker__footer {
   display: flex;
   justify-content: flex-end;
   gap: var(--ui-space-2);
-  padding: var(--ui-space-2) var(--ui-space-4) var(--ui-space-3);
   border-top: 1px solid var(--ui-color-border);
+}
+
+/* ==========================================================================
+   Calendar Size Variants
+   All dimensions strictly follow CSS tokens and size-modifier conventions
+   ========================================================================== */
+
+/* --- Small (--sm) --------------------------------------------------------- */
+
+.ui-calendar--sm {
+  min-width: 240px;
+}
+
+.ui-calendar--sm .ui-datepicker__header {
+  padding: var(--ui-space-2) var(--ui-space-3);
+}
+
+.ui-calendar--sm .ui-datepicker__nav {
+  width: 24px;
+  height: 24px;
+}
+
+.ui-calendar--sm .ui-datepicker__month-year {
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-calendar--sm .ui-datepicker__grid {
+  padding: var(--ui-space-1);
+}
+
+.ui-calendar--sm .ui-datepicker__weekday {
+  height: 26px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-calendar--sm .ui-datepicker__day {
+  height: 26px;
+  width: 26px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-calendar--sm .ui-datepicker__footer {
+  padding: var(--ui-space-1) var(--ui-space-3) var(--ui-space-2);
+}
+
+/* --- Medium (--md) -------------------------------------------------------- */
+
+.ui-calendar--md {
+  min-width: 280px;
+}
+
+.ui-calendar--md .ui-datepicker__header {
+  padding: var(--ui-space-3) var(--ui-space-4);
+}
+
+.ui-calendar--md .ui-datepicker__nav {
+  width: 28px;
+  height: 28px;
+}
+
+.ui-calendar--md .ui-datepicker__month-year {
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-calendar--md .ui-datepicker__grid {
+  padding: var(--ui-space-2);
+}
+
+.ui-calendar--md .ui-datepicker__weekday {
+  height: 32px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-calendar--md .ui-datepicker__day {
+  height: 32px;
+  width: 32px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-calendar--md .ui-datepicker__footer {
+  padding: var(--ui-space-2) var(--ui-space-4) var(--ui-space-3);
+}
+
+/* --- Large (--lg) --------------------------------------------------------- */
+
+.ui-calendar--lg {
+  min-width: 340px;
+}
+
+.ui-calendar--lg .ui-datepicker__header {
+  padding: var(--ui-space-4) var(--ui-space-6);
+}
+
+.ui-calendar--lg .ui-datepicker__nav {
+  width: 34px;
+  height: 34px;
+}
+
+.ui-calendar--lg .ui-datepicker__month-year {
+  font-size: var(--ui-font-size-lg);
+}
+
+.ui-calendar--lg .ui-datepicker__grid {
+  padding: var(--ui-space-3);
+}
+
+.ui-calendar--lg .ui-datepicker__weekday {
+  height: 40px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-calendar--lg .ui-datepicker__day {
+  height: 40px;
+  width: 40px;
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-calendar--lg .ui-datepicker__footer {
+  padding: var(--ui-space-3) var(--ui-space-6) var(--ui-space-4);
 }
 
 /* ==========================================================================
@@ -1438,7 +1701,7 @@
   font-family: var(--ui-font-family);
   font-size: var(--ui-font-size-sm);
   line-height: 1.4;
-  color: white;
+  color: var(--ui-color-bg);
   background: var(--ui-color-text);
   border-radius: var(--ui-radius-sm);
   box-shadow: var(--ui-shadow-md);
@@ -1644,7 +1907,7 @@
 .ui-select--error,
 .ui-textarea--error {
   border-color: var(--ui-color-error);
-  background: var(--ui-color-error-light);
+  background-color: var(--ui-color-error-light);
 }
 
 .ui-input--error:focus,
@@ -1657,7 +1920,7 @@
 .ui-select--success,
 .ui-textarea--success {
   border-color: var(--ui-color-success);
-  background: var(--ui-color-success-light);
+  background-color: var(--ui-color-success-light);
 }
 
 .ui-input--success:focus,
@@ -1670,7 +1933,7 @@
 .ui-select--warning,
 .ui-textarea--warning {
   border-color: var(--ui-color-warning);
-  background: var(--ui-color-warning-light);
+  background-color: var(--ui-color-warning-light);
 }
 
 .ui-input--warning:focus,

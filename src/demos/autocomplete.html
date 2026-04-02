@@ -9,16 +9,17 @@
 </head>
 <body class="demo-page">
   <section class="demo-section">
-    <h2 class="demo-section__title">Autocomplete</h2>
+    <h2 class="demo-section__title">Search Inputs</h2>
 
     <div class="demo-group">
-      <h3 class="demo-group__title">Triggers</h3>
+      <h3 class="demo-group__title">Small / Medium / Large</h3>
       <div class="u-grid u-grid--wide">
+
         <div class="ui-field ui-field--sm">
           <label class="ui-label">Search Users</label>
           <div class="ui-autocomplete-trigger">
             <span class="ui-autocomplete__search-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </span>
             <input type="text" class="ui-input" placeholder="Type to search...">
           </div>
@@ -28,7 +29,7 @@
           <label class="ui-label">Search Products</label>
           <div class="ui-autocomplete-trigger">
             <span class="ui-autocomplete__search-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </span>
             <input type="text" class="ui-input" placeholder="Laptop, phone..." value="Mac">
           </div>
@@ -38,83 +39,199 @@
           <label class="ui-label">Search Locations</label>
           <div class="ui-autocomplete-trigger">
             <span class="ui-autocomplete__search-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </span>
             <input type="text" class="ui-input" placeholder="Search for cities...">
           </div>
         </div>
+
       </div>
     </div>
+  </section>
+
+  <!-- ====================================================================
+       List Widget — Small
+       ==================================================================== -->
+  <section class="demo-section">
+    <h2 class="demo-section__title">List Widget — Small</h2>
 
     <div class="demo-group">
-      <h3 class="demo-group__title">Suggestion Panels</h3>
+      <h3 class="demo-group__title">Results, icons &amp; empty state</h3>
       <div class="u-grid u-grid--wide">
+
         <div class="u-stack u-stack--relaxed">
-          <span class="ui-label">Results list</span>
-          <div class="ui-autocomplete-panel">
+          <span class="ui-label">Text only</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--sm">
             <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-              <span class="ui-autocomplete__item-icon">👤</span>
               <span>John Doe</span>
             </div>
             <div class="ui-autocomplete__item">
-              <span class="ui-autocomplete__item-icon">👤</span>
               <span>Jane Smith</span>
             </div>
             <div class="ui-autocomplete__item">
-              <span class="ui-autocomplete__item-icon">👤</span>
               <span>Bob Johnson</span>
             </div>
-            <div class="ui-autocomplete__item">
-              <span class="ui-autocomplete__item-icon">👤</span>
+            <div class="ui-autocomplete__item ui-autocomplete__item--active">
               <span>Amelia Moore</span>
             </div>
           </div>
         </div>
 
         <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">With icons</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--sm">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Pro 16"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Air 13"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Studio</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Mini</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
           <span class="ui-label">Empty state</span>
-          <div class="ui-autocomplete-panel">
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--sm">
             <div class="ui-autocomplete__empty">No matches found</div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="demo-group">
-      <h3 class="demo-group__title">Composed (floating dropdown)</h3>
-      <div class="u-grid u-grid--wide">
-        <div class="ui-field ui-field--md">
-          <label class="ui-label">Search Catalog</label>
-          <div class="ui-autocomplete">
-            <div class="ui-autocomplete__input-wrapper">
-              <span class="ui-autocomplete__search-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-              </span>
-              <input type="text" class="ui-input" placeholder="Type to search..." value="MacBook">
-            </div>
-            <div class="ui-autocomplete__dropdown">
-              <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>MacBook Pro 16"</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>MacBook Air 13"</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>Mac Studio</span>
-              </div>
-              <div class="ui-autocomplete__item">
-                <span class="ui-autocomplete__item-icon">📦</span>
-                <span>Mac Mini</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
+  <!-- ====================================================================
+       List Widget — Medium
+       ==================================================================== -->
+  <section class="demo-section">
+    <h2 class="demo-section__title">List Widget — Medium</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Results, icons &amp; empty state</h3>
+      <div class="u-grid u-grid--wide">
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Text only</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--md">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span>John Doe</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span>Jane Smith</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span>Bob Johnson</span>
+            </div>
+            <div class="ui-autocomplete__item ui-autocomplete__item--active">
+              <span>Amelia Moore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">With icons</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--md">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Pro 16"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Air 13"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Studio</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Mini</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Empty state</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--md">
+            <div class="ui-autocomplete__empty">No matches found</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       List Widget — Large
+       ==================================================================== -->
+  <section class="demo-section">
+    <h2 class="demo-section__title">List Widget — Large</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Results, icons &amp; empty state</h3>
+      <div class="u-grid u-grid--wide">
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Text only</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--lg">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span>John Doe</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span>Jane Smith</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span>Bob Johnson</span>
+            </div>
+            <div class="ui-autocomplete__item ui-autocomplete__item--active">
+              <span>Amelia Moore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">With icons</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--lg">
+            <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Pro 16"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>MacBook Air 13"</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Studio</span>
+            </div>
+            <div class="ui-autocomplete__item">
+              <span class="ui-autocomplete__item-icon">&#128246;</span>
+              <span>Mac Mini</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-stack u-stack--relaxed">
+          <span class="ui-label">Empty state</span>
+          <div class="ui-autocomplete-panel ui-autocomplete-panel--lg">
+            <div class="ui-autocomplete__empty">No matches found</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 <script src="../js/demo-theme.js"></script>
 </body>
 </html>
