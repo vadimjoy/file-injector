@@ -25,22 +25,23 @@
 
 ## Installation
 
-### CDN (Recommended)
-
-```html
-<link rel="stylesheet" href="https://your-cdn.com/pure-ui/styles.css">
-```
-
-### Local Installation
+### npm (Recommended)
 
 ```bash
-# Download the files
-curl -O https://github.com/your-org/pure-ui/releases/latest/styles.css
+npm install pure-ui font-awesome
 ```
 
+```css
+@import 'pure-ui';
+/* or */
+@import 'pure-ui/components/button.css';
+```
+
+### CDN
+
 ```html
-<!-- Include in your HTML -->
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://unpkg.com/pure-ui/dist/pure-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 ```
 
 ### Prerequisites
@@ -60,7 +61,7 @@ curl -O https://github.com/your-org/pure-ui/releases/latest/styles.css
 <html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/pure-ui/dist/pure-ui.css">
 </head>
 <body>
   <div class="ui-field ui-field--md">
