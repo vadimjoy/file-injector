@@ -1,17 +1,11 @@
 {
   "name": "ai-css-kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AI-first modular CSS component library with tokens, themes, and demo blocks.",
   "main": "dist/ai-css-kit.css",
   "style": "dist/ai-css-kit.css",
   "files": [
-    "dist",
-    "src/css",
-    "src/demos",
-    "src/js/demo-theme.js",
-    "README.md",
-    "SPEC.md",
-    "LICENSE"
+    "dist"
   ],
   "exports": {
     ".": {
