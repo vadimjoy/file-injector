@@ -1,6 +1,6 @@
 # Contributing to ai-css-kit
 
-> **Note:** All references to `pure-ui` are deprecated. The canonical name is `ai-css-kit` in all code, commits, PRs, and documentation.
+> **Note:** `ai-css-kit` is the canonical name across code, commits, PRs, and documentation.
 
 ---
 
@@ -188,7 +188,7 @@ refactor(tokens): migrate --ui-* to --ai-* namespace
 docs(adr): add ADR-0001 for calendar decoupling
 ```
 
-**Banned in commit messages and PR descriptions:** `pure-ui`, `pureui`, `pure_ui`. Use `ai-css-kit`.
+**Banned in commit messages and PR descriptions:** any legacy codename. Use `ai-css-kit`.
 
 ### Pull Request Requirements
 
@@ -198,7 +198,7 @@ docs(adr): add ADR-0001 for calendar decoupling
 - [ ] Both light and dark themes verified
 - [ ] If new component: demo file added to `src/demos/`
 - [ ] If breaking change or major refactor: ADR exists in `docs/adr/`
-- [ ] Zero mentions of `pure-ui` in changed files
+- [ ] Zero references to legacy codenames in changed files
 
 ---
 
