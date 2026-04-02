@@ -313,13 +313,17 @@ Searchable dropdown with suggestions.
 | Class | Description |
 |-------|-------------|
 | `.ui-autocomplete` | Wrapper container |
-| `.ui-autocomplete__input-wrapper` | Input + icon wrapper |
+| `.ui-autocomplete__input-wrapper` | Input + icon wrapper inside composed component |
+| `.ui-autocomplete-trigger` | Standalone trigger/input wrapper |
 | `.ui-autocomplete__search-icon` | Search icon |
-| `.ui-autocomplete__dropdown` | Suggestions dropdown |
+| `.ui-autocomplete__dropdown` | Floating suggestions dropdown (inside wrapper) |
+| `.ui-autocomplete-panel` | Standalone suggestions panel |
+| `.ui-autocomplete-panel--floating` | Makes standalone panel behave like dropdown |
 | `.ui-autocomplete__item` | Suggestion item |
 | `.ui-autocomplete__item--active` | Keyboard focused item |
 | `.ui-autocomplete__item--highlighted` | Selected item |
 | `.ui-autocomplete__item-icon` | Item icon |
+| `.ui-autocomplete__empty` | Empty state placeholder |
 
 #### States
 
@@ -331,24 +335,43 @@ Searchable dropdown with suggestions.
 #### HTML Example
 
 ```html
-<div class="ui-field ui-field--md">
-  <label class="ui-label">Search Products</label>
-  <div class="ui-autocomplete">
-    <div class="ui-autocomplete__input-wrapper">
-      <span class="ui-autocomplete__search-icon">
-        <svg><!-- search icon --></svg>
-      </span>
-      <input type="text" class="ui-input" placeholder="Type to search...">
+<!-- Standalone trigger (no dropdown attached) -->
+<div class="ui-autocomplete-trigger">
+  <span class="ui-autocomplete__search-icon">
+    <svg><!-- search icon --></svg>
+  </span>
+  <input type="text" class="ui-input" placeholder="Type to search...">
+</div>
+
+<!-- Standalone panel -->
+<div class="ui-autocomplete-panel">
+  <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+    <span class="ui-autocomplete__item-icon">📦</span>
+    <span>MacBook Pro</span>
+  </div>
+  <div class="ui-autocomplete__item">
+    <span class="ui-autocomplete__item-icon">📦</span>
+    <span>iPhone 15</span>
+  </div>
+  <div class="ui-autocomplete__empty">No matches found</div>
+</div>
+
+<!-- Composed floating dropdown -->
+<div class="ui-autocomplete">
+  <div class="ui-autocomplete__input-wrapper">
+    <span class="ui-autocomplete__search-icon">
+      <svg><!-- search icon --></svg>
+    </span>
+    <input type="text" class="ui-input" placeholder="Type to search...">
+  </div>
+  <div class="ui-autocomplete__dropdown">
+    <div class="ui-autocomplete__item">
+      <span class="ui-autocomplete__item-icon">📦</span>
+      <span>MacBook Pro</span>
     </div>
-    <div class="ui-autocomplete__dropdown">
-      <div class="ui-autocomplete__item">
-        <span class="ui-autocomplete__item-icon">📦</span>
-        <span>MacBook Pro</span>
-      </div>
-      <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-        <span class="ui-autocomplete__item-icon">📦</span>
-        <span>iPhone 15</span>
-      </div>
+    <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+      <span class="ui-autocomplete__item-icon">📦</span>
+      <span>iPhone 15</span>
     </div>
   </div>
 </div>
@@ -640,9 +663,12 @@ Calendar date selection component.
 | Class | Description |
 |-------|-------------|
 | `.ui-datepicker` | Wrapper container |
-| `.ui-datepicker__input-wrapper` | Input + icon |
+| `.ui-datepicker__input-wrapper` | Input + icon (inside wrapper) |
+| `.ui-datepicker-trigger` | Standalone input-trigger shell |
 | `.ui-datepicker__icon` | Calendar icon |
-| `.ui-datepicker__calendar` | Calendar popup |
+| `.ui-datepicker__calendar` | Calendar popup inside wrapper |
+| `.ui-calendar` | Standalone calendar surface |
+| `.ui-calendar--floating` | Optional floating positioning for standalone calendar |
 | `.ui-datepicker__header` | Month navigation |
 | `.ui-datepicker__nav` | Prev/Next buttons |
 | `.ui-datepicker__month-year` | Month display |
@@ -665,18 +691,42 @@ Calendar date selection component.
 #### HTML Example
 
 ```html
-<div class="ui-field ui-field--md">
-  <label class="ui-label">Select Date</label>
-  <div class="ui-datepicker">
-    <div class="ui-datepicker__input-wrapper">
-      <input type="text" class="ui-input" value="12/25/2024" readonly>
-      <span class="ui-datepicker__icon">
-        <svg><!-- calendar icon --></svg>
-      </span>
-    </div>
-    <div class="ui-datepicker__calendar">
-      <!-- Calendar grid -->
-    </div>
+<!-- Standalone trigger -->
+<div class="ui-datepicker-trigger">
+  <input type="text" class="ui-input" value="12/25/2024" readonly>
+  <span class="ui-datepicker__icon">
+    <svg><!-- calendar icon --></svg>
+  </span>
+</div>
+
+<!-- Standalone calendar -->
+<div class="ui-calendar">
+  <div class="ui-datepicker__header">
+    <button class="ui-datepicker__nav">&#8249;</button>
+    <span class="ui-datepicker__month-year">December 2024</span>
+    <button class="ui-datepicker__nav">&#8250;</button>
+  </div>
+  <div class="ui-datepicker__grid">
+    <div class="ui-datepicker__weekday">Su</div>
+    <!-- ... -->
+    <button class="ui-datepicker__day ui-datepicker__day--selected">25</button>
+  </div>
+  <div class="ui-datepicker__footer">
+    <button class="ui-button ui-button--ghost ui-button--sm">Cancel</button>
+    <button class="ui-button ui-button--primary ui-button--sm">Apply</button>
+  </div>
+</div>
+
+<!-- Composed floating picker -->
+<div class="ui-datepicker">
+  <div class="ui-datepicker__input-wrapper">
+    <input type="text" class="ui-input" value="07/04/2026" readonly>
+    <span class="ui-datepicker__icon">
+      <svg><!-- calendar icon --></svg>
+    </span>
+  </div>
+  <div class="ui-datepicker__calendar">
+    <!-- same structure as standalone calendar -->
   </div>
 </div>
 ```
