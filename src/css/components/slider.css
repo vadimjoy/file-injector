@@ -2,20 +2,37 @@
    Slider
    ========================================================================== */
 
+/* Typed custom property: browsers can interpolate --_fill inside gradients,
+   enabling smooth CSS transitions when JS updates the value later. */
+@property --_fill {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+}
+
+/* With appearance:none the element's own background IS the track.
+   The thumb overflows it naturally — no clipping tricks needed.
+   Set --_fill via inline style to show progress, e.g. style="--_fill:40%" */
 .ui-slider {
+  --_track-color: var(--ui-color-border);
   width: 100%;
   height: 5px;
   appearance: none;
-  background: var(--ui-color-border);
+  background: linear-gradient(
+    to right,
+    var(--ui-color-primary) var(--_fill),
+    var(--_track-color) var(--_fill)
+  );
   border-radius: var(--ui-radius-full);
   outline: none;
   cursor: pointer;
-  transition: var(--ui-transition-fast);
 }
 
 .ui-slider:hover {
-  background: var(--ui-color-border-strong);
+  --_track-color: var(--ui-color-border-strong);
 }
+
+/* ---- WebKit ---- */
 
 .ui-slider::-webkit-slider-thumb {
   appearance: none;
@@ -26,7 +43,7 @@
   border: 2px solid white;
   box-shadow: var(--ui-shadow-sm);
   cursor: pointer;
-  transition: var(--ui-transition-fast);
+  transition: transform var(--ui-transition-fast), box-shadow var(--ui-transition-fast);
 }
 
 .ui-slider::-webkit-slider-thumb:hover {
@@ -38,6 +55,22 @@
   box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
 }
 
+/* ---- Firefox ---- */
+
+/* Firefox uses its own pseudo-elements for track rendering;
+   ::-moz-range-progress provides native fill — no --_fill needed */
+.ui-slider::-moz-range-track {
+  height: inherit;
+  background: var(--_track-color);
+  border-radius: var(--ui-radius-full);
+}
+
+.ui-slider::-moz-range-progress {
+  height: inherit;
+  background: var(--ui-color-primary);
+  border-radius: var(--ui-radius-full) 0 0 var(--ui-radius-full);
+}
+
 .ui-slider::-moz-range-thumb {
   width: 17px;
   height: 17px;
@@ -46,33 +79,29 @@
   border: 2px solid white;
   box-shadow: var(--ui-shadow-sm);
   cursor: pointer;
-  transition: var(--ui-transition-fast);
+  transition: transform var(--ui-transition-fast), box-shadow var(--ui-transition-fast);
 }
 
-/* Sizes */
-.ui-slider--sm {
-  height: 3px;
+/* ---- Disabled ---- */
+
+.ui-slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.ui-slider--sm::-webkit-slider-thumb {
-  width: 13px;
-  height: 13px;
-}
+/* ---- Sizes ---- */
 
+.ui-slider--sm { height: 3px; }
+
+.ui-slider--sm::-webkit-slider-thumb,
 .ui-slider--sm::-moz-range-thumb {
   width: 13px;
   height: 13px;
 }
 
-.ui-slider--lg {
-  height: 7px;
-}
+.ui-slider--lg { height: 7px; }
 
-.ui-slider--lg::-webkit-slider-thumb {
-  width: 21px;
-  height: 21px;
-}
-
+.ui-slider--lg::-webkit-slider-thumb,
 .ui-slider--lg::-moz-range-thumb {
   width: 21px;
   height: 21px;
