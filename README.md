@@ -1,102 +1,99 @@
 # Pure UI
 
-A lightweight, modern CSS component library built with zero JavaScript dependencies. Designed with minimalism and accessibility in mind.
+Pure UI — модульная CSS-библиотека форм и UI‑паттернов. Внутри только HTML/CSS и скрипт синхронизации темы для демо-страниц; сторонних зависимостей в рантайме нет, кроме иконок Font Awesome.
 
-## Features
+## Почему Pure UI
 
-- **Zero Dependencies** — Pure CSS, no JavaScript libraries required for styling
-- **3 Size Variants** — Small (sm), Medium (md), and Large (lg) for all components
-- **Full Customization** — Every visual aspect controlled via CSS custom properties
-- **Dark Mode Support** — Automatic theme detection or manual toggle via `data-theme="dark"`
-- **Accessibility First** — ARIA-compatible, keyboard navigable, focus states
-- **Modern Standards** — CSS Grid, Flexbox, Custom Properties, and semantic HTML
-- **Responsive** — Mobile-first approach with breakpoints at 768px and 1024px
+- **Дизайн‑токены** — все цвета, типографика и отступы на переменных CSS
+- **Модульные импорты** — подключайте весь пакет или отдельные компоненты
+- **Тёмная тема** — переключается через `data-theme="dark"` и сохраняется локально
+- **Zero JS** — стили не требуют JavaScript и фреймворков
+- **Font Awesome** — единственный вендор для иконографики
 
-## Installation
+## Установка
+
+### npm
+
+```bash
+npm install pure-ui font-awesome
+```
+
+```css
+/* postcss / bundler */
+@import 'pure-ui';
+
+/* точечный импорт */
+@import 'pure-ui/components/button.css';
+```
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://your-cdn.com/pure-ui/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/pure-ui/dist/pure-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 ```
 
-### Prerequisites
+### Обязательные шрифты
 
 ```html
-<!-- Required: Google Fonts Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
-## Quick Start
+## Быстрый старт
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/node_modules/pure-ui/dist/pure-ui.css">
 </head>
 <body>
   <div class="ui-field ui-field--md">
     <label class="ui-label">Email Address</label>
     <input type="email" class="ui-input" placeholder="name@example.com">
-    <span class="ui-helper">We'll never share your email</span>
+    <span class="ui-helper"><i class="fa fa-lock" aria-hidden="true"></i> We keep it private</span>
   </div>
 </body>
 </html>
 ```
 
-## Components
-
-| Component | Class | Description |
-|-----------|-------|-------------|
-| Input | `.ui-input` | Text input with error/success/warning states |
-| Textarea | `.ui-textarea` | Multi-line text input |
-| Select | `.ui-select` | Dropdown with custom arrow styling |
-| Autocomplete | `.ui-autocomplete` | Searchable dropdown with suggestions |
-| Checkbox | `.ui-checkbox` | Single or multiple selection |
-| Radio | `.ui-radio` | Mutually exclusive selection |
-| Toggle | `.ui-toggle` | On/off switch with animation |
-| Slider | `.ui-slider` | Range input for numeric values |
-| Button | `.ui-button` | Action buttons with multiple variants |
-| File Upload | `.ui-file-upload` | Drag-and-drop file input |
-| Date Picker | `.ui-datepicker` | Calendar date selection |
-| Progress | `.ui-progress` | Linear progress indicator |
-| Badge | `.ui-badge` | Status indicators and labels |
-| Tooltip | `.ui-tooltip` | Contextual information on hover |
-| Card | `.ui-card` | Container for grouping content |
-| Field Wrapper | `.ui-field` | Form field container with consistent spacing |
-
-## Dark Mode
-
-```html
-<html data-theme="dark">
-  <!-- All components use dark theme -->
-</html>
-```
-
-## Customization
-
-Override CSS custom properties to create custom themes:
+## Субпакеты
 
 ```css
-:root {
-  --ui-color-primary: #10b981;
-  --ui-color-primary-hover: #059669;
-  --ui-radius-md: 12px;
-  --ui-font-family: 'Poppins', sans-serif;
-}
+@import 'pure-ui/tokens';         /* дизайн‑токены */
+@import 'pure-ui/base';            /* сброс и базовые стили */
+@import 'pure-ui/components/button.css';
+@import 'pure-ui/components/input.css';
 ```
 
-## Documentation
+Subpath‑экспорты позволяют собирать только нужные блоки в PostCSS, Vite, Webpack и т.д.
 
-Full component specification, CSS variables reference, accessibility guidelines, and usage examples are in [SPEC.md](SPEC.md).
+## Тёмная тема и синхронизация
 
-## Browser Support
+```html
+<html data-theme="dark">...</html>
+```
 
-Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+Для демо-страниц мы используем `src/js/demo-theme.js`, который принимает события `postMessage` и переключает атрибут `data-theme`. Главная витрина (`index.html`) просто отправляет `type: 'theme'` во все iframe, так что вы можете использовать тот же приём в дизайне-системах с множеством песочниц.
 
-## License
+## Разработка и сборка
 
-MIT License — free for personal and commercial use.
+```bash
+npm install          # установить dev-инструменты PostCSS
+npm run build        # dist/pure-ui.css и dist/pure-ui.min.css
+```
+
+Сборка основана на `postcss-cli` + `postcss-import` + `postcss-nesting`. Минификация включается автоматически для `pure-ui.min.css`.
+
+## Документация
+
+- Подробные примеры, состояния и токены — в [SPEC.md](SPEC.md)
+- Живые примеры компонентов находятся в `src/demos/*.html`
+
+## Лицензия
+
+MIT — можно использовать в коммерческих и open-source проектах.

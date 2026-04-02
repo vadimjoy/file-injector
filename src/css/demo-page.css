@@ -2,6 +2,8 @@
 /*   Pure UI — Demo Base & Utilities                                          */
 /* ========================================================================== */
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body.demo-page {
   font-family: var(--ui-font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   background: var(--ui-color-bg);
