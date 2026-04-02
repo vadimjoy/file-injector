@@ -11,7 +11,7 @@
 .ui-select--error,
 .ui-textarea--error {
   border-color: var(--ui-color-error);
-  background: var(--ui-color-error-light);
+  background-color: var(--ui-color-error-light);
 }
 
 .ui-input--error:focus,
@@ -24,7 +24,7 @@
 .ui-select--success,
 .ui-textarea--success {
   border-color: var(--ui-color-success);
-  background: var(--ui-color-success-light);
+  background-color: var(--ui-color-success-light);
 }
 
 .ui-input--success:focus,
@@ -37,7 +37,7 @@
 .ui-select--warning,
 .ui-textarea--warning {
   border-color: var(--ui-color-warning);
-  background: var(--ui-color-warning-light);
+  background-color: var(--ui-color-warning-light);
 }
 
 .ui-input--warning:focus,

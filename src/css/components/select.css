@@ -8,7 +8,7 @@
   font-size: var(--ui-font-size-md);
   line-height: var(--ui-line-height);
   color: var(--ui-color-text);
-  background: var(--ui-color-bg);
+  background-color: var(--ui-color-bg);
   border: 1px solid var(--ui-color-border);
   border-radius: var(--ui-radius-md);
   transition: var(--ui-transition-fast);
@@ -26,7 +26,7 @@
 }
 
 .ui-select:disabled {
-  background: var(--ui-color-bg-disabled);
+  background-color: var(--ui-color-bg-disabled);
   color: var(--ui-color-text-disabled);
   border-color: var(--ui-color-border);
   cursor: not-allowed;
@@ -34,7 +34,7 @@
 
 .ui-select--error {
   border-color: var(--ui-color-error);
-  background: var(--ui-color-error-light);
+  background-color: var(--ui-color-error-light);
 }
 
 .ui-select--error:focus {
@@ -43,7 +43,7 @@
 
 .ui-select--success {
   border-color: var(--ui-color-success);
-  background: var(--ui-color-success-light);
+  background-color: var(--ui-color-success-light);
 }
 
 .ui-select--success:focus {
@@ -52,7 +52,7 @@
 
 .ui-select--warning {
   border-color: var(--ui-color-warning);
-  background: var(--ui-color-warning-light);
+  background-color: var(--ui-color-warning-light);
 }
 
 .ui-select--warning:focus {
