@@ -19,7 +19,7 @@
   font-family: var(--ui-font-family);
   font-size: var(--ui-font-size-sm);
   line-height: 1.4;
-  color: white;
+  color: var(--ui-color-bg);
   background: var(--ui-color-text);
   border-radius: var(--ui-radius-sm);
   box-shadow: var(--ui-shadow-md);

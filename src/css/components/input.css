@@ -113,34 +113,70 @@
   box-shadow: 0 0 0 3px var(--ui-color-warning-soft);
 }
 
-/* Input with icon */
+/* Input with icon — CSS Grid overlay, no position:absolute */
 .ui-input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+  display: grid;
 }
 
 .ui-input-wrapper .ui-input {
+  grid-area: 1 / 1;
   padding-left: 36px;
 }
 
 .ui-input-wrapper .ui-input-icon {
-  position: absolute;
-  left: 10px;
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  padding-left: 10px;
   color: var(--ui-color-text-muted);
   pointer-events: none;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .ui-input-wrapper .ui-input-icon--right {
-  left: auto;
-  right: 10px;
+  justify-self: end;
+  padding-left: 0;
+  padding-right: 10px;
 }
 
 .ui-input-wrapper .ui-input--has-icon-right {
   padding-left: var(--ui-space-3);
   padding-right: 36px;
+}
+
+/* Size-specific icon offsets */
+.ui-field--sm .ui-input-wrapper .ui-input {
+  padding: 6px 10px 6px 30px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input-icon {
+  padding-left: 8px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input--has-icon-right {
+  padding: 6px 30px 6px 10px;
+}
+
+.ui-field--sm .ui-input-wrapper .ui-input-icon--right {
+  padding-right: 8px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input {
+  padding: 13px 17px 13px 44px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input-icon {
+  padding-left: 14px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input--has-icon-right {
+  padding: 13px 44px 13px 17px;
+}
+
+.ui-field--lg .ui-input-wrapper .ui-input-icon--right {
+  padding-right: 14px;
 }
 
 /* Sizes */

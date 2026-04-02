@@ -1,26 +1,22 @@
 /* ==========================================================================
-   Autocomplete
+   Autocomplete — Trigger Input (standalone, no compound wrapper)
    ========================================================================== */
 
-.ui-autocomplete {
-  position: relative;
-}
-
-.ui-autocomplete__input-wrapper,
+/* Input wrapper with search icon — CSS Grid overlay, no position:absolute */
 .ui-autocomplete-trigger {
-  position: relative;
-  display: flex;
-  align-items: center;
+  display: grid;
 }
 
-.ui-autocomplete__input-wrapper .ui-input,
 .ui-autocomplete-trigger .ui-input {
+  grid-area: 1 / 1;
   padding-left: 36px;
 }
 
 .ui-autocomplete__search-icon {
-  position: absolute;
-  left: 10px;
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  padding-left: 10px;
   color: var(--ui-color-text-muted);
   pointer-events: none;
   display: flex;
@@ -28,49 +24,50 @@
   z-index: 1;
 }
 
-.ui-autocomplete__dropdown,
+/* Size overrides for trigger */
+.ui-field--sm .ui-autocomplete-trigger .ui-input {
+  padding: 6px 10px 6px 30px;
+}
+
+.ui-field--sm .ui-autocomplete-trigger .ui-autocomplete__search-icon {
+  padding-left: 8px;
+}
+
+.ui-field--lg .ui-autocomplete-trigger .ui-input {
+  padding: 13px 17px 13px 44px;
+}
+
+.ui-field--lg .ui-autocomplete-trigger .ui-autocomplete__search-icon {
+  padding-left: 14px;
+}
+
+/* ==========================================================================
+   List Widget — Static widget, normal document flow
+   No position:absolute anywhere
+   ========================================================================== */
+
 .ui-autocomplete-panel {
+  display: block;
   background: var(--ui-color-bg);
   border: 1px solid var(--ui-color-border);
   border-radius: var(--ui-radius-md);
-  box-shadow: var(--ui-shadow-lg);
-  max-height: 220px;
+  box-shadow: var(--ui-shadow-md);
   overflow-y: auto;
-  z-index: 200;
 }
 
-.ui-autocomplete__dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
-}
-
-.ui-autocomplete-panel {
-  position: relative;
-  display: block;
-  min-width: 240px;
-}
-
-.ui-autocomplete-panel--floating {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
-}
-
-.ui-autocomplete__dropdown:empty,
 .ui-autocomplete-panel:empty {
   display: none;
 }
+
+/* --------------------------------------------------------------------------
+   Items
+   -------------------------------------------------------------------------- */
 
 .ui-autocomplete__item {
   display: flex;
   align-items: center;
   gap: var(--ui-space-2);
-  padding: 9px 13px;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-md);
   color: var(--ui-color-text);
   cursor: pointer;
   transition: var(--ui-transition-fast);
@@ -89,8 +86,6 @@
 }
 
 .ui-autocomplete__item-icon {
-  width: 16px;
-  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,9 +94,78 @@
 }
 
 .ui-autocomplete__empty {
-  padding: 12px 13px;
   font-family: var(--ui-font-family);
-  font-size: var(--ui-font-size-md);
   color: var(--ui-color-text-muted);
   text-align: center;
+}
+
+/* ==========================================================================
+   List Panel Size Variants
+   All dimensions strictly follow CSS tokens and size-modifier conventions
+   ========================================================================== */
+
+/* --- Small (--sm) --------------------------------------------------------- */
+
+.ui-autocomplete-panel--sm {
+  min-width: 200px;
+  max-height: 180px;
+}
+
+.ui-autocomplete-panel--sm .ui-autocomplete__item {
+  padding: 6px 10px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-autocomplete-panel--sm .ui-autocomplete__item-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.ui-autocomplete-panel--sm .ui-autocomplete__empty {
+  padding: 8px 10px;
+  font-size: var(--ui-font-size-sm);
+}
+
+/* --- Medium (--md) -------------------------------------------------------- */
+
+.ui-autocomplete-panel--md {
+  min-width: 240px;
+  max-height: 220px;
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__item {
+  padding: 9px 13px;
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__item-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-autocomplete-panel--md .ui-autocomplete__empty {
+  padding: 12px 13px;
+  font-size: var(--ui-font-size-md);
+}
+
+/* --- Large (--lg) --------------------------------------------------------- */
+
+.ui-autocomplete-panel--lg {
+  min-width: 280px;
+  max-height: 260px;
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__item {
+  padding: 12px 16px;
+  font-size: var(--ui-font-size-lg);
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__item-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.ui-autocomplete-panel--lg .ui-autocomplete__empty {
+  padding: 16px 16px;
+  font-size: var(--ui-font-size-lg);
 }

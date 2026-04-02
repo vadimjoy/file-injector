@@ -194,7 +194,10 @@ Text input field with multiple states and sizes.
 | `.ui-input--error` | Error state styling |
 | `.ui-input--success` | Success state styling |
 | `.ui-input--warning` | Warning state styling |
-| `.ui-input--has-icon-right` | Right icon spacing |
+| `.ui-input--has-icon-right` | Right-side icon spacing (use together with `.ui-input-icon--right`) |
+| `.ui-input-wrapper` | Grid container for icon overlay — positions icon and input in the same cell without `position: absolute` |
+| `.ui-input-icon` | Left-side icon inside `.ui-input-wrapper` |
+| `.ui-input-icon--right` | Right-side icon inside `.ui-input-wrapper` |
 
 #### States
 
@@ -223,14 +226,24 @@ Text input field with multiple states and sizes.
 <input type="text" class="ui-input ui-input--error" value="Invalid">
 <span class="ui-error">Please enter a valid email</span>
 
-<!-- With icon -->
+<!-- With left icon (search) — CSS Grid overlay, no position:absolute -->
 <div class="ui-input-wrapper">
   <span class="ui-input-icon">
     <svg><!-- search icon --></svg>
   </span>
   <input type="text" class="ui-input" placeholder="Search...">
 </div>
+
+<!-- With right icon (date) -->
+<div class="ui-input-wrapper">
+  <input type="text" class="ui-input ui-input--has-icon-right" placeholder="MM/DD/YYYY" readonly>
+  <span class="ui-input-icon ui-input-icon--right">
+    <svg><!-- calendar icon --></svg>
+  </span>
+</div>
 ```
+
+> **Implementation note:** `.ui-input-wrapper` uses `display: grid` with both the icon and the input assigned to the same `grid-area: 1 / 1`. The icon floats over the input via `z-index: 1` — no `position: absolute` is used. Size overrides (icon offset, input padding) are applied automatically when the wrapper is inside a `.ui-field--sm` or `.ui-field--lg` parent.
 
 #### Input Types Supported
 
@@ -304,47 +317,66 @@ Same as Input component.
 
 ---
 
-### 4. Autocomplete (`.ui-autocomplete`)
+### 4. Autocomplete
 
-Searchable dropdown with suggestions.
+Search input trigger and list suggestion panel — two independent atomic components. The trigger and the panel are never structurally coupled; the panel lives in normal document flow and physically displaces surrounding content.
 
-#### Classes
+#### Trigger Classes
 
 | Class | Description |
 |-------|-------------|
-| `.ui-autocomplete` | Wrapper container |
-| `.ui-autocomplete__input-wrapper` | Input + icon wrapper inside composed component |
-| `.ui-autocomplete-trigger` | Standalone trigger/input wrapper |
-| `.ui-autocomplete__search-icon` | Search icon |
-| `.ui-autocomplete__dropdown` | Floating suggestions dropdown (inside wrapper) |
-| `.ui-autocomplete-panel` | Standalone suggestions panel |
-| `.ui-autocomplete-panel--floating` | Makes standalone panel behave like dropdown |
-| `.ui-autocomplete__item` | Suggestion item |
-| `.ui-autocomplete__item--active` | Keyboard focused item |
-| `.ui-autocomplete__item--highlighted` | Selected item |
-| `.ui-autocomplete__item-icon` | Item icon |
-| `.ui-autocomplete__empty` | Empty state placeholder |
+| `.ui-autocomplete-trigger` | Grid container for search input + icon overlay |
+| `.ui-autocomplete__search-icon` | Left search icon inside the trigger |
+
+#### List Panel Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-autocomplete-panel` | Base static list panel |
+| `.ui-autocomplete-panel--sm` | Small: 6px 10px item padding, 13px font, 14px icons, max-height 180px |
+| `.ui-autocomplete-panel--md` | Medium: 9px 13px item padding, 14px font, 16px icons, max-height 220px |
+| `.ui-autocomplete-panel--lg` | Large: 12px 16px item padding, 16px font, 18px icons, max-height 260px |
+| `.ui-autocomplete__item` | Suggestion item row |
+| `.ui-autocomplete__item--active` | Keyboard-focused item |
+| `.ui-autocomplete__item--highlighted` | Selected / matched item |
+| `.ui-autocomplete__item-icon` | Optional leading icon inside an item |
+| `.ui-autocomplete__empty` | Empty-state message |
 
 #### States
 
-- **Dropdown**: Hidden by default, shown on focus
-- **Item Hover**: Background highlight
+- **Item Hover**: Background highlight (`--ui-color-bg-hover`)
 - **Active**: Keyboard navigation state
-- **Highlighted**: Selected/matching item
+- **Highlighted**: Selected/matching item — primary light background
 
 #### HTML Example
 
 ```html
-<!-- Standalone trigger (no dropdown attached) -->
-<div class="ui-autocomplete-trigger">
-  <span class="ui-autocomplete__search-icon">
-    <svg><!-- search icon --></svg>
-  </span>
-  <input type="text" class="ui-input" placeholder="Type to search...">
+<!-- Trigger — wraps inside ui-field for size context -->
+<div class="ui-field ui-field--md">
+  <label class="ui-label">Search Products</label>
+  <div class="ui-autocomplete-trigger">
+    <span class="ui-autocomplete__search-icon">
+      <svg><!-- search icon --></svg>
+    </span>
+    <input type="text" class="ui-input" placeholder="Type to search...">
+  </div>
 </div>
 
-<!-- Standalone panel -->
-<div class="ui-autocomplete-panel">
+<!-- List panel — text only (sm) -->
+<div class="ui-autocomplete-panel ui-autocomplete-panel--sm">
+  <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
+    <span>John Doe</span>
+  </div>
+  <div class="ui-autocomplete__item">
+    <span>Jane Smith</span>
+  </div>
+  <div class="ui-autocomplete__item ui-autocomplete__item--active">
+    <span>Bob Johnson</span>
+  </div>
+</div>
+
+<!-- List panel — with icons (md) -->
+<div class="ui-autocomplete-panel ui-autocomplete-panel--md">
   <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
     <span class="ui-autocomplete__item-icon">📦</span>
     <span>MacBook Pro</span>
@@ -353,45 +385,15 @@ Searchable dropdown with suggestions.
     <span class="ui-autocomplete__item-icon">📦</span>
     <span>iPhone 15</span>
   </div>
+</div>
+
+<!-- Empty state (lg) -->
+<div class="ui-autocomplete-panel ui-autocomplete-panel--lg">
   <div class="ui-autocomplete__empty">No matches found</div>
 </div>
-
-<!-- Composed floating dropdown -->
-<div class="ui-autocomplete">
-  <div class="ui-autocomplete__input-wrapper">
-    <span class="ui-autocomplete__search-icon">
-      <svg><!-- search icon --></svg>
-    </span>
-    <input type="text" class="ui-input" placeholder="Type to search...">
-  </div>
-  <div class="ui-autocomplete__dropdown">
-    <div class="ui-autocomplete__item">
-      <span class="ui-autocomplete__item-icon">📦</span>
-      <span>MacBook Pro</span>
-    </div>
-    <div class="ui-autocomplete__item ui-autocomplete__item--highlighted">
-      <span class="ui-autocomplete__item-icon">📦</span>
-      <span>iPhone 15</span>
-    </div>
-  </div>
-</div>
 ```
 
-#### JavaScript Integration
-
-Requires JavaScript for functionality:
-
-```javascript
-// Toggle dropdown on focus
-input.addEventListener('focus', () => {
-  dropdown.style.display = 'block';
-});
-
-// Keyboard navigation
-input.addEventListener('keydown', (e) => {
-  // Arrow keys, Enter, Escape handling
-});
-```
+> **Implementation note:** `.ui-autocomplete-trigger` uses `display: grid` — both the search icon and the input share `grid-area: 1 / 1`. No `position: absolute`. The list panel is `display: block` in normal flow — it pushes adjacent content down.
 
 ---
 
@@ -654,53 +656,59 @@ dropzone.addEventListener('drop', (e) => {
 
 ---
 
-### 11. Date Picker (`.ui-datepicker`)
+### 11. Date Picker
 
-Calendar date selection component.
+Date input trigger and calendar view — two independent atomic components. The trigger and the calendar are never structurally coupled; the calendar lives in normal document flow and physically displaces surrounding content.
 
-#### Classes
+#### Trigger Classes
 
 | Class | Description |
 |-------|-------------|
-| `.ui-datepicker` | Wrapper container |
-| `.ui-datepicker__input-wrapper` | Input + icon (inside wrapper) |
-| `.ui-datepicker-trigger` | Standalone input-trigger shell |
-| `.ui-datepicker__icon` | Calendar icon |
-| `.ui-datepicker__calendar` | Calendar popup inside wrapper |
-| `.ui-calendar` | Standalone calendar surface |
-| `.ui-calendar--floating` | Optional floating positioning for standalone calendar |
-| `.ui-datepicker__header` | Month navigation |
-| `.ui-datepicker__nav` | Prev/Next buttons |
-| `.ui-datepicker__month-year` | Month display |
-| `.ui-datepicker__grid` | Days grid |
-| `.ui-datepicker__weekday` | Weekday headers |
+| `.ui-datepicker-trigger` | Grid container for date input + calendar icon overlay |
+| `.ui-datepicker__icon` | Right-side calendar icon inside the trigger |
+
+#### Calendar View Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-calendar` | Base static calendar surface |
+| `.ui-calendar--sm` | Small: 240px min-width, 26px day cells, 13px month font |
+| `.ui-calendar--md` | Medium: 280px min-width, 32px day cells, 14px month font |
+| `.ui-calendar--lg` | Large: 340px min-width, 40px day cells, 16px month font |
+| `.ui-datepicker__header` | Month navigation bar |
+| `.ui-datepicker__nav` | Prev / Next month buttons |
+| `.ui-datepicker__month-year` | Month and year label |
+| `.ui-datepicker__grid` | 7-column CSS Grid for weekdays + day buttons |
+| `.ui-datepicker__weekday` | Weekday header cell (Su, Mo …) |
 | `.ui-datepicker__day` | Day button |
-| `.ui-datepicker__day--today` | Current day |
-| `.ui-datepicker__day--selected` | Selected day |
-| `.ui-datepicker__day--muted` | Other month days |
-| `.ui-datepicker__footer` | Action buttons |
+| `.ui-datepicker__day--today` | Current day — primary text color |
+| `.ui-datepicker__day--selected` | Selected day — primary background |
+| `.ui-datepicker__day--muted` | Days from adjacent months |
+| `.ui-datepicker__footer` | Optional action buttons (Cancel / Apply) |
 
 #### States
 
-- **Input**: Read-only, displays selected date
-- **Calendar**: Hidden by default, shown on click
-- **Day Hover**: Background highlight
-- **Selected**: Primary background
-- **Today**: Primary text color
+- **Day Hover**: Background highlight (`--ui-color-bg-hover`)
+- **Selected**: Primary background, white text
+- **Today**: Primary text color, bold weight
+- **Muted**: Reduced color for out-of-month days
 
 #### HTML Example
 
 ```html
-<!-- Standalone trigger -->
-<div class="ui-datepicker-trigger">
-  <input type="text" class="ui-input" value="12/25/2024" readonly>
-  <span class="ui-datepicker__icon">
-    <svg><!-- calendar icon --></svg>
-  </span>
+<!-- Trigger — wraps inside ui-field for size context -->
+<div class="ui-field ui-field--md">
+  <label class="ui-label">Appointment Date</label>
+  <div class="ui-datepicker-trigger">
+    <input type="text" class="ui-input" placeholder="MM/DD/YYYY" readonly value="03/30/2026">
+    <span class="ui-datepicker__icon">
+      <svg><!-- calendar icon --></svg>
+    </span>
+  </div>
 </div>
 
-<!-- Standalone calendar -->
-<div class="ui-calendar">
+<!-- Calendar — small, no footer -->
+<div class="ui-calendar ui-calendar--sm">
   <div class="ui-datepicker__header">
     <button class="ui-datepicker__nav">&#8249;</button>
     <span class="ui-datepicker__month-year">December 2024</span>
@@ -708,28 +716,32 @@ Calendar date selection component.
   </div>
   <div class="ui-datepicker__grid">
     <div class="ui-datepicker__weekday">Su</div>
-    <!-- ... -->
+    <!-- weekday headers × 7 -->
+    <button class="ui-datepicker__day ui-datepicker__day--muted">30</button>
+    <!-- day buttons … -->
     <button class="ui-datepicker__day ui-datepicker__day--selected">25</button>
-  </div>
-  <div class="ui-datepicker__footer">
-    <button class="ui-button ui-button--ghost ui-button--sm">Cancel</button>
-    <button class="ui-button ui-button--primary ui-button--sm">Apply</button>
+    <button class="ui-datepicker__day ui-datepicker__day--today">26</button>
   </div>
 </div>
 
-<!-- Composed floating picker -->
-<div class="ui-datepicker">
-  <div class="ui-datepicker__input-wrapper">
-    <input type="text" class="ui-input" value="07/04/2026" readonly>
-    <span class="ui-datepicker__icon">
-      <svg><!-- calendar icon --></svg>
-    </span>
+<!-- Calendar — large, with footer -->
+<div class="ui-calendar ui-calendar--lg">
+  <div class="ui-datepicker__header">
+    <button class="ui-datepicker__nav">&#8249;</button>
+    <span class="ui-datepicker__month-year">October 2026</span>
+    <button class="ui-datepicker__nav">&#8250;</button>
   </div>
-  <div class="ui-datepicker__calendar">
-    <!-- same structure as standalone calendar -->
+  <div class="ui-datepicker__grid">
+    <!-- weekdays + days -->
+  </div>
+  <div class="ui-datepicker__footer">
+    <button class="ui-button ui-button--ghost ui-button--md">Cancel</button>
+    <button class="ui-button ui-button--primary ui-button--md">Apply</button>
   </div>
 </div>
 ```
+
+> **Implementation note:** `.ui-datepicker-trigger` uses `display: grid` — the calendar icon and the input share `grid-area: 1 / 1`. No `position: absolute`. The calendar widget uses `display: grid` for the day grid (`grid-template-columns: repeat(7, 1fr)`) and `display: block` at the container level — it is in normal flow.
 
 ---
 
@@ -951,6 +963,16 @@ Container for form fields with consistent spacing.
 | **Slider thumb** | 13px | 17px | 21px |
 | **Badge** | 10px | 11px | 13px |
 | **File Upload** | 20px 16px | 32px 24px | 40px 32px |
+| **Calendar min-width** | 240px | 280px | 340px |
+| **Calendar day cell** | 26×26px | 32×32px | 40×40px |
+| **Calendar day font** | 11px (xs) | 13px (sm) | 14px (md) |
+| **Calendar header font** | 13px (sm) | 14px (md) | 16px (lg) |
+| **Calendar header padding** | 8px 12px | 12px 16px | 16px 24px |
+| **Calendar grid padding** | 4px | 8px | 12px |
+| **List item padding** | 6px 10px | 9px 13px | 12px 16px |
+| **List item font** | 13px (sm) | 14px (md) | 16px (lg) |
+| **List item icon** | 14×14px | 16×16px | 18×18px |
+| **List max-height** | 180px | 220px | 260px |
 
 ---
 
