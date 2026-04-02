@@ -1,9 +1,9 @@
 {
   "name": "ai-css-kit",
   "version": "0.3.0",
-  "description": "Modern modular CSS component library with tokens, themes, and demo blocks.",
-  "main": "dist/pure-ui.css",
-  "style": "dist/pure-ui.css",
+  "description": "AI-first modular CSS component library with tokens, themes, and demo blocks.",
+  "main": "dist/ai-css-kit.css",
+  "style": "dist/ai-css-kit.css",
   "files": [
     "dist",
     "src/css",
@@ -15,8 +15,8 @@
   ],
   "exports": {
     ".": {
-      "style": "./dist/pure-ui.css",
-      "default": "./dist/pure-ui.css"
+      "style": "./dist/ai-css-kit.css",
+      "default": "./dist/ai-css-kit.css"
     },
     "./tokens": "./src/css/tokens.css",
     "./base": "./src/css/base.css",
@@ -24,8 +24,8 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build:css": "postcss src/css/index.css -o dist/pure-ui.css",
-    "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/pure-ui.min.css",
+    "build:css": "postcss src/css/index.css -o dist/ai-css-kit.css",
+    "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/ai-css-kit.min.css",
     "build": "npm run clean && npm run build:css && npm run build:css:min",
     "prepare": "npm run build"
   },
@@ -35,18 +35,19 @@
     "design-system",
     "tokens",
     "theming",
-    "pure"
+    "ai",
+    "css-kit"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vadimjoy/pure-ui.git"
+    "url": "git+https://github.com/vadimjoy/ai-css-kit.git"
   },
   "author": "Vadim Joy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vadimjoy/pure-ui/issues"
+    "url": "https://github.com/vadimjoy/ai-css-kit/issues"
   },
-  "homepage": "https://github.com/vadimjoy/pure-ui#readme",
+  "homepage": "https://github.com/vadimjoy/ai-css-kit#readme",
   "dependencies": {
     "font-awesome": "^4.7.0"
   },

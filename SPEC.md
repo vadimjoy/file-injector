@@ -1,8 +1,8 @@
-# Pure UI — Component Library Specification
+# AI CSS Kit — Component Library Specification
 
 ## Overview
 
-**Pure UI** is a lightweight, modern CSS component library built with zero JavaScript dependencies. Designed with minimalism and accessibility in mind, it provides a complete set of form components with support for light/dark themes.
+**AI CSS Kit** is a lightweight, AI-first CSS component library built with zero JavaScript dependencies. Designed with minimalism and accessibility in mind, it provides a complete set of form components with support for light/dark themes.
 
 ### Key Features
 
@@ -28,19 +28,19 @@
 ### npm (Recommended)
 
 ```bash
-npm install pure-ui font-awesome
+npm install ai-css-kit font-awesome
 ```
 
 ```css
-@import 'pure-ui';
+@import 'ai-css-kit';
 /* or */
-@import 'pure-ui/components/button.css';
+@import 'ai-css-kit/components/button.css';
 ```
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/pure-ui/dist/pure-ui.min.css">
+<link rel="stylesheet" href="https://unpkg.com/ai-css-kit/dist/ai-css-kit.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 ```
 
@@ -61,7 +61,7 @@ npm install pure-ui font-awesome
 <html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/pure-ui/dist/pure-ui.css">
+  <link rel="stylesheet" href="https://unpkg.com/ai-css-kit/dist/ai-css-kit.css">
 </head>
 <body>
   <div class="ui-field ui-field--md">
@@ -1188,10 +1188,10 @@ Contributions welcome! Please follow our [Contributing Guide](CONTRIBUTING.md).
 
 ## Support
 
-- 📖 [Documentation](https://docs.pure-ui.dev)
-- 🐛 [Issue Tracker](https://github.com/your-org/pure-ui/issues)
-- 💬 [Discussions](https://github.com/your-org/pure-ui/discussions)
+- 📖 [Documentation](https://docs.ai-css-kit.dev)
+- 🐛 [Issue Tracker](https://github.com/vadimjoy/ai-css-kit/issues)
+- 💬 [Discussions](https://github.com/vadimjoy/ai-css-kit/discussions)
 
 ---
 
-**Pure UI** — Modern minimalism, pure CSS, zero dependencies.
+**AI CSS Kit** — Modern minimalism, pure CSS, zero dependencies.
