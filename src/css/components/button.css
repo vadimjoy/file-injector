@@ -22,7 +22,7 @@
 }
 
 .ui-button:focus-visible {
-  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+  box-shadow: 0 0 0 3px var(--ai-button-focus-ring);
 }
 
 .ui-button:disabled {
@@ -33,14 +33,14 @@
 
 /* Variants */
 .ui-button--primary {
-  background: var(--ui-color-primary);
-  color: white;
-  border-color: var(--ui-color-primary);
+  background: var(--ai-button-bg);
+  color: var(--ai-button-color);
+  border-color: var(--ai-button-border);
 }
 
 .ui-button--primary:hover:not(:disabled) {
-  background: var(--ui-color-primary-hover);
-  border-color: var(--ui-color-primary-hover);
+  background: var(--ai-button-bg-hover);
+  border-color: var(--ai-button-border-hover);
   box-shadow: var(--ui-shadow-sm);
 }
 
@@ -70,17 +70,17 @@
 .ui-button--sm {
   padding: 6px 12px;
   font-size: var(--ui-font-size-sm);
-  border-radius: var(--ui-radius-sm);
+  border-radius: var(--ai-button-radius);
 }
 
 .ui-button--md {
   padding: 9px 17px;
-  font-size: var(--ui-font-size-md);
-  border-radius: var(--ui-radius-md);
+  font-size: var(--ai-button-font-size);
+  border-radius: var(--ai-button-radius);
 }
 
 .ui-button--lg {
   padding: 12px 22px;
   font-size: var(--ui-font-size-lg);
-  border-radius: var(--ui-radius-lg);
+  border-radius: var(--ai-button-radius);
 }

@@ -14,13 +14,13 @@
    The thumb overflows it naturally — no clipping tricks needed.
    Set --_fill via inline style to show progress, e.g. style="--_fill:40%" */
 .ui-slider {
-  --_track-color: var(--ui-color-border);
+  --_track-color: var(--ai-slider-track);
   width: 100%;
   height: 5px;
   appearance: none;
   background: linear-gradient(
     to right,
-    var(--ui-color-primary) var(--_fill),
+    var(--ai-slider-fill) var(--_fill),
     var(--_track-color) var(--_fill)
   );
   border-radius: var(--ui-radius-full);
@@ -29,7 +29,7 @@
 }
 
 .ui-slider:hover {
-  --_track-color: var(--ui-color-border-strong);
+  --_track-color: var(--ai-slider-track-hover);
 }
 
 /* ---- WebKit ---- */
@@ -38,9 +38,9 @@
   appearance: none;
   width: 17px;
   height: 17px;
-  background: var(--ui-color-primary);
+  background: var(--ai-slider-thumb-bg);
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid var(--ai-slider-thumb-border);
   box-shadow: var(--ui-shadow-sm);
   cursor: pointer;
   transition: transform var(--ui-transition-fast), box-shadow var(--ui-transition-fast);
@@ -52,7 +52,7 @@
 }
 
 .ui-slider:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+  box-shadow: 0 0 0 3px var(--ai-slider-focus-ring);
 }
 
 /* ---- Firefox ---- */
@@ -67,16 +67,16 @@
 
 .ui-slider::-moz-range-progress {
   height: inherit;
-  background: var(--ui-color-primary);
+  background: var(--ai-slider-fill);
   border-radius: var(--ui-radius-full) 0 0 var(--ui-radius-full);
 }
 
 .ui-slider::-moz-range-thumb {
   width: 17px;
   height: 17px;
-  background: var(--ui-color-primary);
+  background: var(--ai-slider-thumb-bg);
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid var(--ai-slider-thumb-border);
   box-shadow: var(--ui-shadow-sm);
   cursor: pointer;
   transition: transform var(--ui-transition-fast), box-shadow var(--ui-transition-fast);

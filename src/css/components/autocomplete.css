@@ -41,10 +41,10 @@
 
 .ui-autocomplete-panel {
   display: block;
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-md);
-  box-shadow: var(--ui-shadow-md);
+  background: var(--ai-autocomplete-bg);
+  border: 1px solid var(--ai-autocomplete-border);
+  border-radius: var(--ai-autocomplete-radius);
+  box-shadow: var(--ai-autocomplete-shadow);
   overflow-y: auto;
 }
 
@@ -68,13 +68,13 @@
 
 .ui-autocomplete__item:hover,
 .ui-autocomplete__item--active {
-  background: var(--ui-color-bg-hover);
+  background: var(--ai-autocomplete-item-hover);
   color: var(--ui-color-text);
 }
 
 .ui-autocomplete__item--highlighted {
-  background: var(--ui-color-primary-light);
-  color: var(--ui-color-primary);
+  background: var(--ai-autocomplete-item-active-bg);
+  color: var(--ai-autocomplete-item-active-color);
   font-weight: 500;
 }
 

@@ -30,15 +30,15 @@
 .ui-progress__track {
   width: 100%;
   height: 6px;
-  background: var(--ui-color-bg-hover);
-  border-radius: var(--ui-radius-full);
+  background: var(--ai-progress-track-bg);
+  border-radius: var(--ai-progress-radius);
   overflow: hidden;
 }
 
 .ui-progress__bar {
   height: 100%;
-  background: var(--ui-color-primary);
-  border-radius: var(--ui-radius-full);
+  background: var(--ai-progress-bar-bg);
+  border-radius: var(--ai-progress-radius);
   transition: width 0.4s ease;
 }
 

@@ -78,6 +78,162 @@
   --ui-transition-slow:   all 0.3s ease;
 }
 
+/* ==========================================================================
+   Component Tokens — Level 2 (--ai-[component]-[prop])
+   Inherit from Global Tokens by default.
+   Override these to customize a single component without cascade effects.
+   See ADR-0003 for rationale.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Button                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-button-bg:           var(--ui-color-primary);
+  --ai-button-bg-hover:     var(--ui-color-primary-hover);
+  --ai-button-color:        #ffffff;
+  --ai-button-border:       var(--ui-color-primary);
+  --ai-button-border-hover: var(--ui-color-primary-hover);
+  --ai-button-radius:       var(--ui-radius-md);
+  --ai-button-font-size:    var(--ui-font-size-md);
+  --ai-button-focus-ring:   var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Input                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-input-bg:            var(--ui-color-bg);
+  --ai-input-border:        var(--ui-color-border);
+  --ai-input-border-hover:  var(--ui-color-border-strong);
+  --ai-input-border-focus:  var(--ui-color-border-focus);
+  --ai-input-color:         var(--ui-color-text);
+  --ai-input-radius:        var(--ui-radius-md);
+  --ai-input-placeholder:   var(--ui-color-text-placeholder);
+  --ai-input-focus-ring:    var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Textarea                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-textarea-bg:           var(--ui-color-bg);
+  --ai-textarea-border:       var(--ui-color-border);
+  --ai-textarea-border-hover: var(--ui-color-border-strong);
+  --ai-textarea-border-focus: var(--ui-color-border-focus);
+  --ai-textarea-color:        var(--ui-color-text);
+  --ai-textarea-radius:       var(--ui-radius-md);
+  --ai-textarea-placeholder:  var(--ui-color-text-placeholder);
+  --ai-textarea-focus-ring:   var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Select                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-select-bg:           var(--ui-color-bg);
+  --ai-select-border:       var(--ui-color-border);
+  --ai-select-border-hover: var(--ui-color-border-strong);
+  --ai-select-border-focus: var(--ui-color-border-focus);
+  --ai-select-color:        var(--ui-color-text);
+  --ai-select-radius:       var(--ui-radius-md);
+  --ai-select-focus-ring:   var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Card                                                                    */
+  /* ---------------------------------------------------------------------- */
+  --ai-card-bg:      var(--ui-color-bg);
+  --ai-card-border:  var(--ui-color-border);
+  --ai-card-radius:  var(--ui-radius-xl);
+  --ai-card-shadow:  var(--ui-shadow-xs);
+  --ai-card-padding: var(--ui-space-6);
+
+  /* ---------------------------------------------------------------------- */
+  /* Badge                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-badge-radius:            var(--ui-radius-full);
+  --ai-badge-primary-bg:        var(--ui-color-primary-light);
+  --ai-badge-primary-color:     var(--ui-color-primary);
+  --ai-badge-success-bg:        var(--ui-color-success-light);
+  --ai-badge-success-color:     var(--ui-color-success);
+  --ai-badge-warning-bg:        var(--ui-color-warning-light);
+  --ai-badge-warning-color:     var(--ui-color-warning);
+  --ai-badge-error-bg:          var(--ui-color-error-light);
+  --ai-badge-error-color:       var(--ui-color-error);
+
+  /* ---------------------------------------------------------------------- */
+  /* Progress                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-progress-bar-bg:    var(--ui-color-primary);
+  --ai-progress-track-bg:  var(--ui-color-bg-hover);
+  --ai-progress-radius:    var(--ui-radius-full);
+
+  /* ---------------------------------------------------------------------- */
+  /* Tooltip                                                                 */
+  /* ---------------------------------------------------------------------- */
+  --ai-tooltip-bg:     var(--ui-color-text);
+  --ai-tooltip-color:  var(--ui-color-bg);
+  --ai-tooltip-radius: var(--ui-radius-sm);
+  --ai-tooltip-shadow: var(--ui-shadow-md);
+
+  /* ---------------------------------------------------------------------- */
+  /* Checkbox                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-checkbox-accent:     var(--ui-color-primary);
+  --ai-checkbox-focus-ring: var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Radio                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-radio-accent:     var(--ui-color-primary);
+  --ai-radio-focus-ring: var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Toggle                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-toggle-bg:         var(--ui-color-border-strong);
+  --ai-toggle-bg-checked: var(--ui-color-primary);
+  --ai-toggle-knob:       #ffffff;
+  --ai-toggle-focus-ring: var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Slider                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-slider-fill:         var(--ui-color-primary);
+  --ai-slider-track:        var(--ui-color-border);
+  --ai-slider-track-hover:  var(--ui-color-border-strong);
+  --ai-slider-thumb-bg:     var(--ui-color-primary);
+  --ai-slider-thumb-border: #ffffff;
+  --ai-slider-focus-ring:   var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* File Upload                                                             */
+  /* ---------------------------------------------------------------------- */
+  --ai-file-upload-bg:            var(--ui-color-bg-subtle);
+  --ai-file-upload-border:        var(--ui-color-border);
+  --ai-file-upload-border-active: var(--ui-color-primary);
+  --ai-file-upload-bg-active:     var(--ui-color-primary-light);
+  --ai-file-upload-radius:        var(--ui-radius-lg);
+
+  /* ---------------------------------------------------------------------- */
+  /* Autocomplete panel                                                      */
+  /* ---------------------------------------------------------------------- */
+  --ai-autocomplete-bg:                var(--ui-color-bg);
+  --ai-autocomplete-border:            var(--ui-color-border);
+  --ai-autocomplete-radius:            var(--ui-radius-md);
+  --ai-autocomplete-shadow:            var(--ui-shadow-md);
+  --ai-autocomplete-item-hover:        var(--ui-color-bg-hover);
+  --ai-autocomplete-item-active-bg:    var(--ui-color-primary-light);
+  --ai-autocomplete-item-active-color: var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Calendar (Datepicker)                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-calendar-bg:             var(--ui-color-bg);
+  --ai-calendar-border:         var(--ui-color-border);
+  --ai-calendar-radius:         var(--ui-radius-lg);
+  --ai-calendar-shadow:         var(--ui-shadow-md);
+  --ai-calendar-day-size:       32px;
+  --ai-calendar-day-hover:      var(--ui-color-bg-hover);
+  --ai-calendar-selected-bg:    var(--ui-color-primary);
+  --ai-calendar-selected-color: #ffffff;
+  --ai-calendar-today-color:    var(--ui-color-primary);
+}
+
 /* Dark Theme — applied via JS to html[data-theme="dark"] */
 [data-theme="dark"] {
   --ui-color-primary:         #818cf8;

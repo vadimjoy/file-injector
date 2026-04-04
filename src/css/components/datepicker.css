@@ -42,10 +42,10 @@
 
 .ui-calendar {
   display: block;
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-lg);
-  box-shadow: var(--ui-shadow-md);
+  background: var(--ai-calendar-bg);
+  border: 1px solid var(--ai-calendar-border);
+  border-radius: var(--ai-calendar-radius);
+  box-shadow: var(--ai-calendar-shadow);
   overflow: hidden;
 }
 
@@ -119,17 +119,17 @@
 }
 
 .ui-datepicker__day:hover {
-  background: var(--ui-color-bg-hover);
+  background: var(--ai-calendar-day-hover);
 }
 
 .ui-datepicker__day--today {
   font-weight: 600;
-  color: var(--ui-color-primary);
+  color: var(--ai-calendar-today-color);
 }
 
 .ui-datepicker__day--selected {
-  background: var(--ui-color-primary);
-  color: #fff;
+  background: var(--ai-calendar-selected-bg);
+  color: var(--ai-calendar-selected-color);
   font-weight: 500;
 }
 
