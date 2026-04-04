@@ -7,10 +7,10 @@
   font-family: var(--ui-font-family);
   font-size: var(--ui-font-size-md);
   line-height: 1.6;
-  color: var(--ui-color-text);
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-md);
+  color: var(--ai-textarea-color);
+  background: var(--ai-textarea-bg);
+  border: 1px solid var(--ai-textarea-border);
+  border-radius: var(--ai-textarea-radius);
   transition: var(--ui-transition-fast);
   outline: none;
   appearance: none;
@@ -19,12 +19,12 @@
 }
 
 .ui-textarea:focus {
-  border-color: var(--ui-color-border-focus);
-  box-shadow: var(--ui-shadow-focus);
+  border-color: var(--ai-textarea-border-focus);
+  box-shadow: 0 0 0 3px var(--ai-textarea-focus-ring);
 }
 
 .ui-textarea:hover:not(:disabled):not(:focus) {
-  border-color: var(--ui-color-border-strong);
+  border-color: var(--ai-textarea-border-hover);
 }
 
 .ui-textarea:disabled {
@@ -35,7 +35,7 @@
 }
 
 .ui-textarea::placeholder {
-  color: var(--ui-color-text-placeholder);
+  color: var(--ai-textarea-placeholder);
 }
 
 .ui-textarea--error {

@@ -56,22 +56,22 @@
   font-family: var(--ui-font-family);
   font-size: var(--ui-font-size-md);
   line-height: var(--ui-line-height);
-  color: var(--ui-color-text);
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-md);
+  color: var(--ai-input-color);
+  background: var(--ai-input-bg);
+  border: 1px solid var(--ai-input-border);
+  border-radius: var(--ai-input-radius);
   transition: var(--ui-transition-fast);
   outline: none;
   appearance: none;
 }
 
 .ui-input:focus {
-  border-color: var(--ui-color-border-focus);
-  box-shadow: var(--ui-shadow-focus);
+  border-color: var(--ai-input-border-focus);
+  box-shadow: 0 0 0 3px var(--ai-input-focus-ring);
 }
 
 .ui-input:hover:not(:disabled):not(:focus) {
-  border-color: var(--ui-color-border-strong);
+  border-color: var(--ai-input-border-hover);
 }
 
 .ui-input:disabled {
@@ -82,7 +82,7 @@
 }
 
 .ui-input::placeholder {
-  color: var(--ui-color-text-placeholder);
+  color: var(--ai-input-placeholder);
 }
 
 /* Validation states */

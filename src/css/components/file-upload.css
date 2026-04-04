@@ -10,9 +10,9 @@
   justify-content: center;
   gap: var(--ui-space-2);
   padding: var(--ui-space-8) var(--ui-space-6);
-  background: var(--ui-color-bg-subtle);
-  border: 2px dashed var(--ui-color-border);
-  border-radius: var(--ui-radius-lg);
+  background: var(--ai-file-upload-bg);
+  border: 2px dashed var(--ai-file-upload-border);
+  border-radius: var(--ai-file-upload-radius);
   cursor: pointer;
   transition: var(--ui-transition-fast);
   text-align: center;
@@ -20,8 +20,8 @@
 
 .ui-file-upload:hover,
 .ui-file-upload--dragover {
-  border-color: var(--ui-color-primary);
-  background: var(--ui-color-primary-light);
+  border-color: var(--ai-file-upload-border-active);
+  background: var(--ai-file-upload-bg-active);
 }
 
 .ui-file-upload input[type="file"] {
