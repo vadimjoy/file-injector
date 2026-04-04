@@ -19,13 +19,13 @@
   width: 16px;
   height: 16px;
   margin: 0;
-  accent-color: var(--ui-color-primary);
+  accent-color: var(--ai-radio-accent);
   cursor: pointer;
   transition: var(--ui-transition-fast);
 }
 
 .ui-radio input:focus-visible {
-  outline: 2px solid var(--ui-color-primary);
+  outline: 2px solid var(--ai-radio-focus-ring);
   outline-offset: 2px;
 }
 

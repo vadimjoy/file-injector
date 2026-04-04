@@ -13,7 +13,7 @@
   letter-spacing: 0.02em;
   white-space: nowrap;
   padding: 3px 8px;
-  border-radius: var(--ui-radius-full);
+  border-radius: var(--ai-badge-radius);
   transition: var(--ui-transition-fast);
 }
 
@@ -24,23 +24,23 @@
 }
 
 .ui-badge--primary {
-  background: var(--ui-color-primary-light);
-  color: var(--ui-color-primary);
+  background: var(--ai-badge-primary-bg);
+  color: var(--ai-badge-primary-color);
 }
 
 .ui-badge--success {
-  background: var(--ui-color-success-light);
-  color: var(--ui-color-success);
+  background: var(--ai-badge-success-bg);
+  color: var(--ai-badge-success-color);
 }
 
 .ui-badge--warning {
-  background: var(--ui-color-warning-light);
-  color: var(--ui-color-warning);
+  background: var(--ai-badge-warning-bg);
+  color: var(--ai-badge-warning-color);
 }
 
 .ui-badge--error {
-  background: var(--ui-color-error-light);
-  color: var(--ui-color-error);
+  background: var(--ai-badge-error-bg);
+  color: var(--ai-badge-error-color);
 }
 
 /* Sizes */

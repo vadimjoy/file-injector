@@ -3,11 +3,11 @@
    ========================================================================== */
 
 .ui-card {
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-xl);
-  padding: var(--ui-space-6);
-  box-shadow: var(--ui-shadow-xs);
+  background: var(--ai-card-bg);
+  border: 1px solid var(--ai-card-border);
+  border-radius: var(--ai-card-radius);
+  padding: var(--ai-card-padding);
+  box-shadow: var(--ai-card-shadow);
 }
 
 .ui-card__title {

@@ -21,7 +21,7 @@
   height: 23px;
   margin: 0;
   appearance: none;
-  background: var(--ui-color-border-strong);
+  background: var(--ai-toggle-bg);
   border-radius: var(--ui-radius-full);
   cursor: pointer;
   transition: background var(--ui-transition-fast);
@@ -35,14 +35,14 @@
   left: 2px;
   width: 19px;
   height: 19px;
-  background: white;
+  background: var(--ai-toggle-knob);
   border-radius: 50%;
   box-shadow: var(--ui-shadow-sm);
   transition: transform var(--ui-transition-fast);
 }
 
 .ui-toggle input[type="checkbox"]:checked {
-  background: var(--ui-color-primary);
+  background: var(--ai-toggle-bg-checked);
 }
 
 .ui-toggle input[type="checkbox"]:checked::before {
@@ -50,7 +50,7 @@
 }
 
 .ui-toggle input[type="checkbox"]:focus-visible {
-  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+  box-shadow: 0 0 0 3px var(--ai-toggle-focus-ring);
 }
 
 .ui-toggle:has(input:disabled) {

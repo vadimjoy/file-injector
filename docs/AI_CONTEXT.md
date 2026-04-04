@@ -1,6 +1,6 @@
 # AI CSS Kit — Context for AI Agents
 
-> **VERSION:** 0.3.1 (Phase 1 target: 0.4.0)  
+> **VERSION:** 0.5.0  
 > **PURPOSE:** System prompt / reference document for AI agents generating UI with ai-css-kit  
 > **SCOPE:** Load this file as context before generating any HTML with ai-css-kit classes
 
@@ -16,7 +16,9 @@ I-04  A component's CSS class MUST NOT be overridden by a parent component's sel
 I-05  Size variants are set on .ui-field, NOT on individual components inside it
 I-06  Validation state classes (--error, --success, --warning) are set on the INPUT, not on .ui-field
 I-07  Dark theme is activated via data-theme="dark" on <html> or any ancestor element
-I-08  --ui-* CSS variables are the ONLY correct way to customize appearance
+I-08  Use --ai-[component]-* tokens to customize a single component in isolation
+I-09  Use --ui-* tokens ONLY for global changes that must cascade to all components
+I-10  DO NOT use !important — override --ai-* tokens instead
 ```
 
 ---
@@ -185,7 +187,9 @@ AP-06  DO NOT hardcode px values in inline styles for component internals:
 
 ## 5. Token Reference (CSS Custom Properties)
 
-### Global Tokens (--ui-*)
+### Global Tokens (--ui-*) — Level 1
+
+Affect all components simultaneously. Use for brand-wide changes.
 
 ```
 Color
@@ -229,21 +233,149 @@ Shadows
   --ui-shadow-focus focus ring (uses primary-soft)
 ```
 
+### Component Tokens (--ai-*) — Level 2
+
+Affect a **single component** only. Reference global tokens by default.
+Override these for isolated customization without cascade effects. See ADR-0003.
+
+```
+Button
+  --ai-button-bg            Primary button background
+  --ai-button-bg-hover      Primary button background on hover
+  --ai-button-color         Primary button text color
+  --ai-button-border        Primary button border color
+  --ai-button-border-hover  Primary button border color on hover
+  --ai-button-radius        Border radius for all button sizes
+  --ai-button-font-size     Font size for medium button
+  --ai-button-focus-ring    Focus ring color (shadow)
+
+Input
+  --ai-input-bg             Input background
+  --ai-input-border         Input border color
+  --ai-input-border-hover   Input border on hover
+  --ai-input-border-focus   Input border on focus
+  --ai-input-color          Input text color
+  --ai-input-radius         Input border radius
+  --ai-input-placeholder    Placeholder text color
+  --ai-input-focus-ring     Focus ring color (shadow)
+
+Textarea
+  --ai-textarea-bg            Textarea background
+  --ai-textarea-border        Textarea border color
+  --ai-textarea-border-hover  Textarea border on hover
+  --ai-textarea-border-focus  Textarea border on focus
+  --ai-textarea-color         Textarea text color
+  --ai-textarea-radius        Textarea border radius
+  --ai-textarea-placeholder   Placeholder text color
+  --ai-textarea-focus-ring    Focus ring color (shadow)
+
+Select
+  --ai-select-bg             Select background
+  --ai-select-border         Select border color
+  --ai-select-border-hover   Select border on hover
+  --ai-select-border-focus   Select border on focus
+  --ai-select-color          Select text color
+  --ai-select-radius         Select border radius
+  --ai-select-focus-ring     Focus ring color (shadow)
+
+Card
+  --ai-card-bg       Card background
+  --ai-card-border   Card border color
+  --ai-card-radius   Card border radius
+  --ai-card-shadow   Card box shadow
+  --ai-card-padding  Card inner padding
+
+Badge
+  --ai-badge-radius              Badge border radius
+  --ai-badge-primary-bg          Primary badge background
+  --ai-badge-primary-color       Primary badge text color
+  --ai-badge-success-bg / -color
+  --ai-badge-warning-bg / -color
+  --ai-badge-error-bg / -color
+
+Progress
+  --ai-progress-bar-bg    Progress bar fill color
+  --ai-progress-track-bg  Progress track background
+  --ai-progress-radius    Track and bar border radius
+
+Tooltip
+  --ai-tooltip-bg     Tooltip background
+  --ai-tooltip-color  Tooltip text color
+  --ai-tooltip-radius Tooltip border radius
+  --ai-tooltip-shadow Tooltip box shadow
+
+Checkbox
+  --ai-checkbox-accent      Checkbox checked color (accent-color)
+  --ai-checkbox-focus-ring  Focus outline color
+
+Radio
+  --ai-radio-accent      Radio checked color (accent-color)
+  --ai-radio-focus-ring  Focus outline color
+
+Toggle
+  --ai-toggle-bg          Track color when unchecked
+  --ai-toggle-bg-checked  Track color when checked
+  --ai-toggle-knob        Knob (thumb) color
+  --ai-toggle-focus-ring  Focus ring color
+
+Slider
+  --ai-slider-fill          Filled portion color
+  --ai-slider-track         Empty track color
+  --ai-slider-track-hover   Empty track color on hover
+  --ai-slider-thumb-bg      Thumb background
+  --ai-slider-thumb-border  Thumb border color
+  --ai-slider-focus-ring    Focus ring color
+
+File Upload
+  --ai-file-upload-bg             Zone background (idle)
+  --ai-file-upload-border         Zone border color (idle)
+  --ai-file-upload-border-active  Zone border on hover/dragover
+  --ai-file-upload-bg-active      Zone background on hover/dragover
+  --ai-file-upload-radius         Zone border radius
+
+Autocomplete panel
+  --ai-autocomplete-bg                  Panel background
+  --ai-autocomplete-border              Panel border color
+  --ai-autocomplete-radius              Panel border radius
+  --ai-autocomplete-shadow              Panel box shadow
+  --ai-autocomplete-item-hover          Item hover background
+  --ai-autocomplete-item-active-bg      Highlighted item background
+  --ai-autocomplete-item-active-color   Highlighted item text color
+
+Calendar (Datepicker)
+  --ai-calendar-bg              Calendar background
+  --ai-calendar-border          Calendar border color
+  --ai-calendar-radius          Calendar border radius
+  --ai-calendar-shadow          Calendar box shadow
+  --ai-calendar-day-size        Day cell size (default: 32px, md variant)
+  --ai-calendar-day-hover       Day cell hover background
+  --ai-calendar-selected-bg     Selected day background
+  --ai-calendar-selected-color  Selected day text color
+  --ai-calendar-today-color     Today label text color
+```
+
 ### Customization Examples
 
 ```css
-/* Brand override — affects all components */
+/* Global brand change — affects all components */
 :root {
   --ui-color-primary: #10b981;
   --ui-color-primary-hover: #059669;
   --ui-color-primary-soft: rgba(16, 185, 129, 0.15);
 }
 
-/* Rounded design system */
+/* Isolated: only buttons get rounded corners and green color */
 :root {
-  --ui-radius-sm: 10px;
-  --ui-radius-md: 14px;
-  --ui-radius-lg: 20px;
+  --ai-button-bg:       #10b981;
+  --ai-button-bg-hover: #059669;
+  --ai-button-border:   #10b981;
+  --ai-button-radius:   24px;
+}
+
+/* Isolated: only calendar gets custom accent */
+:root {
+  --ai-calendar-selected-bg:    #6d28d9;
+  --ai-calendar-today-color:    #6d28d9;
 }
 ```
 
@@ -286,5 +418,8 @@ When generating form components, always include:
 
 ---
 
-*This document is auto-sourced from SPEC.md and updated with each component release.*  
-*ADR decisions that affect this context: [ADR-0001](adr/0001-atomic-decoupling.md)*
+*This document is maintained alongside each component release.*  
+*ADR decisions that affect this context:*  
+*[ADR-0001](adr/0001-atomic-decoupling.md) — Atomic Decoupling (запрет parent-selector mutations)*  
+*[ADR-0002](adr/0002-context-modifier-pattern.md) — Context Modifier Pattern*  
+*[ADR-0003](adr/0003-ai-token-naming.md) — Component Token Naming `--ai-[component]-[prop]`*
