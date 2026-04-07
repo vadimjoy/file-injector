@@ -1244,58 +1244,6 @@ No polyfills required for modern browsers. For older browsers:
 
 ---
 
-## Migration Guide
-
-### From v1.x to v2.x
-
-**Breaking Changes:**
-- Font changed from system fonts to Inter (Google Fonts required)
-- Primary color changed from `#3b82f6` to `#4f46e5`
-- Border radius values updated
-- Shadow values adjusted for softer appearance
-- New size variants (padding values changed)
-
-**New Components:**
-- File Upload
-- Date Picker
-- Progress
-- Badge
-- Tooltip
-
-**Updated Components:**
-- Autocomplete: Improved styling and icon support
-- All inputs: Added success and warning states
-- Buttons: New variants and improved focus states
-
-**Removed:**
-- None
-
----
-
-## Changelog
-
-### v2.0.0 (2024)
-
-- **Added**: File Upload component
-- **Added**: Date Picker component
-- **Added**: Progress component
-- **Added**: Badge component
-- **Added**: Tooltip component
-- **Updated**: Complete visual refresh with Inter font
-- **Updated**: New color palette (indigo primary)
-- **Updated**: Improved dark theme
-- **Updated**: Enhanced accessibility features
-- **Updated**: All validation states (error, success, warning)
-
-### v1.0.0 (2023)
-
-- Initial release
-- Core components: Input, Select, Textarea, Checkbox, Radio, Toggle, Slider, Button, Card
-- Dark theme support
-- CSS custom properties
-
----
-
 ## License
 
 MIT License — free for personal and commercial use.
