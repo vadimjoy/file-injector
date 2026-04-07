@@ -1,7 +1,5 @@
 # ADR-0003 — `--ai-[component]-[prop]` naming standard: component tokens
 
-> **Language:** English | [Русский](../../ru/adr/0003-ai-token-naming.md)
-
 **Status:** Accepted  
 **Date:** 2026-04-04  
 **Author:** vadimjoy  
@@ -210,5 +208,5 @@ Duplication in `tokens.css` is **documentation**: each line explicitly states ho
 
 - [x] Component Tokens block added to `tokens.css`
 - [x] All 15 components updated to use `--ai-*` tokens
-- [x] `docs/AI_CONTEXT.md` updated with full `--ai-*` Token Reference
+- [x] `AI_CONTEXT.md` updated with full `--ai-*` Token Reference
 - [x] Phase 3: Theme Mapper generates overrides via `--ai-*` tokens

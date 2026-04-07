@@ -1,7 +1,5 @@
 # ADR-0004 — Theme Mapper, cascade layers, and preset library
 
-> **Language:** English | [Русский](../../ru/adr/0004-theme-mapper-and-presets.md)
-
 **Status:** Accepted  
 **Date:** 2026-04-07  
 **Author:** vadimjoy  

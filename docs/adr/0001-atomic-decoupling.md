@@ -1,7 +1,5 @@
 # ADR-0001 — Atomic Decoupling: ban parent-selector mutations
 
-> **Language:** English | [Русский](../../ru/adr/0001-atomic-decoupling.md)
-
 **Status:** Accepted  
 **Date:** 2026-04-02  
 **Author:** vadimjoy  
