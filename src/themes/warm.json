@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "name": "Warm",
+    "version": "1.0.0",
+    "description": "Warm amber tones with generous rounding — friendly and approachable"
+  },
+  "tokens": {
+    "font.family":              "'Georgia', 'Times New Roman', serif",
+
+    "color.primary":            "#d97706",
+    "color.primary.hover":      "#b45309",
+    "color.primary.soft":       "rgba(217, 119, 6, 0.12)",
+    "color.primary.light":      "#fffbeb",
+
+    "color.success":            "#16a34a",
+    "color.success.soft":       "rgba(22, 163, 74, 0.12)",
+    "color.success.light":      "#f0fdf4",
+
+    "color.warning":            "#dc2626",
+    "color.warning.soft":       "rgba(220, 38, 38, 0.12)",
+    "color.warning.light":      "#fef2f2",
+
+    "color.error":              "#dc2626",
+    "color.error.soft":         "rgba(220, 38, 38, 0.12)",
+    "color.error.light":        "#fef2f2",
+
+    "color.border":             "#e7d9c8",
+    "color.border.strong":      "#d0b896",
+    "color.border.focus":       "#d97706",
+
+    "color.bg":                 "#fffdf7",
+    "color.bg.subtle":          "#fdf6ec",
+    "color.bg.hover":           "#faebd7",
+    "color.bg.disabled":        "#fdf6ec",
+    "color.bg.overlay":         "rgba(139, 90, 43, 0.04)",
+
+    "color.text":               "#1c1208",
+    "color.text.secondary":     "#44311a",
+    "color.text.muted":         "#8b6a45",
+    "color.text.disabled":      "#c4a882",
+    "color.text.placeholder":   "#c4a882",
+
+    "radius.xs":                "6px",
+    "radius.sm":                "8px",
+    "radius.md":                "12px",
+    "radius.lg":                "18px",
+    "radius.xl":                "24px",
+    "radius.full":              "9999px",
+
+    "shadow.xs":                "0 1px 2px rgba(139, 90, 43, 0.06)",
+    "shadow.sm":                "0 1px 3px rgba(139, 90, 43, 0.10), 0 1px 2px rgba(139, 90, 43, 0.06)",
+    "shadow.md":                "0 4px 6px -1px rgba(139, 90, 43, 0.08), 0 2px 4px -1px rgba(139, 90, 43, 0.05)",
+    "shadow.lg":                "0 10px 15px -3px rgba(139, 90, 43, 0.10), 0 4px 6px -2px rgba(139, 90, 43, 0.06)"
+  }
+}

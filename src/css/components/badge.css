@@ -2,6 +2,8 @@
    Badge
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-badge {
   display: inline-flex;
   align-items: center;
@@ -69,3 +71,5 @@
   background: currentColor;
   flex-shrink: 0;
 }
+
+} /* end @layer ai-kit.components */

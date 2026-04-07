@@ -2,6 +2,8 @@
    Select
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-select {
   width: 100%;
   font-family: var(--ui-font-family);
@@ -84,3 +86,5 @@
   padding-right: 36px;
   cursor: pointer;
 }
+
+} /* end @layer ai-kit.components */

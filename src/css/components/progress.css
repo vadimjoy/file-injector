@@ -2,6 +2,8 @@
    Progress
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-progress {
   display: flex;
   flex-direction: column;
@@ -85,3 +87,5 @@
   background-size: 16px 16px;
   animation: ui-progress-stripes 1s linear infinite;
 }
+
+} /* end @layer ai-kit.components */

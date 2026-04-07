@@ -2,6 +2,9 @@
    AI CSS Kit — CSS Component Library
    ========================================================================== */
 
+/* Cascade layer order declaration — themes always win over components */
+@layer ai-kit.tokens, ai-kit.base, ai-kit.components, ai-kit.themes;
+
 /* Layer 1: Design Tokens */
 @import './tokens.css';
 

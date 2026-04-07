@@ -2,6 +2,8 @@
    Toggle / Switch
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-toggle {
   display: inline-flex;
   align-items: center;
@@ -98,3 +100,5 @@
 .ui-toggle--lg {
   font-size: var(--ui-font-size-lg);
 }
+
+} /* end @layer ai-kit.components */
