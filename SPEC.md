@@ -1,5 +1,8 @@
 # AI CSS Kit — Component Library Specification
 
+> **Language / Язык:** English (full spec) | [Русский (краткая версия)](docs/ru/SPEC.md)  
+> **Multilingual docs index:** [README.md](README.md)
+
 ## Overview
 
 **AI CSS Kit** is a lightweight, AI-first CSS component library built with zero JavaScript dependencies. Designed with minimalism and accessibility in mind, it provides a complete set of form components with support for light/dark themes.

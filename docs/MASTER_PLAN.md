@@ -1,5 +1,7 @@
 # AI CSS Kit — Master Plan (Roadmap)
 
+> **Language / Язык:** [English](en/MASTER_PLAN.md) | [Русский](ru/MASTER_PLAN.md)
+
 > **Концепция:** "Deterministic UI Lego"  
 > **Цель:** CSS-фреймворк, оптимизированный для генерации интерфейсов AI-агентами  
 > **Автор:** vadimjoy | **Лицензия:** MIT | **Версия плана:** 1.0 (2026-04)

@@ -1,6 +1,6 @@
 # Contributing to ai-css-kit
 
-> **Language / Язык:** [English](docs/en/CONTRIBUTING.md) | [Русский](docs/ru/CONTRIBUTING.md)
+> **Language:** English | [Русский](../ru/CONTRIBUTING.md)
 
 > **Note:** `ai-css-kit` is the canonical name across code, commits, PRs, and documentation.
 
@@ -122,7 +122,8 @@ Any structural change (e.g., decoupling Calendar from Input, migrating to Anchor
 Create a file at:
 
 ```
-docs/adr/NNNN-short-title.md
+docs/en/adr/NNNN-short-title.md
+docs/ru/adr/NNNN-short-title.md
 ```
 
 ADR template:
@@ -199,7 +200,7 @@ docs(adr): add ADR-0001 for calendar decoupling
 - [ ] Component renders correctly in isolation (no hidden parent dependencies)
 - [ ] Both light and dark themes verified
 - [ ] If new component: demo file added to `src/demos/`
-- [ ] If breaking change or major refactor: ADR exists in `docs/adr/`
+- [ ] If breaking change or major refactor: ADR exists in `docs/en/adr/` and `docs/ru/adr/`
 - [ ] Zero references to legacy codenames in changed files
 
 ---
@@ -228,7 +229,10 @@ ai-css-kit/
 │           ├── demo-theme.js   # iframe theme sync
 │           └── showcase-page.js# landing toggle logic
 ├── docs/
-│   └── adr/                    # architectural decision records
+│   ├── en/                     # English documentation
+│   ├── ru/                     # Russian documentation
+│   ├── glossary.md             # bilingual glossary
+│   └── adr/                    # (legacy location, redirects to en/adr)
 ├── dist/                       # build output (do not edit)
 ├── SPEC.md
 ├── README.md
@@ -239,7 +243,7 @@ ai-css-kit/
 
 ## Code Style
 
-- **Selector naming:** BEM-style with `ai-` prefix: `.ai-input`, `.ai-input__icon`, `.ai-input--error`
+- **Selector naming:** BEM-style with `ui-` prefix: `.ui-input`, `.ui-input__icon`, `.ui-input--error`
 - **Nesting:** Use PostCSS nesting (`postcss-nesting`). Max 3 levels deep
 - **Comments:** Mark component sections with a block header:
   ```css

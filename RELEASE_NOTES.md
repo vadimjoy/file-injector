@@ -1,5 +1,7 @@
 # Журнал релизов
 
+> **Language / Язык:** [English](docs/en/RELEASE_NOTES.md) | [Русский](docs/ru/RELEASE_NOTES.md)
+
 ## 0.0.1
 
 - Запуск библиотеки вокруг концепции «Deterministic UI Lego» обозначив новую AI-ориентированную архитектуру и пайплайн сборки.
