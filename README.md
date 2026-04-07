@@ -17,6 +17,7 @@ An AI-first modular pure-CSS component library for building form-heavy UIs and i
 
 | Document | English | Русский |
 |----------|---------|---------|
+| Live Demo | [GitHub Pages](https://vadimjoy.github.io/ai-css-kit/) | — |
 | Component Specification | [docs/en/SPEC.md](docs/en/SPEC.md) | [docs/ru/SPEC.md](docs/ru/SPEC.md) |
 | Theming Guide | [docs/en/theming.md](docs/en/theming.md) | [docs/ru/theming.md](docs/ru/theming.md) |
 | Contributing Guide | [docs/en/CONTRIBUTING.md](docs/en/CONTRIBUTING.md) | [docs/ru/CONTRIBUTING.md](docs/ru/CONTRIBUTING.md) |
