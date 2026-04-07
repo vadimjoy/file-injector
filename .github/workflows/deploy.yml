@@ -34,10 +34,21 @@ jobs:
       - name: Build CSS bundle and themes
         run: npm run build
 
-      - name: Upload dist artifact
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf site
+          mkdir -p site
+          cp index.html site/
+          if [ -d dist ]; then cp -R dist site/dist; fi
+          if [ -d src ]; then cp -R src site/src; fi
+          if [ -d docs ]; then cp -R docs site/docs; fi
+          if [ -f LICENSE ]; then cp LICENSE site/; fi
+          if [ -f README.md ]; then cp README.md site/; fi
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build
