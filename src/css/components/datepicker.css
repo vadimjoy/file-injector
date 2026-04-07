@@ -2,6 +2,8 @@
    Datepicker — Trigger Input (standalone, no compound wrapper)
    ========================================================================== */
 
+@layer ai-kit.components {
+
 /* Input wrapper with calendar icon — CSS Grid overlay, no position:absolute */
 .ui-datepicker-trigger {
   display: grid;
@@ -270,3 +272,5 @@
 .ui-calendar--lg .ui-datepicker__footer {
   padding: var(--ui-space-3) var(--ui-space-6) var(--ui-space-4);
 }
+
+} /* end @layer ai-kit.components */
