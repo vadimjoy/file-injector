@@ -51,4 +51,4 @@ npm install ai-css-kit font-awesome
 
 ---
 
-MIT License — [vadimjoy](https://github.com/vadimjoy)
+MIT License — free for personal and commercial use.
