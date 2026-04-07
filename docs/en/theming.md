@@ -1,9 +1,9 @@
 # AI CSS Kit — Theming Guide
 
-> **Language / Язык:** [English](en/theming.md) | [Русский](ru/theming.md)
+> **Language:** English | [Русский](../ru/theming.md)
 
 > **Version:** v0.6.0  
-> **Related ADR:** [ADR-0003 AI Token Naming](./adr/0003-ai-token-naming.md)
+> **Related ADR:** [ADR-0003 AI Token Naming](adr/0003-ai-token-naming.md)
 
 ---
 
@@ -198,7 +198,7 @@ rule beats a high-specificity component rule from an earlier layer.
 
 ## Full Token Reference
 
-See [AI_CONTEXT.md](./AI_CONTEXT.md) for the complete list of all `--ui-*` and
+See [AI_CONTEXT.md](AI_CONTEXT.md) for the complete list of all `--ui-*` and
 `--ai-*` tokens with their default values and semantics.
 
 ---

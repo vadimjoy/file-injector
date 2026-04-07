@@ -1,11 +1,10 @@
 # AI CSS Kit — Context for AI Agents
 
+> **Language:** English | [Русский](../ru/AI_CONTEXT.md)
+
 > **VERSION:** 0.6.0  
 > **PURPOSE:** System prompt / reference document for AI agents generating UI with ai-css-kit  
 > **SCOPE:** Load this file as context before generating any HTML with ai-css-kit classes
->
-> **Multilingual docs:** [English](en/AI_CONTEXT.md) | [Русский](ru/AI_CONTEXT.md)  
-> **Glossary:** [docs/glossary.md](glossary.md)
 
 ---
 
@@ -239,7 +238,7 @@ Shadows
 ### Component Tokens (--ai-*) — Level 2
 
 Affect a **single component** only. Reference global tokens by default.
-Override these for isolated customization without cascade effects. See ADR-0003.
+Override these for isolated customization without cascade effects. See [ADR-0003](adr/0003-ai-token-naming.md).
 
 ```
 Button
@@ -399,14 +398,7 @@ Calendar (Datepicker)
 
 ### Theme Mapper CLI
 
-Use `npm run theme-map -- ./theme.json -o ./dist/themes/custom.css` to convert JSON tokens (native, W3C, or Figma format) into a usable theme file. The mapper:
-
-1. Detects the input format automatically (`meta`+`tokens`, `$value`, or `value` keys)
-2. Flattens nested keys (`color.primary` → `--ui-color-primary`)
-3. Sends component prefixes (`button`, `input`, `card`, …) to the `--ai-*` namespace
-4. Wraps the output in `@layer ai-kit.themes { [data-theme="custom"] {...} }`
-
-Always prefer overriding tokens (`--ui-*`, `--ai-*`) instead of author CSS.
+Use `npm run theme-map -- ./theme.json -o ./dist/themes/custom.css` to convert JSON tokens (native, W3C, or Figma format) into a usable theme file. See [theming.md](theming.md) for full details.
 
 ---
 
@@ -435,6 +427,6 @@ When generating form components, always include:
 
 *This document is maintained alongside each component release.*  
 *ADR decisions that affect this context:*  
-*[ADR-0001](adr/0001-atomic-decoupling.md) — Atomic Decoupling (запрет parent-selector mutations)*  
+*[ADR-0001](adr/0001-atomic-decoupling.md) — Atomic Decoupling (ban parent-selector mutations)*  
 *[ADR-0002](adr/0002-context-modifier-pattern.md) — Context Modifier Pattern*  
 *[ADR-0003](adr/0003-ai-token-naming.md) — Component Token Naming `--ai-[component]-[prop]`*
