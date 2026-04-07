@@ -8,8 +8,8 @@
 
 - **Zero Dependencies** — Pure CSS, no JavaScript libraries required for styling
 - **3 Size Variants** — Small (sm), Medium (md), and Large (lg) for all components
-- **Full Customization** — Every visual aspect controlled via CSS custom properties
-- **Dark Mode Support** — Automatic theme detection or manual toggle via `data-theme="dark"`
+- **Full Customization** — Every visual aspect controlled via CSS custom properties (`--ui-*` / `--ai-*`)
+- **Theme Presets + Mapper** — `dist/themes/*.css` + JSON → CSS CLI for custom themes
 - **Accessibility First** — ARIA-compatible, keyboard navigable, focus states
 - **Modern Standards** — CSS Grid, Flexbox, Custom Properties, and semantic HTML
 - **Responsive** — Mobile-first approach with breakpoints at 768px and 1024px
@@ -77,38 +77,68 @@ npm install ai-css-kit font-awesome
 
 ## Theming
 
-### Light Theme (Default)
+### Cascade Layers
 
-No additional configuration required. The library uses a clean, professional light theme by default.
+Все стили распределены по каскадным слоям, чтобы темы всегда побеждали без `!important`:
 
-### Dark Theme
+```
+@layer ai-kit.tokens, ai-kit.base, ai-kit.components, ai-kit.themes;
 
-Enable dark mode by adding the `data-theme="dark"` attribute:
-
-```html
-<!-- On <html> or any parent element -->
-<html data-theme="dark">
-  <!-- All components will use dark theme -->
-</html>
+ai-kit.tokens    — глобальные `--ui-*` токены + fallback тёмной темы
+ai-kit.base      — reset, .ui-field, типографика
+ai-kit.components — 15 компонентов + состояния (`--ai-*` токены)
 ```
 
-### Custom Themes
+### Встроенные пресеты
 
-Override CSS custom properties to create custom themes:
+Пять готовых тем лежат в `dist/themes/` и активируются атрибутом `data-theme` на `<html>`:
+
+| Файл | Атрибут | Настроение |
+|------|---------|------------|
+| `dist/themes/default.css` | `data-theme="default"` *(можно также убрать атрибут)* | Базовая светлая тема |
+| `dist/themes/dark.css` | `data-theme="dark"` | Классический dark mode |
+| `dist/themes/midnight.css` | `data-theme="midnight"` | Deep dark + violet accent |
+| `dist/themes/corporate.css` | `data-theme="corporate"` | Спокойный нейтральный blue/gray |
+| `dist/themes/warm.css` | `data-theme="warm"` | Тёплые песочные оттенки, округлости |
+
+```html
+<link rel="stylesheet" href="/dist/ai-css-kit.css">
+<link rel="stylesheet" href="/dist/themes/midnight.css">
+
+<html data-theme="midnight">...</html>
+```
+
+### Theme Mapper CLI
+
+Скрипт `scripts/theme-map.js` принимает JSON-файл (родной формат, W3C Design Tokens или Figma Tokens) и генерирует CSS с `@layer ai-kit.themes`:
+
+```bash
+npm run theme-map -- ./src/themes/ocean.json -o ./dist/themes/ocean.css
+```
+
+Главные правила маппинга:
+
+- Ключи, начинающиеся с имени компонента (`button.bg`, `input.border`) → `--ai-button-bg`, `--ai-input-border`
+- Остальные ключи → `--ui-color-*`, `--ui-radius-*`, и т.д. (точки превращаются в дефисы)
+- Ключи, начинающиеся с `--`, попадают в CSS без изменений
+
+Полный формат описан в [`docs/theming.md`](docs/theming.md).
+
+### Ручные Overrides
+
+Никто не мешает менять токены вручную прямо в `:root` или пределах компонента:
 
 ```css
 :root {
-  /* Primary brand color */
   --ui-color-primary: #10b981;
   --ui-color-primary-hover: #059669;
-  --ui-color-primary-soft: rgba(16, 185, 129, 0.15);
-  
-  /* Border radius */
   --ui-radius-md: 12px;
-  --ui-radius-lg: 16px;
-  
-  /* Typography */
   --ui-font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --ai-button-radius: 24px;
+  --ai-calendar-selected-bg: #6d28d9;
 }
 ```
 
