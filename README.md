@@ -7,7 +7,7 @@ AI CSS Kit — модульная CSS-библиотека форм и UI‑па
 - **AI‑ready UX** — готовые паттерны для промптов, ассистентов и data-heavy UI
 - **Дизайн‑токены** — все цвета, типографика и отступы на переменных CSS
 - **Модульные импорты** — подключайте весь пакет или отдельные компоненты
-- **Тёмная тема** — переключается через `data-theme="dark"` и сохраняется локально
+- **Темы и CLI-маппер** — 5 пресетов + `theme-map` для JSON → CSS
 - **Zero JS** — стили не требуют JavaScript и фреймворков
 - **Font Awesome** — единственный вендор для иконографики
 
@@ -73,19 +73,38 @@ npm install ai-css-kit font-awesome
 
 Subpath‑экспорты позволяют собирать только нужные блоки в PostCSS, Vite, Webpack и т.д.
 
-## Тёмная тема и синхронизация
+## Темы и пресеты
+
+### Быстрое переключение
+
+В комплекте 5 преднастроенных тем: `default`, `dark`, `midnight`, `corporate`, `warm`. Подключите нужные CSS и выставьте `data-theme` на `<html>` или любом предке:
 
 ```html
-<html data-theme="dark">...</html>
+<link rel="stylesheet" href="/dist/ai-css-kit.css">
+<link rel="stylesheet" href="/dist/themes/midnight.css">
+
+<html data-theme="midnight">...</html>
 ```
 
-Для демо-страниц мы используем `src/demos/shared/demo-theme.js`, который принимает события `postMessage` и переключает атрибут `data-theme`. Главная витрина (`index.html`) просто отправляет `type: 'theme'` во все iframe, так что вы можете использовать тот же приём в дизайне-системах с множеством песочниц.
+Чтобы вернуться к базовой светлой теме, удалите атрибут `data-theme`. Главная витрина (`index.html`) теперь содержит селектор пресетов и синхронизирует выбранный вариант во все iframe через `postMessage`.
+
+### Theme Mapper CLI
+
+Опишите токены в JSON (родной формат, W3C Design Tokens или Figma Tokens) и выполните:
+
+```bash
+npm run theme-map -- ./my-theme.json -o ./dist/themes/my-theme.css
+```
+
+Скрипт `scripts/theme-map.js` автоматически определит формат, сопоставит ключи с `--ui-*` / `--ai-*` переменными и завернёт вывод в `@layer ai-kit.themes`. Детали и примеры находятся в [`docs/theming.md`](docs/theming.md).
 
 ## Разработка и сборка
 
 ```bash
 npm install          # установить dev-инструменты PostCSS
 npm run build        # dist/ai-css-kit.css и dist/ai-css-kit.min.css
+npm run build:themes # dist/themes/*.css из src/themes/*.json
+npm test             # запуск unit-тестов theme-map.js
 ```
 
 Сборка основана на `postcss-cli` + `postcss-import` + `postcss-nesting`. Минификация включается автоматически для `ai-css-kit.min.css`.
@@ -93,6 +112,7 @@ npm run build        # dist/ai-css-kit.css и dist/ai-css-kit.min.css
 ## Документация
 
 - Подробные примеры, состояния и токены — в [SPEC.md](SPEC.md)
+- Темизация, CLI-маппер и формат JSON — в [docs/theming.md](docs/theming.md)
 - Живые примеры компонентов находятся в `src/demos/*.html`
 
 ## Лицензия

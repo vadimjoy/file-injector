@@ -2,12 +2,30 @@
    AI CSS Kit — Showcase Landing Page
    ========================================================================== */
 
+@import url('../../../dist/themes/default.css');
+@import url('../../../dist/themes/dark.css');
+@import url('../../../dist/themes/midnight.css');
+@import url('../../../dist/themes/corporate.css');
+@import url('../../../dist/themes/warm.css');
+
 :root {
   --showcase-bg: #f5f7fb;
 }
 
 [data-theme="dark"] {
   --showcase-bg: #0f172a;
+}
+
+[data-theme="midnight"] {
+  --showcase-bg: #070610;
+}
+
+[data-theme="corporate"] {
+  --showcase-bg: #edf2fb;
+}
+
+[data-theme="warm"] {
+  --showcase-bg: #fff9f2;
 }
 
 body.showcase-page {
@@ -55,8 +73,24 @@ body.showcase-page {
   color: var(--ui-color-text-muted);
 }
 
-.showcase__theme-toggle {
+.showcase__theme-panel {
   margin-top: var(--ui-space-2);
+  max-width: 260px;
+  margin-bottom: 0;
+}
+
+.showcase__theme-panel .ui-label {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.showcase__theme-panel .ui-label i {
+  color: var(--ui-color-primary);
+}
+
+.showcase__theme-panel .ui-select {
+  width: 100%;
 }
 
 .showcase__section {

@@ -16,11 +16,18 @@
     <header class="showcase__header">
       <h1 class="showcase__title">AI CSS Kit</h1>
       <p class="showcase__subtitle">AI-first CSS-library</p>
-      <div class="showcase__theme-toggle">
-        <label class="ui-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span><i class="fa fa-moon-o" aria-hidden="true"></i> Dark theme</span>
+      <div class="showcase__theme-panel ui-field ui-field--sm">
+        <label class="ui-label" for="theme-select">
+          <i class="fa fa-paint-brush" aria-hidden="true"></i>
+          Theme preset
         </label>
+        <select class="ui-select" id="theme-select">
+          <option value="default">Default (Light)</option>
+          <option value="dark">Dark</option>
+          <option value="midnight">Midnight</option>
+          <option value="corporate">Corporate</option>
+          <option value="warm">Warm</option>
+        </select>
       </div>
     </header>
 

@@ -3,6 +3,8 @@
    These classes are toggled by JavaScript
    ========================================================================== */
 
+@layer ai-kit.components {
+
 /* --------------------------------------------------------------------------
    Validation States (applied by JS)
    -------------------------------------------------------------------------- */
@@ -123,3 +125,5 @@
   color: var(--ui-color-primary);
   font-weight: 500;
 }
+
+} /* end @layer ai-kit.components */

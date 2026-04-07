@@ -2,6 +2,8 @@
    Textarea
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-textarea {
   width: 100%;
   font-family: var(--ui-font-family);
@@ -82,3 +84,5 @@
   font-size: var(--ui-font-size-lg);
   border-radius: var(--ui-radius-lg);
 }
+
+} /* end @layer ai-kit.components */

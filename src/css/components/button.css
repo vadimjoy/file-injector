@@ -2,6 +2,8 @@
    Button
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -84,3 +86,5 @@
   font-size: var(--ui-font-size-lg);
   border-radius: var(--ai-button-radius);
 }
+
+} /* end @layer ai-kit.components */
