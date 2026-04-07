@@ -1,5 +1,7 @@
 # ADR-0003 — Стандарт нейминга `--ai-[component]-[prop]`: компонентные токены
 
+> **Язык:** Русский | [English](../../en/adr/0003-ai-token-naming.md)
+
 **Статус:** Accepted  
 **Дата:** 2026-04-04  
 **Автор:** vadimjoy  
@@ -61,21 +63,21 @@
 
 | Компонент | Префикс |
 |-----------|---------|
-| Button | `--ai-button-*` |
-| Input | `--ai-input-*` |
-| Textarea | `--ai-textarea-*` |
-| Select | `--ai-select-*` |
-| Card | `--ai-card-*` |
-| Badge | `--ai-badge-*` |
-| Progress | `--ai-progress-*` |
-| Tooltip | `--ai-tooltip-*` |
-| Checkbox | `--ai-checkbox-*` |
-| Radio | `--ai-radio-*` |
-| Toggle | `--ai-toggle-*` |
-| Slider | `--ai-slider-*` |
-| File Upload | `--ai-file-upload-*` |
-| Autocomplete | `--ai-autocomplete-*` |
-| Calendar (Datepicker) | `--ai-calendar-*` |
+| Button / Кнопка | `--ai-button-*` |
+| Input / Поле ввода | `--ai-input-*` |
+| Textarea / Текстовая область | `--ai-textarea-*` |
+| Select / Выбор | `--ai-select-*` |
+| Card / Карточка | `--ai-card-*` |
+| Badge / Бейдж | `--ai-badge-*` |
+| Progress / Прогресс | `--ai-progress-*` |
+| Tooltip / Подсказка | `--ai-tooltip-*` |
+| Checkbox / Чекбокс | `--ai-checkbox-*` |
+| Radio / Радиокнопка | `--ai-radio-*` |
+| Toggle / Тумблер | `--ai-toggle-*` |
+| Slider / Слайдер | `--ai-slider-*` |
+| File Upload / Загрузка файла | `--ai-file-upload-*` |
+| Autocomplete / Автодополнение | `--ai-autocomplete-*` |
+| Calendar (Datepicker) / Календарь | `--ai-calendar-*` |
 
 ### Декларация в tokens.css
 
@@ -142,10 +144,8 @@
 
 ### Поэтапность
 
-1. **Phase 2 (текущая):** Добавляем `--ai-*` токены в `tokens.css`, компоненты начинают их использовать. `--ui-*` остаются как алиасы.
-
-2. **Phase 3 (теминизация):** Theme Mapper генерирует CSS с `--ai-*` токенами для конкретных тем.
-
+1. **Фаза 2 (текущая):** Добавляем `--ai-*` токены в `tokens.css`, компоненты начинают их использовать. `--ui-*` остаются как алиасы.
+2. **Фаза 3 (темизация):** Theme Mapper генерирует CSS с `--ai-*` токенами для конкретных тем.
 3. **После v1.0.0 (опционально):** Прямые значения в компонентах могут быть заменены на `--ai-*`, если это не вызывает breaking changes.
 
 ### Нет breaking changes
@@ -171,7 +171,7 @@
 - AI-агент имеет **изолированный namespace** для кастомизации каждого компонента
 - Токены самодокументируются: `--ai-button-bg` явно говорит «фон кнопки»
 - `AI_CONTEXT.md` может ссылаться на конкретные `--ai-*` переменные для каждого компонента
-- Theme Mapper (Phase 3) получает чёткий API для генерации тематических оверрайдов
+- Theme Mapper (Фаза 3) получает чёткий API для генерации тематических оверрайдов
 - Нет breaking changes: `--ui-*` сохраняются как глобальный уровень
 
 ### Отрицательные / Компромиссы
@@ -211,4 +211,4 @@
 - [x] Добавлен блок Component Tokens в `tokens.css`
 - [x] Все 15 компонентов обновлены для использования `--ai-*` токенов
 - [x] `docs/AI_CONTEXT.md` обновлён с полным Token Reference для `--ai-*`
-- [ ] Phase 3: Theme Mapper будет генерировать оверрайды через `--ai-*` токены
+- [x] Фаза 3: Theme Mapper генерирует оверрайды через `--ai-*` токены
