@@ -2,6 +2,8 @@
    AI CSS Kit — Design Tokens
    ========================================================================== */
 
+@layer ai-kit.tokens {
+
 :root {
   /* Typography */
   --ui-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -235,6 +237,7 @@
 }
 
 /* Dark Theme — applied via JS to html[data-theme="dark"] */
+/* Kept in ai-kit.tokens so theme preset files in ai-kit.themes take priority */
 [data-theme="dark"] {
   --ui-color-primary:         #818cf8;
   --ui-color-primary-hover:   #6366f1;
@@ -274,3 +277,5 @@
   --ui-shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   --ui-shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
+
+} /* end @layer ai-kit.tokens */

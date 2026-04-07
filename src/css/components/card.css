@@ -2,6 +2,8 @@
    Card
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-card {
   background: var(--ai-card-bg);
   border: 1px solid var(--ai-card-border);
@@ -47,3 +49,5 @@
 .ui-card__action--fixed {
   flex: 0 0 auto;
 }
+
+} /* end @layer ai-kit.components */

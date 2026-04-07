@@ -2,6 +2,8 @@
    Tooltip
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-tooltip-wrapper {
   position: relative;
   display: inline-flex;
@@ -109,3 +111,5 @@
 .ui-tooltip-wrapper:focus-within .ui-tooltip--right {
   transform: translateY(-50%) translateX(0);
 }
+
+} /* end @layer ai-kit.components */

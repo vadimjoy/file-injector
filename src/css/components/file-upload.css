@@ -2,6 +2,8 @@
    File Upload
    ========================================================================== */
 
+@layer ai-kit.components {
+
 .ui-file-upload {
   position: relative;
   display: flex;
@@ -95,3 +97,5 @@
 .ui-file-upload--lg .ui-file-upload__title {
   font-size: var(--ui-font-size-lg);
 }
+
+} /* end @layer ai-kit.components */
