@@ -20,10 +20,10 @@ An AI-first modular pure-CSS component library for building form-heavy UIs and i
 | Component Specification | [docs/en/SPEC.md](docs/en/SPEC.md) | [docs/ru/SPEC.md](docs/ru/SPEC.md) |
 | Theming Guide | [docs/en/theming.md](docs/en/theming.md) | [docs/ru/theming.md](docs/ru/theming.md) |
 | Contributing Guide | [docs/en/CONTRIBUTING.md](docs/en/CONTRIBUTING.md) | [docs/ru/CONTRIBUTING.md](docs/ru/CONTRIBUTING.md) |
-| Release Notes | [docs/en/RELEASE_NOTES.md](docs/en/RELEASE_NOTES.md) | [docs/ru/RELEASE_NOTES.md](docs/ru/RELEASE_NOTES.md) |
+| Release Notes | [RELEASE_NOTES.md](RELEASE_NOTES.md) | — |
 | Master Plan | [docs/en/MASTER_PLAN.md](docs/en/MASTER_PLAN.md) | [docs/ru/MASTER_PLAN.md](docs/ru/MASTER_PLAN.md) |
-| AI Context | [docs/en/AI_CONTEXT.md](docs/en/AI_CONTEXT.md) | [docs/ru/AI_CONTEXT.md](docs/ru/AI_CONTEXT.md) |
-| ADR Index | [docs/en/adr/README.md](docs/en/adr/README.md) | [docs/ru/adr/README.md](docs/ru/adr/README.md) |
+| AI Context | [AI_CONTEXT.md](AI_CONTEXT.md) | — |
+| ADR Index | [docs/adr/README.md](docs/adr/README.md) | — |
 | **Glossary** | [docs/glossary.md](docs/glossary.md) | [docs/glossary.md](docs/glossary.md) |
 
 ---

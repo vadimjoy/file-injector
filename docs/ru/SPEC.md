@@ -91,6 +91,6 @@ npm install ai-css-kit font-awesome
 
 ## Связанные документы
 
-- [Контекст для AI-агентов](AI_CONTEXT.md)
+- [Контекст для AI-агентов](../../AI_CONTEXT.md)
 - [Руководство по темизации](theming.md)
 - [Глоссарий терминов](../glossary.md)

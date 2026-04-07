@@ -1,7 +1,5 @@
 # AI CSS Kit — Context for AI Agents
 
-> **Language:** English | [Русский](../ru/AI_CONTEXT.md)
-
 > **VERSION:** 0.6.0  
 > **PURPOSE:** System prompt / reference document for AI agents generating UI with ai-css-kit  
 > **SCOPE:** Load this file as context before generating any HTML with ai-css-kit classes
@@ -238,7 +236,7 @@ Shadows
 ### Component Tokens (--ai-*) — Level 2
 
 Affect a **single component** only. Reference global tokens by default.
-Override these for isolated customization without cascade effects. See [ADR-0003](adr/0003-ai-token-naming.md).
+Override these for isolated customization without cascade effects. See [ADR-0003](docs/adr/0003-ai-token-naming.md).
 
 ```
 Button
@@ -398,7 +396,7 @@ Calendar (Datepicker)
 
 ### Theme Mapper CLI
 
-Use `npm run theme-map -- ./theme.json -o ./dist/themes/custom.css` to convert JSON tokens (native, W3C, or Figma format) into a usable theme file. See [theming.md](theming.md) for full details.
+Use `npm run theme-map -- ./theme.json -o ./dist/themes/custom.css` to convert JSON tokens (native, W3C, or Figma format) into a usable theme file. See [docs/theming.md](docs/theming.md) for full details.
 
 ---
 
@@ -420,13 +418,13 @@ When generating form components, always include:
 - `aria-invalid="true"` on inputs with `--error` modifier
 - `aria-describedby="{id}"` pointing to `.ui-helper` / `.ui-error` elements
 - `role="alert"` on `.ui-error` elements that appear dynamically
-- `disabled` attribute (not CSS class) for disabled state
+- `disabled` attribute (not just a CSS class) for disabled state
 - `<fieldset>` + `<legend>` for checkbox/radio groups
 
 ---
 
 *This document is maintained alongside each component release.*  
 *ADR decisions that affect this context:*  
-*[ADR-0001](adr/0001-atomic-decoupling.md) — Atomic Decoupling (ban parent-selector mutations)*  
-*[ADR-0002](adr/0002-context-modifier-pattern.md) — Context Modifier Pattern*  
-*[ADR-0003](adr/0003-ai-token-naming.md) — Component Token Naming `--ai-[component]-[prop]`*
+* [ADR-0001](docs/adr/0001-atomic-decoupling.md) — Atomic Decoupling (ban parent-selector mutations)  
+* [ADR-0002](docs/adr/0002-context-modifier-pattern.md) — Context Modifier Pattern  
+* [ADR-0003](docs/adr/0003-ai-token-naming.md) — Component Token Naming `--ai-[component]-[prop]`

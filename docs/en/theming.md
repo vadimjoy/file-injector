@@ -198,7 +198,7 @@ rule beats a high-specificity component rule from an earlier layer.
 
 ## Full Token Reference
 
-See [AI_CONTEXT.md](AI_CONTEXT.md) for the complete list of all `--ui-*` and
+See [AI_CONTEXT.md](../../AI_CONTEXT.md) for the complete list of all `--ui-*` and
 `--ai-*` tokens with their default values and semantics.
 
 ---

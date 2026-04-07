@@ -130,7 +130,7 @@ ui-datepicker            ← Orchestrator (только position: relative)
 
 #### 2.2 Система ADR (Architectural Decision Records)
 
-Каждое архитектурное решение фиксируется в `docs/en/adr/NNNN-title.md` и `docs/ru/adr/NNNN-title.md`.
+Каждое архитектурное решение фиксируется в `docs/adr/NNNN-title.md` (англоязычный канонический файл).
 
 #### 2.3 Стандарт нейминга `--ai-[component]-[prop]`
 
@@ -157,7 +157,7 @@ ui-datepicker            ← Orchestrator (только position: relative)
 
 ### Критерий успеха Фазы 2
 
-- [x] `docs/AI_CONTEXT.md` создан и поддерживается в актуальном состоянии *(v0.5.0, полный Token Reference --ai-*, 2026-04-04)*
+- [x] `AI_CONTEXT.md` создан и поддерживается в актуальном состоянии *(v0.5.0, полный Token Reference --ai-*, 2026-04-04)*
 - [x] `docs/adr/` содержит минимум 3 ADR (0001–0003)
 - [x] Все компоненты имеют `--ai-[component]-*` токены *(все 15 компонентов обновлены)*
 - [x] `--ui-*` токены сохранены как алиасы (breaking changes = 0)

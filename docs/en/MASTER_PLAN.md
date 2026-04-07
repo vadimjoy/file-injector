@@ -171,7 +171,7 @@ A machine-readable document that an AI agent loads as a system prompt before gen
 
 #### 2.2 ADR system (Architectural Decision Records)
 
-Every architectural decision is captured in `docs/en/adr/NNNN-title.md` (with a Russian counterpart in `docs/ru/adr/`).
+Every architectural decision is captured in `docs/adr/NNNN-title.md` (single canonical English source).
 
 ADR format:
 
@@ -229,7 +229,7 @@ Component files use `--ai-*` tokens that reference global tokens by default. The
 
 ### Phase 2 Success Criteria
 
-- [x] `docs/AI_CONTEXT.md` created and kept up to date *(v0.5.0, full --ai-* Token Reference, 2026-04-04)*
+- [x] `AI_CONTEXT.md` created and kept up to date *(v0.5.0, full --ai-* Token Reference, 2026-04-04)*
 - [x] `docs/adr/` contains at least 3 ADRs (0001–0003) *(0001 Atomic Decoupling, 0002 Context Modifier, 0003 AI Token Naming)*
 - [x] All components have `--ai-[component]-*` tokens *(all 15 components updated)*
 - [x] `--ui-*` tokens preserved as aliases (zero breaking changes) *(`--ai-*` reference `--ui-*` by default)*

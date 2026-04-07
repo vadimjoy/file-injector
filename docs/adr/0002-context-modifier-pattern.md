@@ -1,7 +1,5 @@
 # ADR-0002 — Context Modifier Pattern for icons and contextual padding
 
-> **Language:** English | [Русский](../../ru/adr/0002-context-modifier-pattern.md)
-
 **Status:** Accepted  
 **Date:** 2026-04-04  
 **Author:** vadimjoy  

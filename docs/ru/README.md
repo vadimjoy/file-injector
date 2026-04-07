@@ -116,7 +116,7 @@ npm test             # запуск unit-тестов theme-map.js
 - Подробные примеры, состояния и токены — [SPEC.md](SPEC.md)
 - Темизация, CLI-маппер и формат JSON — [theming.md](theming.md)
 - Живые примеры компонентов — `src/demos/*.html`
-- Архитектурные решения — [adr/README.md](adr/README.md)
+- Архитектурные решения — [adr/README.md](../adr/README.md)
 - Дорожная карта проекта — [MASTER_PLAN.md](MASTER_PLAN.md)
 - Глоссарий терминов — [../glossary.md](../glossary.md)
 

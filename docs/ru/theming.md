@@ -186,7 +186,7 @@ node scripts/theme-map.js ./w3c-tokens.json -o ./dist/themes/my-theme.css --name
 
 ## Полный справочник токенов
 
-Полный список всех `--ui-*` и `--ai-*` токенов с их значениями по умолчанию и семантикой — в [AI_CONTEXT.md](AI_CONTEXT.md).
+Полный список всех `--ui-*` и `--ai-*` токенов с их значениями по умолчанию и семантикой — в [AI_CONTEXT.md](../../AI_CONTEXT.md).
 
 ---
 
