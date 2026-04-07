@@ -1,6 +1,6 @@
 # AI CSS Kit — Context for AI Agents
 
-> **VERSION:** 0.5.0  
+> **VERSION:** 0.6.0  
 > **PURPOSE:** System prompt / reference document for AI agents generating UI with ai-css-kit  
 > **SCOPE:** Load this file as context before generating any HTML with ai-css-kit classes
 
@@ -15,7 +15,7 @@ I-03  Every <input>, <textarea>, <select> MUST have an associated <label class="
 I-04  A component's CSS class MUST NOT be overridden by a parent component's selector
 I-05  Size variants are set on .ui-field, NOT on individual components inside it
 I-06  Validation state classes (--error, --success, --warning) are set on the INPUT, not on .ui-field
-I-07  Dark theme is activated via data-theme="dark" on <html> or any ancestor element
+I-07  Theme presets are activated via data-theme="{default|dark|midnight|corporate|warm}" on <html> (remove attribute to fall back to default)
 I-08  Use --ai-[component]-* tokens to customize a single component in isolation
 I-09  Use --ui-* tokens ONLY for global changes that must cascade to all components
 I-10  DO NOT use !important — override --ai-* tokens instead
@@ -381,17 +381,29 @@ Calendar (Datepicker)
 
 ---
 
-## 6. Dark Theme
+## 6. Theme Presets & Theme Mapper
 
-Activate by setting `data-theme="dark"` on `<html>` or any ancestor:
+- Theme presets live in `dist/themes/*.css` (`default`, `dark`, `midnight`, `corporate`, `warm`).
+- Import the files you need **after** `dist/ai-css-kit.css` and switch via `data-theme="{name}"` on `<html>`.
+- Removing the attribute reverts to the base light tokens from `:root`.
+- All preset overrides sit inside `@layer ai-kit.themes`, so they always trump component styles without `!important`.
 
 ```html
-<html data-theme="dark">
-  <!-- All components automatically use dark palette -->
-</html>
+<link rel="stylesheet" href="/dist/ai-css-kit.css">
+<link rel="stylesheet" href="/dist/themes/midnight.css">
+<html data-theme="midnight">...</html>
 ```
 
-All color tokens have dark variants defined in `tokens.css`. No additional classes needed.
+### Theme Mapper CLI
+
+Use `npm run theme-map -- ./theme.json -o ./dist/themes/custom.css` to convert JSON tokens (native, W3C, or Figma format) into a usable theme file. The mapper:
+
+1. Detects the input format automatically (`meta`+`tokens`, `$value`, or `value` keys)
+2. Flattens nested keys (`color.primary` → `--ui-color-primary`)
+3. Sends component prefixes (`button`, `input`, `card`, …) to the `--ai-*` namespace
+4. Wraps the output in `@layer ai-kit.themes { [data-theme="custom"] {...} }`
+
+Always prefer overriding tokens (`--ui-*`, `--ai-*`) instead of author CSS.
 
 ---
 

@@ -1,9 +1,16 @@
+const THEME_OPTIONS = ['default', 'dark', 'midnight', 'corporate', 'warm']
+
+const normalizeTheme = (value) => {
+  if (!value || value === 'light') return 'default'
+  return THEME_OPTIONS.includes(value) ? value : 'default'
+}
+
 const createShowcasePage = () => {
   const controller = new AbortController()
   const { signal } = controller
 
-  const themeToggle = document.getElementById('theme-toggle')
-  if (!themeToggle) {
+  const themeSelect = document.getElementById('theme-select')
+  if (!themeSelect) {
     controller.abort()
     return { destroy: () => {} }
   }
@@ -14,14 +21,15 @@ const createShowcasePage = () => {
     return { destroy: () => {} }
   }
 
-  const setDocumentTheme = (theme) => {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark')
-      themeToggle.checked = true
-    } else {
+  const setDocumentTheme = (value) => {
+    const theme = normalizeTheme(value)
+    if (theme === 'default') {
       document.documentElement.removeAttribute('data-theme')
-      themeToggle.checked = false
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
     }
+    themeSelect.value = theme
+    return theme
   }
 
   const postThemeToIframes = (theme) => {
@@ -30,36 +38,35 @@ const createShowcasePage = () => {
     })
   }
 
-  const savedTheme = localStorage.getItem('theme') || 'light'
-  setDocumentTheme(savedTheme)
+  const savedTheme = normalizeTheme(localStorage.getItem('theme'))
+  let currentTheme = setDocumentTheme(savedTheme)
 
   frames.forEach((iframe) => {
     iframe.addEventListener(
       'load',
       () => {
         if (signal.aborted) return
-        const currentTheme = themeToggle.checked ? 'dark' : 'light'
         iframe.contentWindow?.postMessage({ type: 'theme', theme: currentTheme }, '*')
       },
       { signal }
     )
   })
 
-  const onThemeToggle = (event) => {
+  const onThemeChange = (event) => {
     if (signal.aborted) return
-    const theme = event.target.checked ? 'dark' : 'light'
-    setDocumentTheme(theme)
+    const theme = setDocumentTheme(event.target.value)
+    currentTheme = theme
     localStorage.setItem('theme', theme)
     postThemeToIframes(theme)
   }
 
   const timerId = setTimeout(() => {
     if (!signal.aborted) {
-      postThemeToIframes(savedTheme)
+      postThemeToIframes(currentTheme)
     }
-  }, 100)
+  }, 120)
 
-  themeToggle.addEventListener('change', onThemeToggle, { signal })
+  themeSelect.addEventListener('change', onThemeChange, { signal })
 
   return {
     destroy() {

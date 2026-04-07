@@ -2,6 +2,8 @@
    Slider
    ========================================================================== */
 
+@layer ai-kit.components {
+
 /* Typed custom property: browsers can interpolate --_fill inside gradients,
    enabling smooth CSS transitions when JS updates the value later. */
 @property --_fill {
@@ -106,3 +108,5 @@
   width: 21px;
   height: 21px;
 }
+
+} /* end @layer ai-kit.components */

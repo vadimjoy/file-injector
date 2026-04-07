@@ -2,6 +2,12 @@
 /*   AI CSS Kit — Demo Base & Utilities                                          */
 /* ========================================================================== */
 
+@import url('../../../dist/themes/default.css');
+@import url('../../../dist/themes/dark.css');
+@import url('../../../dist/themes/midnight.css');
+@import url('../../../dist/themes/corporate.css');
+@import url('../../../dist/themes/warm.css');
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body.demo-page {

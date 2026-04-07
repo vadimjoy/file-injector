@@ -1,6 +1,6 @@
 {
   "name": "ai-css-kit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "AI-first modular CSS component library with tokens, themes, and demo blocks.",
   "main": "dist/ai-css-kit.css",
   "style": "dist/ai-css-kit.css",
@@ -15,7 +15,8 @@
     "./tokens": "./dist/tokens.css",
     "./base": "./dist/base.css",
     "./states": "./dist/states.css",
-    "./components/*": "./dist/components/*.css"
+    "./components/*": "./dist/components/*.css",
+    "./themes/*": "./dist/themes/*.css"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -23,7 +24,10 @@
     "build:css": "postcss src/css/index.css -o dist/ai-css-kit.css",
     "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/ai-css-kit.min.css",
     "build:modules": "node scripts/build-modules.js",
-    "build": "npm run lint:coupling && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min",
+    "build:themes": "node scripts/build-themes.js",
+    "theme-map": "node scripts/theme-map.js",
+    "test": "node --test tests/theme-map.test.js",
+    "build": "npm run lint:coupling && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
     "prepare": "npm run build"
   },
   "keywords": [
