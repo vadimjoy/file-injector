@@ -5,7 +5,7 @@
     "description": "Warm amber tones with generous rounding — friendly and approachable"
   },
   "tokens": {
-    "font.family":              "'Georgia', 'Times New Roman', serif",
+    "font.family":              "Verdana, Geneva, 'DejaVu Sans', sans-serif",
 
     "color.primary":            "#d97706",
     "color.primary.hover":      "#b45309",

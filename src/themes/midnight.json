@@ -5,7 +5,7 @@
     "description": "Deep dark theme with violet/purple accent and monospace font"
   },
   "tokens": {
-    "font.family":              "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+    "font.family":              "ui-monospace, 'Courier New', 'Liberation Mono', Consolas, monospace",
 
     "color.primary":            "#8b5cf6",
     "color.primary.hover":      "#7c3aed",
