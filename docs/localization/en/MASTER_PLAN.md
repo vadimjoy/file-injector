@@ -323,9 +323,9 @@ All component styles moved into `@layer`, so themes always win without `!importa
 
 ## Scalability Workstream
 
-> **Reference document:** [`docs/audit/SCALABILITY_PLAN.md`](../audit/SCALABILITY_PLAN.md)  
-> **Contributor guide:** [`docs/guides/scalability.md`](../guides/scalability.md)  
-> **Audit baseline:** [`docs/audit/scalability-audit-phases-1-3.md`](../audit/scalability-audit-phases-1-3.md)
+> **Reference document:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md)  
+> **Contributor guide:** [`docs/guides/scalability.md`](../../guides/scalability.md)  
+> **Audit baseline:** [`docs/audit/scalability-audit-phases-1-3.md`](../../audit/scalability-audit-phases-1-3.md)
 
 The scalability plan runs **in parallel** with Phases 4–5. Its six tracks close technical debt from Phases 1–3 and lay the foundation for expanding to 50+ components, grid layouts, new design concepts, and a scalable CLI. Tracks must be started at the phase boundaries shown below:
 
@@ -346,7 +346,7 @@ The scalability plan runs **in parallel** with Phases 4–5. Its six tracks clos
 **Effort:** ~4–6 weeks
 
 > **Phase 4.1 — Architecture & API Design** ✅ Complete *(2026-04-09)*  
-> Full specification: [`docs/design/phase-4.1-cli-architecture.md`](../design/phase-4.1-cli-architecture.md)
+> Full specification: [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md)
 
 ### What We Do
 
@@ -372,7 +372,7 @@ Internal agent pipeline:
 [Output: HTML + CSS overrides]
 ```
 
-The complete module structure, all data contracts (`ComponentSpec`, `ParsedIntent`, `ResolvedAtom`, `ComposedLayout`, `ValidationReport`), provider abstraction layer (`OpenAI`, `Anthropic`, `Ollama`, `OpenAI-compatible`, custom `registerProvider()`), and CLI UX reference are specified in [`docs/design/phase-4.1-cli-architecture.md`](../design/phase-4.1-cli-architecture.md).
+The complete module structure, all data contracts (`ComponentSpec`, `ParsedIntent`, `ResolvedAtom`, `ComposedLayout`, `ValidationReport`), provider abstraction layer (`OpenAI`, `Anthropic`, `Ollama`, `OpenAI-compatible`, custom `registerProvider()`), and CLI UX reference are specified in [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md).
 
 #### 4.2 Intent Parser
 
@@ -405,7 +405,7 @@ ai-css-kit validate ./output.html
 - [ ] Validator detects all known anti-patterns
 - [ ] Providers supported: OpenAI, Anthropic, Ollama (local)
 - [ ] Scalability Track E implemented alongside CLI (plugin resolver, rule registry, context slicing)
-- [ ] Documentation in `docs/en/cli.md`
+- [ ] Documentation in `docs/localization/en/cli.md`
 
 ---
 
@@ -466,7 +466,7 @@ docs/site/          ← static site (Astro or 11ty)
 | 4. CLI Agent | v0.8.0 | `npx ai-css-kit generate` + Tracks C-1/C-2/E (grid, new components, CLI scalability) | High |
 | 5. Ecosystem | v1.0.0 | Visual tests + AI accuracy + Tracks C-3 + D (display components, density, responsive, multi-brand) | Medium |
 
-> **Scalability Plan:** [`docs/audit/SCALABILITY_PLAN.md`](../audit/SCALABILITY_PLAN.md) — full work breakdown with effort estimates, integrated into the roadmap above.
+> **Scalability Plan:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md) — full work breakdown with effort estimates, integrated into the roadmap above.
 
 ---
 

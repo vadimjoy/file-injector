@@ -206,7 +206,7 @@ Two options were considered:
 - [ ] Write unit tests for `OpenAICompatibleProvider` with mocked HTTP
 - [ ] Write integration test for `generate` command with mocked LLM provider
 - [ ] Add `bin.ai-css-kit` entry to root `package.json` pointing to `cli/bin/ai-css-kit.js`
-- [ ] Document CLI in `docs/en/cli.md` (Phase 4 success criterion)
-- [ ] Document `registerProvider()` and `openai-compatible` in `docs/en/cli.md`
+- [ ] Document CLI in `docs/localization/en/cli.md` (Phase 4 success criterion)
+- [ ] Document `registerProvider()` and `openai-compatible` in `docs/localization/en/cli.md`
 - [ ] Update `AI_CONTEXT.md` to v0.7.0 with CLI usage section
 - [ ] Update `MASTER_PLAN.md` Phase 4 success criteria checkboxes on completion

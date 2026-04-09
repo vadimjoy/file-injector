@@ -1,7 +1,7 @@
 # AI CSS Kit — Component Library Specification
 
 > **Language:** English (full spec) | [Russian (summary)](../ru/SPEC.md)  
-> **Docs index:** [docs/README.md](../README.md)
+> **Docs index:** [docs/README.md](../../README.md)
 
 ## Overview
 
@@ -125,7 +125,7 @@ Mapping rules:
 - Other keys become `--ui-color-*`, `--ui-radius-*`, etc. (dots turn into hyphens)
 - Keys that already start with `--` are copied to CSS verbatim
 
-The full format lives in [`docs/theming.md`](../theming.md).
+The full format lives in [`docs/theming.md`](../../theming.md).
 
 ### Manual Overrides
 

@@ -98,7 +98,7 @@ Describe your tokens in JSON (native format, W3C Design Tokens, or Figma Tokens)
 npm run theme-map -- ./my-theme.json -o ./dist/themes/my-theme.css
 ```
 
-`scripts/theme-map.js` automatically detects the format, maps keys to `--ui-*` / `--ai-*` variables, and wraps the output in `@layer ai-kit.themes`. Details and examples are in [`docs/en/theming.md`](theming.md).
+`scripts/theme-map.js` automatically detects the format, maps keys to `--ui-*` / `--ai-*` variables, and wraps the output in `@layer ai-kit.themes`. Details and examples are in [`docs/localization/en/theming.md`](theming.md).
 
 ## Development & Build
 
@@ -116,9 +116,9 @@ The build is based on `postcss-cli` + `postcss-import` + `postcss-nesting`. Mini
 - Component examples, states, and tokens — [SPEC.md](SPEC.md)
 - Theming, CLI mapper, and JSON format — [theming.md](theming.md)
 - Live component demos are in `src/demos/*.html`
-- Architectural decisions — [adr/README.md](../adr/README.md)
+- Architectural decisions — [adr/README.md](../../adr/README.md)
 - Project roadmap — [MASTER_PLAN.md](MASTER_PLAN.md)
-- Glossary of terms — [../glossary.md](../glossary.md)
+- Glossary of terms — [../glossary.md](../../glossary.md)
 
 ## License
 
