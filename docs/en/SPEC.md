@@ -462,13 +462,13 @@ Single or multiple selection checkbox.
 <!-- Single checkbox -->
 <label class="ui-checkbox ui-checkbox--md">
   <input type="checkbox">
-  <span>Accept terms and conditions</span>
+  <span>Accept</span>
 </label>
 
 <!-- Checked state -->
 <label class="ui-checkbox ui-checkbox--md">
   <input type="checkbox" checked>
-  <span>Subscribe to newsletter</span>
+  <span>Subscribe</span>
 </label>
 
 <!-- Disabled -->
