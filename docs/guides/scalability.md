@@ -4,7 +4,7 @@
 **Version:** 1.0 (2026-04-09)  
 **Related documents:**  
 - `docs/audit/scalability-audit-phases-1-3.md` — identified risks  
-- `docs/audit/SCALABILITY_PLAN.md` — work items and roadmap  
+- `docs/plans/SCALABILITY_PLAN.md` — work items and roadmap  
 - `docs/adr/README.md` — architectural decisions  
 
 ---

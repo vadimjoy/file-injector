@@ -2,5 +2,5 @@
 
 The full documentation for contributors lives under the `docs/` tree so that all manuals stay together.
 
-- [English — docs/en/CONTRIBUTING.md](docs/en/CONTRIBUTING.md)
-- [Русский — docs/ru/CONTRIBUTING.md](docs/ru/CONTRIBUTING.md)
+- [English — docs/localization/en/CONTRIBUTING.md](docs/localization/en/CONTRIBUTING.md)
+- [Русский — docs/localization/ru/CONTRIBUTING.md](docs/localization/ru/CONTRIBUTING.md)

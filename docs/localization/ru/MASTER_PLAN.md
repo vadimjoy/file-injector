@@ -234,9 +234,9 @@ dist/themes/
 
 ## Трек масштабируемости
 
-> **Документ плана:** [`docs/audit/SCALABILITY_PLAN.md`](../audit/SCALABILITY_PLAN.md)  
-> **Руководство контрибьютора:** [`docs/guides/scalability.md`](../guides/scalability.md)  
-> **Аудит фаз 1–3:** [`docs/audit/scalability-audit-phases-1-3.md`](../audit/scalability-audit-phases-1-3.md)
+> **Документ плана:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md)  
+> **Руководство контрибьютора:** [`docs/guides/scalability.md`](../../guides/scalability.md)  
+> **Аудит фаз 1–3:** [`docs/audit/scalability-audit-phases-1-3.md`](../../audit/scalability-audit-phases-1-3.md)
 
 План масштабируемости выполняется **параллельно** с фазами 4–5. Его шесть треков закрывают технический долг фаз 1–3 и закладывают фундамент для расширения до 50+ компонентов, сеточной системы, новых дизайн-концептов и масштабируемого CLI. Треки должны быть запущены на следующих границах фаз:
 
@@ -257,7 +257,7 @@ dist/themes/
 **Трудозатраты:** ~4–6 недель
 
 > **Фаза 4.1 — Архитектура и API-дизайн** ✅ Завершена *(2026-04-09)*  
-> Полная спецификация: [`docs/design/phase-4.1-cli-architecture.md`](../design/phase-4.1-cli-architecture.md)
+> Полная спецификация: [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md)
 
 ### Что делаем
 
@@ -283,7 +283,7 @@ ai-css-kit generate "форма регистрации с email, паролем 
 [Output: HTML + CSS overrides]
 ```
 
-Полная структура модулей, все контракты данных (`ComponentSpec`, `ParsedIntent`, `ResolvedAtom`, `ComposedLayout`, `ValidationReport`), слой абстракции провайдеров (`OpenAI`, `Anthropic`, `Ollama`, `OpenAI-compatible`, пользовательский `registerProvider()`), а также UX-справочник CLI описаны в [`docs/design/phase-4.1-cli-architecture.md`](../design/phase-4.1-cli-architecture.md).
+Полная структура модулей, все контракты данных (`ComponentSpec`, `ParsedIntent`, `ResolvedAtom`, `ComposedLayout`, `ValidationReport`), слой абстракции провайдеров (`OpenAI`, `Anthropic`, `Ollama`, `OpenAI-compatible`, пользовательский `registerProvider()`), а также UX-справочник CLI описаны в [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md).
 
 #### 4.2 Intent Parser
 
@@ -325,7 +325,7 @@ ai-css-kit validate ./src/page.html
 - [ ] Validator обнаруживает все известные anti-patterns
 - [ ] Поддержаны провайдеры: OpenAI, Anthropic, Ollama (local)
 - [ ] Трек E плана масштабируемости реализован параллельно с CLI (плагин-резолвер, реестр правил, нарезка контекста)
-- [ ] Документация в `docs/ru/cli.md`
+- [ ] Документация в `docs/localization/ru/cli.md`
 
 ---
 
@@ -355,7 +355,7 @@ ai-css-kit validate ./src/page.html
 | 4. CLI Agent | v0.8.0 | `npx ai-css-kit generate` + Треки C-1/C-2/E (сетка, новые компоненты, масштабируемость CLI) | High |
 | 5. Ecosystem | v1.0.0 | Visual tests + AI accuracy + Треки C-3 + D (компоненты отображения, плотность, адаптивность, мультибренд) | Medium |
 
-> **План масштабируемости:** [`docs/audit/SCALABILITY_PLAN.md`](../audit/SCALABILITY_PLAN.md) — полная разбивка задач с оценками трудозатрат, интегрированная в дорожную карту выше.
+> **План масштабируемости:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md) — полная разбивка задач с оценками трудозатрат, интегрированная в дорожную карту выше.
 
 ---
 

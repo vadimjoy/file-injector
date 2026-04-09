@@ -99,7 +99,7 @@ In `src/css/index.css`:
 @layer ai-kit.tokens, ai-kit.base, ai-kit.components, ai-kit.themes, ai-kit.overrides;
 ```
 
-Document in `docs/en/theming.md` as the consumer extension point. Record in ADR-0007.
+Document in `docs/localization/en/theming.md` as the consumer extension point. Record in ADR-0007.
 
 ---
 
@@ -287,7 +287,7 @@ src/css/components/[name].css         ← component CSS stub
 src/css/tokens/[name].tokens.css      ← token block stub
 src/themes/default.json               ← updated with new tokens
 AI_CONTEXT.md                         ← Component Registry row added
-docs/en/SPEC.md                       ← component HTML contract stub
+docs/localization/en/SPEC.md          ← component HTML contract stub
 cli/src/pipeline/component-resolver.js ← resolver stub added
 ```
 

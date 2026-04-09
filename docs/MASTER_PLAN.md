@@ -1,3 +1,3 @@
 # Master Plan
 
-> [English](./en/MASTER_PLAN.md) | [Русский](./ru/MASTER_PLAN.md)
+> [English](./localization/en/MASTER_PLAN.md) | [Русский](./localization/ru/MASTER_PLAN.md)

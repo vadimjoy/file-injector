@@ -98,7 +98,7 @@ Subpath‑экспорты позволяют собирать только ну
 npm run theme-map -- ./my-theme.json -o ./dist/themes/my-theme.css
 ```
 
-Скрипт `scripts/theme-map.js` автоматически определит формат, сопоставит ключи с `--ui-*` / `--ai-*` переменными и завернёт вывод в `@layer ai-kit.themes`. Детали и примеры — в [`docs/ru/theming.md`](theming.md).
+Скрипт `scripts/theme-map.js` автоматически определит формат, сопоставит ключи с `--ui-*` / `--ai-*` переменными и завернёт вывод в `@layer ai-kit.themes`. Детали и примеры — в [`docs/localization/ru/theming.md`](theming.md).
 
 ## Разработка и сборка
 
@@ -116,9 +116,9 @@ npm test             # запуск unit-тестов theme-map.js
 - Подробные примеры, состояния и токены — [SPEC.md](SPEC.md)
 - Темизация, CLI-маппер и формат JSON — [theming.md](theming.md)
 - Живые примеры компонентов — `src/demos/*.html`
-- Архитектурные решения — [adr/README.md](../adr/README.md)
+- Архитектурные решения — [adr/README.md](../../adr/README.md)
 - Дорожная карта проекта — [MASTER_PLAN.md](MASTER_PLAN.md)
-- Глоссарий терминов — [../glossary.md](../glossary.md)
+- Глоссарий терминов — [../glossary.md](../../glossary.md)
 
 ## Лицензия
 

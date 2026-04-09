@@ -4,7 +4,7 @@
 **Audit scope:** Architectural decisions implemented in phases 1–3 (v0.4.0–v0.6.0)  
 **Audit date:** 2026-04-09  
 **Auditor:** OpenCode  
-**Based on:** `docs/en/MASTER_PLAN.md`, ADR-0001–0004, source code
+**Based on:** `docs/localization/en/MASTER_PLAN.md`, ADR-0001–0004, source code
 
 ---
 
