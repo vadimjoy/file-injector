@@ -228,10 +228,11 @@ ai-css-kit/
 │           ├── demo-theme.js   # iframe theme sync
 │           └── showcase-page.js# landing toggle logic
 ├── docs/
-│   ├── en/                     # English documentation
-│   ├── ru/                     # Russian documentation
+│   ├── localization/
+│   │   ├── en/                 # English documentation
+│   │   └── ru/                 # Russian documentation
 │   ├── glossary.md             # bilingual glossary
-│   └── adr/                    # (legacy location, redirects to en/adr)
+│   └── adr/                    # ADR index
 ├── dist/                       # build output (do not edit)
 ├── SPEC.md
 ├── README.md

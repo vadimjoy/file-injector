@@ -4,7 +4,7 @@
 
 > **Concept:** "Deterministic UI Lego"  
 > **Goal:** A CSS framework optimised for UI generation by AI agents  
-> **Author:** vadimjoy | **License:** MIT | **Plan version:** 1.0 (2026-04)
+> **Author:** vadimjoy | **License:** MIT | **Plan version:** 1.1 (2026-04)
 
 ---
 
@@ -321,14 +321,36 @@ All component styles moved into `@layer`, so themes always win without `!importa
 
 ---
 
+## Scalability Workstream
+
+> **Reference document:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md)  
+> **Contributor guide:** [`docs/guides/scalability.md`](../../guides/scalability.md)  
+> **Audit baseline:** [`docs/audit/scalability-audit-phases-1-3.md`](../../audit/scalability-audit-phases-1-3.md)
+
+The scalability plan runs **in parallel** with Phases 4–5. Its six tracks close technical debt from Phases 1–3 and lay the foundation for expanding to 50+ components, grid layouts, new design concepts, and a scalable CLI. Tracks must be started at the phase boundaries shown below:
+
+| Phase boundary | Version | Tracks to start |
+|----------------|---------|-----------------|
+| Before Phase 4 implementation | v0.7.0 | **A** (Foundational Fixes), **B** (Token Modularisation), **F** (CI Automation) |
+| During Phase 4 CLI build | v0.8.0 | **E** (CLI Scalability: plugin resolver, rule registry, context slicing) |
+| Phase 4.3 — component expansion | v0.8.x | **C-1** (Grid system), **C-2** (new form components), **C-4** (scaffold script) |
+| Phase 5 — ecosystem | v0.9.0 | **C-3** (display components), **D-1** (density modes), **D-2** (responsive tokens), **D-3** (multi-brand), **D-4** (motion tokens) |
+
+> Every new component or token added after Phase 4 must follow the checklist in `docs/guides/scalability.md`.
+
+---
+
 ## Phase 4 — CLI Agent (The Orchestrator)
 
 **Target version:** v0.8.0  
 **Effort:** ~4–6 weeks
 
+> **Phase 4.1 — Architecture & API Design** ✅ Complete *(2026-04-09)*  
+> Full specification: [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md)
+
 ### What We Do
 
-#### 4.1 CLI architecture
+#### 4.1 CLI architecture ✅
 
 ```
 ai-css-kit generate "registration form with email, password and a button"
@@ -350,30 +372,19 @@ Internal agent pipeline:
 [Output: HTML + CSS overrides]
 ```
 
+The complete module structure, all data contracts (`ComponentSpec`, `ParsedIntent`, `ResolvedAtom`, `ComposedLayout`, `ValidationReport`), provider abstraction layer (`OpenAI`, `Anthropic`, `Ollama`, `OpenAI-compatible`, custom `registerProvider()`), and CLI UX reference are specified in [`docs/design/phase-4.1-cli-architecture.md`](../../design/phase-4.1-cli-architecture.md).
+
 #### 4.2 Intent Parser
 
-Translates free text into a structured request:
-
-```json
-{
-  "layout": "form",
-  "components": [
-    { "type": "input", "variant": "email", "size": "md", "label": "Email" },
-    { "type": "input", "variant": "password", "size": "md", "label": "Password" },
-    { "type": "button", "variant": "primary", "size": "md", "text": "Sign Up" }
-  ],
-  "theme": "default",
-  "container": "card"
-}
-```
+Translates free text into a structured `ParsedIntent` object via an LLM call. The LLM boundary is isolated — 3 out of 4 pipeline stages are fully deterministic and unit-testable without an LLM.
 
 #### 4.3 Component Resolver
 
-A pure deterministic module (no LLM). Accepts a structured request and returns the correct HTML. Takes rules directly from `AI_CONTEXT.md` — single source of truth.
+A pure deterministic module (no LLM). Accepts a structured request and returns the correct HTML. Takes rules directly from `AI_CONTEXT.md` — single source of truth. Implemented as a per-component plugin directory (`cli/src/pipeline/resolvers/`) per Scalability Track E-1.
 
 #### 4.4 Validator
 
-Checks generated HTML for Module Contract compliance:
+Checks generated HTML for Module Contract compliance. Implemented as a rule registry (Scalability Track E-2) so new component rules can be added without patching core:
 
 ```bash
 ai-css-kit validate ./output.html
@@ -385,11 +396,16 @@ ai-css-kit validate ./output.html
 
 ### Phase 4 Success Criteria
 
+- [x] CLI architecture designed and fully specified *(`docs/design/phase-4.1-cli-architecture.md`, 2026-04-09)*
+- [x] Provider abstraction layer designed *(OpenAI, Anthropic, Ollama, OpenAI-compatible, custom `registerProvider()`)*
+- [x] All data contracts defined *(ComponentSpec, ParsedIntent, ResolvedAtom, ComposedLayout, ValidationReport)*
+- [x] Scalability tracks A + B + F scoped and scheduled *(Scalability Plan v0.7.0 milestone)*
 - [ ] `npx ai-css-kit generate "..."` works end-to-end
 - [ ] Component Resolver is 100% unit-tested (no LLM)
 - [ ] Validator detects all known anti-patterns
 - [ ] Providers supported: OpenAI, Anthropic, Ollama (local)
-- [ ] Documentation in `docs/en/cli.md`
+- [ ] Scalability Track E implemented alongside CLI (plugin resolver, rule registry, context slicing)
+- [ ] Documentation in `docs/localization/en/cli.md`
 
 ---
 
@@ -443,11 +459,14 @@ docs/site/          ← static site (Astro or 11ty)
 
 | Phase | Version | Key Result | Priority |
 |-------|---------|-----------|----------|
-| 1. Decoupling | v0.4.0 | Atomic components without coupling | Critical |
-| 2. AI Context | v0.5.0 | AI_CONTEXT.md + ADR + `--ai-*` tokens | Critical |
+| 1. Decoupling | v0.4.0 ✅ | Atomic components without coupling | Critical |
+| 2. AI Context | v0.5.0 ✅ | AI_CONTEXT.md + ADR + `--ai-*` tokens | Critical |
 | 3. Theming | v0.6.0 ✅ | Theme Mapper + JSON themes + @layer | High |
-| 4. CLI Agent | v0.8.0 | `npx ai-css-kit generate` | High |
-| 5. Ecosystem | v1.0.0 | Visual tests + AI accuracy + public site | Medium |
+| **Scalability prep** | **v0.7.0** | **Tracks A + B + F** — foundational fixes, token modularisation, CI automation | **High** |
+| 4. CLI Agent | v0.8.0 | `npx ai-css-kit generate` + Tracks C-1/C-2/E (grid, new components, CLI scalability) | High |
+| 5. Ecosystem | v1.0.0 | Visual tests + AI accuracy + Tracks C-3 + D (display components, density, responsive, multi-brand) | Medium |
+
+> **Scalability Plan:** [`docs/plans/SCALABILITY_PLAN.md`](../../plans/SCALABILITY_PLAN.md) — full work breakdown with effort estimates, integrated into the roadmap above.
 
 ---
 
