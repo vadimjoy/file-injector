@@ -159,14 +159,25 @@
   padding-bottom: 0;
 }
 
-/* Vertical connector */
+/* Vertical connector — hide horizontal ::before, draw downward line via ::after */
 .ui-steps--vertical .ui-steps__item + .ui-steps__item::before {
-  top: calc(-1 * var(--ui-space-6) + var(--ai-steps-indicator-size) / 2 + 4px);
-  bottom: calc(100% - var(--ai-steps-indicator-size) / 2 - 4px + var(--ui-space-6));
+  display: none;
+}
+
+.ui-steps--vertical .ui-steps__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--ai-steps-indicator-size) / 2);
+  bottom: 0;
   left: calc(var(--ai-steps-indicator-size) / 2 - 1px);
   right: auto;
   width: 2px;
   height: auto;
+  background: var(--ai-steps-line-color);
+}
+
+.ui-steps--vertical .ui-steps__item--done:not(:last-child)::after {
+  background: var(--ai-steps-line-done-color);
 }
 
 .ui-steps--vertical .ui-steps__label {
