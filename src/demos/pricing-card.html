@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Card - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Pricing Card</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default (3 plans)</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start">
+
+        <!-- Starter -->
+        <div class="ui-pricing-card">
+          <div class="ui-pricing-card__header">
+            <p class="ui-pricing-card__name">Starter</p>
+          </div>
+          <div class="ui-pricing-card__price">
+            <span class="ui-pricing-card__amount">$0</span>
+            <span class="ui-pricing-card__period">/month</span>
+          </div>
+          <hr class="ui-pricing-card__divider">
+          <ul class="ui-pricing-card__features">
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Up to 3 projects
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              5 GB storage
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Community support
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--excluded">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
+              Priority support
+            </li>
+          </ul>
+          <div class="ui-pricing-card__cta">
+            <button class="ui-button ui-button--secondary ui-button--md" style="width:100%">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Pro (featured) -->
+        <div class="ui-pricing-card ui-pricing-card--featured">
+          <span class="ui-pricing-card__badge ui-badge ui-badge--primary ui-badge--sm">Most Popular</span>
+          <div class="ui-pricing-card__header">
+            <p class="ui-pricing-card__name">Pro</p>
+          </div>
+          <div class="ui-pricing-card__price">
+            <span class="ui-pricing-card__amount">$29</span>
+            <span class="ui-pricing-card__period">/month</span>
+          </div>
+          <hr class="ui-pricing-card__divider">
+          <ul class="ui-pricing-card__features">
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Unlimited projects
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              50 GB storage
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Priority support
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Advanced analytics
+            </li>
+          </ul>
+          <div class="ui-pricing-card__cta">
+            <button class="ui-button ui-button--primary ui-button--md" style="width:100%">Start Free Trial</button>
+          </div>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="ui-pricing-card">
+          <div class="ui-pricing-card__header">
+            <p class="ui-pricing-card__name">Enterprise</p>
+          </div>
+          <div class="ui-pricing-card__price">
+            <span class="ui-pricing-card__amount">$99</span>
+            <span class="ui-pricing-card__period">/month</span>
+          </div>
+          <hr class="ui-pricing-card__divider">
+          <ul class="ui-pricing-card__features">
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Unlimited projects
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              500 GB storage
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              24/7 dedicated support
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              SSO &amp; audit logs
+            </li>
+            <li class="ui-pricing-card__feature ui-pricing-card__feature--included">
+              <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+              Custom integrations
+            </li>
+          </ul>
+          <div class="ui-pricing-card__cta">
+            <button class="ui-button ui-button--secondary ui-button--md" style="width:100%">Contact Sales</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Feature row</h3>
+      <div class="u-stack">
+        <div class="ui-pricing-card__feature ui-pricing-card__feature--included">
+          <span class="ui-pricing-card__feature-icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+          Included feature — access to all core components
+        </div>
+        <div class="ui-pricing-card__feature ui-pricing-card__feature--excluded">
+          <span class="ui-pricing-card__feature-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
+          Excluded feature — not available on this plan
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

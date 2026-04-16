@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Timeline</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="u-stack">
+        <ul class="ui-timeline">
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot ui-timeline__dot--primary">
+                <i class="fa fa-rocket" aria-hidden="true"></i>
+              </div>
+              <div class="ui-timeline__connector"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Q1 2025</span>
+              <p class="ui-timeline__title">Product Launch</p>
+              <p class="ui-timeline__desc">Initial release to early adopters.</p>
+            </div>
+          </li>
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot ui-timeline__dot--success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </div>
+              <div class="ui-timeline__connector"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Q2 2025</span>
+              <p class="ui-timeline__title">10K Users</p>
+              <p class="ui-timeline__desc">Reached first major milestone.</p>
+            </div>
+          </li>
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot ui-timeline__dot--warning">
+                <i class="fa fa-wrench" aria-hidden="true"></i>
+              </div>
+              <div class="ui-timeline__connector"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Q3 2025</span>
+              <p class="ui-timeline__title">Platform Migration</p>
+              <p class="ui-timeline__desc">Moved infrastructure to new cloud provider.</p>
+            </div>
+          </li>
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Q4 2025</span>
+              <p class="ui-timeline__title">Enterprise Edition</p>
+              <p class="ui-timeline__desc">Planned release.</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Dot variants</h3>
+      <div class="u-stack" style="flex-direction:row;flex-wrap:wrap;gap:24px;align-items:center;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="ui-timeline__dot ui-timeline__dot--primary"></div>
+          <span class="ui-text-small">Primary</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="ui-timeline__dot ui-timeline__dot--success"></div>
+          <span class="ui-text-small">Success</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="ui-timeline__dot ui-timeline__dot--warning"></div>
+          <span class="ui-text-small">Warning</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="ui-timeline__dot ui-timeline__dot--error"></div>
+          <span class="ui-text-small">Error</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="ui-timeline__dot ui-timeline__dot--outline"></div>
+          <span class="ui-text-small">Outline</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Compact</h3>
+      <div class="u-stack">
+        <ul class="ui-timeline ui-timeline--compact">
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot ui-timeline__dot--primary"></div>
+              <div class="ui-timeline__connector"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Jan 2025</span>
+              <p class="ui-timeline__title">Repository created</p>
+            </div>
+          </li>
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot ui-timeline__dot--success"></div>
+              <div class="ui-timeline__connector"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Feb 2025</span>
+              <p class="ui-timeline__title">First component merged</p>
+            </div>
+          </li>
+
+          <li class="ui-timeline__item">
+            <div class="ui-timeline__line">
+              <div class="ui-timeline__dot"></div>
+            </div>
+            <div class="ui-timeline__content">
+              <span class="ui-timeline__time">Mar 2025</span>
+              <p class="ui-timeline__title">Public beta released</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

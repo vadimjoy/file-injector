@@ -101,4 +101,43 @@
   font-size: var(--ui-font-size-lg);
 }
 
+/* Toggle-item — full settings row with label, description, and toggle */
+.ui-toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-space-4);
+  padding: var(--ui-space-3) 0;
+  cursor: pointer;
+  font-family: var(--ui-font-family);
+}
+
+.ui-toggle-item + .ui-toggle-item {
+  border-top: 1px solid var(--ui-color-border);
+}
+
+.ui-toggle-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ui-toggle-item__label {
+  font-size: var(--ui-font-size-md);
+  font-weight: 500;
+  color: var(--ui-color-text);
+  line-height: 1.4;
+}
+
+.ui-toggle-item__desc {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  line-height: 1.4;
+}
+
+.ui-toggle-item__control {
+  flex-shrink: 0;
+}
+
 } /* end @layer ai-kit.components */

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Accordion</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="u-stack">
+        <div class="ui-accordion">
+
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__header" type="button">
+              What is AI CSS Kit?
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>A lightweight CSS component library designed for modern AI-powered applications. It provides a set of pre-built, customisable components that work seamlessly with any framework or vanilla HTML.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              How do I customize components?
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Use <code>--ai-*</code> CSS custom properties to override tokens at any level — globally on <code>:root</code>, per component, or inline. No build step required.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              Does it require JavaScript?
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>No JavaScript is required for styling. All visual states are handled with CSS. You can add minimal JS to toggle the open class for interactive behaviour.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Flush variant</h3>
+      <div class="u-stack">
+        <div class="ui-accordion ui-accordion--flush">
+
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__header" type="button">
+              Flush accordion item one
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>The flush variant removes outer borders and background, blending seamlessly into any container or card.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              Flush accordion item two
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Great for settings panels and sidebars where a minimal look is preferred.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              Flush accordion item three
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Works well alongside other flush-style components like flush lists and borderless tables.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes</h3>
+      <div class="u-stack">
+
+        <div class="ui-accordion ui-accordion--sm">
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__header" type="button">
+              Small — item open
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Compact size for dense UI surfaces like sidebars and toolbars.</p>
+              </div>
+            </div>
+          </div>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              Small — item closed
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Another small item in the collapsed state.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-accordion ui-accordion--lg">
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__header" type="button">
+              Large — item open
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Large size provides more breathing room for content-heavy FAQ sections and landing pages.</p>
+              </div>
+            </div>
+          </div>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              Large — item closed
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Another large item in the collapsed state.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With icons</h3>
+      <div class="u-stack">
+        <div class="ui-accordion">
+
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__header" type="button">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              General settings
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Manage your account preferences, language, and timezone settings from this section.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+              Notifications
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Configure which events trigger email, push, or in-app notifications.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__header" type="button">
+              <i class="fa fa-shield" aria-hidden="true"></i>
+              Security
+              <span class="ui-accordion__icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            <div class="ui-accordion__body">
+              <div class="ui-accordion__content">
+                <p>Review active sessions, enable two-factor authentication, and manage API keys.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

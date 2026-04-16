@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Logo Cloud — partner / integration / "trusted by" logos row
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-logo-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ui-space-6);
+  font-family: var(--ui-font-family);
+}
+
+/* Individual logo item */
+.ui-logo-cloud__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ui-color-text-muted);
+  opacity: 0.55;
+  transition: var(--ui-transition-fast);
+  flex-shrink: 0;
+  font-size: var(--ui-font-size-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  cursor: default;
+}
+
+.ui-logo-cloud__item--link {
+  cursor: pointer;
+}
+
+.ui-logo-cloud__item--link:hover,
+.ui-logo-cloud__item:hover {
+  opacity: 1;
+  color: var(--ui-color-text);
+}
+
+/* Image logos */
+.ui-logo-cloud__item img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: var(--ui-transition-fast);
+}
+
+.ui-logo-cloud__item:hover img { filter: grayscale(0); }
+
+/* Sizes */
+.ui-logo-cloud--sm { gap: var(--ui-space-4); }
+.ui-logo-cloud--sm .ui-logo-cloud__item img { height: 20px; }
+
+.ui-logo-cloud--lg { gap: var(--ui-space-8); }
+.ui-logo-cloud--lg .ui-logo-cloud__item img { height: 36px; }
+
+/* Scrolling marquee variant */
+.ui-logo-cloud--scroll {
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.ui-logo-cloud--scroll .ui-logo-cloud__track {
+  display: flex;
+  gap: var(--ui-space-6);
+  animation: ui-logo-scroll 24s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes ui-logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+} /* end @layer ai-kit.components */

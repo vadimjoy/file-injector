@@ -494,6 +494,85 @@
   --ai-navbar-link-hover-color:   var(--ui-color-text);
   --ai-navbar-link-active-bg:     var(--ui-color-primary-light);
   --ai-navbar-link-active-color:  var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography                                                              */
+  /* ---------------------------------------------------------------------- */
+  --ai-type-heading-family:  var(--ui-font-family);
+  --ai-type-display-size:    56px;
+  --ai-type-h1-size:         40px;
+  --ai-type-h2-size:         32px;
+  --ai-type-h3-size:         24px;
+  --ai-type-h4-size:         18px;
+  --ai-type-lead-size:       18px;
+  --ai-type-mono-bg:         var(--ui-color-bg-hover);
+  --ai-type-mono-color:      var(--ui-color-text);
+  --ai-type-mono-border:     var(--ui-color-border);
+
+  /* ---------------------------------------------------------------------- */
+  /* Accordion                                                               */
+  /* ---------------------------------------------------------------------- */
+  --ai-accordion-border:            var(--ui-color-border);
+  --ai-accordion-radius:            var(--ui-radius-lg);
+  --ai-accordion-header-bg:         var(--ui-color-bg);
+  --ai-accordion-header-hover-bg:   var(--ui-color-bg-subtle);
+  --ai-accordion-header-active-bg:  var(--ui-color-bg-subtle);
+  --ai-accordion-body-bg:           var(--ui-color-bg);
+
+  /* ---------------------------------------------------------------------- */
+  /* Kbd                                                                     */
+  /* ---------------------------------------------------------------------- */
+  --ai-kbd-bg:      var(--ui-color-bg);
+  --ai-kbd-color:   var(--ui-color-text-secondary);
+  --ai-kbd-border:  var(--ui-color-border-strong);
+  --ai-kbd-radius:  var(--ui-radius-xs);
+  --ai-kbd-shadow:  0 1px 0 var(--ui-color-border-strong);
+
+  /* ---------------------------------------------------------------------- */
+  /* Timeline                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-timeline-dot-size:        24px;
+  --ai-timeline-dot-bg:          var(--ui-color-bg-hover);
+  --ai-timeline-dot-border:      var(--ui-color-border-strong);
+  --ai-timeline-dot-color:       var(--ui-color-text-muted);
+  --ai-timeline-connector-color: var(--ui-color-border);
+
+  /* ---------------------------------------------------------------------- */
+  /* Pricing Card                                                            */
+  /* ---------------------------------------------------------------------- */
+  --ai-pricing-card-bg:              var(--ui-color-bg);
+  --ai-pricing-card-border:          var(--ui-color-border);
+  --ai-pricing-card-radius:          var(--ui-radius-xl);
+  --ai-pricing-card-shadow:          var(--ui-shadow-sm);
+  --ai-pricing-card-padding:         var(--ui-space-6);
+  --ai-pricing-card-featured-bg:     var(--ui-color-bg);
+  --ai-pricing-card-featured-border: var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Feature Item                                                            */
+  /* ---------------------------------------------------------------------- */
+  --ai-feature-icon-size:   44px;
+  --ai-feature-icon-radius: var(--ui-radius-lg);
+  --ai-feature-icon-bg:     var(--ui-color-bg-hover);
+  --ai-feature-icon-color:  var(--ui-color-text-muted);
+
+  /* ---------------------------------------------------------------------- */
+  /* Chat                                                                    */
+  /* ---------------------------------------------------------------------- */
+  --ai-chat-bg:                var(--ui-color-bg);
+  --ai-chat-border:            var(--ui-color-border);
+  --ai-chat-radius:            var(--ui-radius-xl);
+  --ai-chat-bubble-radius:     var(--ui-radius-lg);
+  --ai-chat-bubble-ai-bg:      var(--ui-color-bg-subtle);
+  --ai-chat-bubble-ai-color:   var(--ui-color-text-secondary);
+  --ai-chat-bubble-user-bg:    var(--ui-color-primary);
+  --ai-chat-bubble-user-color: #ffffff;
+
+  /* ---------------------------------------------------------------------- */
+  /* Footer                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-footer-bg:     var(--ui-color-bg-subtle);
+  --ai-footer-border: var(--ui-color-border);
 }
 
 /* Dark Theme — applied via JS to html[data-theme="dark"] */

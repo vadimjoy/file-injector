@@ -53,6 +53,17 @@
 @import './components/notification.css';
 @import './components/sidebar.css';
 @import './components/navbar.css';
+@import './components/typography.css';
+@import './components/accordion.css';
+@import './components/kbd.css';
+@import './components/timeline.css';
+@import './components/pricing-card.css';
+@import './components/feature-item.css';
+@import './components/chat.css';
+@import './components/color-swatch.css';
+@import './components/logo-cloud.css';
+@import './components/chart-legend.css';
+@import './components/footer.css';
 
 /* Layer 4: JS-Controlled States */
 @import './states.css';

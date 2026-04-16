@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Typography — text scale utilities
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+/* ---- Display & Headings ---- */
+.ui-text-display {
+  font-family: var(--ai-type-heading-family);
+  font-size: var(--ai-type-display-size);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--ui-color-text);
+}
+
+.ui-text-h1 {
+  font-family: var(--ai-type-heading-family);
+  font-size: var(--ai-type-h1-size);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ui-color-text);
+}
+
+.ui-text-h2 {
+  font-family: var(--ai-type-heading-family);
+  font-size: var(--ai-type-h2-size);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ui-color-text);
+}
+
+.ui-text-h3 {
+  font-family: var(--ai-type-heading-family);
+  font-size: var(--ai-type-h3-size);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ui-color-text);
+}
+
+.ui-text-h4 {
+  font-family: var(--ai-type-heading-family);
+  font-size: var(--ai-type-h4-size);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ui-color-text);
+}
+
+/* ---- Body ---- */
+.ui-text-lead {
+  font-family: var(--ui-font-family);
+  font-size: var(--ai-type-lead-size);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ui-color-text-secondary);
+}
+
+.ui-text-body {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  font-weight: 400;
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text-secondary);
+}
+
+.ui-text-small {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 400;
+  line-height: var(--ui-line-height);
+  color: var(--ui-color-text-muted);
+}
+
+.ui-text-caption {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ui-color-text-muted);
+}
+
+/* ---- Mono / Code ---- */
+.ui-text-mono {
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--ai-type-mono-bg);
+  color: var(--ai-type-mono-color);
+  border: 1px solid var(--ai-type-mono-border);
+  border-radius: var(--ui-radius-xs);
+  padding: 1px 5px;
+}
+
+/* ---- Color modifiers ---- */
+.ui-text-muted   { color: var(--ui-color-text-muted); }
+.ui-text-accent  { color: var(--ui-color-primary); }
+.ui-text-success { color: var(--ui-color-success); }
+.ui-text-warning { color: var(--ui-color-warning); }
+.ui-text-error   { color: var(--ui-color-error); }
+.ui-text-inverse { color: #ffffff; }
+
+/* ---- Weight modifiers ---- */
+.ui-text-normal   { font-weight: 400; }
+.ui-text-medium   { font-weight: 500; }
+.ui-text-semibold { font-weight: 600; }
+.ui-text-bold     { font-weight: 700; }
+
+/* ---- Alignment ---- */
+.ui-text-left   { text-align: left; }
+.ui-text-center { text-align: center; }
+.ui-text-right  { text-align: right; }
+
+/* ---- Truncation ---- */
+.ui-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ui-text-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- Gradient text ---- */
+.ui-text-gradient {
+  background: linear-gradient(135deg, var(--ui-color-primary), var(--ui-color-primary-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+} /* end @layer ai-kit.components */

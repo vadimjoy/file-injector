@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Chat</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Full panel</h3>
+      <div style="height:480px;max-width:400px;border-radius:12px;overflow:hidden">
+        <div class="ui-chat">
+
+          <!-- Header -->
+          <div class="ui-chat__header">
+            <div class="ui-chat__header-icon">
+              <i class="fa fa-robot" aria-hidden="true"></i>
+            </div>
+            <div class="ui-chat__header-info">
+              <p class="ui-chat__header-title">AI Assistant</p>
+              <p class="ui-chat__header-status">Online</p>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div class="ui-chat__messages">
+
+            <div class="ui-chat__msg ui-chat__msg--ai">
+              <div class="ui-chat__bubble">Hello! How can I help you today?</div>
+              <span class="ui-chat__time">10:23</span>
+            </div>
+
+            <div class="ui-chat__msg ui-chat__msg--user">
+              <div class="ui-chat__bubble">I need to refactor this component</div>
+              <span class="ui-chat__time">10:24</span>
+            </div>
+
+            <div class="ui-chat__msg ui-chat__msg--ai">
+              <div class="ui-chat__bubble">Sure! Let me analyze the code structure first. This might take a moment...</div>
+              <span class="ui-chat__time">10:24</span>
+            </div>
+
+            <div class="ui-chat__typing">
+              <span class="ui-chat__typing-dot"></span>
+              <span class="ui-chat__typing-dot"></span>
+              <span class="ui-chat__typing-dot"></span>
+            </div>
+
+          </div>
+
+          <!-- Footer -->
+          <div class="ui-chat__footer">
+            <div class="ui-chat__suggestions">
+              <button class="ui-chat__suggestion">Summarize</button>
+              <button class="ui-chat__suggestion">Fix bugs</button>
+              <button class="ui-chat__suggestion">Add tests</button>
+            </div>
+            <div class="ui-chat__compose">
+              <textarea class="ui-chat__input" placeholder="Ask anything..." rows="1"></textarea>
+              <button class="ui-chat__send" aria-label="Send">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Bubble variants</h3>
+      <div class="u-stack">
+
+        <div class="ui-chat__msg ui-chat__msg--ai">
+          <div class="ui-chat__bubble">This is an AI response bubble.</div>
+          <span class="ui-chat__time">10:23</span>
+        </div>
+
+        <div class="ui-chat__msg ui-chat__msg--user">
+          <div class="ui-chat__bubble">This is a user message bubble.</div>
+          <span class="ui-chat__time">10:24</span>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

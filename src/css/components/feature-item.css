@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Feature Item — icon + title + description block (landing page use)
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-feature {
+  display: flex;
+  gap: var(--ui-space-4);
+  font-family: var(--ui-font-family);
+}
+
+/* Stacked layout (icon on top) */
+.ui-feature--stacked {
+  flex-direction: column;
+  gap: var(--ui-space-3);
+}
+
+/* Icon tile */
+.ui-feature__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ai-feature-icon-size);
+  height: var(--ai-feature-icon-size);
+  border-radius: var(--ai-feature-icon-radius);
+  background: var(--ai-feature-icon-bg);
+  color: var(--ai-feature-icon-color);
+  font-size: calc(var(--ai-feature-icon-size) * 0.45);
+  flex-shrink: 0;
+}
+
+/* Icon variants */
+.ui-feature__icon--primary {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+}
+
+.ui-feature__icon--dark {
+  background: var(--ui-color-text);
+  color: var(--ui-color-bg);
+}
+
+.ui-feature__icon--success {
+  background: var(--ui-color-success-light);
+  color: var(--ui-color-success);
+}
+
+.ui-feature__icon--warning {
+  background: var(--ui-color-warning-light);
+  color: var(--ui-color-warning);
+}
+
+.ui-feature__icon--ghost {
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text-muted);
+}
+
+/* Body */
+.ui-feature__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  min-width: 0;
+  flex: 1;
+}
+
+.ui-feature__title {
+  font-size: var(--ui-font-size-md);
+  font-weight: 600;
+  color: var(--ui-color-text);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.ui-feature__desc {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  margin: 0;
+  line-height: var(--ui-line-height);
+}
+
+/* Sizes */
+.ui-feature--sm {
+  --ai-feature-icon-size: 32px;
+  gap: var(--ui-space-3);
+}
+
+.ui-feature--sm .ui-feature__title { font-size: var(--ui-font-size-sm); }
+
+.ui-feature--lg {
+  --ai-feature-icon-size: 56px;
+  gap: var(--ui-space-5);
+}
+
+.ui-feature--lg .ui-feature__title { font-size: var(--ui-font-size-lg); }
+
+} /* end @layer ai-kit.components */
