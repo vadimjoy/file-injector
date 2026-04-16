@@ -126,10 +126,10 @@
   background: var(--ui-color-border);
 }
 
-/* Dark footer variant */
+/* Dark footer variant — hardcoded so it stays dark on every theme */
 .ui-footer--dark {
-  --ai-footer-bg:    var(--ui-color-text);
-  --ai-footer-border: rgba(255,255,255,0.08);
+  --ai-footer-bg:    #111827;
+  --ai-footer-border: rgba(255, 255, 255, 0.08);
 }
 
 .ui-footer--dark .ui-footer__logo,

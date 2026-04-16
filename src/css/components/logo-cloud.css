@@ -19,12 +19,12 @@
   align-items: center;
   justify-content: center;
   color: var(--ui-color-text-muted);
-  opacity: 0.55;
+  opacity: 0.5;
   transition: var(--ui-transition-fast);
   flex-shrink: 0;
-  font-size: var(--ui-font-size-lg);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   text-decoration: none;
   cursor: default;
 }
@@ -52,9 +52,11 @@
 
 /* Sizes */
 .ui-logo-cloud--sm { gap: var(--ui-space-4); }
+.ui-logo-cloud--sm .ui-logo-cloud__item { font-size: 15px; }
 .ui-logo-cloud--sm .ui-logo-cloud__item img { height: 20px; }
 
 .ui-logo-cloud--lg { gap: var(--ui-space-8); }
+.ui-logo-cloud--lg .ui-logo-cloud__item { font-size: 30px; }
 .ui-logo-cloud--lg .ui-logo-cloud__item img { height: 36px; }
 
 /* Scrolling marquee variant */
