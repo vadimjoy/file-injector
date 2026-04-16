@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Navbar — horizontal top navigation bar
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  padding: 0 var(--ui-space-6);
+  height: var(--ai-navbar-height);
+  background: var(--ai-navbar-bg);
+  border-bottom: 1px solid var(--ai-navbar-border);
+  font-family: var(--ui-font-family);
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Brand / Logo slot */
+.ui-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  text-decoration: none;
+  color: var(--ui-color-text);
+  font-weight: 700;
+  font-size: var(--ui-font-size-md);
+  flex-shrink: 0;
+  margin-right: var(--ui-space-4);
+}
+
+.ui-navbar__brand:hover { opacity: 0.85; }
+
+.ui-navbar__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* Nav links */
+.ui-navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-navbar__item {
+  display: flex;
+  align-items: center;
+}
+
+.ui-navbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  padding: var(--ui-space-2) var(--ui-space-3);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ai-navbar-link-color);
+  text-decoration: none;
+  border-radius: var(--ui-radius-md);
+  transition: var(--ui-transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.ui-navbar__link:hover {
+  background: var(--ai-navbar-link-hover-bg);
+  color: var(--ai-navbar-link-hover-color);
+}
+
+.ui-navbar__link--active {
+  background: var(--ai-navbar-link-active-bg);
+  color: var(--ai-navbar-link-active-color);
+  font-weight: 600;
+}
+
+/* Separator between nav sections */
+.ui-navbar__separator {
+  width: 1px;
+  height: 20px;
+  background: var(--ui-color-border);
+  margin: 0 var(--ui-space-2);
+  flex-shrink: 0;
+}
+
+/* Trailing actions slot (right-side) */
+.ui-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Compact / dense variant */
+.ui-navbar--compact {
+  height: calc(var(--ai-navbar-height) - 8px);
+  padding: 0 var(--ui-space-4);
+}
+
+} /* end @layer ai-kit.components */

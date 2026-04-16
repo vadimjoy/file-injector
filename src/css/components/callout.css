@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Callout — block-level highlighted content (bordered note/aside)
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-callout {
+  display: flex;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-4);
+  border-radius: var(--ai-callout-radius);
+  border: 1px solid var(--ai-callout-border);
+  background: var(--ai-callout-bg);
+  font-family: var(--ui-font-family);
+}
+
+/* Left accent bar */
+.ui-callout--accent {
+  border-left-width: 3px;
+}
+
+/* Icon */
+.ui-callout__icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--ai-callout-icon-color);
+}
+
+/* Body */
+.ui-callout__body { flex: 1; min-width: 0; }
+
+.ui-callout__title {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 600;
+  color: var(--ai-callout-title-color);
+  margin: 0 0 var(--ui-space-1);
+  line-height: 1.3;
+}
+
+.ui-callout__text {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-secondary);
+  margin: 0;
+  line-height: var(--ui-line-height);
+}
+
+/* Variants */
+.ui-callout--info {
+  --ai-callout-bg:          var(--ui-color-primary-light);
+  --ai-callout-border:      var(--ui-color-primary-soft);
+  --ai-callout-icon-color:  var(--ui-color-primary);
+  --ai-callout-title-color: var(--ui-color-primary);
+}
+
+.ui-callout--success {
+  --ai-callout-bg:          var(--ui-color-success-light);
+  --ai-callout-border:      var(--ui-color-success-soft);
+  --ai-callout-icon-color:  var(--ui-color-success);
+  --ai-callout-title-color: var(--ui-color-success);
+}
+
+.ui-callout--warning {
+  --ai-callout-bg:          var(--ui-color-warning-light);
+  --ai-callout-border:      var(--ui-color-warning-soft);
+  --ai-callout-icon-color:  var(--ui-color-warning);
+  --ai-callout-title-color: var(--ui-color-warning);
+}
+
+.ui-callout--error {
+  --ai-callout-bg:          var(--ui-color-error-light);
+  --ai-callout-border:      var(--ui-color-error-soft);
+  --ai-callout-icon-color:  var(--ui-color-error);
+  --ai-callout-title-color: var(--ui-color-error);
+}
+
+.ui-callout--neutral {
+  --ai-callout-bg:          var(--ui-color-bg-subtle);
+  --ai-callout-border:      var(--ui-color-border);
+  --ai-callout-icon-color:  var(--ui-color-text-muted);
+  --ai-callout-title-color: var(--ui-color-text);
+}
+
+} /* end @layer ai-kit.components */

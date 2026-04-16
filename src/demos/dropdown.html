@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Dropdown</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="u-stack">
+
+        <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+          <div class="ui-dropdown">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">
+              Options <i class="fa fa-chevron-down" aria-hidden="true" style="font-size:11px;"></i>
+            </button>
+            <div class="ui-dropdown__menu" style="position:static;display:block;width:200px;">
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                Profile
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                Settings
+              </button>
+              <div class="ui-dropdown__separator"></div>
+              <button class="ui-dropdown__item ui-dropdown__item--danger" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With labels</h3>
+      <div class="u-stack">
+
+        <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+          <div class="ui-dropdown">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">
+              Account <i class="fa fa-chevron-down" aria-hidden="true" style="font-size:11px;"></i>
+            </button>
+            <div class="ui-dropdown__menu" style="position:static;display:block;width:200px;">
+              <div class="ui-dropdown__label">Workspace</div>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-th-large" aria-hidden="true"></i></span>
+                Dashboard
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                Team members
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                Analytics
+              </button>
+              <div class="ui-dropdown__separator"></div>
+              <div class="ui-dropdown__label">Account</div>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                Profile
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                Billing
+              </button>
+              <div class="ui-dropdown__separator"></div>
+              <button class="ui-dropdown__item ui-dropdown__item--danger" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes &amp; trailing shortcuts</h3>
+      <div class="u-stack">
+
+        <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+          <!-- Compact menu with shortcuts -->
+          <div class="ui-dropdown">
+            <button class="ui-button ui-button--secondary ui-button--sm" type="button">
+              Actions <i class="fa fa-chevron-down" aria-hidden="true" style="font-size:10px;"></i>
+            </button>
+            <div class="ui-dropdown__menu" style="position:static;display:block;width:220px;">
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                Quick search
+                <span class="ui-dropdown__item-trail">⌘K</span>
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                New document
+                <span class="ui-dropdown__item-trail">⌘N</span>
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+                Save
+                <span class="ui-dropdown__item-trail">⌘S</span>
+              </button>
+              <div class="ui-dropdown__separator"></div>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+                Share
+                <span class="ui-dropdown__item-trail">⌘⇧S</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right-aligned menu note -->
+          <div class="ui-dropdown">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">
+              More <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </button>
+            <div class="ui-dropdown__menu ui-dropdown__menu--right" style="position:static;display:block;width:180px;">
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                Edit
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-copy" aria-hidden="true"></i></span>
+                Duplicate
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-archive" aria-hidden="true"></i></span>
+                Archive
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">States</h3>
+      <div class="u-stack">
+
+        <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+          <div class="ui-dropdown">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">
+              Filter <i class="fa fa-chevron-down" aria-hidden="true" style="font-size:11px;"></i>
+            </button>
+            <div class="ui-dropdown__menu" style="position:static;display:block;width:200px;">
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
+                All items
+              </button>
+              <button class="ui-dropdown__item ui-dropdown__item--active" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                Active
+              </button>
+              <button class="ui-dropdown__item" type="button">
+                <span class="ui-dropdown__item-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                Pending
+              </button>
+              <div class="ui-dropdown__separator"></div>
+              <button class="ui-dropdown__item ui-dropdown__item--disabled" type="button" disabled>
+                <span class="ui-dropdown__item-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                Archived (disabled)
+              </button>
+              <button class="ui-dropdown__item ui-dropdown__item--disabled" type="button" disabled>
+                <span class="ui-dropdown__item-icon"><i class="fa fa-ban" aria-hidden="true"></i></span>
+                Blocked (disabled)
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

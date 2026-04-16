@@ -87,4 +87,14 @@
   border-radius: var(--ai-button-radius);
 }
 
+/* Icon-only button — square, no padding */
+.ui-button--icon {
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ui-button--icon.ui-button--sm  { width: 30px; height: 30px; }
+.ui-button--icon.ui-button--md  { width: 36px; height: 36px; }
+.ui-button--icon.ui-button--lg  { width: 44px; height: 44px; }
+
 } /* end @layer ai-kit.components */

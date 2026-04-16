@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty State - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Empty State</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div style="border:1px solid var(--ui-color-border);border-radius:12px;">
+        <div class="ui-empty-state">
+          <div class="ui-empty-state__icon">
+            <i class="fa fa-inbox" aria-hidden="true"></i>
+          </div>
+          <p class="ui-empty-state__title">No tasks yet</p>
+          <p class="ui-empty-state__description">Create your first task to get started</p>
+          <div class="ui-empty-state__actions">
+            <button class="ui-btn ui-btn--primary" type="button">Create task</button>
+            <button class="ui-btn ui-btn--ghost" type="button">Learn more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes</h3>
+      <div class="u-stack">
+
+        <div style="border:1px solid var(--ui-color-border);border-radius:12px;">
+          <div class="ui-empty-state ui-empty-state--sm">
+            <div class="ui-empty-state__icon">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <p class="ui-empty-state__title">No results</p>
+            <p class="ui-empty-state__description">Try adjusting your search terms</p>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--ui-color-border);border-radius:12px;">
+          <div class="ui-empty-state ui-empty-state--lg">
+            <div class="ui-empty-state__icon">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+            </div>
+            <p class="ui-empty-state__title">Empty folder</p>
+            <p class="ui-empty-state__description">This folder has no files yet. Upload something to get started.</p>
+            <div class="ui-empty-state__actions">
+              <button class="ui-btn ui-btn--primary" type="button">Upload files</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Variants</h3>
+      <div class="u-stack">
+
+        <div style="border:1px solid var(--ui-color-border);border-radius:12px;">
+          <div class="ui-empty-state">
+            <div class="ui-empty-state__icon">
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            </div>
+            <p class="ui-empty-state__title">Something went wrong</p>
+            <p class="ui-empty-state__description">We couldn't load this content. Please try again or contact support if the issue persists.</p>
+            <div class="ui-empty-state__actions">
+              <button class="ui-btn ui-btn--primary" type="button">Try again</button>
+              <button class="ui-btn ui-btn--ghost" type="button">Contact support</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--ui-color-border);border-radius:12px;">
+          <div class="ui-empty-state">
+            <div class="ui-empty-state__icon">
+              <i class="fa fa-filter" aria-hidden="true"></i>
+            </div>
+            <p class="ui-empty-state__title">No matching results</p>
+            <p class="ui-empty-state__description">No items match your current filters. Try changing or clearing the filters.</p>
+            <div class="ui-empty-state__actions">
+              <button class="ui-btn ui-btn--ghost" type="button">Clear filters</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

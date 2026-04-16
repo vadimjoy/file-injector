@@ -277,7 +277,7 @@
   --ai-avatar-color:        var(--ui-color-primary);
   --ai-avatar-border:       var(--ui-color-bg);
   --ai-avatar-radius:       var(--ui-radius-full);
-  --ai-avatar-online-color:  #22c55e;
+  --ai-avatar-online-color:  var(--ui-color-success);
   --ai-avatar-offline-color: var(--ui-color-text-disabled);
   --ai-avatar-busy-color:    var(--ui-color-warning);
 
@@ -348,6 +348,152 @@
   --ai-steps-line-done-color:         var(--ui-color-success);
   --ai-steps-label-color:             var(--ui-color-text-muted);
   --ai-steps-label-active-color:      var(--ui-color-text);
+
+  /* ---------------------------------------------------------------------- */
+  /* Modal                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-modal-bg:       var(--ui-color-bg);
+  --ai-modal-border:   var(--ui-color-border);
+  --ai-modal-radius:   var(--ui-radius-xl);
+  --ai-modal-shadow:   var(--ui-shadow-lg);
+  --ai-modal-overlay-bg: rgba(0, 0, 0, 0.45);
+
+  /* ---------------------------------------------------------------------- */
+  /* Dropdown                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-dropdown-bg:                 var(--ui-color-bg);
+  --ai-dropdown-border:             var(--ui-color-border);
+  --ai-dropdown-radius:             var(--ui-radius-lg);
+  --ai-dropdown-shadow:             var(--ui-shadow-md);
+  --ai-dropdown-item-color:         var(--ui-color-text-secondary);
+  --ai-dropdown-item-hover-bg:      var(--ui-color-bg-hover);
+  --ai-dropdown-item-hover-color:   var(--ui-color-text);
+  --ai-dropdown-item-active-bg:     var(--ui-color-primary-light);
+  --ai-dropdown-item-active-color:  var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Chip                                                                    */
+  /* ---------------------------------------------------------------------- */
+  --ai-chip-radius:         var(--ui-radius-full);
+  --ai-chip-bg:             var(--ui-color-bg);
+  --ai-chip-border:         var(--ui-color-border-strong);
+  --ai-chip-color:          var(--ui-color-text-secondary);
+  --ai-chip-hover-bg:       var(--ui-color-bg-hover);
+  --ai-chip-hover-border:   var(--ui-color-border-strong);
+  --ai-chip-hover-color:    var(--ui-color-text);
+  --ai-chip-active-bg:      var(--ui-color-primary);
+  --ai-chip-active-border:  var(--ui-color-primary);
+  --ai-chip-active-color:   #ffffff;
+
+  /* ---------------------------------------------------------------------- */
+  /* Divider                                                                 */
+  /* ---------------------------------------------------------------------- */
+  --ai-divider-color:   var(--ui-color-border);
+  --ai-divider-spacing: var(--ui-space-4);
+
+  /* ---------------------------------------------------------------------- */
+  /* Empty State                                                             */
+  /* ---------------------------------------------------------------------- */
+  --ai-empty-state-icon-bg:    var(--ui-color-bg-hover);
+  --ai-empty-state-icon-color: var(--ui-color-text-muted);
+
+  /* ---------------------------------------------------------------------- */
+  /* Banner                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-banner-info-bg:       var(--ui-color-primary-light);
+  --ai-banner-info-color:    var(--ui-color-primary);
+  --ai-banner-success-bg:    var(--ui-color-success-light);
+  --ai-banner-success-color: var(--ui-color-success);
+  --ai-banner-warning-bg:    var(--ui-color-warning-light);
+  --ai-banner-warning-color: var(--ui-color-warning);
+  --ai-banner-error-bg:      var(--ui-color-error-light);
+  --ai-banner-error-color:   var(--ui-color-error);
+
+  /* ---------------------------------------------------------------------- */
+  /* Callout                                                                 */
+  /* ---------------------------------------------------------------------- */
+  --ai-callout-bg:           var(--ui-color-bg-subtle);
+  --ai-callout-border:       var(--ui-color-border);
+  --ai-callout-radius:       var(--ui-radius-lg);
+  --ai-callout-icon-color:   var(--ui-color-text-muted);
+  --ai-callout-title-color:  var(--ui-color-text);
+
+  /* ---------------------------------------------------------------------- */
+  /* Skeleton                                                                */
+  /* ---------------------------------------------------------------------- */
+  --ai-skeleton-bg:         var(--ui-color-bg-hover);
+  --ai-skeleton-highlight:  var(--ui-color-bg-subtle);
+  --ai-skeleton-radius:     var(--ui-radius-sm);
+  --ai-skeleton-duration:   1.6s;
+
+  /* ---------------------------------------------------------------------- */
+  /* Stat Card                                                               */
+  /* ---------------------------------------------------------------------- */
+  --ai-stat-card-bg:          var(--ui-color-bg);
+  --ai-stat-card-border:      var(--ui-color-border);
+  --ai-stat-card-radius:      var(--ui-radius-xl);
+  --ai-stat-card-shadow:      var(--ui-shadow-xs);
+  --ai-stat-card-padding:     var(--ui-space-5);
+  --ai-stat-card-value-size:  28px;
+
+  /* ---------------------------------------------------------------------- */
+  /* Feed / Timeline                                                         */
+  /* ---------------------------------------------------------------------- */
+  --ai-feed-icon-size:   32px;
+  --ai-feed-icon-bg:     var(--ui-color-bg-hover);
+  --ai-feed-icon-color:  var(--ui-color-text-muted);
+  --ai-feed-line-color:  var(--ui-color-border);
+
+  /* ---------------------------------------------------------------------- */
+  /* Rating                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-rating-size:          20px;
+  --ai-rating-filled-color:  #f59e0b;
+  --ai-rating-empty-color:   var(--ui-color-border-strong);
+  --ai-rating-hover-color:   #fbbf24;
+
+  /* ---------------------------------------------------------------------- */
+  /* Search                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-search-bg:      var(--ui-color-bg-subtle);
+  --ai-search-border:  var(--ui-color-border);
+  --ai-search-radius:  var(--ui-radius-md);
+
+  /* ---------------------------------------------------------------------- */
+  /* Status Indicator                                                        */
+  /* ---------------------------------------------------------------------- */
+  --ai-status-dot-size: 8px;
+
+  /* ---------------------------------------------------------------------- */
+  /* Notification                                                            */
+  /* ---------------------------------------------------------------------- */
+  --ai-notification-unread-bg:       var(--ui-color-primary-light);
+  --ai-notification-unread-hover-bg: rgba(79, 70, 229, 0.07);
+
+  /* ---------------------------------------------------------------------- */
+  /* Sidebar                                                                 */
+  /* ---------------------------------------------------------------------- */
+  --ai-sidebar-width:             240px;
+  --ai-sidebar-collapsed-width:   56px;
+  --ai-sidebar-bg:                var(--ui-color-bg);
+  --ai-sidebar-border:            var(--ui-color-border);
+  --ai-sidebar-item-color:        var(--ui-color-text-muted);
+  --ai-sidebar-item-hover-bg:     var(--ui-color-bg-hover);
+  --ai-sidebar-item-hover-color:  var(--ui-color-text);
+  --ai-sidebar-item-active-bg:    var(--ui-color-primary-light);
+  --ai-sidebar-item-active-color: var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Navbar                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-navbar-height:             52px;
+  --ai-navbar-bg:                 var(--ui-color-bg);
+  --ai-navbar-border:             var(--ui-color-border);
+  --ai-navbar-link-color:         var(--ui-color-text-muted);
+  --ai-navbar-link-hover-bg:      var(--ui-color-bg-hover);
+  --ai-navbar-link-hover-color:   var(--ui-color-text);
+  --ai-navbar-link-active-bg:     var(--ui-color-primary-light);
+  --ai-navbar-link-active-color:  var(--ui-color-primary);
 }
 
 /* Dark Theme — applied via JS to html[data-theme="dark"] */

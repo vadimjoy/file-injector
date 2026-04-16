@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divider - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Divider</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Horizontal</h3>
+      <div class="u-stack">
+
+        <div>
+          <p style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);margin:0 0 8px;">Default (1px)</p>
+          <hr class="ui-divider">
+        </div>
+
+        <div>
+          <p style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);margin:0 0 8px;">Thick (2px)</p>
+          <hr class="ui-divider ui-divider--thick">
+        </div>
+
+        <div>
+          <p style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);margin:0 0 8px;">Subtle (reduced opacity)</p>
+          <hr class="ui-divider ui-divider--subtle">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With label</h3>
+      <div class="u-stack">
+
+        <div class="ui-divider ui-divider--label">
+          <span class="ui-divider__text">OR</span>
+        </div>
+
+        <div class="ui-divider ui-divider--label">
+          <span class="ui-divider__text">Section break</span>
+        </div>
+
+        <div class="ui-divider ui-divider--label">
+          <span class="ui-divider__text">Continue reading</span>
+        </div>
+
+        <div class="ui-divider ui-divider--label">
+          <span class="ui-divider__text">
+            <i class="fa fa-star" aria-hidden="true" style="margin-right:4px;"></i>
+            Featured
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Vertical</h3>
+      <div class="u-stack">
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Home</span>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <span style="font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Products</span>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <span style="font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">About</span>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <span style="font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Contact</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="ui-button ui-button--ghost ui-button--sm" type="button">
+            <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+          </button>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <button class="ui-button ui-button--ghost ui-button--sm" type="button">
+            <i class="fa fa-copy" aria-hidden="true"></i> Duplicate
+          </button>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <button class="ui-button ui-button--ghost ui-button--sm" type="button">
+            <i class="fa fa-share-alt" aria-hidden="true"></i> Share
+          </button>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);">12 results</span>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <span style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);">Updated 2 min ago</span>
+          <span class="ui-divider ui-divider--vertical"></span>
+          <span style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);">v2.4.1</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Spacing variants</h3>
+      <div class="u-stack">
+
+        <div>
+          <p style="margin:0 0 4px;font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Section A — some introductory content that sets the stage for the section below.</p>
+          <hr class="ui-divider">
+          <p style="margin:0;font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Section B — content resumes after a clean horizontal rule with default spacing.</p>
+        </div>
+
+        <div class="ui-divider ui-divider--label">
+          <span class="ui-divider__text">Divider with natural top &amp; bottom margin</span>
+        </div>
+
+        <div>
+          <p style="margin:0 0 4px;font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">First paragraph before a thick divider.</p>
+          <hr class="ui-divider ui-divider--thick">
+          <p style="margin:0;font-size:var(--ui-font-size-sm);color:var(--ui-color-text);">Content after the thick divider — useful for major section breaks.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

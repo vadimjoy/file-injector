@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Navbar</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
+        <nav class="ui-navbar">
+          <a class="ui-navbar__brand" href="#">
+            <span class="ui-navbar__logo">
+              <i class="fa fa-bolt" aria-hidden="true" style="color:var(--ui-color-primary);font-size:18px;"></i>
+            </span>
+            TaskFlow
+          </a>
+          <ul class="ui-navbar__nav">
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link ui-navbar__link--active" href="#">Dashboard</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Tasks</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Reports</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Team</a>
+            </li>
+          </ul>
+          <div class="ui-navbar__actions">
+            <div class="ui-search ui-search--sm" style="width:200px;">
+              <span class="ui-search__icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+              <input class="ui-search__input" type="search" placeholder="Search...">
+            </div>
+            <button class="ui-button ui-button--ghost ui-button--icon ui-button--sm" aria-label="Notifications">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </button>
+            <span class="ui-avatar ui-avatar--sm">AJ</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Compact</h3>
+      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
+        <nav class="ui-navbar ui-navbar--compact">
+          <a class="ui-navbar__brand" href="#">
+            <span class="ui-navbar__logo">
+              <i class="fa fa-bolt" aria-hidden="true" style="color:var(--ui-color-primary);font-size:18px;"></i>
+            </span>
+            TaskFlow
+          </a>
+          <ul class="ui-navbar__nav">
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link ui-navbar__link--active" href="#">Dashboard</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Tasks</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Reports</a>
+            </li>
+            <li class="ui-navbar__item">
+              <a class="ui-navbar__link" href="#">Team</a>
+            </li>
+          </ul>
+          <div class="ui-navbar__actions">
+            <div class="ui-search ui-search--sm" style="width:200px;">
+              <span class="ui-search__icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+              <input class="ui-search__input" type="search" placeholder="Search...">
+            </div>
+            <button class="ui-button ui-button--ghost ui-button--icon ui-button--sm" aria-label="Notifications">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </button>
+            <span class="ui-avatar ui-avatar--sm">AJ</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Minimal</h3>
+      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
+        <nav class="ui-navbar">
+          <a class="ui-navbar__brand" href="#">
+            <span class="ui-navbar__logo">
+              <i class="fa fa-bolt" aria-hidden="true" style="color:var(--ui-color-primary);font-size:18px;"></i>
+            </span>
+            TaskFlow
+          </a>
+          <div class="ui-navbar__actions">
+            <div class="ui-search ui-search--sm" style="width:200px;">
+              <span class="ui-search__icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+              <input class="ui-search__input" type="search" placeholder="Search...">
+            </div>
+            <button class="ui-button ui-button--ghost ui-button--icon ui-button--sm" aria-label="Notifications">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </button>
+            <span class="ui-avatar ui-avatar--sm">AJ</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

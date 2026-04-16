@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callout - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Callout</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Variants</h3>
+      <div class="u-stack">
+
+        <div class="ui-callout ui-callout--info">
+          <i class="fa fa-info-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Heads up</p>
+            <p class="ui-callout__text">This action will affect all members of your workspace. Review the changes before proceeding.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--success">
+          <i class="fa fa-check-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Tip</p>
+            <p class="ui-callout__text">You can use keyboard shortcuts to speed up your workflow. Press <code>?</code> to see all available shortcuts.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--warning">
+          <i class="fa fa-exclamation-triangle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Deprecation notice</p>
+            <p class="ui-callout__text">This API endpoint will be removed in version 4.0. Please migrate to the new <code>/v2/users</code> endpoint before the next release.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--error">
+          <i class="fa fa-times-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Destructive action</p>
+            <p class="ui-callout__text">Deleting your account is permanent and cannot be undone. All your data, projects, and settings will be removed.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--neutral">
+          <i class="fa fa-sticky-note ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Note</p>
+            <p class="ui-callout__text">Changes made here only apply to this project and do not affect your global account settings.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Accent border</h3>
+      <div class="u-stack">
+
+        <div class="ui-callout ui-callout--info ui-callout--accent">
+          <i class="fa fa-info-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Heads up</p>
+            <p class="ui-callout__text">This action will affect all members of your workspace. Review the changes before proceeding.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--success ui-callout--accent">
+          <i class="fa fa-check-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Tip</p>
+            <p class="ui-callout__text">You can use keyboard shortcuts to speed up your workflow. Press <code>?</code> to see all available shortcuts.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--warning ui-callout--accent">
+          <i class="fa fa-exclamation-triangle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Deprecation notice</p>
+            <p class="ui-callout__text">This API endpoint will be removed in version 4.0. Please migrate to the new <code>/v2/users</code> endpoint before the next release.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--error ui-callout--accent">
+          <i class="fa fa-times-circle ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Destructive action</p>
+            <p class="ui-callout__text">Deleting your account is permanent and cannot be undone. All your data, projects, and settings will be removed.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--neutral ui-callout--accent">
+          <i class="fa fa-sticky-note ui-callout__icon" aria-hidden="true"></i>
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Note</p>
+            <p class="ui-callout__text">Changes made here only apply to this project and do not affect your global account settings.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Without icon</h3>
+      <div class="u-stack">
+
+        <div class="ui-callout ui-callout--info">
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">Before you begin</p>
+            <p class="ui-callout__text">Make sure you have administrator privileges before continuing. Some steps require elevated permissions to complete. If you run into permission errors, contact your workspace owner to grant the necessary access.</p>
+          </div>
+        </div>
+
+        <div class="ui-callout ui-callout--neutral">
+          <div class="ui-callout__body">
+            <p class="ui-callout__title">About this section</p>
+            <p class="ui-callout__text">The configuration options shown here are advanced settings intended for developers and system administrators. Incorrect values may affect your application's behaviour.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

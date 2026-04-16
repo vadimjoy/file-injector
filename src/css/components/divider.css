@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Divider — horizontal / vertical separator
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-divider {
+  border: none;
+  background: var(--ai-divider-color);
+  flex-shrink: 0;
+}
+
+/* Horizontal (default) */
+.ui-divider,
+.ui-divider--horizontal {
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin: var(--ai-divider-spacing) 0;
+}
+
+/* Vertical */
+.ui-divider--vertical {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin: 0 var(--ai-divider-spacing);
+  vertical-align: middle;
+}
+
+/* Thickness variants */
+.ui-divider--thin  { background: var(--ai-divider-color); height: 1px; }
+.ui-divider--thick { height: 2px; }
+
+/* With label */
+.ui-divider--label {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  height: auto;
+  background: none;
+  margin: var(--ai-divider-spacing) 0;
+}
+
+.ui-divider--label::before,
+.ui-divider--label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ai-divider-color);
+}
+
+.ui-divider__text {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-muted);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Color variants */
+.ui-divider--subtle  { background: var(--ui-color-border); opacity: 0.5; }
+.ui-divider--strong  { background: var(--ui-color-border-strong); }
+
+} /* end @layer ai-kit.components */

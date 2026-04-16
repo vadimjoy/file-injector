@@ -72,4 +72,41 @@
   flex-shrink: 0;
 }
 
+/* Live / pulsing badge */
+.ui-badge--live {
+  position: relative;
+  padding-left: 18px;
+}
+
+.ui-badge--live::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ui-badge--live::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.3;
+  animation: ui-badge-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ui-badge-pulse {
+  0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.3; }
+  50%       { transform: translateY(-50%) scale(1.5); opacity: 0; }
+}
+
 } /* end @layer ai-kit.components */
