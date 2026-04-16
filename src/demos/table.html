@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Table</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="ui-table-wrap">
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th class="ui-table__th">Name</th>
+              <th class="ui-table__th">Role</th>
+              <th class="ui-table__th">Status</th>
+              <th class="ui-table__th ui-table__th--right">Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Alice Brown</td>
+              <td class="ui-table__td ui-table__td--muted">Designer</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--success ui-badge--dot">Active</span></td>
+              <td class="ui-table__td ui-table__td--right ui-table__td--muted">Jan 2024</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">John Doe</td>
+              <td class="ui-table__td ui-table__td--muted">Engineer</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--success ui-badge--dot">Active</span></td>
+              <td class="ui-table__td ui-table__td--right ui-table__td--muted">Mar 2024</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Mike Chen</td>
+              <td class="ui-table__td ui-table__td--muted">Product</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--warning ui-badge--dot">Away</span></td>
+              <td class="ui-table__td ui-table__td--right ui-table__td--muted">Aug 2023</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Sara Kim</td>
+              <td class="ui-table__td ui-table__td--muted">Marketing</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--default ui-badge--dot">Inactive</span></td>
+              <td class="ui-table__td ui-table__td--right ui-table__td--muted">Nov 2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Hoverable</h3>
+      <div class="ui-table-wrap">
+        <table class="ui-table ui-table--hoverable">
+          <thead>
+            <tr>
+              <th class="ui-table__th">Transaction</th>
+              <th class="ui-table__th">Type</th>
+              <th class="ui-table__th">Status</th>
+              <th class="ui-table__th ui-table__th--right">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ui-table__row">
+              <td class="ui-table__td ui-table__td--mono">#TXN-0041</td>
+              <td class="ui-table__td ui-table__td--muted">Deposit</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--success">Completed</span></td>
+              <td class="ui-table__td ui-table__td--right">+ $1 200.00</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td ui-table__td--mono">#TXN-0040</td>
+              <td class="ui-table__td ui-table__td--muted">Withdrawal</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--warning">Pending</span></td>
+              <td class="ui-table__td ui-table__td--right">− $340.00</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td ui-table__td--mono">#TXN-0039</td>
+              <td class="ui-table__td ui-table__td--muted">Transfer</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--error">Failed</span></td>
+              <td class="ui-table__td ui-table__td--right ui-table__td--muted">− $80.00</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td ui-table__td--mono">#TXN-0038</td>
+              <td class="ui-table__td ui-table__td--muted">Deposit</td>
+              <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--success">Completed</span></td>
+              <td class="ui-table__td ui-table__td--right">+ $560.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Striped</h3>
+      <div class="ui-table-wrap">
+        <table class="ui-table ui-table--striped">
+          <thead>
+            <tr>
+              <th class="ui-table__th">Component</th>
+              <th class="ui-table__th ui-table__th--center">Status</th>
+              <th class="ui-table__th ui-table__th--center">Version</th>
+              <th class="ui-table__th ui-table__th--right">Coverage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Button</td>
+              <td class="ui-table__td ui-table__td--center"><span class="ui-badge ui-badge--sm ui-badge--success">Stable</span></td>
+              <td class="ui-table__td ui-table__td--center ui-table__td--mono">v0.6.0</td>
+              <td class="ui-table__td ui-table__td--right">100%</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Input</td>
+              <td class="ui-table__td ui-table__td--center"><span class="ui-badge ui-badge--sm ui-badge--success">Stable</span></td>
+              <td class="ui-table__td ui-table__td--center ui-table__td--mono">v0.6.0</td>
+              <td class="ui-table__td ui-table__td--right">100%</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Datepicker</td>
+              <td class="ui-table__td ui-table__td--center"><span class="ui-badge ui-badge--sm ui-badge--warning">Beta</span></td>
+              <td class="ui-table__td ui-table__td--center ui-table__td--mono">v0.5.2</td>
+              <td class="ui-table__td ui-table__td--right">84%</td>
+            </tr>
+            <tr class="ui-table__row">
+              <td class="ui-table__td">Table</td>
+              <td class="ui-table__td ui-table__td--center"><span class="ui-badge ui-badge--sm ui-badge--primary">New</span></td>
+              <td class="ui-table__td ui-table__td--center ui-table__td--mono">v0.7.0</td>
+              <td class="ui-table__td ui-table__td--right">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

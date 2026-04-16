@@ -234,6 +234,120 @@
   --ai-calendar-selected-bg:    var(--ui-color-primary);
   --ai-calendar-selected-color: #ffffff;
   --ai-calendar-today-color:    var(--ui-color-primary);
+
+  /* ---------------------------------------------------------------------- */
+  /* Tabs                                                                    */
+  /* ---------------------------------------------------------------------- */
+  --ai-tabs-border:             var(--ui-color-border);
+  --ai-tabs-item-color:         var(--ui-color-text-muted);
+  --ai-tabs-item-hover-bg:      var(--ui-color-bg-hover);
+  --ai-tabs-item-hover-color:   var(--ui-color-text);
+  --ai-tabs-item-active-color:  var(--ui-color-primary);
+  --ai-tabs-item-active-bg:     var(--ui-color-primary-light);
+  --ai-tabs-item-active-border: var(--ui-color-primary);
+  --ai-tabs-radius:             var(--ui-radius-md);
+
+  /* ---------------------------------------------------------------------- */
+  /* Alert                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-alert-radius:              var(--ui-radius-lg);
+  --ai-alert-info-bg:             var(--ui-color-primary-light);
+  --ai-alert-info-color:          var(--ui-color-primary);
+  --ai-alert-info-border:         var(--ui-color-primary-soft);
+  --ai-alert-success-bg:          var(--ui-color-success-light);
+  --ai-alert-success-color:       var(--ui-color-success);
+  --ai-alert-success-border:      var(--ui-color-success-soft);
+  --ai-alert-warning-bg:          var(--ui-color-warning-light);
+  --ai-alert-warning-color:       var(--ui-color-warning);
+  --ai-alert-warning-border:      var(--ui-color-warning-soft);
+  --ai-alert-error-bg:            var(--ui-color-error-light);
+  --ai-alert-error-color:         var(--ui-color-error);
+  --ai-alert-error-border:        var(--ui-color-error-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Spinner                                                                 */
+  /* ---------------------------------------------------------------------- */
+  --ai-spinner-color:       var(--ui-color-primary);
+  --ai-spinner-track-color: var(--ui-color-border);
+
+  /* ---------------------------------------------------------------------- */
+  /* Avatar                                                                  */
+  /* ---------------------------------------------------------------------- */
+  --ai-avatar-bg:           var(--ui-color-primary-light);
+  --ai-avatar-color:        var(--ui-color-primary);
+  --ai-avatar-border:       var(--ui-color-bg);
+  --ai-avatar-radius:       var(--ui-radius-full);
+  --ai-avatar-online-color:  #22c55e;
+  --ai-avatar-offline-color: var(--ui-color-text-disabled);
+  --ai-avatar-busy-color:    var(--ui-color-warning);
+
+  /* ---------------------------------------------------------------------- */
+  /* Tag                                                                     */
+  /* ---------------------------------------------------------------------- */
+  --ai-tag-radius:              var(--ui-radius-sm);
+  --ai-tag-default-bg:          var(--ui-color-bg-hover);
+  --ai-tag-default-color:       var(--ui-color-text-secondary);
+  --ai-tag-default-border:      var(--ui-color-border);
+  --ai-tag-primary-bg:          var(--ui-color-primary-light);
+  --ai-tag-primary-color:       var(--ui-color-primary);
+  --ai-tag-primary-border:      var(--ui-color-primary-soft);
+  --ai-tag-success-bg:          var(--ui-color-success-light);
+  --ai-tag-success-color:       var(--ui-color-success);
+  --ai-tag-success-border:      var(--ui-color-success-soft);
+  --ai-tag-warning-bg:          var(--ui-color-warning-light);
+  --ai-tag-warning-color:       var(--ui-color-warning);
+  --ai-tag-warning-border:      var(--ui-color-warning-soft);
+  --ai-tag-error-bg:            var(--ui-color-error-light);
+  --ai-tag-error-color:         var(--ui-color-error);
+  --ai-tag-error-border:        var(--ui-color-error-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Breadcrumb                                                              */
+  /* ---------------------------------------------------------------------- */
+  --ai-breadcrumb-color:            var(--ui-color-text-muted);
+  --ai-breadcrumb-hover-color:      var(--ui-color-text);
+  --ai-breadcrumb-current-color:    var(--ui-color-text);
+  --ai-breadcrumb-separator-color:  var(--ui-color-text-disabled);
+
+  /* ---------------------------------------------------------------------- */
+  /* Pagination                                                              */
+  /* ---------------------------------------------------------------------- */
+  --ai-pagination-item-bg:          var(--ui-color-bg);
+  --ai-pagination-item-color:       var(--ui-color-text-secondary);
+  --ai-pagination-item-border:      var(--ui-color-border);
+  --ai-pagination-item-hover-bg:    var(--ui-color-bg-hover);
+  --ai-pagination-item-active-bg:   var(--ui-color-primary);
+  --ai-pagination-item-active-color:#ffffff;
+  --ai-pagination-radius:           var(--ui-radius-md);
+  --ai-pagination-focus-ring:       var(--ui-color-primary-soft);
+
+  /* ---------------------------------------------------------------------- */
+  /* Table                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-table-border:       var(--ui-color-border);
+  --ai-table-header-bg:    var(--ui-color-bg-subtle);
+  --ai-table-header-color: var(--ui-color-text-secondary);
+  --ai-table-row-hover:    var(--ui-color-bg-hover);
+  --ai-table-stripe-bg:    var(--ui-color-bg-subtle);
+  --ai-table-radius:       var(--ui-radius-lg);
+
+  /* ---------------------------------------------------------------------- */
+  /* Steps                                                                   */
+  /* ---------------------------------------------------------------------- */
+  --ai-steps-indicator-size:          28px;
+  --ai-steps-indicator-bg:            var(--ui-color-bg-hover);
+  --ai-steps-indicator-color:         var(--ui-color-text-muted);
+  --ai-steps-indicator-border:        var(--ui-color-border-strong);
+  --ai-steps-indicator-active-bg:     var(--ui-color-primary);
+  --ai-steps-indicator-active-color:  #ffffff;
+  --ai-steps-indicator-active-border: var(--ui-color-primary);
+  --ai-steps-indicator-done-bg:       var(--ui-color-success-light);
+  --ai-steps-indicator-done-color:    var(--ui-color-success);
+  --ai-steps-indicator-done-border:   var(--ui-color-success-soft);
+  --ai-steps-line-color:              var(--ui-color-border);
+  --ai-steps-line-done-color:         var(--ui-color-success);
+  --ai-steps-label-color:             var(--ui-color-text-muted);
+  --ai-steps-label-active-color:      var(--ui-color-text);
 }
 
 /* Dark Theme — applied via JS to html[data-theme="dark"] */

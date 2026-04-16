@@ -27,6 +27,15 @@
 @import './components/datepicker.css';
 @import './components/tooltip.css';
 @import './components/file-upload.css';
+@import './components/tabs.css';
+@import './components/alert.css';
+@import './components/spinner.css';
+@import './components/avatar.css';
+@import './components/tag.css';
+@import './components/breadcrumb.css';
+@import './components/pagination.css';
+@import './components/table.css';
+@import './components/steps.css';
 
 /* Layer 4: JS-Controlled States */
 @import './states.css';

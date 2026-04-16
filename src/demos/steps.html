@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steps Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Steps</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Horizontal — Step 1 active</h3>
+      <div class="ui-steps">
+        <div class="ui-steps__item ui-steps__item--active">
+          <div class="ui-steps__indicator">1</div>
+          <div class="ui-steps__label">Account</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">2</div>
+          <div class="ui-steps__label">Profile</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">3</div>
+          <div class="ui-steps__label">Billing</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">4</div>
+          <div class="ui-steps__label">Confirm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Horizontal — Step 3 active</h3>
+      <div class="ui-steps">
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+          <div class="ui-steps__label">Account</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+          <div class="ui-steps__label">Profile</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--active">
+          <div class="ui-steps__indicator">3</div>
+          <div class="ui-steps__label">Billing</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">4</div>
+          <div class="ui-steps__label">Confirm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Horizontal — with error</h3>
+      <div class="ui-steps">
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+          <div class="ui-steps__label">Account</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--error">
+          <div class="ui-steps__indicator">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <div class="ui-steps__label">Verification</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">3</div>
+          <div class="ui-steps__label">Billing</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">4</div>
+          <div class="ui-steps__label">Confirm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Horizontal — all done</h3>
+      <div class="ui-steps">
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <div class="ui-steps__label">Account</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <div class="ui-steps__label">Profile</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <div class="ui-steps__label">Billing</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <div class="ui-steps__label">Confirm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Vertical — Step 2 active</h3>
+      <div class="ui-steps ui-steps--vertical" style="max-width:260px">
+        <div class="ui-steps__item ui-steps__item--done">
+          <div class="ui-steps__indicator"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <div class="ui-steps__label">Create account</div>
+        </div>
+        <div class="ui-steps__item ui-steps__item--active">
+          <div class="ui-steps__indicator">2</div>
+          <div class="ui-steps__label">Verify email</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">3</div>
+          <div class="ui-steps__label">Set up workspace</div>
+        </div>
+        <div class="ui-steps__item">
+          <div class="ui-steps__indicator">4</div>
+          <div class="ui-steps__label">Invite team</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

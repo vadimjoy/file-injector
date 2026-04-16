@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Alert
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  <div class="ui-alert ui-alert--info" role="alert">
+    <svg class="ui-alert__icon" aria-hidden="true" ...></svg>
+    <div class="ui-alert__content">
+      <div class="ui-alert__title">Info title</div>
+      <div class="ui-alert__body">Descriptive message text goes here.</div>
+    </div>
+    <button class="ui-alert__close" type="button" aria-label="Dismiss">
+      <svg aria-hidden="true" ...></svg>
+    </button>
+  </div>
+
+  Variants: ui-alert--info | ui-alert--success | ui-alert--warning | ui-alert--error
+  ui-alert__title and ui-alert__close are optional.
+*/
+
+@layer ai-kit.components {
+
+.ui-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-4);
+  border-radius: var(--ai-alert-radius);
+  border: 1px solid transparent;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  line-height: var(--ui-line-height);
+}
+
+/* ---- Icon ---- */
+.ui-alert__icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+/* ---- Content ---- */
+.ui-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-alert__title {
+  font-weight: 600;
+  margin: 0 0 var(--ui-space-1) 0;
+}
+
+.ui-alert__body {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ---- Close button ---- */
+.ui-alert__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--ui-radius-xs);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: var(--ui-transition-fast);
+  color: inherit;
+  outline: none;
+}
+
+.ui-alert__close:hover {
+  opacity: 1;
+  background: var(--ui-color-bg-overlay);
+}
+
+.ui-alert__close:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+/* ---- Variants ---- */
+.ui-alert--info {
+  background: var(--ai-alert-info-bg);
+  color: var(--ai-alert-info-color);
+  border-color: var(--ai-alert-info-border);
+}
+
+.ui-alert--success {
+  background: var(--ai-alert-success-bg);
+  color: var(--ai-alert-success-color);
+  border-color: var(--ai-alert-success-border);
+}
+
+.ui-alert--warning {
+  background: var(--ai-alert-warning-bg);
+  color: var(--ai-alert-warning-color);
+  border-color: var(--ai-alert-warning-border);
+}
+
+.ui-alert--error {
+  background: var(--ai-alert-error-bg);
+  color: var(--ai-alert-error-color);
+  border-color: var(--ai-alert-error-border);
+}
+
+} /* end @layer ai-kit.components */

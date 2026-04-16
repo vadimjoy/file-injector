@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Tabs
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  Default (pill) style:
+  <div class="ui-tabs ui-tabs--md" role="tablist">
+    <button class="ui-tabs__item ui-tabs__item--active" type="button" role="tab" aria-selected="true">Tab 1</button>
+    <button class="ui-tabs__item" type="button" role="tab" aria-selected="false">Tab 2</button>
+    <button class="ui-tabs__item" type="button" role="tab" aria-selected="false" disabled>Tab 3</button>
+  </div>
+
+  Underline style:
+  <div class="ui-tabs ui-tabs--underline ui-tabs--md" role="tablist">
+    <button class="ui-tabs__item ui-tabs__item--active" ...>Tab 1</button>
+    ...
+  </div>
+
+  Sizes: ui-tabs--sm | ui-tabs--md (default) | ui-tabs--lg
+  Variants: (none = pill) | ui-tabs--underline
+*/
+
+@layer ai-kit.components {
+
+.ui-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  font-family: var(--ui-font-family);
+}
+
+/* ---- Item ---- */
+.ui-tabs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  font-family: var(--ui-font-family);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ai-tabs-item-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--ai-tabs-radius);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ui-tabs__item:hover:not(:disabled):not(.ui-tabs__item--active) {
+  background: var(--ai-tabs-item-hover-bg);
+  color: var(--ai-tabs-item-hover-color);
+}
+
+.ui-tabs__item--active {
+  background: var(--ai-tabs-item-active-bg);
+  color: var(--ai-tabs-item-active-color);
+}
+
+.ui-tabs__item:focus-visible {
+  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+}
+
+.ui-tabs__item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Sizes ---- */
+.ui-tabs--sm .ui-tabs__item {
+  padding: 5px 10px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-tabs--md .ui-tabs__item {
+  padding: 7px 14px;
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-tabs--lg .ui-tabs__item {
+  padding: 9px 18px;
+  font-size: var(--ui-font-size-lg);
+}
+
+/* ---- Underline variant ---- */
+.ui-tabs--underline {
+  gap: 0;
+  border-bottom: 1px solid var(--ai-tabs-border);
+}
+
+.ui-tabs--underline .ui-tabs__item {
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.ui-tabs--underline .ui-tabs__item:hover:not(:disabled):not(.ui-tabs__item--active) {
+  background: transparent;
+  color: var(--ai-tabs-item-hover-color);
+  border-bottom-color: var(--ui-color-border-strong);
+}
+
+.ui-tabs--underline .ui-tabs__item--active {
+  background: transparent;
+  color: var(--ai-tabs-item-active-color);
+  border-bottom-color: var(--ai-tabs-item-active-border);
+}
+
+} /* end @layer ai-kit.components */

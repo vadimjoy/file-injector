@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avatar Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Avatar</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes — Circle (initials)</h3>
+      <div class="u-cluster u-cluster--relaxed" style="align-items:flex-end">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar ui-avatar--sm" aria-label="John Doe">JD</div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">sm</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar ui-avatar--md" aria-label="Alice Brown">AB</div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">md</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar ui-avatar--lg" aria-label="Mike Chen">MC</div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">lg</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar ui-avatar--xl" aria-label="Sara Kim">SK</div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">xl</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Square shape</h3>
+      <div class="u-cluster u-cluster--relaxed" style="align-items:flex-end">
+        <div class="ui-avatar ui-avatar--sm ui-avatar--square" aria-label="Workspace A">WA</div>
+        <div class="ui-avatar ui-avatar--md ui-avatar--square" aria-label="Workspace B">WB</div>
+        <div class="ui-avatar ui-avatar--lg ui-avatar--square" aria-label="Workspace C">WC</div>
+        <div class="ui-avatar ui-avatar--xl ui-avatar--square" aria-label="Workspace D">WD</div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With status indicator</h3>
+      <div class="u-cluster u-cluster--relaxed">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar-wrap ui-avatar-wrap--online">
+            <div class="ui-avatar ui-avatar--lg" aria-label="John Doe">JD</div>
+          </div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">online</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar-wrap ui-avatar-wrap--busy">
+            <div class="ui-avatar ui-avatar--lg" aria-label="Alice Brown">AB</div>
+          </div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">busy</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="ui-avatar-wrap ui-avatar-wrap--offline">
+            <div class="ui-avatar ui-avatar--lg" aria-label="Mike Chen">MC</div>
+          </div>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">offline</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Group (stacked)</h3>
+      <div class="u-stack">
+        <div class="ui-avatar-group">
+          <div class="ui-avatar ui-avatar--md" aria-label="John Doe">JD</div>
+          <div class="ui-avatar ui-avatar--md" aria-label="Alice Brown">AB</div>
+          <div class="ui-avatar ui-avatar--md" aria-label="Mike Chen">MC</div>
+          <div class="ui-avatar ui-avatar--md" aria-label="Sara Kim">SK</div>
+          <div class="ui-avatar ui-avatar--md" aria-label="3 more">+3</div>
+        </div>
+        <div class="ui-avatar-group">
+          <div class="ui-avatar ui-avatar--lg" aria-label="John Doe">JD</div>
+          <div class="ui-avatar ui-avatar--lg" aria-label="Alice Brown">AB</div>
+          <div class="ui-avatar ui-avatar--lg" aria-label="Mike Chen">MC</div>
+          <div class="ui-avatar ui-avatar--lg" aria-label="2 more">+2</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

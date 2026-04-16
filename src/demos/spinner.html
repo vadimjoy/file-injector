@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinner Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Spinner</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes</h3>
+      <div class="u-cluster u-cluster--relaxed">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <span class="ui-spinner ui-spinner--sm" role="status" aria-label="Loading"></span>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">sm</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <span class="ui-spinner ui-spinner--md" role="status" aria-label="Loading"></span>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">md</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <span class="ui-spinner ui-spinner--lg" role="status" aria-label="Loading"></span>
+          <span style="font-size:11px;color:var(--ui-color-text-muted);font-family:var(--ui-font-family)">lg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With label</h3>
+      <div class="u-stack">
+        <span class="ui-spinner ui-spinner--sm" role="status">
+          <span class="ui-spinner__label">Loading…</span>
+        </span>
+        <span class="ui-spinner ui-spinner--md" role="status">
+          <span class="ui-spinner__label">Processing…</span>
+        </span>
+        <span class="ui-spinner ui-spinner--lg" role="status">
+          <span class="ui-spinner__label">Please wait…</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Inverted (on primary background)</h3>
+      <div class="u-cluster u-cluster--relaxed">
+        <div style="background:var(--ui-color-primary);padding:20px 32px;border-radius:var(--ui-radius-lg);display:flex;align-items:center;gap:16px">
+          <span class="ui-spinner ui-spinner--sm ui-spinner--inverted" role="status" aria-label="Loading"></span>
+          <span class="ui-spinner ui-spinner--md ui-spinner--inverted" role="status" aria-label="Loading"></span>
+          <span class="ui-spinner ui-spinner--lg ui-spinner--inverted" role="status" aria-label="Loading"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Inside button</h3>
+      <div class="u-cluster">
+        <button class="ui-button ui-button--primary ui-button--md" disabled>
+          <span class="ui-spinner ui-spinner--sm ui-spinner--inverted" role="status" aria-label="Loading"></span>
+          Saving…
+        </button>
+        <button class="ui-button ui-button--secondary ui-button--md" disabled>
+          <span class="ui-spinner ui-spinner--sm" role="status" aria-label="Loading"></span>
+          Loading…
+        </button>
+      </div>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>
