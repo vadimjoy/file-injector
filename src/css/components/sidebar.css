@@ -29,6 +29,26 @@
   display: none;
 }
 
+/* Collapsed: re-center items and header logo */
+.ui-sidebar--collapsed .ui-sidebar__header {
+  justify-content: center;
+  padding: var(--ui-space-3) 0;
+}
+
+.ui-sidebar--collapsed .ui-sidebar__item {
+  justify-content: center;
+  padding: var(--ui-space-2);
+  margin: 1px var(--ui-space-1);
+  width: calc(100% - var(--ui-space-2));
+  gap: 0;
+}
+
+.ui-sidebar--collapsed .ui-sidebar__item-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+}
+
 /* Header */
 .ui-sidebar__header {
   display: flex;
