@@ -1,9 +1,9 @@
 # Scalability Plan — ai-css-kit
 
-**Version:** 1.0  
-**Date:** 2026-04-09  
+**Version:** 1.1  
+**Date:** 2026-04-18  
 **Status:** Active  
-**Based on:** `docs/audit/scalability-audit-phases-1-3.md`, `docs/design/phase-4.1-cli-architecture.md`
+**Based on:** `docs/audit/scalability-audit-phases-1-3.md`, `docs/design/phase-4.1-cli-architecture.md`, `docs/plans/PHASE_6_KIT_CONSOLIDATION.md`, `docs/plans/PHASE_7_DEMO_PLAYGROUND.md`
 
 ---
 
@@ -16,8 +16,10 @@ This plan consolidates the open scalability work from the Phase 1–3 audit and 
 - CLI (Phase 4) scalability from the start
 - Token system growth to 50+ components
 - AI context maintainability at scale
+- **Kit consolidation after the v0.6.x component expansion** — atomic decomposition, visual-style cleanup, removal of duplicated primitives (icon tiles, dots, feed/timeline, alert/banner/callout overlaps)
+- **Interactive demo playground** — schema-driven controls over sizes, states, and tokens for every component, replacing ad-hoc static demos
 
-Work items are grouped into **tracks** so they can be executed in parallel across phases.
+Work items are grouped into **tracks** so they can be executed in parallel across phases. Tracks **G** and **H** are *blockers for Phase 4 completion*: the kit must be consolidated and demos must be converted to the schema-driven playground before the CLI ships `npx ai-css-kit generate` end-to-end, otherwise the agent will produce markup against an inconsistent component surface.
 
 ---
 
@@ -583,16 +585,180 @@ See Track B-3. Add to `npm run build:themes` pipeline.
 
 ---
 
+## Track G — Kit Consolidation (Phase 6 blocker)
+
+**Reference plan:** [`docs/plans/PHASE_6_KIT_CONSOLIDATION.md`](./PHASE_6_KIT_CONSOLIDATION.md)  
+**Target version:** v0.7.x (between Scalability prep and CLI completion)  
+**Effort:** ~2–3 weeks  
+**Status:** Planned — must land before Phase 4 success criteria can be closed
+
+The kit grew from 15 to 54 components across the v0.6.x expansion without a consolidation pass. The result is visually inconsistent ("not solid", "циганщина"), has duplicated atomic primitives, and inflates the CLI's component surface beyond what `AI_CONTEXT.md` can concisely describe. Track G closes this gap.
+
+### G-1 · Atomic audit and re-layering
+
+**Effort:** S (2 days)
+
+Classify all 54 components into Foundations / Atoms / Molecules / Organisms. Move `typography`, `color-swatch`, `icon` into `src/css/foundations/`. Re-order `src/css/index.css` imports by atomic layer with section comments. Defined in `PHASE_6_KIT_CONSOLIDATION.md §3`.
+
+### G-2 · Extract shared atoms: `icon-tile` and `dot`
+
+**Effort:** M (3 days)
+
+Create `src/css/components/icon-tile.css` (circular/square coloured badge used by `feature-item`, `chat`, `notification`, `stat-card`, `feed`) and `src/css/components/dot.css` (status/notification dot). Remove the duplicated `__icon--primary/success/warning/error/dark` clones from five component files. Register both atoms in `AI_CONTEXT.md` and `COMPONENT_PREFIXES`.
+
+### G-3 · Merge `feed` + `timeline` → `timeline`
+
+**Effort:** S (1 day)
+
+`feed.css` and `timeline.css` both render a vertical activity stream with icon column + connector line. Keep the more feature-complete API under `ui-timeline`, deprecate `ui-feed` with a re-export stub, delete the duplicate CSS.
+
+### G-4 · Merge `banner` + `callout` → `alert` modifiers
+
+**Effort:** S (1–2 days)
+
+Collapse the three alert-like families into `ui-alert` with modifiers `--banner` (full-width) and `--callout` (bordered panel). Update demos and `AI_CONTEXT.md`.
+
+### G-5 · Visual-style cleanup
+
+**Effort:** S (2 days)
+
+Purge tacky accents: remove Verdana from `warm.json`, monospace from `midnight.json`, `--dark` icon variant from `feature-item`, and unify radii/shadows through tokens. Defined in `PHASE_6_KIT_CONSOLIDATION.md §4`.
+
+### G-6 · Module Contract v2 enforcement
+
+**Effort:** M (3 days)
+
+Extend `audit-coupling.js` with two new lints:
+- `lint:inline-styles` — forbid inline `style=""` in `src/demos/**/*.html` (258 instances found)
+- `lint:atomic-imports` — forbid molecules/organisms importing peer molecules; only atoms/foundations are allowed upstream
+
+Document as Module Contract v2 amendment to ADR-0001.
+
+### G-7 · Purge inline styles from demos
+
+**Effort:** S (2 days)
+
+Replace the 258 inline-style occurrences with the existing `u-stack`, `u-grid`, `u-cluster` utilities (and add any missing utility primitives to `src/css/utilities/`). Required before Track H can build the schema-driven playground on top of clean demo markup.
+
+### G-8 · Success criteria
+
+- [ ] Component count reduced from 54 → ~50 (3 merged, 3 deleted, 2 new atoms, rest renamed/re-layered)
+- [ ] `src/css/foundations/` directory in place with `typography`, `color-swatch`, `icon`
+- [ ] `icon-tile` and `dot` atoms used by ≥4 components each
+- [ ] `feed` removed (stub only) and `timeline` is the single activity-stream component
+- [ ] `alert` with `--banner` / `--callout` modifiers; legacy files deleted
+- [ ] `warm.json` and `midnight.json` no longer force non-system fonts
+- [ ] `feature-item__icon--dark` deleted
+- [ ] `npm run lint:inline-styles` passes (zero inline styles in demos)
+- [ ] `npm run lint:atomic-imports` passes
+- [ ] `AI_CONTEXT.md` Component Registry updated to reflect the consolidated surface
+- [ ] ADR-0001 amended with Module Contract v2
+
+---
+
+## Track H — Demo Playground (Phase 7 blocker)
+
+**Reference plan:** [`docs/plans/PHASE_7_DEMO_PLAYGROUND.md`](./PHASE_7_DEMO_PLAYGROUND.md)  
+**Target version:** v0.8.0-pre (after Track G, before Phase 4 completion)  
+**Effort:** ~2–3 weeks  
+**Status:** Planned — depends on Track G (clean demo markup)
+
+The current 29 static HTML demos do not let the user (or the AI agent validating output) exercise size modifiers, state flags, or token overrides without editing HTML by hand. Track H replaces them with a **schema-driven playground**: a thin Vanilla JS host (≤ 12 KB gzipped) that renders preview + controls + code + tokens panels from a per-component JSON schema.
+
+### H-1 · Playground skeleton
+
+**Effort:** M (3 days)
+
+Build `src/demos/playground/` with four panels:
+- **Preview** — live component render with iframe isolation
+- **Controls** — segmented / select / range / text / toggle / color inputs driven by schema
+- **Code** — rendered HTML with "Copy" button
+- **Tokens** — live `--ai-*` token values with inline overrides
+
+No framework. ES modules, no build step.
+
+### H-2 · Schema format and bindings
+
+**Effort:** S (2 days)
+
+Schema per component:
+```json
+{
+  "component": "button",
+  "template": "<button class=\"ui-button {variant} {size}\" {disabled}>{label}</button>",
+  "controls": [
+    { "type": "segmented", "key": "variant", "bindsClass": true,
+      "options": ["ui-button--primary","ui-button--secondary","ui-button--ghost"] },
+    { "type": "segmented", "key": "size", "bindsClass": true,
+      "options": ["ui-button--sm","ui-button--md","ui-button--lg"] },
+    { "type": "text",      "key": "label",    "bindsText": true  },
+    { "type": "toggle",    "key": "disabled", "bindsAttr": "disabled" }
+  ],
+  "tokens": ["--ai-button-bg","--ai-button-radius","--ai-button-font-size"]
+}
+```
+
+Binding types: `bindsClass`, `bindsVar`, `bindsAttr`, `bindsText`, `bindsRepeat`. Defined in `PHASE_7_DEMO_PLAYGROUND.md §4`.
+
+### H-3 · Schema library
+
+**Effort:** L (1–2 weeks)
+
+Author one schema per consolidated component (~50 files) in `src/demos/playground/schemas/`. Demo HTML shrinks to ≤ 25 lines per component (just the playground mount + `<script data-schema="button.json">`).
+
+### H-4 · Theme / density / RTL / responsive controls
+
+**Effort:** S (2 days)
+
+Global controls outside per-component schema:
+- Theme picker (reuses 5 preset themes)
+- Density toggle (prep for D-1)
+- RTL flip
+- Viewport presets (mobile / tablet / desktop)
+
+### H-5 · Export and share
+
+**Effort:** S (1 day)
+
+- "Copy HTML" → clipboard
+- "Copy token overrides" → clipboard (only changed tokens)
+- "Export JSON state" → downloadable file, round-trippable to re-load the playground state
+
+Serves as a hand-off format for the CLI (`ai-css-kit generate --from-playground ./state.json`).
+
+### H-6 · Integration with CLI validator
+
+**Effort:** M (3 days)
+
+Wire Track E-2's validator into the playground: the "Code" panel runs `validate(html)` on every change and shows warnings inline. Gives the user (and the AI agent during Phase 4 integration tests) immediate feedback on whether the composed markup respects Module Contract v2.
+
+### H-7 · Success criteria
+
+- [ ] Playground skeleton (preview + controls + code + tokens) functional
+- [ ] Schema loader + binding engine ≤ 12 KB gzipped
+- [ ] One schema per consolidated component (~50 files)
+- [ ] Old `src/demos/*.html` replaced (or reduced to ≤ 25 lines each)
+- [ ] Theme / density / RTL / viewport global controls
+- [ ] "Copy HTML" and "Export JSON" work
+- [ ] Inline validation shows warnings from Track E-2
+- [ ] Zero inline styles (enforced by G-6 `lint:inline-styles`)
+
+---
+
 ## Roadmap Integration
 
 | Phase | Version | Track items |
 |-------|---------|-------------|
-| Phase 4 prep | v0.7.0 | A-1, A-2, A-3, A-4, A-5, A-6, A-7, B-1, B-2, F-1, F-2 |
+| Phase 4 prep — foundational | v0.7.0 | A-1, A-2, A-3, A-4, A-5, A-6, A-7, B-1, B-2, F-1, F-2 |
+| **Phase 6 — Kit Consolidation** | **v0.7.x** | **G-1, G-2, G-3, G-4, G-5, G-6, G-7** *(blocker for Phase 4 completion)* |
+| **Phase 7 — Demo Playground** | **v0.8.0-pre** | **H-1, H-2, H-3, H-4, H-5, H-6** *(blocker for Phase 4 completion)* |
 | Phase 4 (CLI) | v0.8.0 | E-1, E-2, E-3, E-4, C-4, B-3, F-3 |
 | Phase 4.2 | v0.8.x | E-5, E-6, D-4 |
 | Phase 4.3 | v0.8.x | C-1 (Grid), C-2 (priority form components) |
 | Phase 5 | v0.9.0 | C-3 (display components), D-1, D-2, D-3 |
 | Post v1.0.0 | — | C-2 (remaining), D-2 (responsive tokens full), D-3 (multi-brand) |
+
+> **Execution order:** Tracks G and H run sequentially between the v0.7.0 scalability prep and the final v0.8.0 CLI release. The existing Phase 4 stubs (Intent Parser skeleton, provider abstraction, architecture doc) remain in place; the **completion criteria** of Phase 4 (end-to-end `generate`, 100% resolver tests, validator anti-pattern coverage, provider support) cannot be marked done until Tracks G and H ship, because their output defines the component surface the CLI targets.
 
 ---
 
