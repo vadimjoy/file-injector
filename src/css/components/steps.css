@@ -181,7 +181,9 @@
 }
 
 .ui-steps--vertical .ui-steps__label {
-  margin-top: calc((var(--ai-steps-indicator-size) - 1.4em * var(--ui-font-size-sm)) / 2);
+  /* Push label down so its first-line center aligns with indicator center.
+     1.4 is unitless (line-height ratio) × px = valid calc. */
+  margin-top: calc((var(--ai-steps-indicator-size) - 1.4 * var(--ui-font-size-sm)) / 2);
   text-align: left;
 }
 
