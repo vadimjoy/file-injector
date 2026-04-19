@@ -3,7 +3,7 @@
 > ⚠️ **Актуализация плана (2026-04-17):** в MASTER_PLAN эта работа учтена как **подфаза 4.3 «Demo Playground»**, следующая за подфазой 4.2 (Kit Consolidation) и предшествующая трекам A/B/F. Имя файла `DEMO_PLAYGROUND.md` оставлено без изменений, чтобы не ломать ссылки. Все задачи, схемы и критерии действительны; перенумерована только позиция в MASTER_PLAN и SCALABILITY_PLAN — с «Phase 7» на «подфазу 4.3». Полная дорожная карта: [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md).
 
 > **Горизонт:** v0.8.0-pre (после подфазы 4.2; **блокер** для подфаз 4.4–4.7 CLI)
-> **Статус:** draft / ожидает утверждения
+> **Статус:** в работе — промежуточный этап **2026-04-19** зафиксирован в [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md) (CI: `lint:atomic-level`, правка `audit-inline-styles`, мелкие фиксы компонентов); каркас playground и библиотека схем — ещё впереди.
 > **Связано с:** [`KIT_CONSOLIDATION`](./KIT_CONSOLIDATION.md) · [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md)
 
 ---

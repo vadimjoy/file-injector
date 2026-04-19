@@ -4,7 +4,7 @@
 
 > **Concept:** "Deterministic UI Lego"  
 > **Goal:** A CSS framework optimised for UI generation by AI agents  
-> **Author:** vadimjoy | **License:** MIT | **Plan version:** 1.2 (2026-04-17)
+> **Author:** vadimjoy | **License:** MIT | **Plan version:** 1.3 (2026-04-19)
 
 ---
 
@@ -399,6 +399,15 @@ All 258 inline `style` occurrences are replaced by the `u-stack`, `u-grid`, `u-c
 ### Context
 
 The 29 current static HTML demos do not let the user (or the AI agent validating output) exercise size modifiers, state flags, or token overrides without hand-editing markup. There is no interactive reference for the CLI to validate against. The solution is a **schema-driven playground**: a thin Vanilla JS host (≤ 12 KB gzipped) that renders four panels per component (Preview / Controls / Code / Tokens) from a JSON schema. The playground then serves as the canonical reference contract for the CLI: what lands in the playground → passes the validator, and vice versa.
+
+### Intermediate checkpoint *(2026-04-19)*
+
+Track H is **not** complete; this records tooling and fixes merged so far toward a clean demo surface and reliable CI gates:
+
+- [x] `lint:atomic-level` runs in `npm run build` — same-level Module Contract (v2) enforced in CI, not only when run manually
+- [x] `scripts/audit-inline-styles.js` — allowlist checks only CSS-like substrings (removed incorrect scan for HTML attribute names inside `style=""`)
+- [x] Component fixes on the path to demo purity (e.g. accordion `--sm` open-body selector uses correct descendants)
+- [ ] Playground skeleton, schema library, and remaining §4.3 success criteria — **still open**
 
 ### What We Do
 

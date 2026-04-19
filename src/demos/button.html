@@ -3,62 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button Component - AI CSS Kit</title>
+  <title>Button — AI CSS Kit</title>
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="./shared/demo-page.css">
+  <link rel="stylesheet" href="./shared/playground.css">
 </head>
 <body class="demo-page">
   <section class="demo-section">
-    <h2 class="demo-section__title">Buttons</h2>
-    
-    <div class="demo-group">
-      <h3 class="demo-group__title">Small</h3>
-      <div class="u-stack">
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--sm">Primary</button>
-          <button class="ui-button ui-button--secondary ui-button--sm">Secondary</button>
-          <button class="ui-button ui-button--ghost ui-button--sm">Ghost</button>
-        </div>
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--sm" disabled>Disabled</button>
-          <button class="ui-button ui-button--secondary ui-button--sm" disabled>Disabled</button>
-          <button class="ui-button ui-button--ghost ui-button--sm" disabled>Disabled</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="demo-group">
-      <h3 class="demo-group__title">Medium</h3>
-      <div class="u-stack">
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--md">Primary Button</button>
-          <button class="ui-button ui-button--secondary ui-button--md">Secondary Button</button>
-          <button class="ui-button ui-button--ghost ui-button--md">Ghost Button</button>
-        </div>
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--md" disabled>Primary Disabled</button>
-          <button class="ui-button ui-button--secondary ui-button--md" disabled>Secondary Disabled</button>
-          <button class="ui-button ui-button--ghost ui-button--md" disabled>Ghost Disabled</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="demo-group">
-      <h3 class="demo-group__title">Large</h3>
-      <div class="u-stack">
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--lg">Primary Large</button>
-          <button class="ui-button ui-button--secondary ui-button--lg">Secondary Large</button>
-          <button class="ui-button ui-button--ghost ui-button--lg">Ghost Large</button>
-        </div>
-        <div class="u-cluster">
-          <button class="ui-button ui-button--primary ui-button--lg" disabled>Primary Disabled</button>
-          <button class="ui-button ui-button--secondary ui-button--lg" disabled>Secondary Disabled</button>
-          <button class="ui-button ui-button--ghost ui-button--lg" disabled>Ghost Disabled</button>
-        </div>
-      </div>
-    </div>
+    <h2 class="demo-section__title">Button</h2>
+    <main
+      class="ui-playground"
+      data-component="button"
+      data-schema="./schemas/button.js"
+    ></main>
   </section>
-<script src="./shared/demo-theme.js"></script>
+  <script type="module" src="./shared/playground.js"></script>
+  <script type="module">
+    import { Playground } from './shared/playground.js';
+
+    document.querySelectorAll('.ui-playground').forEach(host => {
+      const schemaUrl = host.dataset.schema;
+      if (schemaUrl) {
+        new Playground(host, schemaUrl);
+      }
+    });
+  </script>
+  <script src="./shared/demo-theme.js"></script>
 </body>
 </html>
