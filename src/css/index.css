@@ -39,6 +39,7 @@
 @import './components/tooltip.css';
 @import './components/skeleton.css';
 @import './components/icon-tile.css';
+@import './components/color-swatch.css';
 
 /* Layer 5: Molecules (2–3 atoms, simple composition) */
 @import './components/card.css';

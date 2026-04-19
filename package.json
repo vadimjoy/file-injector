@@ -21,13 +21,16 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint:coupling": "node scripts/audit-coupling.js",
+    "lint:atomic-level": "node scripts/audit-atomic-level.js",
+    "lint:inline-styles": "node scripts/audit-inline-styles.js",
+    "lint:atomic-imports": "node scripts/audit-atomic-imports.js",
     "build:css": "postcss src/css/index.css -o dist/ai-css-kit.css",
     "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/ai-css-kit.min.css",
     "build:modules": "node scripts/build-modules.js",
     "build:themes": "node scripts/build-themes.js",
     "theme-map": "node scripts/theme-map.js",
     "test": "node --test tests/theme-map.test.js",
-    "build": "npm run lint:coupling && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
+    "build": "npm run lint:coupling && npm run lint:atomic-level && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
     "prepare": "npm run build"
   },
   "keywords": [

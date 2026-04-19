@@ -106,7 +106,7 @@
   font-size: var(--ui-font-size-sm);
 }
 
-.ui-accordion--sm.ui-accordion__item--open .ui-accordion__body {
+.ui-accordion--sm .ui-accordion__item--open .ui-accordion__body {
   padding: 0 var(--ui-space-4) var(--ui-space-3);
 }
 
