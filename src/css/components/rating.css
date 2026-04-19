@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Rating — star rating widget
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--ui-font-family);
+}
+
+/* Star */
+.ui-rating__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ai-rating-empty-color);
+  transition: var(--ui-transition-fast);
+  background: none;
+  border: none;
+  padding: 2px;
+  font-size: var(--ai-rating-size);
+  line-height: 1;
+  outline: none;
+}
+
+.ui-rating__star:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-color-primary-soft);
+  border-radius: var(--ui-radius-xs);
+}
+
+.ui-rating__star--filled,
+.ui-rating__star[data-filled="true"] {
+  color: var(--ai-rating-filled-color);
+}
+
+.ui-rating__star--half {
+  position: relative;
+  color: var(--ai-rating-empty-color);
+}
+
+.ui-rating__star--half::before {
+  content: '★';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  width: 50%;
+  color: var(--ai-rating-filled-color);
+}
+
+/* Hover states — interactive */
+.ui-rating:not(.ui-rating--readonly) .ui-rating__star:hover,
+.ui-rating:not(.ui-rating--readonly) .ui-rating__star:hover ~ .ui-rating__star {
+  color: var(--ai-rating-hover-color);
+}
+
+/* Readonly */
+.ui-rating--readonly .ui-rating__star {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Sizes */
+.ui-rating--sm { --ai-rating-size: 14px; gap: 1px; }
+.ui-rating--md { --ai-rating-size: 20px; gap: 2px; }
+.ui-rating--lg { --ai-rating-size: 28px; gap: 3px; }
+
+/* With count */
+.ui-rating__count {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  margin-left: var(--ui-space-2);
+}
+
+} /* end @layer ai-kit.components */

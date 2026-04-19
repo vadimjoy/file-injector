@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Status Indicator — service/system health dot with optional label
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-secondary);
+}
+
+/* Dot */
+.ui-status__dot {
+  width: var(--ai-status-dot-size);
+  height: var(--ai-status-dot-size);
+  border-radius: var(--ui-radius-full);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Pulse animation for online/active */
+.ui-status--online .ui-status__dot::after,
+.ui-status--active .ui-status__dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--ui-radius-full);
+  background: currentColor;
+  opacity: 0.25;
+  animation: ui-status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ui-status-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.25; }
+  50%       { transform: scale(1.5); opacity: 0; }
+}
+
+/* Variants */
+.ui-status--online .ui-status__dot,
+.ui-status--active .ui-status__dot {
+  background: var(--ui-color-success);
+  color: var(--ui-color-success);
+}
+
+.ui-status--online .ui-status__label,
+.ui-status--active .ui-status__label {
+  color: var(--ui-color-success);
+}
+
+.ui-status--offline .ui-status__dot {
+  background: var(--ui-color-text-disabled);
+}
+
+.ui-status--warning .ui-status__dot {
+  background: var(--ui-color-warning);
+  color: var(--ui-color-warning);
+}
+
+.ui-status--warning .ui-status__label {
+  color: var(--ui-color-warning);
+}
+
+.ui-status--error .ui-status__dot {
+  background: var(--ui-color-error);
+  color: var(--ui-color-error);
+}
+
+.ui-status--error .ui-status__label {
+  color: var(--ui-color-error);
+}
+
+.ui-status--pending .ui-status__dot {
+  background: var(--ui-color-primary);
+  animation: ui-status-blink 1s step-end infinite;
+}
+
+@keyframes ui-status-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Label */
+.ui-status__label {
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Sizes */
+.ui-status--sm { --ai-status-dot-size: 6px; font-size: var(--ui-font-size-xs); }
+.ui-status--md { --ai-status-dot-size: 8px; }
+.ui-status--lg { --ai-status-dot-size: 10px; font-size: var(--ui-font-size-md); }
+
+} /* end @layer ai-kit.components */

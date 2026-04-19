@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Table
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  <div class="ui-table-wrap">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th class="ui-table__th">Name</th>
+          <th class="ui-table__th">Status</th>
+          <th class="ui-table__th ui-table__th--right">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ui-table__row">
+          <td class="ui-table__td">Alice</td>
+          <td class="ui-table__td"><span class="ui-badge ui-badge--success">Active</span></td>
+          <td class="ui-table__td ui-table__td--right ui-table__td--muted">$1 200</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  Modifiers on .ui-table:
+  — ui-table--hoverable  : highlight row on hover
+  — ui-table--striped    : alternating row background
+  — ui-table--bordered   : add borders to all cells
+
+  Cell alignment helpers (on th/td):
+  — ui-table__th--right / ui-table__td--right   : text-align: right
+  — ui-table__th--center / ui-table__td--center : text-align: center
+  — ui-table__td--muted                         : secondary text color
+  — ui-table__td--mono                          : monospace font (numbers, IDs)
+*/
+
+@layer ai-kit.components {
+
+/* ---- Scroll wrapper ---- */
+.ui-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--ai-table-border);
+  border-radius: var(--ai-table-radius);
+}
+
+/* ---- Table ---- */
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  color: var(--ui-color-text);
+}
+
+/* ---- Header cell ---- */
+.ui-table__th {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  text-align: left;
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ai-table-header-color);
+  background: var(--ai-table-header-bg);
+  border-bottom: 1px solid var(--ai-table-border);
+  white-space: nowrap;
+}
+
+/* ---- Body row ---- */
+.ui-table__row {
+  border-bottom: 1px solid var(--ai-table-border);
+  transition: background var(--ui-transition-fast);
+}
+
+.ui-table__row:last-child {
+  border-bottom: none;
+}
+
+/* ---- Body cell ---- */
+.ui-table__td {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  text-align: left;
+  vertical-align: middle;
+  line-height: var(--ui-line-height);
+}
+
+/* ---- Alignment helpers ---- */
+.ui-table__th--right,
+.ui-table__td--right  { text-align: right; }
+
+.ui-table__th--center,
+.ui-table__td--center { text-align: center; }
+
+/* ---- Content helpers ---- */
+.ui-table__td--muted { color: var(--ui-color-text-muted); }
+
+.ui-table__td--mono {
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  font-size: var(--ui-font-size-sm);
+}
+
+/* ---- Modifier: hoverable ---- */
+.ui-table--hoverable .ui-table__row:hover {
+  background: var(--ai-table-row-hover);
+}
+
+/* ---- Modifier: striped ---- */
+.ui-table--striped .ui-table__row:nth-child(even) {
+  background: var(--ai-table-stripe-bg);
+}
+
+/* ---- Modifier: bordered (cell borders) ---- */
+.ui-table--bordered .ui-table__th,
+.ui-table--bordered .ui-table__td {
+  border: 1px solid var(--ai-table-border);
+}
+
+} /* end @layer ai-kit.components */

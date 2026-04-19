@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Row (ex Toggle Item) - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Form Row <small style="font-size:14px;font-weight:400;color:var(--ui-color-text-muted)">(migrated from Toggle Item — Phase 4.2)</small></h2><!-- demo: token override -->
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default settings list</h3>
+      <div class="u-bordered">
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Email notifications</span>
+            <span class="ui-form-row__desc">Receive updates via email</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
+          </div>
+        </label>
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Push notifications</span>
+            <span class="ui-form-row__desc">Browser push alerts</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox"></label>
+          </div>
+        </label>
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Data compression</span>
+            <span class="ui-form-row__desc">gzip / brotli encoding</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
+          </div>
+        </label>
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Auto-save</span>
+            <span class="ui-form-row__desc">Save changes automatically</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes</h3>
+      <div class="u-bordered">
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Small toggle</span>
+            <span class="ui-form-row__desc">Uses ui-toggle--sm</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--sm"><input type="checkbox" checked></label>
+          </div>
+        </label>
+
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Large toggle</span>
+            <span class="ui-form-row__desc">Uses ui-toggle--lg</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--lg"><input type="checkbox" checked></label>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Disabled</h3>
+      <div class="u-bordered">
+
+        <label class="ui-form-row ui-form-row--disabled">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Sync across devices</span>
+            <span class="ui-form-row__desc">Feature not available on your plan</span>
+          </div>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" disabled></label>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Stat Card — KPI metric display card
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-3);
+  padding: var(--ai-stat-card-padding);
+  background: var(--ai-stat-card-bg);
+  border: 1px solid var(--ai-stat-card-border);
+  border-radius: var(--ai-stat-card-radius);
+  box-shadow: var(--ai-stat-card-shadow);
+  font-family: var(--ui-font-family);
+}
+
+/* Header row: label + icon */
+.ui-stat-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ui-space-3);
+}
+
+.ui-stat-card__label {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ui-color-text-muted);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/*
+  Icon slot — use .ui-icon-tile (Phase 4.2 consolidated atom) for colouring.
+  .ui-stat-card__icon kept as layout alias; variant colours provided below
+  for backward compatibility. Preferred markup:
+    <div class="ui-stat-card__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--md">
+*/
+.ui-stat-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Value */
+.ui-stat-card__value {
+  font-size: var(--ai-stat-card-value-size);
+  font-weight: 700;
+  color: var(--ui-color-text);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Delta (change indicator) */
+.ui-stat-card__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--ui-radius-full);
+}
+
+.ui-stat-card__delta--up {
+  color: var(--ui-color-success);
+  background: var(--ui-color-success-light);
+}
+
+.ui-stat-card__delta--down {
+  color: var(--ui-color-error);
+  background: var(--ui-color-error-light);
+}
+
+.ui-stat-card__delta--neutral {
+  color: var(--ui-color-text-muted);
+  background: var(--ui-color-bg-hover);
+}
+
+/* Footer: delta + description */
+.ui-stat-card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex-wrap: wrap;
+}
+
+.ui-stat-card__description {
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-muted);
+  margin: 0;
+}
+
+/* Variants */
+.ui-stat-card--primary .ui-stat-card__icon {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+}
+
+.ui-stat-card--success .ui-stat-card__icon {
+  background: var(--ui-color-success-light);
+  color: var(--ui-color-success);
+}
+
+.ui-stat-card--warning .ui-stat-card__icon {
+  background: var(--ui-color-warning-light);
+  color: var(--ui-color-warning);
+}
+
+.ui-stat-card--error .ui-stat-card__icon {
+  background: var(--ui-color-error-light);
+  color: var(--ui-color-error);
+}
+
+} /* end @layer ai-kit.components */

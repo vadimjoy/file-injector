@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Search Bar — search field with optional keyboard shortcut hint
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Leading icon */
+.ui-search__icon {
+  position: absolute;
+  left: var(--ui-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ui-color-text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  z-index: 1;
+}
+
+/* Input */
+.ui-search__input {
+  width: 100%;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text);
+  background: var(--ai-search-bg);
+  border: 1px solid var(--ai-search-border);
+  border-radius: var(--ai-search-radius);
+  padding: 8px var(--ui-space-3) 8px 36px;
+  outline: none;
+  transition: var(--ui-transition-fast);
+  line-height: var(--ui-line-height);
+}
+
+.ui-search__input::placeholder {
+  color: var(--ui-color-text-placeholder);
+}
+
+.ui-search__input:hover {
+  border-color: var(--ui-color-border-strong);
+}
+
+.ui-search__input:focus {
+  border-color: var(--ui-color-border-focus);
+  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+  background: var(--ui-color-bg);
+}
+
+/* Keyboard shortcut hint */
+.ui-search__kbd {
+  position: absolute;
+  right: var(--ui-space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.ui-search__kbd kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-family: var(--ui-font-family);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ui-color-text-disabled);
+  background: var(--ui-color-bg-hover);
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-xs);
+  line-height: 1;
+}
+
+/* Sizes */
+.ui-search--sm .ui-search__input {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-search--sm .ui-search__icon { font-size: 13px; }
+
+.ui-search--lg .ui-search__input {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 40px;
+  font-size: var(--ui-font-size-md);
+}
+
+.ui-search--lg .ui-search__icon {
+  left: var(--ui-space-3);
+  font-size: 17px;
+}
+
+} /* end @layer ai-kit.components */

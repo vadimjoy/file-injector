@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Alert — inline notification block (Phase 4.2: banner + callout merged in)
+   ========================================================================== */
+
+/*
+  INLINE ALERT (default)
+  <div class="ui-alert ui-alert--info" role="alert">
+    <svg class="ui-alert__icon" aria-hidden="true" ...></svg>
+    <div class="ui-alert__content">
+      <div class="ui-alert__title">Info title</div>
+      <div class="ui-alert__body">Descriptive message text goes here.</div>
+    </div>
+    <button class="ui-alert__close" type="button" aria-label="Dismiss">×</button>
+  </div>
+
+  BANNER (full-width strip, e.g. top-of-page)
+  <div class="ui-alert ui-alert--banner ui-alert--warning" role="alert">
+    <span class="ui-alert__icon">⚠</span>
+    <div class="ui-alert__content">
+      <span class="ui-alert__title">Scheduled maintenance</span>
+      <span class="ui-alert__body"> on Saturday 00:00–04:00 UTC.</span>
+    </div>
+    <div class="ui-alert__actions">...</div>
+    <button class="ui-alert__close" type="button" aria-label="Dismiss">×</button>
+  </div>
+
+  CALLOUT (bordered block note / aside)
+  <div class="ui-alert ui-alert--callout ui-alert--info">
+    <span class="ui-alert__icon">ℹ</span>
+    <div class="ui-alert__content">
+      <div class="ui-alert__title">Note</div>
+      <div class="ui-alert__body">Additional context for the user.</div>
+    </div>
+  </div>
+
+  Variants: ui-alert--info | ui-alert--success | ui-alert--warning | ui-alert--error | ui-alert--neutral
+  ui-alert__title and ui-alert__close are optional.
+*/
+
+@layer ai-kit.components {
+
+.ui-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-4);
+  border-radius: var(--ai-alert-radius);
+  border: 1px solid transparent;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-md);
+  line-height: var(--ui-line-height);
+}
+
+/* ---- Icon ---- */
+.ui-alert__icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+/* ---- Content ---- */
+.ui-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-alert__title {
+  font-weight: 600;
+  margin: 0 0 var(--ui-space-1) 0;
+}
+
+.ui-alert__body {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ---- Close button ---- */
+.ui-alert__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--ui-radius-xs);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: var(--ui-transition-fast);
+  color: inherit;
+  outline: none;
+}
+
+.ui-alert__close:hover {
+  opacity: 1;
+  background: var(--ui-color-bg-overlay);
+}
+
+.ui-alert__close:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+/* ---- Variants ---- */
+.ui-alert--info {
+  background: var(--ai-alert-info-bg);
+  color: var(--ai-alert-info-color);
+  border-color: var(--ai-alert-info-border);
+}
+
+.ui-alert--success {
+  background: var(--ai-alert-success-bg);
+  color: var(--ai-alert-success-color);
+  border-color: var(--ai-alert-success-border);
+}
+
+.ui-alert--warning {
+  background: var(--ai-alert-warning-bg);
+  color: var(--ai-alert-warning-color);
+  border-color: var(--ai-alert-warning-border);
+}
+
+.ui-alert--error {
+  background: var(--ai-alert-error-bg);
+  color: var(--ai-alert-error-color);
+  border-color: var(--ai-alert-error-border);
+}
+
+/* ---- Neutral variant (used by banner--neutral, callout--neutral) ---- */
+.ui-alert--neutral {
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text-secondary);
+  border-color: var(--ui-color-border);
+}
+
+/* =========================================================
+   BANNER modifier — full-width top strip (merged from banner.css)
+   Phase 4.2: ui-banner.* kept as deprecated aliases below.
+   ========================================================= */
+
+.ui-alert--banner {
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-size: var(--ui-font-size-sm);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+/* Banner: inline title + body text */
+.ui-alert--banner .ui-alert__title {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.ui-alert--banner .ui-alert__body {
+  display: inline;
+  margin: 0;
+}
+
+/* Banner: actions row */
+.ui-alert__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex-shrink: 0;
+}
+
+.ui-alert__action {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-alert__action:hover { opacity: 0.75; }
+
+/* Banner colour overrides (full-width border treatment) */
+.ui-alert--banner.ui-alert--info    { border-bottom: 1px solid var(--ui-color-primary-soft); }
+.ui-alert--banner.ui-alert--success { border-bottom: 1px solid var(--ui-color-success-soft); }
+.ui-alert--banner.ui-alert--warning { border-bottom: 1px solid var(--ui-color-warning-soft); }
+.ui-alert--banner.ui-alert--error   { border-bottom: 1px solid var(--ui-color-error-soft); }
+.ui-alert--banner.ui-alert--neutral { border-bottom: 1px solid var(--ui-color-border); }
+
+/* =========================================================
+   CALLOUT modifier — bordered block note / aside (merged from callout.css)
+   Phase 4.2: ui-callout.* kept as deprecated aliases below.
+   ========================================================= */
+
+.ui-alert--callout {
+  border-radius: var(--ui-radius-lg);
+}
+
+/* Left accent bar variant */
+.ui-alert--callout.ui-alert--accent {
+  border-left-width: 3px;
+}
+
+/* Callout icon sizing */
+.ui-alert--callout .ui-alert__icon {
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+/* Callout colour tokens (resolved inline for self-containment) */
+.ui-alert--callout.ui-alert--info {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-text);
+  border-color: var(--ui-color-primary-soft);
+}
+
+.ui-alert--callout.ui-alert--success {
+  background: var(--ui-color-success-light);
+  color: var(--ui-color-text);
+  border-color: var(--ui-color-success-soft);
+}
+
+.ui-alert--callout.ui-alert--warning {
+  background: var(--ui-color-warning-light);
+  color: var(--ui-color-text);
+  border-color: var(--ui-color-warning-soft);
+}
+
+.ui-alert--callout.ui-alert--error {
+  background: var(--ui-color-error-light);
+  color: var(--ui-color-text);
+  border-color: var(--ui-color-error-soft);
+}
+
+.ui-alert--callout.ui-alert--neutral {
+  background: var(--ui-color-bg-subtle);
+  color: var(--ui-color-text);
+  border-color: var(--ui-color-border);
+}
+
+/* =========================================================
+   DEPRECATED ALIASES — kept for one minor version (v0.7.x)
+   Remove in v1.0.0. Migrate to .ui-alert--banner / --callout.
+   ========================================================= */
+
+/* ui-banner → ui-alert ui-alert--banner */
+.ui-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ui-banner__icon  { display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+.ui-banner__content { flex: 1; line-height: var(--ui-line-height); }
+.ui-banner__title { font-weight: 600; display: inline; }
+.ui-banner__text  { display: inline; opacity: 0.85; }
+.ui-banner__actions { display: flex; align-items: center; gap: var(--ui-space-2); flex-shrink: 0; }
+.ui-banner__action  { font-size: var(--ui-font-size-sm); font-weight: 600; background: none; border: none; cursor: pointer; padding: 0; color: inherit; text-decoration: underline; transition: var(--ui-transition-fast); }
+.ui-banner__action:hover { opacity: 0.75; }
+.ui-banner__close { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: var(--ui-radius-sm); border: none; background: transparent; color: inherit; cursor: pointer; opacity: 0.6; transition: var(--ui-transition-fast); flex-shrink: 0; padding: 0; font-size: 16px; line-height: 1; }
+.ui-banner__close:hover { opacity: 1; }
+.ui-banner--info    { background: var(--ai-banner-info-bg);    color: var(--ai-banner-info-color);    border-bottom: 1px solid var(--ui-color-primary-soft); }
+.ui-banner--success { background: var(--ai-banner-success-bg); color: var(--ai-banner-success-color); border-bottom: 1px solid var(--ui-color-success-soft); }
+.ui-banner--warning { background: var(--ai-banner-warning-bg); color: var(--ai-banner-warning-color); border-bottom: 1px solid var(--ui-color-warning-soft); }
+.ui-banner--error   { background: var(--ai-banner-error-bg);   color: var(--ai-banner-error-color);   border-bottom: 1px solid var(--ui-color-error-soft); }
+.ui-banner--neutral { background: var(--ui-color-bg-hover); color: var(--ui-color-text-secondary); border-bottom: 1px solid var(--ui-color-border); }
+
+/* ui-callout → ui-alert ui-alert--callout */
+.ui-callout { display: flex; gap: var(--ui-space-3); padding: var(--ui-space-4); border-radius: var(--ai-callout-radius); border: 1px solid var(--ai-callout-border); background: var(--ai-callout-bg); font-family: var(--ui-font-family); }
+.ui-callout--accent { border-left-width: 3px; }
+.ui-callout__icon  { flex-shrink: 0; font-size: 18px; line-height: 1.4; color: var(--ai-callout-icon-color); }
+.ui-callout__body  { flex: 1; min-width: 0; }
+.ui-callout__title { font-size: var(--ui-font-size-sm); font-weight: 600; color: var(--ai-callout-title-color); margin: 0 0 var(--ui-space-1); line-height: 1.3; }
+.ui-callout__text  { font-size: var(--ui-font-size-sm); color: var(--ui-color-text-secondary); margin: 0; line-height: var(--ui-line-height); }
+.ui-callout--info    { --ai-callout-bg: var(--ui-color-primary-light); --ai-callout-border: var(--ui-color-primary-soft); --ai-callout-icon-color: var(--ui-color-primary); --ai-callout-title-color: var(--ui-color-primary); }
+.ui-callout--success { --ai-callout-bg: var(--ui-color-success-light); --ai-callout-border: var(--ui-color-success-soft); --ai-callout-icon-color: var(--ui-color-success); --ai-callout-title-color: var(--ui-color-success); }
+.ui-callout--warning { --ai-callout-bg: var(--ui-color-warning-light); --ai-callout-border: var(--ui-color-warning-soft); --ai-callout-icon-color: var(--ui-color-warning); --ai-callout-title-color: var(--ui-color-warning); }
+.ui-callout--error   { --ai-callout-bg: var(--ui-color-error-light);   --ai-callout-border: var(--ui-color-error-soft);   --ai-callout-icon-color: var(--ui-color-error);   --ai-callout-title-color: var(--ui-color-error); }
+.ui-callout--neutral { --ai-callout-bg: var(--ui-color-bg-subtle); --ai-callout-border: var(--ui-color-border); --ai-callout-icon-color: var(--ui-color-text-muted); --ai-callout-title-color: var(--ui-color-text); }
+
+} /* end @layer ai-kit.components */

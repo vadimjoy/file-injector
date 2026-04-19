@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Steps (Stepper)
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  Horizontal (default):
+  <div class="ui-steps">
+    <div class="ui-steps__item ui-steps__item--done">
+      <div class="ui-steps__indicator">1</div>
+      <div class="ui-steps__label">Account</div>
+    </div>
+    <div class="ui-steps__item ui-steps__item--active">
+      <div class="ui-steps__indicator">2</div>
+      <div class="ui-steps__label">Details</div>
+    </div>
+    <div class="ui-steps__item">
+      <div class="ui-steps__indicator">3</div>
+      <div class="ui-steps__label">Confirm</div>
+    </div>
+  </div>
+
+  Vertical:
+  <div class="ui-steps ui-steps--vertical">...</div>
+
+  States on .ui-steps__item:
+  — (none)                  : pending (not yet reached)
+  — ui-steps__item--active  : current step
+  — ui-steps__item--done    : completed step
+  — ui-steps__item--error   : error on this step
+
+  Icon inside indicator (optional):
+  <div class="ui-steps__indicator">
+    <svg aria-hidden="true" ...></svg>
+  </div>
+*/
+
+@layer ai-kit.components {
+
+/* ---- Container ---- */
+.ui-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  font-family: var(--ui-font-family);
+}
+
+/* ---- Item ---- */
+.ui-steps__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* Connector line between items */
+.ui-steps__item + .ui-steps__item::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--ai-steps-indicator-size) / 2);
+  right: 50%;
+  left: calc(-50% + var(--ai-steps-indicator-size) / 2 + 4px);
+  right: calc(50% + var(--ai-steps-indicator-size) / 2 + 4px);
+  height: 2px;
+  background: var(--ai-steps-line-color);
+  transition: background var(--ui-transition);
+}
+
+.ui-steps__item--done + .ui-steps__item::before,
+.ui-steps__item--done::after {
+  background: var(--ai-steps-line-done-color);
+}
+
+/* ---- Indicator ---- */
+.ui-steps__indicator {
+  width: var(--ai-steps-indicator-size);
+  height: var(--ai-steps-indicator-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-size: var(--ui-font-size-xs);
+  font-weight: 700;
+  border: 2px solid var(--ai-steps-indicator-border);
+  background: var(--ai-steps-indicator-bg);
+  color: var(--ai-steps-indicator-color);
+  transition: var(--ui-transition);
+  position: relative;
+  z-index: 1;
+}
+
+.ui-steps__indicator svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---- Label ---- */
+.ui-steps__label {
+  margin-top: var(--ui-space-2);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ai-steps-label-color);
+  text-align: center;
+  transition: color var(--ui-transition-fast);
+  white-space: nowrap;
+}
+
+/* ---- Active state ---- */
+.ui-steps__item--active .ui-steps__indicator {
+  background: var(--ai-steps-indicator-active-bg);
+  color: var(--ai-steps-indicator-active-color);
+  border-color: var(--ai-steps-indicator-active-border);
+  box-shadow: 0 0 0 4px var(--ui-color-primary-soft);
+}
+
+.ui-steps__item--active .ui-steps__label {
+  color: var(--ai-steps-label-active-color);
+  font-weight: 600;
+}
+
+/* ---- Done state ---- */
+.ui-steps__item--done .ui-steps__indicator {
+  background: var(--ai-steps-indicator-done-bg);
+  color: var(--ai-steps-indicator-done-color);
+  border-color: var(--ai-steps-indicator-done-border);
+}
+
+/* ---- Error state ---- */
+.ui-steps__item--error .ui-steps__indicator {
+  background: var(--ui-color-error-light);
+  color: var(--ui-color-error);
+  border-color: var(--ui-color-error-soft);
+}
+
+.ui-steps__item--error .ui-steps__label {
+  color: var(--ui-color-error);
+}
+
+/* ---- Vertical layout ---- */
+.ui-steps--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.ui-steps--vertical .ui-steps__item {
+  flex: none;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--ui-space-3);
+  width: 100%;
+  padding-bottom: var(--ui-space-6);
+}
+
+.ui-steps--vertical .ui-steps__item:last-child {
+  padding-bottom: 0;
+}
+
+/* Vertical connector — hide horizontal ::before, draw downward line via ::after */
+.ui-steps--vertical .ui-steps__item + .ui-steps__item::before {
+  display: none;
+}
+
+.ui-steps--vertical .ui-steps__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  /* Start from the BOTTOM edge of the indicator circle, not its centre.
+     The old calc(size/2) caused the line to enter the circle from above when
+     themes used semi-transparent indicator backgrounds. */
+  top: var(--ai-steps-indicator-size);
+  bottom: 0;
+  left: calc(var(--ai-steps-indicator-size) / 2 - 1px);
+  right: auto;
+  width: 2px;
+  height: auto;
+  background: var(--ai-steps-line-color);
+}
+
+.ui-steps--vertical .ui-steps__item--done:not(:last-child)::after {
+  background: var(--ai-steps-line-done-color);
+}
+
+.ui-steps--vertical .ui-steps__label {
+  /* Push label down so its first-line center aligns with indicator center.
+     1.4 is unitless (line-height ratio) × px = valid calc. */
+  margin-top: calc((var(--ai-steps-indicator-size) - 1.4 * var(--ui-font-size-sm)) / 2);
+  text-align: left;
+}
+
+} /* end @layer ai-kit.components */

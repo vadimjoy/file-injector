@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breadcrumb Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Breadcrumb</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Two levels</h3>
+      <nav class="ui-breadcrumb" aria-label="Breadcrumb">
+        <ol class="ui-breadcrumb__list">
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">Home</a>
+          </li>
+          <li class="ui-breadcrumb__item ui-breadcrumb__item--current" aria-current="page">
+            <span class="ui-breadcrumb__link">Settings</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Three levels</h3>
+      <nav class="ui-breadcrumb" aria-label="Breadcrumb">
+        <ol class="ui-breadcrumb__list">
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">Home</a>
+          </li>
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">Settings</a>
+          </li>
+          <li class="ui-breadcrumb__item ui-breadcrumb__item--current" aria-current="page">
+            <span class="ui-breadcrumb__link">Profile</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Deep path</h3>
+      <nav class="ui-breadcrumb" aria-label="Breadcrumb">
+        <ol class="ui-breadcrumb__list">
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">
+              <i class="fa fa-home" aria-hidden="true"></i>
+              Home
+            </a>
+          </li>
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">Projects</a>
+          </li>
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">AI CSS Kit</a>
+          </li>
+          <li class="ui-breadcrumb__item">
+            <a class="ui-breadcrumb__link" href="#">Components</a>
+          </li>
+          <li class="ui-breadcrumb__item ui-breadcrumb__item--current" aria-current="page">
+            <span class="ui-breadcrumb__link">Breadcrumb</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

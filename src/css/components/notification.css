@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Notification Item — notification row for lists/panels
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-family: var(--ui-font-family);
+  background: var(--ui-color-bg);
+  transition: var(--ui-transition-fast);
+  cursor: default;
+  position: relative;
+}
+
+.ui-notification:hover {
+  background: var(--ui-color-bg-subtle);
+}
+
+/* Unread indicator */
+.ui-notification--unread {
+  background: var(--ai-notification-unread-bg);
+}
+
+.ui-notification--unread:hover {
+  background: var(--ai-notification-unread-hover-bg);
+}
+
+.ui-notification--unread::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--ui-color-primary);
+  border-radius: 0 var(--ui-radius-xs) var(--ui-radius-xs) 0;
+}
+
+/*
+  Icon slot — use .ui-icon-tile (Phase 4.2 consolidated atom) for icon colouring.
+  .ui-notification__icon is kept as a layout alias for backward compatibility.
+  Deprecated local __icon--* variants will be removed in v1.0.0.
+  Preferred markup:
+    <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--md ui-icon-tile--circle">
+*/
+.ui-notification__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text-muted);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* DEPRECATED — use .ui-icon-tile--primary/success/warning/error instead */
+.ui-notification__icon--primary {
+  background: var(--ui-color-primary-light);
+  color: var(--ui-color-primary);
+}
+
+.ui-notification__icon--success {
+  background: var(--ui-color-success-light);
+  color: var(--ui-color-success);
+}
+
+.ui-notification__icon--warning {
+  background: var(--ui-color-warning-light);
+  color: var(--ui-color-warning);
+}
+
+.ui-notification__icon--error {
+  background: var(--ui-color-error-light);
+  color: var(--ui-color-error);
+}
+
+/* Body */
+.ui-notification__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-notification__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ui-space-2);
+  margin-bottom: 2px;
+}
+
+.ui-notification__title {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ui-color-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ui-notification__time {
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-disabled);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ui-notification__text {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  margin: 0;
+  line-height: var(--ui-line-height);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Actions */
+.ui-notification__actions {
+  display: flex;
+  gap: var(--ui-space-2);
+  margin-top: var(--ui-space-2);
+}
+
+/* Unread dot */
+.ui-notification__unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-primary);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+} /* end @layer ai-kit.components */

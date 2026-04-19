@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Breadcrumb
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  <nav class="ui-breadcrumb" aria-label="Breadcrumb">
+    <ol class="ui-breadcrumb__list">
+      <li class="ui-breadcrumb__item">
+        <a class="ui-breadcrumb__link" href="/">Home</a>
+      </li>
+      <li class="ui-breadcrumb__item">
+        <a class="ui-breadcrumb__link" href="/settings">Settings</a>
+      </li>
+      <li class="ui-breadcrumb__item ui-breadcrumb__item--current" aria-current="page">
+        <span class="ui-breadcrumb__link">Profile</span>
+      </li>
+    </ol>
+  </nav>
+
+  The separator between items is rendered via CSS (content: '/').
+  Override --ai-breadcrumb-separator-color to change its appearance.
+*/
+
+@layer ai-kit.components {
+
+.ui-breadcrumb {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Item & separator ---- */
+.ui-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ui-breadcrumb__item + .ui-breadcrumb__item::before {
+  content: '/';
+  display: inline-block;
+  margin: 0 var(--ui-space-2);
+  color: var(--ai-breadcrumb-separator-color);
+  font-size: var(--ui-font-size-sm);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ---- Link ---- */
+.ui-breadcrumb__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  color: var(--ai-breadcrumb-color);
+  text-decoration: none;
+  border-radius: var(--ui-radius-xs);
+  outline: none;
+  transition: color var(--ui-transition-fast);
+}
+
+a.ui-breadcrumb__link:hover {
+  color: var(--ai-breadcrumb-hover-color);
+  text-decoration: underline;
+}
+
+a.ui-breadcrumb__link:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-color-primary-soft);
+  color: var(--ai-breadcrumb-hover-color);
+}
+
+/* ---- Current (last) item ---- */
+.ui-breadcrumb__item--current .ui-breadcrumb__link {
+  color: var(--ai-breadcrumb-current-color);
+  font-weight: 500;
+  cursor: default;
+  text-decoration: none;
+}
+
+} /* end @layer ai-kit.components */

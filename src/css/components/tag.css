@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Tag
+   ========================================================================== */
+
+/*
+  Tag differs from Badge:
+  — Badge: tiny read-only status label (11px, pill, no border)
+  — Tag:   interactive, can be dismissible, has visible border, larger touch target
+
+  HTML contract:
+
+  Simple tag:
+  <span class="ui-tag ui-tag--default ui-tag--md">Label</span>
+
+  With icon:
+  <span class="ui-tag ui-tag--primary ui-tag--md">
+    <svg class="ui-tag__icon" aria-hidden="true" ...></svg>
+    Label
+  </span>
+
+  Removable tag (dismiss button inside):
+  <span class="ui-tag ui-tag--default ui-tag--md ui-tag--removable">
+    Label
+    <button class="ui-tag__remove" type="button" aria-label="Remove Label">
+      <svg aria-hidden="true" ...></svg>
+    </button>
+  </span>
+
+  Variants: ui-tag--default | ui-tag--primary | ui-tag--success | ui-tag--warning | ui-tag--error
+  Sizes:    ui-tag--sm | ui-tag--md (default) | ui-tag--lg
+*/
+
+@layer ai-kit.components {
+
+/* ---- Base ---- */
+.ui-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ui-font-family);
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: var(--ai-tag-radius);
+  transition: var(--ui-transition-fast);
+}
+
+/* ---- Icon ---- */
+.ui-tag__icon {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+}
+
+/* ---- Remove button ---- */
+.ui-tag__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  margin-left: 2px;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.55;
+  color: inherit;
+  transition: var(--ui-transition-fast);
+  outline: none;
+}
+
+.ui-tag__remove:hover {
+  opacity: 1;
+}
+
+.ui-tag__remove:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.ui-tag__remove svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* ---- Sizes ---- */
+.ui-tag--sm {
+  padding: 2px 7px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-tag--md {
+  padding: 4px 10px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-tag--lg {
+  padding: 6px 14px;
+  font-size: var(--ui-font-size-md);
+}
+
+/* ---- Variants ---- */
+.ui-tag--default {
+  background: var(--ai-tag-default-bg);
+  color: var(--ai-tag-default-color);
+  border-color: var(--ai-tag-default-border);
+}
+
+.ui-tag--primary {
+  background: var(--ai-tag-primary-bg);
+  color: var(--ai-tag-primary-color);
+  border-color: var(--ai-tag-primary-border);
+}
+
+.ui-tag--success {
+  background: var(--ai-tag-success-bg);
+  color: var(--ai-tag-success-color);
+  border-color: var(--ai-tag-success-border);
+}
+
+.ui-tag--warning {
+  background: var(--ai-tag-warning-bg);
+  color: var(--ai-tag-warning-color);
+  border-color: var(--ai-tag-warning-border);
+}
+
+.ui-tag--error {
+  background: var(--ai-tag-error-bg);
+  color: var(--ai-tag-error-color);
+  border-color: var(--ai-tag-error-border);
+}
+
+} /* end @layer ai-kit.components */

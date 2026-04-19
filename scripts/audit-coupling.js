@@ -3,13 +3,22 @@ const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');
 
-const COMPONENT_DIR = path.join(__dirname, '..', 'src', 'css', 'components');
+const COMPONENT_DIR   = path.join(__dirname, '..', 'src', 'css', 'components');
+const FOUNDATIONS_DIR = path.join(__dirname, '..', 'src', 'css', 'foundations');
 const GLOBAL_ALLOWED_BASES = new Set(['ui-field']);
 
-const cssFiles = fs
-  .readdirSync(COMPONENT_DIR)
-  .filter((file) => file.endsWith('.css'))
-  .map((file) => path.join(COMPONENT_DIR, file));
+function collectCssFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((file) => file.endsWith('.css'))
+    .map((file) => path.join(dir, file));
+}
+
+const cssFiles = [
+  ...collectCssFiles(FOUNDATIONS_DIR),
+  ...collectCssFiles(COMPONENT_DIR),
+];
 
 function extractClasses(selector) {
   const matches = selector.match(/\.ui-[A-Za-z0-9_-]+/g) || [];

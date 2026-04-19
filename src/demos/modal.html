@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Modal</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Sizes</h3>
+      <div class="u-stack">
+
+        <!-- Small -->
+        <div class="ui-modal-overlay u-relative u-min-h-300 u-overflow-hidden u-radius-lg">
+          <div class="ui-modal ui-modal--sm">
+            <div class="ui-modal__header">
+              <div>
+                <h3 class="ui-modal__title">Small modal</h3>
+              </div>
+              <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+            </div>
+            <div class="ui-modal__body">
+              <p>This is a small modal. Use it for confirmations or quick prompts that need minimal content.</p>
+            </div>
+            <div class="ui-modal__footer">
+              <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+              <button class="ui-button ui-button--primary ui-button--md" type="button">Confirm</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium -->
+        <div class="ui-modal-overlay u-relative u-min-h-300 u-overflow-hidden u-radius-lg">
+          <div class="ui-modal ui-modal--md">
+            <div class="ui-modal__header">
+              <div>
+                <h3 class="ui-modal__title">Medium modal</h3>
+              </div>
+              <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+            </div>
+            <div class="ui-modal__body">
+              <p>This is a medium modal, suitable for forms, detail views, or anything requiring a bit more space to breathe.</p>
+            </div>
+            <div class="ui-modal__footer">
+              <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+              <button class="ui-button ui-button--primary ui-button--md" type="button">Save changes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large -->
+        <div class="ui-modal-overlay u-relative u-min-h-300 u-overflow-hidden u-radius-lg">
+          <div class="ui-modal ui-modal--lg">
+            <div class="ui-modal__header">
+              <div>
+                <h3 class="ui-modal__title">Large modal</h3>
+              </div>
+              <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+            </div>
+            <div class="ui-modal__body">
+              <p>This is a large modal. Use it for rich content — editors, data tables, media viewers, or multi-step flows that need more horizontal real estate.</p>
+            </div>
+            <div class="ui-modal__footer">
+              <button class="ui-button ui-button--secondary ui-button--md" type="button">Discard</button>
+              <button class="ui-button ui-button--primary ui-button--md" type="button">Publish</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Header variants</h3>
+      <div class="u-stack">
+
+        <!-- Title only -->
+        <div class="ui-modal ui-modal--md">
+          <div class="ui-modal__header">
+            <div>
+              <h3 class="ui-modal__title">Title only</h3>
+            </div>
+            <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <div class="ui-modal__body">
+            <p>A modal header with just a title — clean and minimal, suitable for short focused dialogs.</p>
+          </div>
+          <div class="ui-modal__footer">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+            <button class="ui-button ui-button--primary ui-button--md" type="button">Continue</button>
+          </div>
+        </div>
+
+        <!-- Title + subtitle -->
+        <div class="ui-modal ui-modal--md">
+          <div class="ui-modal__header">
+            <div>
+              <h3 class="ui-modal__title">Invite team member</h3>
+              <p class="ui-modal__subtitle">Send an invitation link to a new team member's email address.</p>
+            </div>
+            <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <div class="ui-modal__body">
+            <p>Use the subtitle to provide helpful context below the title without cluttering the body area.</p>
+          </div>
+          <div class="ui-modal__footer">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+            <button class="ui-button ui-button--primary ui-button--md" type="button">Send invite</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Footer alignment</h3>
+      <div class="u-stack">
+
+        <!-- Footer: end (default) -->
+        <div class="ui-modal ui-modal--md">
+          <div class="ui-modal__header">
+            <div>
+              <h3 class="ui-modal__title">Footer end (default)</h3>
+            </div>
+            <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <div class="ui-modal__body">
+            <p>Buttons are aligned to the right — the default footer layout for most confirmation dialogs.</p>
+          </div>
+          <div class="ui-modal__footer">
+            <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+            <button class="ui-button ui-button--primary ui-button--md" type="button">Confirm</button>
+          </div>
+        </div>
+
+        <!-- Footer: between -->
+        <div class="ui-modal ui-modal--md">
+          <div class="ui-modal__header">
+            <div>
+              <h3 class="ui-modal__title">Footer between</h3>
+            </div>
+            <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <div class="ui-modal__body">
+            <p>Use <code>--footer--between</code> to push a secondary action (e.g. "Delete") to the far left.</p>
+          </div>
+          <div class="ui-modal__footer ui-modal__footer--between">
+            <button class="ui-button ui-button--ghost ui-button--md" type="button">
+              <i class="fa fa-trash" aria-hidden="true"></i> Delete
+            </button>
+            <div class="u-flex u-gap-2">
+              <button class="ui-button ui-button--secondary ui-button--md" type="button">Cancel</button>
+              <button class="ui-button ui-button--primary ui-button--md" type="button">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer: start -->
+        <div class="ui-modal ui-modal--md">
+          <div class="ui-modal__header">
+            <div>
+              <h3 class="ui-modal__title">Footer start</h3>
+            </div>
+            <button class="ui-modal__close" type="button" aria-label="Close">&times;</button>
+          </div>
+          <div class="ui-modal__body">
+            <p>Use <code>--footer--start</code> when the primary action should sit on the left side of the footer.</p>
+          </div>
+          <div class="ui-modal__footer ui-modal__footer--start">
+            <button class="ui-button ui-button--primary ui-button--md" type="button">Got it</button>
+            <button class="ui-button ui-button--ghost ui-button--md" type="button">Learn more</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

@@ -89,7 +89,7 @@ All styles are grouped into cascade layers so theme overrides win without using 
 
 ai-kit.tokens     — global `--ui-*` tokens + dark fallback
 ai-kit.base       — reset, `.ui-field`, typography
-ai-kit.components — 15 components + states (`--ai-*` tokens)
+ai-kit.components — 43 components + states (`--ai-*` tokens)
 ```
 
 ### Built-in Presets
@@ -975,6 +975,1048 @@ Container for grouping content.
 
 ---
 
+### 17. Tabs (`.ui-tabs`)
+
+Horizontal tab strip for switching between views.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-tabs` | Container (`role="tablist"`) |
+| `.ui-tabs--sm` | Small size |
+| `.ui-tabs--md` | Medium size (default) |
+| `.ui-tabs--lg` | Large size |
+| `.ui-tabs--underline` | Underline variant (no pill background) |
+| `.ui-tabs__item` | Individual tab button (`role="tab"`) |
+| `.ui-tabs__item--active` | Selected tab |
+
+#### States
+
+- **Default**: Muted text, no background
+- **Hover**: Subtle background highlight
+- **Active**: Primary color text + background (pill) or bottom border (underline)
+- **Disabled**: Reduced opacity, non-interactive
+
+#### HTML Example
+
+```html
+<!-- Pill (default) -->
+<div class="ui-tabs ui-tabs--md" role="tablist">
+  <button class="ui-tabs__item ui-tabs__item--active" type="button" role="tab" aria-selected="true">Overview</button>
+  <button class="ui-tabs__item" type="button" role="tab" aria-selected="false">Analytics</button>
+  <button class="ui-tabs__item" type="button" role="tab" aria-selected="false" disabled>Billing</button>
+</div>
+
+<!-- Underline -->
+<div class="ui-tabs ui-tabs--underline ui-tabs--md" role="tablist">
+  <button class="ui-tabs__item ui-tabs__item--active" type="button" role="tab" aria-selected="true">Overview</button>
+  <button class="ui-tabs__item" type="button" role="tab" aria-selected="false">Analytics</button>
+</div>
+```
+
+---
+
+### 18. Alert (`.ui-alert`)
+
+Inline feedback message for info, success, warning, and error states.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-alert` | Base container (`role="alert"`) |
+| `.ui-alert--info` | Informational (primary color) |
+| `.ui-alert--success` | Success (green) |
+| `.ui-alert--warning` | Warning (amber) |
+| `.ui-alert--error` | Error (red) |
+| `.ui-alert__icon` | Leading icon (optional) |
+| `.ui-alert__content` | Text wrapper |
+| `.ui-alert__title` | Bold heading (optional) |
+| `.ui-alert__body` | Message text |
+| `.ui-alert__close` | Dismiss button (optional) |
+
+#### HTML Example
+
+```html
+<div class="ui-alert ui-alert--success" role="alert">
+  <svg class="ui-alert__icon" aria-hidden="true"><!-- checkmark --></svg>
+  <div class="ui-alert__content">
+    <div class="ui-alert__title">Changes saved</div>
+    <div class="ui-alert__body">Your profile has been updated successfully.</div>
+  </div>
+  <button class="ui-alert__close" type="button" aria-label="Dismiss">×</button>
+</div>
+```
+
+---
+
+### 19. Spinner (`.ui-spinner`)
+
+Animated loading indicator for async operations.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-spinner` | Base container (`role="status"`) |
+| `.ui-spinner--sm` | 14×14px spinning arc |
+| `.ui-spinner--md` | 20×20px spinning arc (default) |
+| `.ui-spinner--lg` | 28×28px spinning arc |
+| `.ui-spinner--inverted` | White arc (for primary/dark backgrounds) |
+| `.ui-spinner__label` | Visible loading text next to spinner |
+
+#### HTML Example
+
+```html
+<!-- Standalone -->
+<span class="ui-spinner ui-spinner--md" role="status" aria-label="Loading"></span>
+
+<!-- With label -->
+<span class="ui-spinner ui-spinner--md" role="status">
+  <span class="ui-spinner__label">Loading…</span>
+</span>
+
+<!-- Inside a button -->
+<button class="ui-button ui-button--primary ui-button--md" disabled>
+  <span class="ui-spinner ui-spinner--sm ui-spinner--inverted" role="status" aria-label="Loading"></span>
+  Saving…
+</button>
+```
+
+---
+
+### 20. Avatar (`.ui-avatar`)
+
+User or entity visual representation — initials or image.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-avatar` | Base element (works on `<div>` for initials or `<img>`) |
+| `.ui-avatar--sm` | 24×24px |
+| `.ui-avatar--md` | 36×36px (default) |
+| `.ui-avatar--lg` | 48×48px |
+| `.ui-avatar--xl` | 64×64px |
+| `.ui-avatar--square` | Rounded square (radius-md) instead of circle |
+| `.ui-avatar-wrap` | Wrapper for status indicator |
+| `.ui-avatar-wrap--online` | Green status dot |
+| `.ui-avatar-wrap--offline` | Gray status dot |
+| `.ui-avatar-wrap--busy` | Amber status dot |
+| `.ui-avatar-group` | Stacked row of avatars with negative margin overlap |
+
+#### HTML Example
+
+```html
+<!-- Initials -->
+<div class="ui-avatar ui-avatar--md" aria-label="John Doe">JD</div>
+
+<!-- Image -->
+<img class="ui-avatar ui-avatar--md" src="photo.jpg" alt="John Doe">
+
+<!-- With status -->
+<div class="ui-avatar-wrap ui-avatar-wrap--online">
+  <div class="ui-avatar ui-avatar--md" aria-label="John Doe">JD</div>
+</div>
+
+<!-- Group -->
+<div class="ui-avatar-group">
+  <div class="ui-avatar ui-avatar--md" aria-label="Alice">AB</div>
+  <div class="ui-avatar ui-avatar--md" aria-label="Bob">BC</div>
+  <div class="ui-avatar ui-avatar--md" aria-label="3 more">+3</div>
+</div>
+```
+
+---
+
+### 21. Tag (`.ui-tag`)
+
+Interactive label with optional dismiss. Larger and bordered — distinct from Badge.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-tag` | Base tag |
+| `.ui-tag--sm` | Small (2px 7px padding, 11px font) |
+| `.ui-tag--md` | Medium (4px 10px padding, 13px font, default) |
+| `.ui-tag--lg` | Large (6px 14px padding, 14px font) |
+| `.ui-tag--default` | Gray neutral with border |
+| `.ui-tag--primary` | Primary color |
+| `.ui-tag--success` | Green |
+| `.ui-tag--warning` | Amber |
+| `.ui-tag--error` | Red |
+| `.ui-tag--removable` | Has dismiss button; add `.ui-tag__remove` inside |
+| `.ui-tag__icon` | Leading icon (12×12px) |
+| `.ui-tag__remove` | Dismiss `<button>` inside removable tag |
+
+#### HTML Example
+
+```html
+<!-- Static -->
+<span class="ui-tag ui-tag--primary ui-tag--md">Feature</span>
+
+<!-- Removable -->
+<span class="ui-tag ui-tag--default ui-tag--md ui-tag--removable">
+  TypeScript
+  <button class="ui-tag__remove" type="button" aria-label="Remove TypeScript">×</button>
+</span>
+```
+
+---
+
+### 22. Breadcrumb (`.ui-breadcrumb`)
+
+Navigation trail showing the current page's location hierarchy.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-breadcrumb` | `<nav>` container |
+| `.ui-breadcrumb__list` | `<ol>` list |
+| `.ui-breadcrumb__item` | `<li>` item |
+| `.ui-breadcrumb__item--current` | Last item (current page) |
+| `.ui-breadcrumb__link` | `<a>` or `<span>` inside item; separator generated via CSS |
+
+#### HTML Example
+
+```html
+<nav class="ui-breadcrumb" aria-label="Breadcrumb">
+  <ol class="ui-breadcrumb__list">
+    <li class="ui-breadcrumb__item">
+      <a class="ui-breadcrumb__link" href="/">Home</a>
+    </li>
+    <li class="ui-breadcrumb__item">
+      <a class="ui-breadcrumb__link" href="/settings">Settings</a>
+    </li>
+    <li class="ui-breadcrumb__item ui-breadcrumb__item--current" aria-current="page">
+      <span class="ui-breadcrumb__link">Profile</span>
+    </li>
+  </ol>
+</nav>
+```
+
+---
+
+### 23. Pagination (`.ui-pagination`)
+
+Page navigation control.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-pagination` | `<nav>` container |
+| `.ui-pagination--sm` | Small (28px items) |
+| `.ui-pagination--lg` | Large (44px items) |
+| `.ui-pagination__item` | Page `<button>` (36px default) |
+| `.ui-pagination__item--active` | Current page |
+| `.ui-pagination__ellipsis` | `<span>` separator "…" |
+
+#### States
+
+- **Default**: Bordered button, muted text
+- **Hover**: Subtle background
+- **Active**: Primary background, white text
+- **Disabled**: Reduced opacity
+
+#### HTML Example
+
+```html
+<nav class="ui-pagination" aria-label="Pagination">
+  <button class="ui-pagination__item" type="button" disabled aria-label="Previous page">‹</button>
+  <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 1, current">1</button>
+  <button class="ui-pagination__item" type="button" aria-label="Page 2">2</button>
+  <span class="ui-pagination__ellipsis" aria-hidden="true">…</span>
+  <button class="ui-pagination__item" type="button" aria-label="Page 10">10</button>
+  <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+</nav>
+```
+
+---
+
+### 24. Table (`.ui-table`)
+
+Data table with header, rows, and optional visual modifiers.
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-table-wrap` | Scroll wrapper with border and `border-radius` |
+| `.ui-table` | Base `<table>` |
+| `.ui-table--hoverable` | Highlights row on hover |
+| `.ui-table--striped` | Alternating row background |
+| `.ui-table--bordered` | Borders on all cells |
+| `.ui-table__th` | Header cell — uppercase, small font |
+| `.ui-table__td` | Body cell |
+| `.ui-table__row` | Body row |
+| `.ui-table__th--right` / `.ui-table__td--right` | Right-align |
+| `.ui-table__th--center` / `.ui-table__td--center` | Center-align |
+| `.ui-table__td--muted` | Secondary text color |
+| `.ui-table__td--mono` | Monospace font (IDs, numbers) |
+
+#### HTML Example
+
+```html
+<div class="ui-table-wrap">
+  <table class="ui-table ui-table--hoverable">
+    <thead>
+      <tr>
+        <th class="ui-table__th">Name</th>
+        <th class="ui-table__th">Status</th>
+        <th class="ui-table__th ui-table__th--right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ui-table__row">
+        <td class="ui-table__td">Alice Brown</td>
+        <td class="ui-table__td"><span class="ui-badge ui-badge--md ui-badge--success">Active</span></td>
+        <td class="ui-table__td ui-table__td--right ui-table__td--mono">$1 200</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+---
+
+### 25. Steps (`.ui-steps`)
+
+Step indicator for multi-step flows (wizards, onboarding).
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-steps` | Container (horizontal by default) |
+| `.ui-steps--vertical` | Vertical layout |
+| `.ui-steps__item` | Single step |
+| `.ui-steps__item--active` | Current step (ring + primary colors) |
+| `.ui-steps__item--done` | Completed step (success colors) |
+| `.ui-steps__item--error` | Failed step (error colors) |
+| `.ui-steps__indicator` | Circle showing number or icon |
+| `.ui-steps__label` | Step label below/beside indicator |
+
+#### HTML Example
+
+```html
+<div class="ui-steps">
+  <div class="ui-steps__item ui-steps__item--done">
+    <div class="ui-steps__indicator"><!-- checkmark SVG --></div>
+    <div class="ui-steps__label">Account</div>
+  </div>
+  <div class="ui-steps__item ui-steps__item--active">
+    <div class="ui-steps__indicator">2</div>
+    <div class="ui-steps__label">Details</div>
+  </div>
+  <div class="ui-steps__item">
+    <div class="ui-steps__indicator">3</div>
+    <div class="ui-steps__label">Confirm</div>
+  </div>
+</div>
+
+<!-- Vertical -->
+<div class="ui-steps ui-steps--vertical">
+  <!-- same items -->
+</div>
+```
+
+---
+
+### 26. Modal (`.ui-modal`)
+
+Overlay dialog with header, body, and footer for focused interactions.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-modal-overlay` | Full-screen backdrop |
+| `.ui-modal` | Dialog container |
+| `.ui-modal--sm` | Small width (~400px) |
+| `.ui-modal--md` | Medium width (~560px, default) |
+| `.ui-modal--lg` | Large width (~720px) |
+| `.ui-modal--xl` | Extra-large width (~900px) |
+| `.ui-modal--full` | Full-screen modal |
+| `.ui-modal__header` | Top section with title and close |
+| `.ui-modal__title` | Primary heading |
+| `.ui-modal__subtitle` | Secondary heading below title |
+| `.ui-modal__close` | Dismiss button in header |
+| `.ui-modal__body` | Scrollable content area |
+| `.ui-modal__footer` | Bottom action row |
+| `.ui-modal__footer--between` | Space-between footer layout |
+| `.ui-modal__footer--start` | Left-aligned footer layout |
+
+### Example
+
+```html
+<div class="ui-modal-overlay">
+  <div class="ui-modal ui-modal--sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="ui-modal__header">
+      <div>
+        <div class="ui-modal__title" id="modal-title">Confirm Action</div>
+        <div class="ui-modal__subtitle">This cannot be undone.</div>
+      </div>
+      <button class="ui-modal__close" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="ui-modal__body">
+      <p>Are you sure you want to delete this item?</p>
+    </div>
+    <div class="ui-modal__footer ui-modal__footer--between">
+      <button class="ui-button ui-button--ghost ui-button--md">Cancel</button>
+      <button class="ui-button ui-button--primary ui-button--md">Delete</button>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+### 27. Dropdown (`.ui-dropdown`)
+
+Floating contextual menu anchored to a trigger element.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-dropdown` | Positioning wrapper |
+| `.ui-dropdown__menu` | Floating menu panel |
+| `.ui-dropdown__menu--right` | Right-aligned menu |
+| `.ui-dropdown__menu--up` | Opens upward |
+| `.ui-dropdown__item` | Menu item row |
+| `.ui-dropdown__item--active` | Highlighted/focused item |
+| `.ui-dropdown__item--danger` | Destructive item (red) |
+| `.ui-dropdown__item--disabled` | Non-interactive item |
+| `.ui-dropdown__item-icon` | Leading icon inside item |
+| `.ui-dropdown__item-trail` | Trailing content (badge, shortcut) |
+| `.ui-dropdown__separator` | Horizontal rule between groups |
+| `.ui-dropdown__label` | Section label (non-interactive) |
+
+### Example
+
+```html
+<div class="ui-dropdown">
+  <button class="ui-button ui-button--secondary ui-button--md">Options</button>
+  <div class="ui-dropdown__menu">
+    <button class="ui-dropdown__item" type="button">
+      <span class="ui-dropdown__item-icon">✏️</span>
+      Edit
+    </button>
+    <button class="ui-dropdown__item" type="button">
+      <span class="ui-dropdown__item-icon">📋</span>
+      Duplicate
+      <span class="ui-dropdown__item-trail">⌘D</span>
+    </button>
+    <div class="ui-dropdown__separator"></div>
+    <button class="ui-dropdown__item ui-dropdown__item--danger" type="button">
+      <span class="ui-dropdown__item-icon">🗑</span>
+      Delete
+    </button>
+  </div>
+</div>
+```
+
+---
+
+### 28. Chip (`.ui-chip`)
+
+Toggleable filter pill for selection and filtering interfaces.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-chip` | Base chip |
+| `.ui-chip--sm` | Small size |
+| `.ui-chip--md` | Medium size (default) |
+| `.ui-chip--lg` | Large size |
+| `.ui-chip--active` | Selected/active state |
+| `.ui-chip--disabled` | Non-interactive state |
+| `.ui-chip__icon` | Leading icon |
+| `.ui-chip__dismiss` | Dismiss button inside chip |
+
+### Example
+
+```html
+<button class="ui-chip ui-chip--md" type="button">Design</button>
+<button class="ui-chip ui-chip--md ui-chip--active" type="button">Development</button>
+<button class="ui-chip ui-chip--md" type="button">
+  Marketing
+  <span class="ui-chip__dismiss" aria-label="Remove Marketing">×</span>
+</button>
+```
+
+---
+
+### 29. Divider (`.ui-divider`)
+
+Separator line for visually grouping content sections.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-divider` | Base divider (horizontal by default) |
+| `.ui-divider--horizontal` | Explicit horizontal rule |
+| `.ui-divider--vertical` | Inline vertical separator |
+| `.ui-divider--thick` | Thicker line weight |
+| `.ui-divider--subtle` | Lighter color |
+| `.ui-divider--strong` | Darker color |
+| `.ui-divider--label` | Divider with centered text label |
+| `.ui-divider__text` | Text inside a label divider |
+
+### Example
+
+```html
+<!-- Horizontal -->
+<hr class="ui-divider ui-divider--horizontal">
+
+<!-- Vertical (inline) -->
+<div style="display:flex;align-items:center;gap:8px;">
+  <span>Home</span>
+  <span class="ui-divider ui-divider--vertical"></span>
+  <span>About</span>
+</div>
+
+<!-- With label -->
+<div class="ui-divider ui-divider--label">
+  <span class="ui-divider__text">OR</span>
+</div>
+```
+
+---
+
+### 30. Empty State (`.ui-empty-state`)
+
+Zero-content placeholder shown when a list or view has no data.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-empty-state` | Base container (centered column) |
+| `.ui-empty-state--sm` | Compact sizing |
+| `.ui-empty-state--lg` | Spacious sizing |
+| `.ui-empty-state__icon` | Large illustrative icon or image |
+| `.ui-empty-state__title` | Primary heading |
+| `.ui-empty-state__description` | Supporting body text |
+| `.ui-empty-state__actions` | Row of action buttons |
+
+### Example
+
+```html
+<div class="ui-empty-state">
+  <div class="ui-empty-state__icon">📭</div>
+  <div class="ui-empty-state__title">No results found</div>
+  <div class="ui-empty-state__description">Try adjusting your search or filters.</div>
+  <div class="ui-empty-state__actions">
+    <button class="ui-button ui-button--primary ui-button--md">Clear filters</button>
+  </div>
+</div>
+```
+
+---
+
+### 31. Banner (`.ui-banner`)
+
+Full-width notification strip displayed at the top of a page or section.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-banner` | Base container |
+| `.ui-banner--info` | Informational (primary color) |
+| `.ui-banner--success` | Success (green) |
+| `.ui-banner--warning` | Warning (amber) |
+| `.ui-banner--error` | Error (red) |
+| `.ui-banner--neutral` | Neutral gray |
+| `.ui-banner__icon` | Leading icon |
+| `.ui-banner__content` | Text wrapper |
+| `.ui-banner__title` | Bold heading (optional) |
+| `.ui-banner__text` | Body message |
+| `.ui-banner__actions` | Action button row |
+| `.ui-banner__action` | Individual action link or button |
+| `.ui-banner__close` | Dismiss button |
+
+### Example
+
+```html
+<div class="ui-banner ui-banner--warning" role="alert">
+  <span class="ui-banner__icon">⚠️</span>
+  <div class="ui-banner__content">
+    <span class="ui-banner__title">Scheduled maintenance</span>
+    <span class="ui-banner__text">The service will be unavailable on Sunday at 2 AM UTC.</span>
+  </div>
+  <div class="ui-banner__actions">
+    <a class="ui-banner__action" href="#">Learn more</a>
+  </div>
+  <button class="ui-banner__close" type="button" aria-label="Dismiss">×</button>
+</div>
+```
+
+---
+
+### 32. Callout (`.ui-callout`)
+
+Block-level aside for notes, tips, warnings, or highlighted information.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-callout` | Base container |
+| `.ui-callout--info` | Informational (primary color) |
+| `.ui-callout--success` | Success (green) |
+| `.ui-callout--warning` | Warning (amber) |
+| `.ui-callout--error` | Error (red) |
+| `.ui-callout--neutral` | Neutral gray |
+| `.ui-callout--accent` | Accent/brand color |
+| `.ui-callout__icon` | Leading icon |
+| `.ui-callout__body` | Content wrapper |
+| `.ui-callout__title` | Bold heading |
+| `.ui-callout__text` | Body text |
+
+### Example
+
+```html
+<div class="ui-callout ui-callout--info">
+  <span class="ui-callout__icon">ℹ️</span>
+  <div class="ui-callout__body">
+    <div class="ui-callout__title">Note</div>
+    <div class="ui-callout__text">Changes take effect after the next deployment cycle.</div>
+  </div>
+</div>
+```
+
+---
+
+### 33. Skeleton (`.ui-skeleton`)
+
+Animated loading placeholder shown while content is being fetched.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-skeleton` | Base pulsing block |
+| `.ui-skeleton--pulse` | Pulse animation (default) |
+| `.ui-skeleton--static` | No animation |
+| `.ui-skeleton--circle` | Circular shape |
+| `.ui-skeleton--rounded` | Rounded rectangle |
+| `.ui-skeleton--text` | Single text line height |
+| `.ui-skeleton--text-sm` | Small text line |
+| `.ui-skeleton--heading` | Heading line height |
+| `.ui-skeleton--avatar-sm` | Small avatar circle |
+| `.ui-skeleton--avatar-md` | Medium avatar circle |
+| `.ui-skeleton--avatar-lg` | Large avatar circle |
+| `.ui-skeleton--btn` | Button-shaped block |
+| `.ui-skeleton--card` | Card-shaped block |
+| `.ui-skeleton--thumbnail` | Image thumbnail shape |
+
+### Example
+
+```html
+<div style="display:flex;gap:12px;align-items:center;">
+  <div class="ui-skeleton ui-skeleton--avatar-md ui-skeleton--circle"></div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+    <div class="ui-skeleton ui-skeleton--text ui-skeleton--heading"></div>
+    <div class="ui-skeleton ui-skeleton--text"></div>
+    <div class="ui-skeleton ui-skeleton--text-sm" style="width:60%;"></div>
+  </div>
+</div>
+```
+
+---
+
+### 34. Stat Card (`.ui-stat-card`)
+
+KPI metric card displaying a key value with optional delta and context.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-stat-card` | Base card container |
+| `.ui-stat-card--primary` | Primary accent |
+| `.ui-stat-card--success` | Green accent |
+| `.ui-stat-card--warning` | Amber accent |
+| `.ui-stat-card--error` | Red accent |
+| `.ui-stat-card__header` | Top row with label and icon |
+| `.ui-stat-card__label` | Metric label |
+| `.ui-stat-card__icon` | Metric icon |
+| `.ui-stat-card__value` | Primary numeric value |
+| `.ui-stat-card__delta` | Change indicator |
+| `.ui-stat-card__delta--up` | Positive change (green arrow) |
+| `.ui-stat-card__delta--down` | Negative change (red arrow) |
+| `.ui-stat-card__delta--neutral` | No change (gray) |
+| `.ui-stat-card__footer` | Bottom row |
+| `.ui-stat-card__description` | Supporting context text |
+
+### Example
+
+```html
+<div class="ui-stat-card ui-stat-card--primary">
+  <div class="ui-stat-card__header">
+    <span class="ui-stat-card__label">Monthly Revenue</span>
+    <span class="ui-stat-card__icon">💰</span>
+  </div>
+  <div class="ui-stat-card__value">$48,295</div>
+  <div class="ui-stat-card__footer">
+    <span class="ui-stat-card__delta ui-stat-card__delta--up">+12.5%</span>
+    <span class="ui-stat-card__description">vs last month</span>
+  </div>
+</div>
+```
+
+---
+
+### 35. Section Header (`.ui-section-header`)
+
+Title row with optional subtitle and inline action buttons.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-section-header` | Base container |
+| `.ui-section-header--sm` | Compact sizing |
+| `.ui-section-header--xl` | Large sizing |
+| `.ui-section-header--divided` | Bottom border separator |
+| `.ui-section-header--center` | Centered alignment |
+| `.ui-section-header__text` | Text column wrapper |
+| `.ui-section-header__title` | Primary heading |
+| `.ui-section-header__subtitle` | Secondary description |
+| `.ui-section-header__actions` | Right-aligned action slot |
+
+### Example
+
+```html
+<div class="ui-section-header ui-section-header--divided">
+  <div class="ui-section-header__text">
+    <div class="ui-section-header__title">Team Members</div>
+    <div class="ui-section-header__subtitle">Manage access and roles</div>
+  </div>
+  <div class="ui-section-header__actions">
+    <button class="ui-button ui-button--primary ui-button--sm">Invite member</button>
+  </div>
+</div>
+```
+
+---
+
+### 36. Feed / Timeline (`.ui-feed`)
+
+Chronological activity stream with icon indicators and content rows.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-feed` | Base container |
+| `.ui-feed--compact` | Reduced spacing between items |
+| `.ui-feed--no-line` | Removes the connecting vertical line |
+| `.ui-feed__item` | Single activity row |
+| `.ui-feed__icon` | Circle icon beside the item |
+| `.ui-feed__icon--primary` | Primary color icon |
+| `.ui-feed__icon--success` | Success color icon |
+| `.ui-feed__icon--warning` | Warning color icon |
+| `.ui-feed__icon--error` | Error color icon |
+| `.ui-feed__content` | Text block wrapper |
+| `.ui-feed__header` | Row with title and timestamp |
+| `.ui-feed__title` | Activity title |
+| `.ui-feed__time` | Timestamp |
+| `.ui-feed__text` | Body text |
+
+### Example
+
+```html
+<div class="ui-feed">
+  <div class="ui-feed__item">
+    <div class="ui-feed__icon ui-feed__icon--success">✓</div>
+    <div class="ui-feed__content">
+      <div class="ui-feed__header">
+        <span class="ui-feed__title">Deployment succeeded</span>
+        <span class="ui-feed__time">2 min ago</span>
+      </div>
+      <div class="ui-feed__text">Version 2.4.1 is now live.</div>
+    </div>
+  </div>
+  <div class="ui-feed__item">
+    <div class="ui-feed__icon ui-feed__icon--primary">👤</div>
+    <div class="ui-feed__content">
+      <div class="ui-feed__header">
+        <span class="ui-feed__title">Alice joined the team</span>
+        <span class="ui-feed__time">1 hr ago</span>
+      </div>
+    </div>
+  </div>
+  <div class="ui-feed__item">
+    <div class="ui-feed__icon ui-feed__icon--warning">!</div>
+    <div class="ui-feed__content">
+      <div class="ui-feed__header">
+        <span class="ui-feed__title">High memory usage detected</span>
+        <span class="ui-feed__time">3 hr ago</span>
+      </div>
+      <div class="ui-feed__text">Instance i-0a1b2c exceeded 85% threshold.</div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+### 37. Rating (`.ui-rating`)
+
+Star rating widget for displaying or collecting user ratings.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-rating` | Base container |
+| `.ui-rating--sm` | Small stars |
+| `.ui-rating--md` | Medium stars (default) |
+| `.ui-rating--lg` | Large stars |
+| `.ui-rating--readonly` | Display-only, non-interactive |
+| `.ui-rating__star` | Individual star element |
+| `.ui-rating__star--filled` | Filled/selected star |
+| `.ui-rating__count` | Numeric review count label |
+
+### Example
+
+```html
+<div class="ui-rating ui-rating--md ui-rating--readonly" aria-label="4 out of 5 stars">
+  <span class="ui-rating__star ui-rating__star--filled">★</span>
+  <span class="ui-rating__star ui-rating__star--filled">★</span>
+  <span class="ui-rating__star ui-rating__star--filled">★</span>
+  <span class="ui-rating__star ui-rating__star--filled">★</span>
+  <span class="ui-rating__star">★</span>
+  <span class="ui-rating__count">(128 reviews)</span>
+</div>
+```
+
+---
+
+### 38. Search (`.ui-search`)
+
+Search input with icon and optional keyboard shortcut hint.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-search` | Base container |
+| `.ui-search--sm` | Small size |
+| `.ui-search--lg` | Large size |
+| `.ui-search__icon` | Leading search icon |
+| `.ui-search__input` | Text input element |
+| `.ui-search__kbd` | Keyboard shortcut badge (e.g. ⌘K) |
+
+### Example
+
+```html
+<div class="ui-search">
+  <span class="ui-search__icon">🔍</span>
+  <input class="ui-search__input" type="search" placeholder="Search…" aria-label="Search">
+  <kbd class="ui-search__kbd">⌘K</kbd>
+</div>
+```
+
+---
+
+### 39. Status (`.ui-status`)
+
+System health or presence indicator with dot and label.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-status` | Base container |
+| `.ui-status--online` | Green dot |
+| `.ui-status--offline` | Gray dot |
+| `.ui-status--warning` | Amber dot |
+| `.ui-status--error` | Red dot |
+| `.ui-status--pending` | Pulsing/animated dot |
+| `.ui-status--sm` | Small size |
+| `.ui-status--md` | Medium size (default) |
+| `.ui-status--lg` | Large size |
+| `.ui-status__dot` | Colored indicator dot |
+| `.ui-status__label` | Status text label |
+
+### Example
+
+```html
+<div class="ui-status ui-status--online">
+  <span class="ui-status__dot"></span>
+  <span class="ui-status__label">Online</span>
+</div>
+
+<div class="ui-status ui-status--error">
+  <span class="ui-status__dot"></span>
+  <span class="ui-status__label">Service unavailable</span>
+</div>
+```
+
+---
+
+### 40. Notification (`.ui-notification`)
+
+Notification row for inbox or feed panels, with read/unread states.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-notification` | Base container |
+| `.ui-notification--unread` | Unread highlight state |
+| `.ui-notification__icon` | Leading icon or avatar |
+| `.ui-notification__icon--primary` | Primary color icon |
+| `.ui-notification__icon--success` | Success color icon |
+| `.ui-notification__icon--warning` | Warning color icon |
+| `.ui-notification__icon--error` | Error color icon |
+| `.ui-notification__body` | Content wrapper |
+| `.ui-notification__header` | Row with title and timestamp |
+| `.ui-notification__title` | Notification title |
+| `.ui-notification__time` | Timestamp |
+| `.ui-notification__text` | Body message |
+| `.ui-notification__actions` | Inline action links |
+| `.ui-notification__unread-dot` | Dot marking unread status |
+
+### Example
+
+```html
+<!-- Unread -->
+<div class="ui-notification ui-notification--unread">
+  <div class="ui-notification__icon ui-notification__icon--primary">🔔</div>
+  <div class="ui-notification__body">
+    <div class="ui-notification__header">
+      <span class="ui-notification__title">New comment on your post</span>
+      <span class="ui-notification__time">5 min ago</span>
+    </div>
+    <div class="ui-notification__text">Alice replied: "Great point, thanks!"</div>
+    <div class="ui-notification__actions">
+      <a href="#">View</a> · <a href="#">Dismiss</a>
+    </div>
+  </div>
+  <span class="ui-notification__unread-dot"></span>
+</div>
+
+<!-- Read -->
+<div class="ui-notification">
+  <div class="ui-notification__icon ui-notification__icon--success">✓</div>
+  <div class="ui-notification__body">
+    <div class="ui-notification__header">
+      <span class="ui-notification__title">Deployment complete</span>
+      <span class="ui-notification__time">1 hr ago</span>
+    </div>
+    <div class="ui-notification__text">v2.4.1 was deployed successfully.</div>
+  </div>
+</div>
+```
+
+---
+
+### 41. Sidebar (`.ui-sidebar`)
+
+Vertical navigation layout with sections, items, and collapsible support.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-sidebar` | Base container |
+| `.ui-sidebar--collapsed` | Collapsed (icon-only) state |
+| `.ui-sidebar__header` | Top branding area |
+| `.ui-sidebar__logo` | Logo image or icon |
+| `.ui-sidebar__brand` | Brand/product name |
+| `.ui-sidebar__tagline` | Short descriptor under brand |
+| `.ui-sidebar__nav` | Navigation section |
+| `.ui-sidebar__section-label` | Non-interactive group label |
+| `.ui-sidebar__item` | Nav item row |
+| `.ui-sidebar__item--active` | Currently active nav item |
+| `.ui-sidebar__item-icon` | Item leading icon |
+| `.ui-sidebar__item-text` | Item label |
+| `.ui-sidebar__item-badge` | Trailing badge (count, status) |
+| `.ui-sidebar__footer` | Bottom utility area |
+
+### Example
+
+```html
+<nav class="ui-sidebar">
+  <div class="ui-sidebar__header">
+    <span class="ui-sidebar__logo">⚡</span>
+    <span class="ui-sidebar__brand">AppName</span>
+  </div>
+  <div class="ui-sidebar__nav">
+    <span class="ui-sidebar__section-label">Main</span>
+    <a class="ui-sidebar__item ui-sidebar__item--active" href="#">
+      <span class="ui-sidebar__item-icon">🏠</span>
+      <span class="ui-sidebar__item-text">Dashboard</span>
+    </a>
+    <a class="ui-sidebar__item" href="#">
+      <span class="ui-sidebar__item-icon">📊</span>
+      <span class="ui-sidebar__item-text">Analytics</span>
+      <span class="ui-sidebar__item-badge">3</span>
+    </a>
+    <a class="ui-sidebar__item" href="#">
+      <span class="ui-sidebar__item-icon">⚙️</span>
+      <span class="ui-sidebar__item-text">Settings</span>
+    </a>
+  </div>
+</nav>
+```
+
+---
+
+### 42. Navbar (`.ui-navbar`)
+
+Horizontal top navigation bar with brand, links, and action slots.
+
+### Classes
+
+| Class | Description |
+|-------|-------------|
+| `.ui-navbar` | Base container |
+| `.ui-navbar--compact` | Reduced height variant |
+| `.ui-navbar__brand` | Brand/logo area |
+| `.ui-navbar__logo` | Logo image or icon |
+| `.ui-navbar__nav` | Link group |
+| `.ui-navbar__item` | Nav item wrapper |
+| `.ui-navbar__link` | Anchor element inside item |
+| `.ui-navbar__link--active` | Active/current page link |
+| `.ui-navbar__separator` | Vertical divider between sections |
+| `.ui-navbar__actions` | Right-side action slot |
+
+### Example
+
+```html
+<header class="ui-navbar">
+  <div class="ui-navbar__brand">
+    <span class="ui-navbar__logo">⚡</span>
+    AppName
+  </div>
+  <nav class="ui-navbar__nav">
+    <div class="ui-navbar__item">
+      <a class="ui-navbar__link ui-navbar__link--active" href="#">Home</a>
+    </div>
+    <div class="ui-navbar__item">
+      <a class="ui-navbar__link" href="#">Docs</a>
+    </div>
+  </nav>
+  <div class="ui-navbar__actions">
+    <button class="ui-button ui-button--ghost ui-button--sm" aria-label="Open menu">☰</button>
+  </div>
+</header>
+```
+
+---
+
 ### 16. Field Wrapper (`.ui-field`)
 
 Container for form fields with consistent spacing.
@@ -1023,6 +2065,13 @@ Container for form fields with consistent spacing.
 | **List item font** | 13px (sm) | 14px (md) | 16px (lg) |
 | **List item icon** | 14×14px | 16×16px | 18×18px |
 | **List max-height** | 180px | 220px | 260px |
+| **Tabs item padding** | 5px 10px | 7px 14px | 9px 18px |
+| **Tag padding** | 2px 7px | 4px 10px | 6px 14px |
+| **Tag font** | 11px (xs) | 13px (sm) | 14px (md) |
+| **Spinner diameter** | 14px | 20px | 28px |
+| **Avatar diameter** | 24px | 36px | 48px | 64px (xl) |
+| **Pagination item** | 28×28px | 36×36px | 44×44px |
+| **Steps indicator** | — | 28×28px (fixed) | — |
 
 ---
 

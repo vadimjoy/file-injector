@@ -101,4 +101,10 @@
   font-size: var(--ui-font-size-lg);
 }
 
+/*
+  Toggle-item (settings row) MOVED to form-row.css in Phase 4.2 Kit Consolidation.
+  Deprecated aliases are in form-row.css for backward compatibility.
+  New code should use .ui-form-row / .ui-form-row__info / .ui-form-row__label etc.
+*/
+
 } /* end @layer ai-kit.components */

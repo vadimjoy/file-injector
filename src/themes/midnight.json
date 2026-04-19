@@ -1,12 +1,10 @@
 {
   "meta": {
     "name": "Midnight",
-    "version": "1.0.0",
-    "description": "Deep dark theme with violet/purple accent and monospace font"
+    "version": "1.1.0",
+    "description": "Deep dark theme with violet/purple accent. Phase 4.2: removed monospace font override — theme controls colour only per ADR-0006."
   },
   "tokens": {
-    "font.family":              "ui-monospace, 'Courier New', 'Liberation Mono', Consolas, monospace",
-
     "color.primary":            "#8b5cf6",
     "color.primary.hover":      "#7c3aed",
     "color.primary.soft":       "rgba(139, 92, 246, 0.18)",

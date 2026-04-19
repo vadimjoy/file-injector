@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Avatar
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  Initials avatar:
+  <div class="ui-avatar ui-avatar--md" aria-label="John Doe">JD</div>
+
+  Image avatar:
+  <img class="ui-avatar ui-avatar--md" src="photo.jpg" alt="John Doe">
+
+  Square shape:
+  <div class="ui-avatar ui-avatar--md ui-avatar--square" aria-label="Workspace">W</div>
+
+  With online status indicator:
+  <div class="ui-avatar-wrap ui-avatar-wrap--online">
+    <div class="ui-avatar ui-avatar--md">JD</div>
+  </div>
+
+  Avatar group (stacked):
+  <div class="ui-avatar-group">
+    <div class="ui-avatar ui-avatar--md">JD</div>
+    <div class="ui-avatar ui-avatar--md">AB</div>
+    <div class="ui-avatar ui-avatar--md">+3</div>
+  </div>
+
+  Sizes: ui-avatar--sm | ui-avatar--md (default) | ui-avatar--lg | ui-avatar--xl
+  Shapes: (none = circle) | ui-avatar--square
+  Status: ui-avatar-wrap--online | ui-avatar-wrap--offline | ui-avatar-wrap--busy
+*/
+
+@layer ai-kit.components {
+
+/* ---- Base ---- */
+.ui-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--ui-font-family);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border-radius: var(--ai-avatar-radius);
+  background: var(--ai-avatar-bg);
+  color: var(--ai-avatar-color);
+  object-fit: cover;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ---- Sizes ---- */
+.ui-avatar--sm {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+}
+
+.ui-avatar--md {
+  width: 36px;
+  height: 36px;
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: var(--ui-font-size-lg);
+}
+
+.ui-avatar--xl {
+  width: 64px;
+  height: 64px;
+  font-size: var(--ui-font-size-xl);
+}
+
+/* ---- Square shape ---- */
+.ui-avatar--square {
+  border-radius: var(--ui-radius-md);
+}
+
+/* ---- Wrapper (for status indicator) ---- */
+.ui-avatar-wrap {
+  display: inline-flex;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ui-avatar-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--ai-avatar-border);
+}
+
+.ui-avatar-wrap--online::after  { background: var(--ai-avatar-online-color); }
+.ui-avatar-wrap--offline::after { background: var(--ai-avatar-offline-color); }
+.ui-avatar-wrap--busy::after    { background: var(--ai-avatar-busy-color); }
+
+/* ---- Group (stacked avatars) ---- */
+.ui-avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ui-avatar-group .ui-avatar {
+  border: 2px solid var(--ai-avatar-border);
+  margin-left: -8px;
+}
+
+.ui-avatar-group .ui-avatar:first-child {
+  margin-left: 0;
+}
+
+} /* end @layer ai-kit.components */

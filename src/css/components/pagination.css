@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  <nav class="ui-pagination" aria-label="Pagination">
+    <button class="ui-pagination__item" type="button" aria-label="Previous page">‹</button>
+    <button class="ui-pagination__item" type="button" aria-label="Page 1">1</button>
+    <button class="ui-pagination__item ui-pagination__item--active" type="button"
+            aria-current="page" aria-label="Page 2, current">2</button>
+    <button class="ui-pagination__item" type="button" aria-label="Page 3">3</button>
+    <span class="ui-pagination__ellipsis" aria-hidden="true">…</span>
+    <button class="ui-pagination__item" type="button" aria-label="Page 10">10</button>
+    <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+  </nav>
+
+  Disabled state:
+  <button class="ui-pagination__item" type="button" disabled aria-label="Previous page">‹</button>
+
+  Size modifier on the nav element:
+  <nav class="ui-pagination ui-pagination--sm" ...>
+*/
+
+@layer ai-kit.components {
+
+/* ---- Container ---- */
+.ui-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  font-family: var(--ui-font-family);
+}
+
+/* ---- Item ---- */
+.ui-pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--ui-space-2);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  color: var(--ai-pagination-item-color);
+  background: var(--ai-pagination-item-bg);
+  border: 1px solid var(--ai-pagination-item-border);
+  border-radius: var(--ai-pagination-radius);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ui-pagination__item:hover:not(:disabled):not(.ui-pagination__item--active) {
+  background: var(--ai-pagination-item-hover-bg);
+}
+
+.ui-pagination__item--active {
+  background: var(--ai-pagination-item-active-bg);
+  color: var(--ai-pagination-item-active-color);
+  border-color: var(--ai-pagination-item-active-bg);
+  cursor: default;
+}
+
+.ui-pagination__item:focus-visible {
+  box-shadow: 0 0 0 3px var(--ai-pagination-focus-ring);
+}
+
+.ui-pagination__item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Ellipsis ---- */
+.ui-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ---- Size: sm ---- */
+.ui-pagination--sm .ui-pagination__item,
+.ui-pagination--sm .ui-pagination__ellipsis {
+  min-width: 28px;
+  height: 28px;
+  font-size: var(--ui-font-size-xs);
+}
+
+/* ---- Size: lg ---- */
+.ui-pagination--lg .ui-pagination__item,
+.ui-pagination--lg .ui-pagination__ellipsis {
+  min-width: 44px;
+  height: 44px;
+  font-size: var(--ui-font-size-md);
+}
+
+} /* end @layer ai-kit.components */

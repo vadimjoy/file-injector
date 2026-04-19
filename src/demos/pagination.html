@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Pagination</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Small</h3>
+      <nav class="ui-pagination ui-pagination--sm" aria-label="Pagination">
+        <button class="ui-pagination__item" type="button" aria-label="Previous page">‹</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 1">1</button>
+        <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 2, current">2</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 3">3</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 4">4</button>
+        <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Medium (default)</h3>
+      <nav class="ui-pagination" aria-label="Pagination">
+        <button class="ui-pagination__item" type="button" aria-label="Previous page">‹</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 1">1</button>
+        <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 2, current">2</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 3">3</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 4">4</button>
+        <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Large</h3>
+      <nav class="ui-pagination ui-pagination--lg" aria-label="Pagination">
+        <button class="ui-pagination__item" type="button" aria-label="Previous page">‹</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 1">1</button>
+        <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 2, current">2</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 3">3</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 4">4</button>
+        <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With ellipsis</h3>
+      <nav class="ui-pagination" aria-label="Pagination">
+        <button class="ui-pagination__item" type="button" disabled aria-label="Previous page">‹</button>
+        <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 1, current">1</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 2">2</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 3">3</button>
+        <span class="ui-pagination__ellipsis" aria-hidden="true">…</span>
+        <button class="ui-pagination__item" type="button" aria-label="Page 8">8</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 9">9</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 10">10</button>
+        <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+      </nav>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Middle page with both ellipses</h3>
+      <nav class="ui-pagination" aria-label="Pagination">
+        <button class="ui-pagination__item" type="button" aria-label="Previous page">‹</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 1">1</button>
+        <span class="ui-pagination__ellipsis" aria-hidden="true">…</span>
+        <button class="ui-pagination__item" type="button" aria-label="Page 4">4</button>
+        <button class="ui-pagination__item ui-pagination__item--active" type="button" aria-current="page" aria-label="Page 5, current">5</button>
+        <button class="ui-pagination__item" type="button" aria-label="Page 6">6</button>
+        <span class="ui-pagination__ellipsis" aria-hidden="true">…</span>
+        <button class="ui-pagination__item" type="button" aria-label="Page 10">10</button>
+        <button class="ui-pagination__item" type="button" aria-label="Next page">›</button>
+      </nav>
+    </div>
+
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

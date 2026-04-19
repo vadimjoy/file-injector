@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Color — palette display utilities (Foundation layer)
+   Moved from components/color-swatch.css in Phase 4.2 Kit Consolidation.
+   These are design-token visualisations, not UI components.
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+/* ---- Swatch group (horizontal row) ---- */
+.ui-swatch-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+/* ---- Individual swatch ---- */
+.ui-swatch {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ui-radius-full);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+  flex-shrink: 0;
+  box-shadow: var(--ui-shadow-xs);
+}
+
+.ui-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.ui-swatch--selected,
+.ui-swatch[aria-pressed="true"] {
+  border-color: var(--ui-color-text);
+  box-shadow: 0 0 0 2px var(--ui-color-bg), 0 0 0 4px var(--ui-color-text);
+}
+
+/* Sizes */
+.ui-swatch--sm { width: 20px; height: 20px; }
+.ui-swatch--lg { width: 44px; height: 44px; }
+.ui-swatch--xl { width: 56px; height: 56px; }
+
+/* Rounded square */
+.ui-swatch--square { border-radius: var(--ui-radius-sm); }
+
+/* ---- Large named swatch (for documentation) ---- */
+.ui-color-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  text-align: center;
+  font-family: var(--ui-font-family);
+}
+
+.ui-color-tile__preview {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--ui-radius-md);
+  box-shadow: var(--ui-shadow-xs);
+}
+
+.ui-color-tile__name {
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  color: var(--ui-color-text-secondary);
+  line-height: 1.3;
+}
+
+.ui-color-tile__value {
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--ui-color-text-muted);
+}
+
+/* ---- Palette grid ---- */
+.ui-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-space-3);
+  font-family: var(--ui-font-family);
+}
+
+/* ---- Color scale row (e.g. primary-50 through primary-900) ---- */
+.ui-color-scale {
+  display: flex;
+  border-radius: var(--ui-radius-md);
+  overflow: hidden;
+  height: 40px;
+}
+
+.ui-color-scale__step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--ui-font-family);
+  min-width: 0;
+  transition: var(--ui-transition-fast);
+}
+
+} /* end @layer ai-kit.components */

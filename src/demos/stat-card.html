@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stat Card - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Stat Card</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="u-grid u-grid--2col u-gap-4">
+
+        <div class="ui-stat-card ui-stat-card--primary">
+          <div class="ui-stat-card__header">
+            <p class="ui-stat-card__label">Total Revenue</p>
+            <div class="ui-stat-card__icon">
+              <i class="fa fa-dollar" aria-hidden="true"></i>
+            </div>
+          </div>
+          <p class="ui-stat-card__value">$48,294</p>
+          <div class="ui-stat-card__footer">
+            <span class="ui-stat-card__delta ui-stat-card__delta--up">
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+              +12.5% vs last month
+            </span>
+          </div>
+        </div>
+
+        <div class="ui-stat-card ui-stat-card--success">
+          <div class="ui-stat-card__header">
+            <p class="ui-stat-card__label">Active Users</p>
+            <div class="ui-stat-card__icon">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div>
+          </div>
+          <p class="ui-stat-card__value">1,284</p>
+          <div class="ui-stat-card__footer">
+            <span class="ui-stat-card__delta ui-stat-card__delta--up">
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+              +8.2%
+            </span>
+          </div>
+        </div>
+
+        <div class="ui-stat-card ui-stat-card--warning">
+          <div class="ui-stat-card__header">
+            <p class="ui-stat-card__label">Bounce Rate</p>
+            <div class="ui-stat-card__icon">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </div>
+          </div>
+          <p class="ui-stat-card__value">34.2%</p>
+          <div class="ui-stat-card__footer">
+            <span class="ui-stat-card__delta ui-stat-card__delta--down">
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+              −3.1%
+            </span>
+          </div>
+        </div>
+
+        <div class="ui-stat-card ui-stat-card--error">
+          <div class="ui-stat-card__header">
+            <p class="ui-stat-card__label">Errors</p>
+            <div class="ui-stat-card__icon">
+              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            </div>
+          </div>
+          <p class="ui-stat-card__value">12</p>
+          <div class="ui-stat-card__footer">
+            <span class="ui-stat-card__delta ui-stat-card__delta--neutral">
+              0%
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Delta variants</h3>
+      <div class="u-cluster">
+        <span class="ui-stat-card__delta ui-stat-card__delta--up">
+          <i class="fa fa-arrow-up" aria-hidden="true"></i>
+          +12.5%
+        </span>
+        <span class="ui-stat-card__delta ui-stat-card__delta--down">
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+          −3.1%
+        </span>
+        <span class="ui-stat-card__delta ui-stat-card__delta--neutral">
+          0%
+        </span>
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

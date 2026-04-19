@@ -1,24 +1,22 @@
 {
   "meta": {
     "name": "Warm",
-    "version": "1.0.0",
-    "description": "Warm amber tones with generous rounding — friendly and approachable"
+    "version": "1.1.0",
+    "description": "Warm amber tones with generous rounding — friendly and approachable. Phase 4.2: removed Verdana font override (theme controls colour/radius only), restored warning as amber distinct from error."
   },
   "tokens": {
-    "font.family":              "Verdana, Geneva, 'DejaVu Sans', sans-serif",
-
-    "color.primary":            "#d97706",
-    "color.primary.hover":      "#b45309",
-    "color.primary.soft":       "rgba(217, 119, 6, 0.12)",
-    "color.primary.light":      "#fffbeb",
+    "color.primary":            "#c2410c",
+    "color.primary.hover":      "#9a3412",
+    "color.primary.soft":       "rgba(194, 65, 12, 0.12)",
+    "color.primary.light":      "#fff7ed",
 
     "color.success":            "#16a34a",
     "color.success.soft":       "rgba(22, 163, 74, 0.12)",
     "color.success.light":      "#f0fdf4",
 
-    "color.warning":            "#dc2626",
-    "color.warning.soft":       "rgba(220, 38, 38, 0.12)",
-    "color.warning.light":      "#fef2f2",
+    "color.warning":            "#d97706",
+    "color.warning.soft":       "rgba(217, 119, 6, 0.12)",
+    "color.warning.light":      "#fffbeb",
 
     "color.error":              "#dc2626",
     "color.error.soft":         "rgba(220, 38, 38, 0.12)",
@@ -26,7 +24,7 @@
 
     "color.border":             "#e7d9c8",
     "color.border.strong":      "#d0b896",
-    "color.border.focus":       "#d97706",
+    "color.border.focus":       "#c2410c",
 
     "color.bg":                 "#fffdf7",
     "color.bg.subtle":          "#fdf6ec",

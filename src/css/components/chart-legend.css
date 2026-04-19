@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Chart Legend — data visualization legend items
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-space-2) var(--ui-space-4);
+  font-family: var(--ui-font-family);
+}
+
+/* Vertical layout */
+.ui-legend--vertical {
+  flex-direction: column;
+  gap: var(--ui-space-2);
+}
+
+/* Item */
+.ui-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-secondary);
+  min-width: 0;
+  cursor: default;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-legend__item:hover {
+  color: var(--ui-color-text);
+}
+
+/* Dot / color indicator */
+.ui-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--ui-radius-full);
+  flex-shrink: 0;
+  background: var(--ui-color-primary); /* overridden via inline style */
+}
+
+.ui-legend__dot--square {
+  border-radius: var(--ui-radius-xs);
+}
+
+.ui-legend__dot--line {
+  width: 16px;
+  height: 3px;
+  border-radius: var(--ui-radius-full);
+}
+
+/* Label */
+.ui-legend__label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Value */
+.ui-legend__value {
+  font-weight: 600;
+  color: var(--ui-color-text);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: var(--ui-space-2);
+}
+
+/* Percentage */
+.ui-legend__pct {
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-muted);
+  flex-shrink: 0;
+}
+
+/* Compact variant */
+.ui-legend--compact .ui-legend__item {
+  font-size: var(--ui-font-size-xs);
+  gap: var(--ui-space-1);
+}
+
+.ui-legend--compact .ui-legend__dot {
+  width: 8px;
+  height: 8px;
+}
+
+} /* end @layer ai-kit.components */

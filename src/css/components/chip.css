@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Chip — filter pill toggle (distinct from Tag: no border, pill shape, toggleable)
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--ai-chip-radius);
+  border: 1px solid var(--ai-chip-border);
+  background: var(--ai-chip-bg);
+  color: var(--ai-chip-color);
+  cursor: pointer;
+  transition: var(--ui-transition-fast);
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Sizes */
+.ui-chip--sm {
+  padding: 4px 10px;
+  font-size: var(--ui-font-size-xs);
+}
+
+.ui-chip--md {
+  padding: 6px 14px;
+}
+
+.ui-chip--lg {
+  padding: 8px 18px;
+  font-size: var(--ui-font-size-md);
+}
+
+/* States */
+.ui-chip:hover {
+  background: var(--ai-chip-hover-bg);
+  border-color: var(--ai-chip-hover-border);
+  color: var(--ai-chip-hover-color);
+}
+
+.ui-chip--active,
+.ui-chip[aria-pressed="true"] {
+  background: var(--ai-chip-active-bg);
+  border-color: var(--ai-chip-active-border);
+  color: var(--ai-chip-active-color);
+}
+
+.ui-chip--active:hover,
+.ui-chip[aria-pressed="true"]:hover {
+  background: var(--ai-chip-active-bg);
+  opacity: 0.88;
+}
+
+.ui-chip:focus-visible {
+  box-shadow: 0 0 0 3px var(--ui-color-primary-soft);
+}
+
+.ui-chip:disabled,
+.ui-chip--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Icon slot */
+.ui-chip__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dismiss button */
+.ui-chip__dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-chip__dismiss:hover {
+  opacity: 1;
+  background: var(--ui-color-bg-overlay);
+}
+
+/* Sub-element sizes scale with chip size */
+.ui-chip--sm .ui-chip__icon,
+.ui-chip--sm .ui-chip__dismiss {
+  width: 12px;
+  height: 12px;
+  font-size: 10px;
+}
+
+.ui-chip--lg .ui-chip__icon,
+.ui-chip--lg .ui-chip__dismiss {
+  width: 16px;
+  height: 16px;
+  font-size: 14px;
+}
+
+} /* end @layer ai-kit.components */

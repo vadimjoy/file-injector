@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Notification</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Default</h3>
+      <div class="u-bordered-flush">
+
+        <div class="ui-notification ui-notification--unread">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--circle">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+          </div>
+          <div class="ui-notification__body">
+            <div class="ui-notification__header">
+              <p class="ui-notification__title">Task completed</p>
+              <span class="ui-notification__time">Just now</span>
+            </div>
+            <p class="ui-notification__text">Design review has been marked as done</p>
+          </div>
+          <span class="ui-notification__unread-dot"></span>
+        </div>
+
+        <div class="ui-notification ui-notification--unread">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--warning ui-icon-tile--circle">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          </div>
+          <div class="ui-notification__body">
+            <div class="ui-notification__header">
+              <p class="ui-notification__title">Deadline approaching</p>
+              <span class="ui-notification__time">5 min ago</span>
+            </div>
+            <p class="ui-notification__text">Sprint planning due in 2 hours</p>
+          </div>
+          <span class="ui-notification__unread-dot"></span>
+        </div>
+
+        <div class="ui-notification">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--neutral ui-icon-tile--circle">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="ui-notification__body">
+            <div class="ui-notification__header">
+              <p class="ui-notification__title">New member</p>
+              <span class="ui-notification__time">1 hr ago</span>
+            </div>
+            <p class="ui-notification__text">Sarah joined your workspace</p>
+          </div>
+        </div>
+
+        <div class="ui-notification">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--success ui-icon-tile--circle">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+          <div class="ui-notification__body">
+            <div class="ui-notification__header">
+              <p class="ui-notification__title">Build passed</p>
+              <span class="ui-notification__time">3 hr ago</span>
+            </div>
+            <p class="ui-notification__text">v2.3.1 deployed successfully</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">With actions</h3>
+      <div class="u-bordered-flush">
+        <div class="ui-notification ui-notification--unread">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--circle">
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+          </div>
+          <div class="ui-notification__body">
+            <div class="ui-notification__header">
+              <p class="ui-notification__title">Team invite</p>
+              <span class="ui-notification__time">Just now</span>
+            </div>
+            <p class="ui-notification__text">Alex invited you to join the Design team</p>
+            <div class="ui-notification__actions">
+              <button class="ui-button ui-button--primary ui-button--sm">Accept</button>
+              <button class="ui-button ui-button--ghost ui-button--sm">Decline</button>
+            </div>
+          </div>
+          <span class="ui-notification__unread-dot"></span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script src="./shared/demo-theme.js"></script>
+</body>
+</html>

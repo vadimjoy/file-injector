@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Skeleton — loading placeholder animation
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+@keyframes ui-skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.ui-skeleton {
+  display: block;
+  border-radius: var(--ai-skeleton-radius);
+  background: var(--ai-skeleton-bg);
+  background-image: linear-gradient(
+    90deg,
+    var(--ai-skeleton-bg) 0%,
+    var(--ai-skeleton-highlight) 50%,
+    var(--ai-skeleton-bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: ui-skeleton-shimmer var(--ai-skeleton-duration) ease-in-out infinite;
+}
+
+/* Pulse variant — no gradient, simple fade */
+.ui-skeleton--pulse {
+  background-image: none;
+  animation: ui-skeleton-pulse var(--ai-skeleton-duration) ease-in-out infinite;
+}
+
+@keyframes ui-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* No animation */
+.ui-skeleton--static {
+  animation: none;
+  background-image: none;
+}
+
+/* Shape helpers */
+.ui-skeleton--circle { border-radius: var(--ui-radius-full); }
+.ui-skeleton--rounded { border-radius: var(--ui-radius-lg); }
+
+/* Common preset sizes */
+.ui-skeleton--text {
+  height: 1em;
+  border-radius: var(--ui-radius-sm);
+}
+
+.ui-skeleton--text-sm {
+  height: 0.75em;
+  border-radius: var(--ui-radius-xs);
+}
+
+.ui-skeleton--heading {
+  height: 1.5em;
+  border-radius: var(--ui-radius-sm);
+}
+
+.ui-skeleton--avatar-sm  { width: 32px; height: 32px; border-radius: var(--ui-radius-full); }
+.ui-skeleton--avatar-md  { width: 40px; height: 40px; border-radius: var(--ui-radius-full); }
+.ui-skeleton--avatar-lg  { width: 56px; height: 56px; border-radius: var(--ui-radius-full); }
+
+.ui-skeleton--btn { height: 36px; border-radius: var(--ui-radius-md); }
+.ui-skeleton--card { height: 120px; border-radius: var(--ui-radius-xl); }
+.ui-skeleton--thumbnail { height: 160px; border-radius: var(--ui-radius-lg); }
+
+} /* end @layer ai-kit.components */

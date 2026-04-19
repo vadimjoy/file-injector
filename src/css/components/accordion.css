@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Accordion — collapsible content sections
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ai-accordion-border);
+  border-radius: var(--ai-accordion-radius);
+  overflow: hidden;
+  font-family: var(--ui-font-family);
+}
+
+/* Flush variant — no outer border/radius */
+.ui-accordion--flush {
+  border: none;
+  border-radius: 0;
+}
+
+/* Item */
+.ui-accordion__item {
+  border-bottom: 1px solid var(--ai-accordion-border);
+}
+
+.ui-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* Header (trigger) */
+.ui-accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-4) var(--ui-space-5);
+  cursor: pointer;
+  background: var(--ai-accordion-header-bg);
+  color: var(--ui-color-text);
+  font-size: var(--ui-font-size-md);
+  font-weight: 500;
+  line-height: 1.4;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: var(--ui-transition-fast);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ui-accordion__header:hover {
+  background: var(--ai-accordion-header-hover-bg);
+}
+
+.ui-accordion__header:focus-visible {
+  outline: 2px solid var(--ui-color-primary);
+  outline-offset: -2px;
+}
+
+/* Chevron icon */
+.ui-accordion__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--ui-color-text-muted);
+  transition: transform var(--ui-transition-fast);
+}
+
+.ui-accordion__item--open .ui-accordion__icon {
+  transform: rotate(180deg);
+}
+
+/* Body */
+.ui-accordion__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease, padding 0.15s ease;
+  padding: 0 var(--ui-space-5);
+  background: var(--ai-accordion-body-bg);
+}
+
+.ui-accordion__item--open .ui-accordion__body {
+  max-height: 1000px; /* generous max; JS can set exact */
+  padding: 0 var(--ui-space-5) var(--ui-space-4);
+}
+
+.ui-accordion__content {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  line-height: var(--ui-line-height);
+}
+
+/* Active (open) header background */
+.ui-accordion__item--open > .ui-accordion__header {
+  background: var(--ai-accordion-header-active-bg);
+  color: var(--ui-color-text);
+}
+
+/* Sizes */
+.ui-accordion--sm .ui-accordion__header {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-size: var(--ui-font-size-sm);
+}
+
+.ui-accordion--sm.ui-accordion__item--open .ui-accordion__body {
+  padding: 0 var(--ui-space-4) var(--ui-space-3);
+}
+
+.ui-accordion--lg .ui-accordion__header {
+  padding: var(--ui-space-5) var(--ui-space-6);
+  font-size: var(--ui-font-size-lg);
+}
+
+} /* end @layer ai-kit.components */

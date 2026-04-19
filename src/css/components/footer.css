@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Footer — page/section footer
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-footer {
+  background: var(--ai-footer-bg);
+  border-top: 1px solid var(--ai-footer-border);
+  font-family: var(--ui-font-family);
+  padding: var(--ui-space-10) var(--ui-space-6) var(--ui-space-6);
+}
+
+/* Multi-column grid */
+.ui-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: var(--ui-space-8);
+  margin-bottom: var(--ui-space-8);
+}
+
+@media (max-width: 768px) {
+  .ui-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ui-space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .ui-footer__grid { grid-template-columns: 1fr; }
+}
+
+/* Brand column */
+.ui-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-3);
+}
+
+.ui-footer__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  font-size: var(--ui-font-size-md);
+  font-weight: 700;
+  color: var(--ui-color-text);
+  text-decoration: none;
+}
+
+.ui-footer__tagline {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  line-height: var(--ui-line-height);
+  max-width: 240px;
+}
+
+/* Nav column */
+.ui-footer__col-title {
+  font-size: var(--ui-font-size-xs);
+  font-weight: 700;
+  color: var(--ui-color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--ui-space-3);
+}
+
+.ui-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-footer__link {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  text-decoration: none;
+  transition: var(--ui-transition-fast);
+  line-height: 1.4;
+}
+
+.ui-footer__link:hover {
+  color: var(--ui-color-text);
+}
+
+/* Bottom bar */
+.ui-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-space-4);
+  padding-top: var(--ui-space-6);
+  border-top: 1px solid var(--ai-footer-border);
+  flex-wrap: wrap;
+}
+
+.ui-footer__copy {
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-disabled);
+}
+
+/* Social icons row */
+.ui-footer__socials {
+  display: flex;
+  gap: var(--ui-space-2);
+}
+
+.ui-footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ui-radius-md);
+  color: var(--ui-color-text-muted);
+  background: var(--ui-color-bg-hover);
+  text-decoration: none;
+  transition: var(--ui-transition-fast);
+  font-size: 14px;
+}
+
+.ui-footer__social:hover {
+  color: var(--ui-color-text);
+  background: var(--ui-color-border);
+}
+
+/* Inverted footer — dark on light theme, light on dark theme */
+.ui-footer--inverted {
+  --ai-footer-bg:           #111827;
+  --ai-footer-border:       rgba(255, 255, 255, 0.08);
+  --ai-footer-color-strong: var(--ui-color-text-inverse);
+  --ai-footer-color-muted:  var(--ui-color-text-inverse-muted);
+  --ai-footer-social-bg:    var(--ui-color-text-inverse-soft);
+}
+
+.ui-footer--inverted .ui-footer__logo,
+.ui-footer--inverted .ui-footer__col-title { color: var(--ai-footer-color-strong); }
+
+.ui-footer--inverted .ui-footer__tagline,
+.ui-footer--inverted .ui-footer__link,
+.ui-footer--inverted .ui-footer__social,
+.ui-footer--inverted .ui-footer__copy     { color: var(--ai-footer-color-muted); }
+
+.ui-footer--inverted .ui-footer__link:hover,
+.ui-footer--inverted .ui-footer__social:hover { color: var(--ai-footer-color-strong); }
+
+.ui-footer--inverted .ui-footer__social { background: var(--ai-footer-social-bg); }
+
+/* On dark theme — flip to light surface colours */
+[data-theme="dark"] .ui-footer--inverted {
+  --ai-footer-bg:           #f8fafc;
+  --ai-footer-border:       rgba(0, 0, 0, 0.08);
+  --ai-footer-color-strong: var(--ui-color-text);
+  --ai-footer-color-muted:  var(--ui-color-text-muted);
+  --ai-footer-social-bg:    var(--ui-color-bg-overlay);
+}
+
+} /* end @layer ai-kit.components */

@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Form Row — settings row with label, description, and any control (Molecule)
+   Phase 4.2: Extracted from toggle.css where it lived as ui-toggle-item.
+   Renamed to ui-form-row — generalised to accept toggle/checkbox/select/badge.
+
+   HTML contract:
+     <label class="ui-form-row">
+       <div class="ui-form-row__info">
+         <span class="ui-form-row__label">Setting label</span>
+         <span class="ui-form-row__desc">Helper description text</span>
+       </div>
+       <div class="ui-form-row__control">
+         <!-- any control: ui-toggle, ui-checkbox, ui-select, ui-badge … -->
+         <label class="ui-toggle ui-toggle--md"><input type="checkbox"></label>
+       </div>
+     </label>
+
+   Deprecated alias ui-toggle-item kept below for v0.7.x.
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-space-4);
+  padding: var(--ui-space-3) 0;
+  cursor: pointer;
+  font-family: var(--ui-font-family);
+}
+
+.ui-form-row + .ui-form-row {
+  border-top: 1px solid var(--ui-color-border);
+}
+
+.ui-form-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ui-form-row__label {
+  font-size: var(--ui-font-size-md);
+  font-weight: 500;
+  color: var(--ui-color-text);
+  line-height: 1.4;
+}
+
+.ui-form-row__desc {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  line-height: 1.4;
+}
+
+.ui-form-row__control {
+  flex-shrink: 0;
+}
+
+/* ---- Disabled state ---- */
+.ui-form-row--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================================
+   DEPRECATED ALIASES — ui-toggle-item → ui-form-row
+   Kept for v0.7.x. Remove in v1.0.0.
+   ========================================================= */
+
+.ui-toggle-item                  { display: flex; align-items: center; justify-content: space-between; gap: var(--ui-space-4); padding: var(--ui-space-3) 0; cursor: pointer; font-family: var(--ui-font-family); }
+.ui-toggle-item + .ui-toggle-item { border-top: 1px solid var(--ui-color-border); }
+.ui-toggle-item__info            { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ui-toggle-item__label           { font-size: var(--ui-font-size-md); font-weight: 500; color: var(--ui-color-text); line-height: 1.4; }
+.ui-toggle-item__desc            { font-size: var(--ui-font-size-sm); color: var(--ui-color-text-muted); line-height: 1.4; }
+.ui-toggle-item__control         { flex-shrink: 0; }
+
+} /* end @layer ai-kit.components */

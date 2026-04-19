@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert Component - AI CSS Kit</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="./shared/demo-page.css">
+</head>
+<body class="demo-page">
+  <section class="demo-section">
+    <h2 class="demo-section__title">Alert</h2>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Variants</h3>
+      <div class="u-stack">
+
+        <div class="ui-alert ui-alert--info" role="alert">
+          <i class="fa fa-info-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__title">Information</div>
+            <div class="ui-alert__body">Your session expires in 15 minutes. Save your work to avoid losing progress.</div>
+          </div>
+          <button class="ui-alert__close" type="button" aria-label="Dismiss">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="ui-alert ui-alert--success" role="alert">
+          <i class="fa fa-check-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__title">Changes saved</div>
+            <div class="ui-alert__body">Your profile has been updated successfully.</div>
+          </div>
+          <button class="ui-alert__close" type="button" aria-label="Dismiss">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="ui-alert ui-alert--warning" role="alert">
+          <i class="fa fa-exclamation-triangle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__title">Storage almost full</div>
+            <div class="ui-alert__body">You are using 92% of your storage quota. Upgrade your plan or delete unused files.</div>
+          </div>
+          <button class="ui-alert__close" type="button" aria-label="Dismiss">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="ui-alert ui-alert--error" role="alert">
+          <i class="fa fa-times-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__title">Payment failed</div>
+            <div class="ui-alert__body">We could not process your payment. Please check your card details and try again.</div>
+          </div>
+          <button class="ui-alert__close" type="button" aria-label="Dismiss">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="demo-group">
+      <h3 class="demo-group__title">Without title (body only)</h3>
+      <div class="u-stack">
+
+        <div class="ui-alert ui-alert--info" role="alert">
+          <i class="fa fa-info-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__body">A new version of the application is available.</div>
+          </div>
+        </div>
+
+        <div class="ui-alert ui-alert--success" role="alert">
+          <i class="fa fa-check-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__body">Email address confirmed.</div>
+          </div>
+        </div>
+
+        <div class="ui-alert ui-alert--warning" role="alert">
+          <i class="fa fa-exclamation-triangle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__body">API key will expire in 3 days.</div>
+          </div>
+        </div>
+
+        <div class="ui-alert ui-alert--error" role="alert">
+          <i class="fa fa-times-circle ui-alert__icon" aria-hidden="true"></i>
+          <div class="ui-alert__content">
+            <div class="ui-alert__body">Connection lost. Retrying…</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<script src="./shared/demo-theme.js"></script>
+</body>
+</html>

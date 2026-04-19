@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Spinner
+   ========================================================================== */
+
+/*
+  HTML contract:
+
+  Standalone:
+  <span class="ui-spinner ui-spinner--md" role="status" aria-label="Loading"></span>
+
+  With label:
+  <span class="ui-spinner ui-spinner--md" role="status">
+    <span class="ui-spinner__label">Loading...</span>
+  </span>
+
+  Inverted (on dark backgrounds):
+  <span class="ui-spinner ui-spinner--md ui-spinner--inverted" role="status" aria-label="Loading"></span>
+
+  Sizes: ui-spinner--sm | ui-spinner--md (default) | ui-spinner--lg
+*/
+
+@layer ai-kit.components {
+
+@keyframes ui-spin {
+  to { transform: rotate(360deg); }
+}
+
+.ui-spinner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex-shrink: 0;
+}
+
+.ui-spinner::before {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  border: 2px solid var(--ai-spinner-track-color);
+  border-top-color: var(--ai-spinner-color);
+  animation: ui-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ---- Sizes ---- */
+.ui-spinner--sm::before {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+.ui-spinner--md::before {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.ui-spinner--lg::before {
+  width: 28px;
+  height: 28px;
+  border-width: 3px;
+}
+
+/* ---- Inverted (on primary/dark background) ---- */
+.ui-spinner--inverted::before {
+  border-color: var(--ui-color-text-inverse-soft);
+  border-top-color: var(--ui-color-text-inverse);
+}
+
+/* ---- Label ---- */
+.ui-spinner__label {
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+}
+
+} /* end @layer ai-kit.components */

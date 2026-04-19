@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Pricing Card — subscription / plan selection card
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-pricing-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ai-pricing-card-padding);
+  background: var(--ai-pricing-card-bg);
+  border: 1px solid var(--ai-pricing-card-border);
+  border-radius: var(--ai-pricing-card-radius);
+  box-shadow: var(--ai-pricing-card-shadow);
+  font-family: var(--ui-font-family);
+  position: relative;
+  gap: var(--ui-space-4);
+}
+
+/* Featured / highlighted plan */
+.ui-pricing-card--featured {
+  background: var(--ai-pricing-card-featured-bg);
+  border-color: var(--ai-pricing-card-featured-border);
+  box-shadow: var(--ui-shadow-lg);
+}
+
+/* Popular badge */
+.ui-pricing-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* Header */
+.ui-pricing-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+}
+
+.ui-pricing-card__name {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ui-color-text-muted);
+}
+
+.ui-pricing-card--featured .ui-pricing-card__name {
+  color: var(--ui-color-primary);
+}
+
+.ui-pricing-card__desc {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  line-height: var(--ui-line-height);
+}
+
+/* Price */
+.ui-pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+}
+
+.ui-pricing-card__amount {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--ui-color-text);
+  letter-spacing: -0.03em;
+}
+
+.ui-pricing-card__currency {
+  font-size: var(--ui-font-size-xl);
+  font-weight: 600;
+  color: var(--ui-color-text);
+  align-self: flex-start;
+  padding-top: 6px;
+}
+
+.ui-pricing-card__period {
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  margin-left: 2px;
+}
+
+/* Divider */
+.ui-pricing-card__divider {
+  height: 1px;
+  background: var(--ui-color-border);
+  border: none;
+  margin: 0;
+}
+
+/* Feature list */
+.ui-pricing-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.ui-pricing-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ui-space-2);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-secondary);
+  line-height: 1.4;
+}
+
+.ui-pricing-card__feature-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.ui-pricing-card__feature--included .ui-pricing-card__feature-icon {
+  color: var(--ui-color-success);
+}
+
+.ui-pricing-card__feature--excluded {
+  opacity: 0.45;
+}
+
+.ui-pricing-card__feature--excluded .ui-pricing-card__feature-icon {
+  color: var(--ui-color-text-disabled);
+}
+
+/* CTA */
+.ui-pricing-card__cta {
+  margin-top: auto;
+}
+
+} /* end @layer ai-kit.components */

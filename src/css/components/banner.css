@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Banner — full-width top notification strip
+   DEPRECATED: merged into alert.css as .ui-alert--banner (Phase 4.2).
+   Keeps .ui-banner.* aliases for v0.7.x backward compat.
+   audit-atomic: stubs-file
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-family: var(--ui-font-family);
+  font-size: var(--ui-font-size-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Icon slot */
+.ui-banner__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+/* Content */
+.ui-banner__content {
+  flex: 1;
+  line-height: var(--ui-line-height);
+}
+
+.ui-banner__title {
+  font-weight: 600;
+  display: inline;
+}
+
+.ui-banner__text {
+  display: inline;
+  opacity: 0.85;
+}
+
+/* Actions */
+.ui-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex-shrink: 0;
+}
+
+.ui-banner__action {
+  font-size: var(--ui-font-size-sm);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+  transition: var(--ui-transition-fast);
+}
+
+.ui-banner__action:hover {
+  opacity: 0.75;
+}
+
+/* Close */
+.ui-banner__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ui-radius-sm);
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: var(--ui-transition-fast);
+  flex-shrink: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.ui-banner__close:hover { opacity: 1; }
+
+/* Variants */
+.ui-banner--info {
+  background: var(--ai-banner-info-bg);
+  color: var(--ai-banner-info-color);
+  border-bottom: 1px solid var(--ui-color-primary-soft);
+}
+
+.ui-banner--success {
+  background: var(--ai-banner-success-bg);
+  color: var(--ai-banner-success-color);
+  border-bottom: 1px solid var(--ui-color-success-soft);
+}
+
+.ui-banner--warning {
+  background: var(--ai-banner-warning-bg);
+  color: var(--ai-banner-warning-color);
+  border-bottom: 1px solid var(--ui-color-warning-soft);
+}
+
+.ui-banner--error {
+  background: var(--ai-banner-error-bg);
+  color: var(--ai-banner-error-color);
+  border-bottom: 1px solid var(--ui-color-error-soft);
+}
+
+.ui-banner--neutral {
+  background: var(--ui-color-bg-hover);
+  color: var(--ui-color-text-secondary);
+  border-bottom: 1px solid var(--ui-color-border);
+}
+
+} /* end @layer ai-kit.components */
