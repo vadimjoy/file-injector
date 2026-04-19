@@ -43,6 +43,7 @@ I-10  DO NOT use !important — override --ai-* tokens instead
 | Radio | `.ui-radio` | — | `--sm` `--md` `--lg` (own size) |
 | Toggle | `.ui-toggle` | — | `--sm` `--md` `--lg` (own size) |
 | Slider | `.ui-slider` | — | `--sm` `--md` `--lg` (own size) |
+| Form Row | `.ui-form-row` | `--disabled` | Settings row: `__info` `__label` `__desc` `__control`; replaces old `ui-toggle-item` |
 | File Upload | `.ui-file-upload` | `--dragover` | `--sm` `--lg` |
 
 > NOTE: Checkbox, Radio, Toggle, Slider carry their own size modifiers directly (not via .ui-field).
@@ -68,16 +69,19 @@ I-10  DO NOT use !important — override --ai-* tokens instead
 | Avatar wrap | `.ui-avatar-wrap` | `--online` `--offline` `--busy` (status dot) |
 | Avatar group | `.ui-avatar-group` | — (stacked avatars with overlap) |
 | Tag | `.ui-tag` | `--default` `--primary` `--success` `--warning` `--error` + `--sm` `--md` `--lg` + `--removable` |
-| Alert | `.ui-alert` | `--info` `--success` `--warning` `--error` |
+| Alert | `.ui-alert` | `--info` `--success` `--warning` `--error` `--neutral` + `--banner` (full-width strip) + `--callout` (bordered note) | `__icon` `__body` `__title` `__text` `__actions` |
 | Button (icon) | `.ui-button--icon` | `--sm` `--md` `--lg` | Square icon-only button; combine with any variant |
 | Badge (live) | `.ui-badge--live` | — | Pulsing animated dot; combine with any badge variant |
 | Stat Card | `.ui-stat-card` | `--primary` `--success` `--warning` `--error` | KPI metric card: `__header` `__label` `__value` `__icon` `__delta` `__footer` |
 | Skeleton | `.ui-skeleton` | `--pulse` `--static` `--circle` `--rounded` `--text` `--heading` `--avatar-sm/md/lg` `--btn` `--card` | Loading placeholder shimmer |
 | Empty State | `.ui-empty-state` | `--sm` `--lg` | `__icon` `__title` `__description` `__actions` |
-| Banner | `.ui-banner` | `--info` `--success` `--warning` `--error` `--neutral` | Full-width top strip: `__icon` `__content` `__title` `__text` `__actions` `__close` |
-| Callout | `.ui-callout` | `--info` `--success` `--warning` `--error` `--neutral` `--accent` | Block note: `__icon` `__body` `__title` `__text` |
+| Banner | `.ui-banner` | ⚠️ **DEPRECATED** → use `.ui-alert--banner` | Aliases kept for v0.7.x; remove in v1.0.0 |
+| Callout | `.ui-callout` | ⚠️ **DEPRECATED** → use `.ui-alert--callout` | Aliases kept for v0.7.x; remove in v1.0.0 |
 | Section Header | `.ui-section-header` | `--sm` `--xl` `--divided` `--center` | `__text` `__title` `__subtitle` `__actions` |
-| Feed / Timeline | `.ui-feed` | `--compact` `--no-line` | `__item` `__icon` `__content` `__header` `__title` `__time` `__text` |
+| Timeline | `.ui-timeline` | `--compact` (dense, feed-style) `--no-line` `--vertical` | `__item` `--done` `--active` `--error`; `__dot` `__content` `__title` `__time` `__text` |
+| Feed | `.ui-feed` | ⚠️ **DEPRECATED** → use `.ui-timeline--compact` | Aliases kept for v0.7.x; remove in v1.0.0 |
+| Icon Tile | `.ui-icon-tile` | `--sm` `--md` `--lg` `--xl` + `--circle` `--square` + `--primary` `--success` `--warning` `--error` `--neutral` `--ghost` | Coloured background tile for icons; replaces `__icon--*` variants in feature-item, notification, chat, feed |
+| Dot | `.ui-dot` | `--sm` `--md` `--lg` `--xl` + `--online` `--offline` `--busy` + `--primary` `--success` `--warning` `--error` `--neutral` + `--pulse` | Status/indicator dot atom |
 | Rating | `.ui-rating` | `--sm` `--md` `--lg` `--readonly` | `__star` `--filled` `__count` |
 | Status | `.ui-status` | `--online` `--offline` `--warning` `--error` `--pending` `--sm` `--md` `--lg` | `__dot` `__label` |
 | Notification | `.ui-notification` | `--unread` | `__icon` `__body` `__header` `__title` `__time` `__text` `__actions` `__unread-dot` |

@@ -1,6 +1,14 @@
 /* ==========================================================================
-   Timeline — vertical visual timeline with connector lines
-   (Distinct from Feed: explicit year/date labels, prominent connectors)
+   Timeline — vertical activity stream with connector lines
+   Phase 4.2: Feed merged into timeline as --compact variant.
+   .ui-feed kept as a deprecated stub (removed in v1.0.0).
+
+   Variants:
+     (default)          — timeline with date labels and prominent dots
+     ui-timeline--compact — feed-style: small dense icon, no date column
+     ui-timeline--alternate — content alternates left/right
+
+   Dots: ui-timeline__dot--primary/success/warning/error/outline
    ========================================================================== */
 
 @layer ai-kit.components {
@@ -51,25 +59,25 @@
 .ui-timeline__dot--primary {
   background: var(--ui-color-primary);
   border-color: var(--ui-color-primary);
-  color: #ffffff;
+  color: var(--ui-color-text-inverse);
 }
 
 .ui-timeline__dot--success {
   background: var(--ui-color-success);
   border-color: var(--ui-color-success);
-  color: #ffffff;
+  color: var(--ui-color-text-inverse);
 }
 
 .ui-timeline__dot--warning {
   background: var(--ui-color-warning);
   border-color: var(--ui-color-warning);
-  color: #ffffff;
+  color: var(--ui-color-text-inverse);
 }
 
 .ui-timeline__dot--error {
   background: var(--ui-color-error);
   border-color: var(--ui-color-error);
-  color: #ffffff;
+  color: var(--ui-color-text-inverse);
 }
 
 .ui-timeline__dot--outline {
@@ -128,14 +136,80 @@
   line-height: var(--ui-line-height);
 }
 
-/* Compact variant */
+/* ---- Compact variant (ex-feed layout: small dense icons, no date row) ---- */
 .ui-timeline--compact .ui-timeline__content {
   padding-bottom: var(--ui-space-3);
+}
+
+.ui-timeline--compact .ui-timeline__item {
+  gap: var(--ui-space-3);
+}
+
+.ui-timeline--compact .ui-timeline__time {
+  font-size: var(--ui-font-size-xs);
+  color: var(--ui-color-text-disabled);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 /* Alternate layout (content alternates left/right) */
 .ui-timeline--alternate {
   padding: 0;
 }
+
+/* No connector line variant */
+.ui-timeline--no-line .ui-timeline__connector {
+  display: none;
+}
+
+/* =========================================================
+   DEPRECATED ALIASES — ui-feed → ui-timeline--compact
+   audit-atomic: stubs-section
+   Kept for one minor version (v0.7.x). Remove in v1.0.0.
+   Migration: replace .ui-feed with .ui-timeline--compact,
+   .ui-feed__item/.ui-feed__icon/.ui-feed__content/.ui-feed__header/
+   .ui-feed__title/.ui-feed__time/.ui-feed__text with the
+   ui-timeline__ equivalents.
+   ========================================================= */
+
+.ui-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--ui-font-family);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-feed__item {
+  display: flex;
+  gap: var(--ui-space-3);
+  position: relative;
+  padding-bottom: var(--ui-space-4);
+}
+
+.ui-feed__item:not(:last-child) .ui-feed__icon::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--ai-feed-icon-size) / 2 - 1px);
+  top: calc(var(--ai-feed-icon-size) + 4px);
+  bottom: 0;
+  width: 2px;
+  background: var(--ai-feed-line-color);
+}
+
+.ui-feed--no-line .ui-feed__item .ui-feed__icon::after { display: none; }
+
+.ui-feed__item:last-child { padding-bottom: 0; }
+
+.ui-feed__content { flex: 1; min-width: 0; padding-top: 2px; }
+.ui-feed__header  { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ui-space-2); margin-bottom: var(--ui-space-1); }
+.ui-feed__title   { font-size: var(--ui-font-size-sm); font-weight: 500; color: var(--ui-color-text); margin: 0; line-height: 1.4; }
+.ui-feed__time    { font-size: var(--ui-font-size-xs); color: var(--ui-color-text-disabled); white-space: nowrap; flex-shrink: 0; }
+.ui-feed__text    { font-size: var(--ui-font-size-sm); color: var(--ui-color-text-muted); margin: 0; line-height: var(--ui-line-height); }
+
+.ui-feed--compact .ui-feed__item { padding-bottom: var(--ui-space-3); gap: var(--ui-space-2); }
 
 } /* end @layer ai-kit.components */

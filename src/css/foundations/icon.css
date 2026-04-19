@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Icon — Font Awesome wrapper utilities (Foundation layer)
+   Replaces scattered inline style="font-size:Npx" across demos.
+   Use .ui-icon + size modifier instead of inline styles.
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+/* Base icon wrapper — inline-flex so it aligns with text naturally */
+.ui-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  font-size: var(--ui-icon-size, 16px);
+}
+
+/* Size scale */
+.ui-icon--xs  { --ui-icon-size: 12px; }
+.ui-icon--sm  { --ui-icon-size: 14px; }
+.ui-icon--md  { --ui-icon-size: 16px; }   /* default */
+.ui-icon--lg  { --ui-icon-size: 20px; }
+.ui-icon--xl  { --ui-icon-size: 24px; }
+.ui-icon--2xl { --ui-icon-size: 32px; }
+
+/* Color modifiers */
+.ui-icon--muted   { color: var(--ui-color-text-muted); }
+.ui-icon--primary { color: var(--ui-color-primary); }
+.ui-icon--success { color: var(--ui-color-success); }
+.ui-icon--warning { color: var(--ui-color-warning); }
+.ui-icon--error   { color: var(--ui-color-error); }
+.ui-icon--inverse { color: var(--ui-color-text-inverse); }
+
+} /* end @layer ai-kit.components */

@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Icon Tile — coloured background tile for icons (Atom)
+   Created in Phase 4.2 Kit Consolidation as a single source of truth for
+   the "icon on a coloured background" pattern that appeared as local
+   __icon--* variants inside feature-item, feed, notification, stat-card,
+   chat, and empty-state.
+
+   HTML contract:
+     <div class="ui-icon-tile ui-icon-tile--primary ui-icon-tile--md">
+       <i class="fa fa-check"></i>
+     </div>
+
+   Shape: default = rounded square (radius-lg).
+   Use ui-icon-tile--circle for a circular variant.
+   Sizes: --sm (28px) | --md (36px, default) | --lg (48px) | --xl (56px)
+   Variants: --primary | --success | --warning | --error | --neutral | --ghost
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  /* Default: md */
+  width: var(--ai-icon-tile-size, 36px);
+  height: var(--ai-icon-tile-size, 36px);
+  border-radius: var(--ai-icon-tile-radius, var(--ui-radius-lg));
+  background: var(--ai-icon-tile-bg, var(--ui-color-bg-hover));
+  color: var(--ai-icon-tile-color, var(--ui-color-text-muted));
+  font-size: calc(var(--ai-icon-tile-size, 36px) * 0.44);
+}
+
+/* ---- Sizes ---- */
+.ui-icon-tile--sm  { --ai-icon-tile-size: 28px; }
+.ui-icon-tile--md  { --ai-icon-tile-size: 36px; }
+.ui-icon-tile--lg  { --ai-icon-tile-size: 48px; }
+.ui-icon-tile--xl  { --ai-icon-tile-size: 56px; }
+
+/* ---- Shape ---- */
+.ui-icon-tile--circle { --ai-icon-tile-radius: var(--ui-radius-full); }
+.ui-icon-tile--square { --ai-icon-tile-radius: var(--ui-radius-md); }
+
+/* ---- Colour variants ---- */
+.ui-icon-tile--primary {
+  --ai-icon-tile-bg:    var(--ui-color-primary-light);
+  --ai-icon-tile-color: var(--ui-color-primary);
+}
+
+.ui-icon-tile--success {
+  --ai-icon-tile-bg:    var(--ui-color-success-light);
+  --ai-icon-tile-color: var(--ui-color-success);
+}
+
+.ui-icon-tile--warning {
+  --ai-icon-tile-bg:    var(--ui-color-warning-light);
+  --ai-icon-tile-color: var(--ui-color-warning);
+}
+
+.ui-icon-tile--error {
+  --ai-icon-tile-bg:    var(--ui-color-error-light);
+  --ai-icon-tile-color: var(--ui-color-error);
+}
+
+.ui-icon-tile--neutral {
+  --ai-icon-tile-bg:    var(--ui-color-bg-hover);
+  --ai-icon-tile-color: var(--ui-color-text-muted);
+}
+
+.ui-icon-tile--ghost {
+  --ai-icon-tile-bg:    transparent;
+  --ai-icon-tile-color: var(--ui-color-text-muted);
+  border: 1px solid var(--ui-color-border);
+}
+
+} /* end @layer ai-kit.components */

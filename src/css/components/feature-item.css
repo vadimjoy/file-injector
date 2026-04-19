@@ -30,15 +30,16 @@
   flex-shrink: 0;
 }
 
-/* Icon variants */
+/*
+  Icon tile variants — DEPRECATED in Phase 4.2 Kit Consolidation.
+  Use .ui-icon-tile with a variant modifier instead:
+    <div class="ui-icon-tile ui-icon-tile--primary ui-icon-tile--md">
+  The .ui-feature__icon wrapper is kept for layout only (sizing/spacing).
+  Local __icon--* colour classes will be removed in v1.0.0.
+*/
 .ui-feature__icon--primary {
   background: var(--ui-color-primary-light);
   color: var(--ui-color-primary);
-}
-
-.ui-feature__icon--dark {
-  background: var(--ui-color-text);
-  color: var(--ui-color-bg);
 }
 
 .ui-feature__icon--success {
@@ -55,6 +56,7 @@
   background: var(--ui-color-bg-hover);
   color: var(--ui-color-text-muted);
 }
+/* .ui-feature__icon--dark REMOVED in Phase 4.2 — broke theme consistency */
 
 /* Body */
 .ui-feature__body {

@@ -1,5 +1,6 @@
 /* ==========================================================================
    AI CSS Kit — CSS Component Library
+   Phase 4.2 Kit Consolidation: imports grouped by atomic layer
    ========================================================================== */
 
 /* Cascade layer order declaration — themes always win over components */
@@ -8,62 +9,69 @@
 /* Layer 1: Design Tokens */
 @import './tokens.css';
 
-/* Layer 2: Base Reset & Common */
+/* Layer 2: Base Reset */
 @import './base.css';
 
-/* Layer 3: Components */
+/* Layer 3: Foundations (not BEM components — system-wide primitives) */
+@import './foundations/typography.css';
+@import './foundations/icon.css';
+@import './foundations/color.css';
+@import './components/divider.css';
+@import './components/kbd.css';
+
+/* Layer 4: Atoms (single entity, zero children) */
+@import './components/button.css';
 @import './components/input.css';
 @import './components/select.css';
 @import './components/textarea.css';
-@import './components/button.css';
 @import './components/checkbox.css';
 @import './components/radio.css';
 @import './components/toggle.css';
 @import './components/slider.css';
-@import './components/badge.css';
-@import './components/card.css';
 @import './components/progress.css';
-@import './components/autocomplete.css';
-@import './components/datepicker.css';
-@import './components/tooltip.css';
-@import './components/file-upload.css';
-@import './components/tabs.css';
-@import './components/alert.css';
 @import './components/spinner.css';
 @import './components/avatar.css';
+@import './components/badge.css';
 @import './components/tag.css';
+@import './components/chip.css';
+@import './components/status.css';
+@import './components/dot.css';
+@import './components/tooltip.css';
+@import './components/skeleton.css';
+@import './components/icon-tile.css';
+
+/* Layer 5: Molecules (2–3 atoms, simple composition) */
+@import './components/card.css';
+@import './components/alert.css';
+@import './components/empty-state.css';
+@import './components/search.css';
+@import './components/file-upload.css';
+@import './components/autocomplete.css';
+@import './components/datepicker.css';
 @import './components/breadcrumb.css';
 @import './components/pagination.css';
+@import './components/dropdown.css';
+@import './components/rating.css';
+@import './components/stat-card.css';
+@import './components/notification.css';
+@import './components/form-row.css';
+@import './components/section-header.css';
+
+/* Layer 6: Organisms (3+ molecules/atoms) */
+@import './components/accordion.css';
+@import './components/tabs.css';
 @import './components/table.css';
 @import './components/steps.css';
 @import './components/modal.css';
-@import './components/dropdown.css';
-@import './components/chip.css';
-@import './components/divider.css';
-@import './components/empty-state.css';
-@import './components/banner.css';
-@import './components/callout.css';
-@import './components/skeleton.css';
-@import './components/stat-card.css';
-@import './components/section-header.css';
-@import './components/feed.css';
-@import './components/rating.css';
-@import './components/search.css';
-@import './components/status.css';
-@import './components/notification.css';
 @import './components/sidebar.css';
 @import './components/navbar.css';
-@import './components/typography.css';
-@import './components/accordion.css';
-@import './components/kbd.css';
 @import './components/timeline.css';
+@import './components/chat.css';
+@import './components/chart-legend.css';
+@import './components/logo-cloud.css';
+@import './components/footer.css';
 @import './components/pricing-card.css';
 @import './components/feature-item.css';
-@import './components/chat.css';
-@import './components/color-swatch.css';
-@import './components/logo-cloud.css';
-@import './components/chart-legend.css';
-@import './components/footer.css';
 
-/* Layer 4: JS-Controlled States */
+/* Layer 7: JS-Controlled States */
 @import './states.css';

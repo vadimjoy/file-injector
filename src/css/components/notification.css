@@ -40,7 +40,13 @@
   border-radius: 0 var(--ui-radius-xs) var(--ui-radius-xs) 0;
 }
 
-/* Icon / avatar */
+/*
+  Icon slot — use .ui-icon-tile (Phase 4.2 consolidated atom) for icon colouring.
+  .ui-notification__icon is kept as a layout alias for backward compatibility.
+  Deprecated local __icon--* variants will be removed in v1.0.0.
+  Preferred markup:
+    <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--md ui-icon-tile--circle">
+*/
 .ui-notification__icon {
   display: flex;
   align-items: center;
@@ -54,6 +60,7 @@
   flex-shrink: 0;
 }
 
+/* DEPRECATED — use .ui-icon-tile--primary/success/warning/error instead */
 .ui-notification__icon--primary {
   background: var(--ui-color-primary-light);
   color: var(--ui-color-primary);

@@ -1,5 +1,7 @@
 /* ==========================================================================
-   Typography — text scale utilities
+   Typography — text scale utilities (Foundation layer)
+   Moved from components/typography.css in Phase 4.2 Kit Consolidation.
+   Typography is a foundational system, not a UI component.
    ========================================================================== */
 
 @layer ai-kit.components {

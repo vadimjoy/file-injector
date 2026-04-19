@@ -47,6 +47,9 @@
   --ui-color-text-muted:      #6b7280;
   --ui-color-text-disabled:   #9ca3af;
   --ui-color-text-placeholder:#9ca3af;
+  --ui-color-text-inverse:    #ffffff;           /* text/icon on dark or primary-coloured surfaces */
+  --ui-color-text-inverse-muted: rgba(255, 255, 255, 0.55); /* secondary text on dark surfaces */
+  --ui-color-text-inverse-soft:  rgba(255, 255, 255, 0.30); /* subtle element (e.g. spinner border) */
 
   /* Border Radius */
   --ui-radius-xs:  4px;
@@ -448,9 +451,9 @@
   /* Rating                                                                  */
   /* ---------------------------------------------------------------------- */
   --ai-rating-size:          20px;
-  --ai-rating-filled-color:  #f59e0b;
+  --ai-rating-filled-color:  var(--ui-color-warning);          /* Phase 4.2: linked to global warning token */
   --ai-rating-empty-color:   var(--ui-color-border-strong);
-  --ai-rating-hover-color:   #fbbf24;
+  --ai-rating-hover-color:   var(--ui-color-warning-hover, #d97706); /* Phase 4.2: linked to warning */
 
   /* ---------------------------------------------------------------------- */
   /* Search                                                                  */

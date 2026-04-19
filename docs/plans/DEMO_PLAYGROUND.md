@@ -1,8 +1,10 @@
-# Phase 7 — Demo Playground (интерактивные демо)
+# Demo Playground (интерактивные демо)
 
-> **Горизонт:** v0.9.x (параллельно с Phase 6; релиз — после 6.1–6.3)
+> ⚠️ **Актуализация плана (2026-04-17):** в MASTER_PLAN эта работа учтена как **подфаза 4.3 «Demo Playground»**, следующая за подфазой 4.2 (Kit Consolidation) и предшествующая трекам A/B/F. Имя файла `DEMO_PLAYGROUND.md` оставлено без изменений, чтобы не ломать ссылки. Все задачи, схемы и критерии действительны; перенумерована только позиция в MASTER_PLAN и SCALABILITY_PLAN — с «Phase 7» на «подфазу 4.3». Полная дорожная карта: [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md).
+
+> **Горизонт:** v0.8.0-pre (после подфазы 4.2; **блокер** для подфаз 4.4–4.7 CLI)
 > **Статус:** draft / ожидает утверждения
-> **Связано с:** [`PHASE_6_KIT_CONSOLIDATION`](./PHASE_6_KIT_CONSOLIDATION.md) · [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md)
+> **Связано с:** [`KIT_CONSOLIDATION`](./KIT_CONSOLIDATION.md) · [`MASTER_PLAN`](../localization/ru/MASTER_PLAN.md)
 
 ---
 

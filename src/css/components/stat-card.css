@@ -32,6 +32,12 @@
   margin: 0;
 }
 
+/*
+  Icon slot — use .ui-icon-tile (Phase 4.2 consolidated atom) for colouring.
+  .ui-stat-card__icon kept as layout alias; variant colours provided below
+  for backward compatibility. Preferred markup:
+    <div class="ui-stat-card__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--md">
+*/
 .ui-stat-card__icon {
   display: flex;
   align-items: center;

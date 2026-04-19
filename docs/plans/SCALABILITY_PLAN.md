@@ -3,7 +3,7 @@
 **Version:** 1.1  
 **Date:** 2026-04-18  
 **Status:** Active  
-**Based on:** `docs/audit/scalability-audit-phases-1-3.md`, `docs/design/phase-4.1-cli-architecture.md`, `docs/plans/PHASE_6_KIT_CONSOLIDATION.md`, `docs/plans/PHASE_7_DEMO_PLAYGROUND.md`
+**Based on:** `docs/audit/scalability-audit-phases-1-3.md`, `docs/design/phase-4.1-cli-architecture.md`, `docs/plans/KIT_CONSOLIDATION.md`, `docs/plans/DEMO_PLAYGROUND.md`
 
 ---
 
@@ -16,10 +16,10 @@ This plan consolidates the open scalability work from the Phase 1–3 audit and 
 - CLI (Phase 4) scalability from the start
 - Token system growth to 50+ components
 - AI context maintainability at scale
-- **Kit consolidation after the v0.6.x component expansion** — atomic decomposition, visual-style cleanup, removal of duplicated primitives (icon tiles, dots, feed/timeline, alert/banner/callout overlaps)
-- **Interactive demo playground** — schema-driven controls over sizes, states, and tokens for every component, replacing ad-hoc static demos
+- **Kit consolidation after the v0.6.x component expansion** — atomic decomposition, visual-style cleanup, removal of duplicated primitives (icon tiles, dots, feed/timeline, alert/banner/callout overlaps) — delivered as **Phase 4.2** in the master plan
+- **Interactive demo playground** — schema-driven controls over sizes, states, and tokens for every component, replacing ad-hoc static demos — delivered as **Phase 4.3** in the master plan
 
-Work items are grouped into **tracks** so they can be executed in parallel across phases. Tracks **G** and **H** are *blockers for Phase 4 completion*: the kit must be consolidated and demos must be converted to the schema-driven playground before the CLI ships `npx ai-css-kit generate` end-to-end, otherwise the agent will produce markup against an inconsistent component surface.
+Work items are grouped into **tracks** so they can be executed in parallel across phases. Tracks **G** and **H** correspond to master-plan sub-phases **4.2** and **4.3** and are *blockers for the remaining Phase 4 sub-phases (4.4–4.7)*: the kit must be consolidated and demos must be converted to the schema-driven playground before the CLI ships `npx ai-css-kit generate` end-to-end, otherwise the agent will produce markup against an inconsistent component surface.
 
 ---
 
@@ -585,12 +585,13 @@ See Track B-3. Add to `npm run build:themes` pipeline.
 
 ---
 
-## Track G — Kit Consolidation (Phase 6 blocker)
+## Track G — Kit Consolidation (Phase 4.2 blocker)
 
-**Reference plan:** [`docs/plans/PHASE_6_KIT_CONSOLIDATION.md`](./PHASE_6_KIT_CONSOLIDATION.md)  
-**Target version:** v0.7.x (between Scalability prep and CLI completion)  
+**Reference plan:** [`docs/plans/KIT_CONSOLIDATION.md`](./KIT_CONSOLIDATION.md) *(filename retained from the early working title "Phase 6"; in the master plan this work is sub-phase **4.2**)*  
+**Master-plan sub-phase:** 4.2 (wedged between 4.1 Architecture and the preliminary scalability tracks A/B/F)  
+**Target version:** v0.7.x  
 **Effort:** ~2–3 weeks  
-**Status:** Planned — must land before Phase 4 success criteria can be closed
+**Status:** Planned — must land before master-plan sub-phases 4.4–4.7 (Intent Parser, Resolver, Validator, CLI modes) can start
 
 The kit grew from 15 to 54 components across the v0.6.x expansion without a consolidation pass. The result is visually inconsistent ("not solid", "циганщина"), has duplicated atomic primitives, and inflates the CLI's component surface beyond what `AI_CONTEXT.md` can concisely describe. Track G closes this gap.
 
@@ -598,7 +599,7 @@ The kit grew from 15 to 54 components across the v0.6.x expansion without a cons
 
 **Effort:** S (2 days)
 
-Classify all 54 components into Foundations / Atoms / Molecules / Organisms. Move `typography`, `color-swatch`, `icon` into `src/css/foundations/`. Re-order `src/css/index.css` imports by atomic layer with section comments. Defined in `PHASE_6_KIT_CONSOLIDATION.md §3`.
+Classify all 54 components into Foundations / Atoms / Molecules / Organisms. Move `typography`, `color-swatch`, `icon` into `src/css/foundations/`. Re-order `src/css/index.css` imports by atomic layer with section comments. Defined in `KIT_CONSOLIDATION.md §3`.
 
 ### G-2 · Extract shared atoms: `icon-tile` and `dot`
 
@@ -622,7 +623,7 @@ Collapse the three alert-like families into `ui-alert` with modifiers `--banner`
 
 **Effort:** S (2 days)
 
-Purge tacky accents: remove Verdana from `warm.json`, monospace from `midnight.json`, `--dark` icon variant from `feature-item`, and unify radii/shadows through tokens. Defined in `PHASE_6_KIT_CONSOLIDATION.md §4`.
+Purge tacky accents: remove Verdana from `warm.json`, monospace from `midnight.json`, `--dark` icon variant from `feature-item`, and unify radii/shadows through tokens. Defined in `KIT_CONSOLIDATION.md §4`.
 
 ### G-6 · Module Contract v2 enforcement
 
@@ -656,12 +657,13 @@ Replace the 258 inline-style occurrences with the existing `u-stack`, `u-grid`, 
 
 ---
 
-## Track H — Demo Playground (Phase 7 blocker)
+## Track H — Demo Playground (Phase 4.3 blocker)
 
-**Reference plan:** [`docs/plans/PHASE_7_DEMO_PLAYGROUND.md`](./PHASE_7_DEMO_PLAYGROUND.md)  
-**Target version:** v0.8.0-pre (after Track G, before Phase 4 completion)  
+**Reference plan:** [`docs/plans/DEMO_PLAYGROUND.md`](./DEMO_PLAYGROUND.md) *(filename retained from the early working title "Phase 7"; in the master plan this work is sub-phase **4.3**)*  
+**Master-plan sub-phase:** 4.3 (follows 4.2, precedes preliminary scalability tracks A/B/F)  
+**Target version:** v0.8.0-pre (after Track G, before remaining CLI sub-phases)  
 **Effort:** ~2–3 weeks  
-**Status:** Planned — depends on Track G (clean demo markup)
+**Status:** Planned — depends on Track G (clean demo markup); blocker for master-plan sub-phases 4.4–4.7
 
 The current 29 static HTML demos do not let the user (or the AI agent validating output) exercise size modifiers, state flags, or token overrides without editing HTML by hand. Track H replaces them with a **schema-driven playground**: a thin Vanilla JS host (≤ 12 KB gzipped) that renders preview + controls + code + tokens panels from a per-component JSON schema.
 
@@ -698,7 +700,7 @@ Schema per component:
 }
 ```
 
-Binding types: `bindsClass`, `bindsVar`, `bindsAttr`, `bindsText`, `bindsRepeat`. Defined in `PHASE_7_DEMO_PLAYGROUND.md §4`.
+Binding types: `bindsClass`, `bindsVar`, `bindsAttr`, `bindsText`, `bindsRepeat`. Defined in `DEMO_PLAYGROUND.md §4`.
 
 ### H-3 · Schema library
 
@@ -747,18 +749,18 @@ Wire Track E-2's validator into the playground: the "Code" panel runs `validate(
 
 ## Roadmap Integration
 
-| Phase | Version | Track items |
-|-------|---------|-------------|
-| Phase 4 prep — foundational | v0.7.0 | A-1, A-2, A-3, A-4, A-5, A-6, A-7, B-1, B-2, F-1, F-2 |
-| **Phase 6 — Kit Consolidation** | **v0.7.x** | **G-1, G-2, G-3, G-4, G-5, G-6, G-7** *(blocker for Phase 4 completion)* |
-| **Phase 7 — Demo Playground** | **v0.8.0-pre** | **H-1, H-2, H-3, H-4, H-5, H-6** *(blocker for Phase 4 completion)* |
-| Phase 4 (CLI) | v0.8.0 | E-1, E-2, E-3, E-4, C-4, B-3, F-3 |
-| Phase 4.2 | v0.8.x | E-5, E-6, D-4 |
-| Phase 4.3 | v0.8.x | C-1 (Grid), C-2 (priority form components) |
+| Master-plan milestone | Version | Track items |
+|-----------------------|---------|-------------|
+| **Sub-phase 4.2 — Kit Consolidation** | **v0.7.x** | **G-1, G-2, G-3, G-4, G-5, G-6, G-7** *(blocker for sub-phases 4.4–4.7)* |
+| **Sub-phase 4.3 — Demo Playground** | **v0.8.0-pre** | **H-1, H-2, H-3, H-4, H-5, H-6** *(blocker for sub-phases 4.4–4.7)* |
+| Phase 4 prep — foundational | v0.7.0 (parallel to 4.2) | A-1, A-2, A-3, A-4, A-5, A-6, A-7, B-1, B-2, F-1, F-2 |
+| Sub-phase 4.4–4.7 (CLI) | v0.8.0 | E-1, E-2, E-3, E-4, C-4, B-3, F-3 |
+| Sub-phase 4.8 (CLI v2) | v0.8.x | E-5, E-6, D-4 |
+| Sub-phase 4.8+ (layout primitives) | v0.8.x | C-1 (Grid), C-2 (priority form components) |
 | Phase 5 | v0.9.0 | C-3 (display components), D-1, D-2, D-3 |
 | Post v1.0.0 | — | C-2 (remaining), D-2 (responsive tokens full), D-3 (multi-brand) |
 
-> **Execution order:** Tracks G and H run sequentially between the v0.7.0 scalability prep and the final v0.8.0 CLI release. The existing Phase 4 stubs (Intent Parser skeleton, provider abstraction, architecture doc) remain in place; the **completion criteria** of Phase 4 (end-to-end `generate`, 100% resolver tests, validator anti-pattern coverage, provider support) cannot be marked done until Tracks G and H ship, because their output defines the component surface the CLI targets.
+> **Execution order:** Tracks G and H (master-plan sub-phases **4.2** and **4.3**) wedge into Phase 4 between 4.1 Architecture and the preliminary scalability tracks (A/B/F). They run sequentially before the remaining CLI sub-phases (**4.4** Intent Parser → **4.5** Resolver → **4.6** Validator → **4.7** CLI modes). The existing Phase 4 stubs (Intent Parser skeleton, provider abstraction, architecture doc) remain in place; the **completion criteria** of Phase 4 (end-to-end `generate`, 100% resolver tests, validator anti-pattern coverage, provider support) cannot be marked done until Tracks G and H ship, because their output defines the component surface the CLI targets.
 
 ---
 

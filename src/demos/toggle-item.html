@@ -3,63 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toggle Item - AI CSS Kit</title>
+  <title>Form Row (ex Toggle Item) - AI CSS Kit</title>
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="./shared/demo-page.css">
 </head>
 <body class="demo-page">
   <section class="demo-section">
-    <h2 class="demo-section__title">Toggle Item</h2>
+    <h2 class="demo-section__title">Form Row <small style="font-size:14px;font-weight:400;color:var(--ui-color-text-muted)">(migrated from Toggle Item — Phase 4.2)</small></h2><!-- demo: token override -->
 
     <div class="demo-group">
       <h3 class="demo-group__title">Default settings list</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;padding:0 16px">
+      <div class="u-bordered">
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Email notifications</span>
-            <span class="ui-toggle-item__desc">Receive updates via email</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Email notifications</span>
+            <span class="ui-form-row__desc">Receive updates via email</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--md">
-              <input type="checkbox" checked>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
           </div>
         </label>
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Push notifications</span>
-            <span class="ui-toggle-item__desc">Browser push alerts</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Push notifications</span>
+            <span class="ui-form-row__desc">Browser push alerts</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--md">
-              <input type="checkbox">
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox"></label>
           </div>
         </label>
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Data compression</span>
-            <span class="ui-toggle-item__desc">gzip / brotli encoding</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Data compression</span>
+            <span class="ui-form-row__desc">gzip / brotli encoding</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--md">
-              <input type="checkbox" checked>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
           </div>
         </label>
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Auto-save</span>
-            <span class="ui-toggle-item__desc">Save changes automatically</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Auto-save</span>
+            <span class="ui-form-row__desc">Save changes automatically</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--md">
-              <input type="checkbox" checked>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" checked></label>
           </div>
         </label>
 
@@ -68,29 +60,25 @@
 
     <div class="demo-group">
       <h3 class="demo-group__title">Sizes</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;padding:0 16px">
+      <div class="u-bordered">
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Small toggle</span>
-            <span class="ui-toggle-item__desc">Uses ui-toggle--sm</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Small toggle</span>
+            <span class="ui-form-row__desc">Uses ui-toggle--sm</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--sm">
-              <input type="checkbox" checked>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--sm"><input type="checkbox" checked></label>
           </div>
         </label>
 
-        <label class="ui-toggle-item">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Large toggle</span>
-            <span class="ui-toggle-item__desc">Uses ui-toggle--lg</span>
+        <label class="ui-form-row">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Large toggle</span>
+            <span class="ui-form-row__desc">Uses ui-toggle--lg</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--lg">
-              <input type="checkbox" checked>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--lg"><input type="checkbox" checked></label>
           </div>
         </label>
 
@@ -99,17 +87,15 @@
 
     <div class="demo-group">
       <h3 class="demo-group__title">Disabled</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;padding:0 16px">
+      <div class="u-bordered">
 
-        <label class="ui-toggle-item" style="opacity:0.5">
-          <div class="ui-toggle-item__info">
-            <span class="ui-toggle-item__label">Sync across devices</span>
-            <span class="ui-toggle-item__desc">Feature not available on your plan</span>
+        <label class="ui-form-row ui-form-row--disabled">
+          <div class="ui-form-row__info">
+            <span class="ui-form-row__label">Sync across devices</span>
+            <span class="ui-form-row__desc">Feature not available on your plan</span>
           </div>
-          <div class="ui-toggle-item__control">
-            <label class="ui-toggle ui-toggle--md">
-              <input type="checkbox" disabled>
-            </label>
+          <div class="ui-form-row__control">
+            <label class="ui-toggle ui-toggle--md"><input type="checkbox" disabled></label>
           </div>
         </label>
 

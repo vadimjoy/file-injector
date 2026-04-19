@@ -14,7 +14,7 @@
     <div class="demo-group">
       <h3 class="demo-group__title">Sizes</h3>
       <div class="u-stack">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="u-cluster">
           <button class="ui-chip ui-chip--sm" type="button">Small</button>
           <button class="ui-chip ui-chip--md" type="button">Medium</button>
           <button class="ui-chip ui-chip--lg" type="button">Large</button>
@@ -25,12 +25,12 @@
     <div class="demo-group">
       <h3 class="demo-group__title">States</h3>
       <div class="u-stack">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="u-cluster">
           <button class="ui-chip ui-chip--md" type="button">Default</button>
           <button class="ui-chip ui-chip--md ui-chip--active" type="button" aria-pressed="true">Active</button>
           <button class="ui-chip ui-chip--md ui-chip--disabled" type="button" disabled aria-disabled="true">Disabled</button>
         </div>
-        <p style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted);margin:0;">
+        <p class="ui-text-small">
           Hover state is interactive — try hovering the Default chip above.
         </p>
       </div>
@@ -39,7 +39,7 @@
     <div class="demo-group">
       <h3 class="demo-group__title">Filter group</h3>
       <div class="u-stack">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <div class="u-cluster u-cluster--compact">
           <button class="ui-chip ui-chip--md ui-chip--active" type="button" aria-pressed="true">All</button>
           <button class="ui-chip ui-chip--md" type="button" aria-pressed="false">Design</button>
           <button class="ui-chip ui-chip--md" type="button" aria-pressed="false">Development</button>
@@ -52,25 +52,21 @@
     <div class="demo-group">
       <h3 class="demo-group__title">With icon</h3>
       <div class="u-stack">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <button class="ui-chip ui-chip--md" type="button">
-            <span class="ui-chip__icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
-            Tagged
-          </button>
-          <button class="ui-chip ui-chip--md ui-chip--active" type="button" aria-pressed="true">
-            <span class="ui-chip__icon"><i class="fa fa-star" aria-hidden="true"></i></span>
-            Starred
-          </button>
-          <button class="ui-chip ui-chip--md" type="button">
-            <span class="ui-chip__icon"><i class="fa fa-bolt" aria-hidden="true"></i></span>
-            Quick
-          </button>
+        <div class="u-cluster">
           <button class="ui-chip ui-chip--sm" type="button">
             <span class="ui-chip__icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
             Small
           </button>
-          <button class="ui-chip ui-chip--lg" type="button">
+          <button class="ui-chip ui-chip--md" type="button">
             <span class="ui-chip__icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+            Medium
+          </button>
+          <button class="ui-chip ui-chip--md ui-chip--active" type="button" aria-pressed="true">
+            <span class="ui-chip__icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+            Active
+          </button>
+          <button class="ui-chip ui-chip--lg" type="button">
+            <span class="ui-chip__icon"><i class="fa fa-bolt" aria-hidden="true"></i></span>
             Large
           </button>
         </div>
@@ -80,7 +76,11 @@
     <div class="demo-group">
       <h3 class="demo-group__title">With dismiss</h3>
       <div class="u-stack">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="u-cluster">
+          <button class="ui-chip ui-chip--sm" type="button">
+            Small
+            <span class="ui-chip__dismiss" role="button" aria-label="Remove Small">&times;</span>
+          </button>
           <button class="ui-chip ui-chip--md" type="button">
             Frontend
             <span class="ui-chip__dismiss" role="button" aria-label="Remove Frontend">&times;</span>
@@ -89,14 +89,6 @@
             <span class="ui-chip__icon"><i class="fa fa-tag" aria-hidden="true"></i></span>
             Design
             <span class="ui-chip__dismiss" role="button" aria-label="Remove Design">&times;</span>
-          </button>
-          <button class="ui-chip ui-chip--md" type="button">
-            React
-            <span class="ui-chip__dismiss" role="button" aria-label="Remove React">&times;</span>
-          </button>
-          <button class="ui-chip ui-chip--sm" type="button">
-            Small
-            <span class="ui-chip__dismiss" role="button" aria-label="Remove Small">&times;</span>
           </button>
           <button class="ui-chip ui-chip--lg" type="button">
             Large

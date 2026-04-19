@@ -1,5 +1,8 @@
 /* ==========================================================================
    Banner — full-width top notification strip
+   DEPRECATED: merged into alert.css as .ui-alert--banner (Phase 4.2).
+   Keeps .ui-banner.* aliases for v0.7.x backward compat.
+   audit-atomic: stubs-file
    ========================================================================== */
 
 @layer ai-kit.components {

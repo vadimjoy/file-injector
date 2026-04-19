@@ -1,5 +1,8 @@
 /* ==========================================================================
    Callout — block-level highlighted content (bordered note/aside)
+   DEPRECATED: merged into alert.css as .ui-alert--callout (Phase 4.2).
+   Keeps .ui-callout.* aliases for v0.7.x backward compat.
+   audit-atomic: stubs-file
    ========================================================================== */
 
 @layer ai-kit.components {

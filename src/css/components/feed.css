@@ -43,7 +43,12 @@
   padding-bottom: 0;
 }
 
-/* Icon column */
+/*
+  Icon column — use .ui-icon-tile (Phase 4.2 consolidated atom) for colouring.
+  .ui-feed__icon kept as layout/positioning wrapper. DEPRECATED local --* variants
+  will be removed in v1.0.0. Preferred markup:
+    <div class="ui-feed__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--circle">
+*/
 .ui-feed__icon {
   position: relative;
   display: flex;
@@ -59,6 +64,7 @@
   z-index: 1;
 }
 
+/* DEPRECATED — use .ui-icon-tile--primary/success/warning/error instead */
 .ui-feed__icon--primary {
   background: var(--ui-color-primary-light);
   color: var(--ui-color-primary);

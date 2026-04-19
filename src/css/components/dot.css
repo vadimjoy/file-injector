@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Dot — coloured status/indicator dot (Atom)
+   Created in Phase 4.2 Kit Consolidation as a single source of truth for
+   the "coloured circle next to text" pattern found in avatar status,
+   chart-legend, notification unread dots, and timeline milestone dots.
+
+   HTML contract:
+     <span class="ui-dot ui-dot--online" aria-label="Online"></span>
+
+     <!-- Inline with text -->
+     <span class="ui-dot ui-dot--success ui-dot--sm"></span> Active
+
+   Sizes: --sm (6px) | --md (8px, default) | --lg (10px) | --xl (12px)
+   Variants: --online | --offline | --busy | --primary | --success | --warning | --error | --neutral
+   ========================================================================== */
+
+@layer ai-kit.components {
+
+.ui-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--ai-dot-size, 8px);
+  height: var(--ai-dot-size, 8px);
+  border-radius: var(--ui-radius-full);
+  background: var(--ai-dot-color, var(--ui-color-text-muted));
+}
+
+/* ---- Sizes ---- */
+.ui-dot--sm  { --ai-dot-size: 6px; }
+.ui-dot--md  { --ai-dot-size: 8px; }
+.ui-dot--lg  { --ai-dot-size: 10px; }
+.ui-dot--xl  { --ai-dot-size: 12px; }
+
+/* ---- Presence / status variants ---- */
+.ui-dot--online  { --ai-dot-color: var(--ai-avatar-online-color,  #22c55e); }
+.ui-dot--offline { --ai-dot-color: var(--ai-avatar-offline-color, #94a3b8); }
+.ui-dot--busy    { --ai-dot-color: var(--ai-avatar-busy-color,    #f97316); }
+
+/* ---- Semantic colour variants ---- */
+.ui-dot--primary { --ai-dot-color: var(--ui-color-primary); }
+.ui-dot--success { --ai-dot-color: var(--ui-color-success); }
+.ui-dot--warning { --ai-dot-color: var(--ui-color-warning); }
+.ui-dot--error   { --ai-dot-color: var(--ui-color-error); }
+.ui-dot--neutral { --ai-dot-color: var(--ui-color-text-muted); }
+
+/* ---- Pulse animation (live indicator) ---- */
+.ui-dot--pulse {
+  animation: ui-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ui-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+} /* end @layer ai-kit.components */

@@ -230,7 +230,7 @@
   height: 36px;
   border-radius: var(--ui-radius-full);
   background: var(--ui-color-primary);
-  color: #ffffff;
+  color: var(--ui-color-text-inverse);
   border: none;
   cursor: pointer;
   flex-shrink: 0;

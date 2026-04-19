@@ -128,40 +128,33 @@
 
 /* Inverted footer — dark on light theme, light on dark theme */
 .ui-footer--inverted {
-  --ai-footer-bg:    #111827;
-  --ai-footer-border: rgba(255, 255, 255, 0.08);
+  --ai-footer-bg:           #111827;
+  --ai-footer-border:       rgba(255, 255, 255, 0.08);
+  --ai-footer-color-strong: var(--ui-color-text-inverse);
+  --ai-footer-color-muted:  var(--ui-color-text-inverse-muted);
+  --ai-footer-social-bg:    var(--ui-color-text-inverse-soft);
 }
 
 .ui-footer--inverted .ui-footer__logo,
-.ui-footer--inverted .ui-footer__col-title { color: #ffffff; }
+.ui-footer--inverted .ui-footer__col-title { color: var(--ai-footer-color-strong); }
 
 .ui-footer--inverted .ui-footer__tagline,
 .ui-footer--inverted .ui-footer__link,
 .ui-footer--inverted .ui-footer__social,
-.ui-footer--inverted .ui-footer__copy     { color: rgba(255, 255, 255, 0.5); }
+.ui-footer--inverted .ui-footer__copy     { color: var(--ai-footer-color-muted); }
 
 .ui-footer--inverted .ui-footer__link:hover,
-.ui-footer--inverted .ui-footer__social:hover { color: #ffffff; }
+.ui-footer--inverted .ui-footer__social:hover { color: var(--ai-footer-color-strong); }
 
-.ui-footer--inverted .ui-footer__social { background: rgba(255, 255, 255, 0.07); }
+.ui-footer--inverted .ui-footer__social { background: var(--ai-footer-social-bg); }
 
-/* On dark theme — flip to light */
+/* On dark theme — flip to light surface colours */
 [data-theme="dark"] .ui-footer--inverted {
-  --ai-footer-bg:    #f8fafc;
-  --ai-footer-border: rgba(0, 0, 0, 0.08);
+  --ai-footer-bg:           #f8fafc;
+  --ai-footer-border:       rgba(0, 0, 0, 0.08);
+  --ai-footer-color-strong: var(--ui-color-text);
+  --ai-footer-color-muted:  var(--ui-color-text-muted);
+  --ai-footer-social-bg:    var(--ui-color-bg-overlay);
 }
-
-[data-theme="dark"] .ui-footer--inverted .ui-footer__logo,
-[data-theme="dark"] .ui-footer--inverted .ui-footer__col-title { color: #0f172a; }
-
-[data-theme="dark"] .ui-footer--inverted .ui-footer__tagline,
-[data-theme="dark"] .ui-footer--inverted .ui-footer__link,
-[data-theme="dark"] .ui-footer--inverted .ui-footer__social,
-[data-theme="dark"] .ui-footer--inverted .ui-footer__copy     { color: rgba(15, 23, 42, 0.5); }
-
-[data-theme="dark"] .ui-footer--inverted .ui-footer__link:hover,
-[data-theme="dark"] .ui-footer--inverted .ui-footer__social:hover { color: #0f172a; }
-
-[data-theme="dark"] .ui-footer--inverted .ui-footer__social { background: rgba(0, 0, 0, 0.07); }
 
 } /* end @layer ai-kit.components */

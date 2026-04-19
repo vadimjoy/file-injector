@@ -167,7 +167,10 @@
 .ui-steps--vertical .ui-steps__item:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: calc(var(--ai-steps-indicator-size) / 2);
+  /* Start from the BOTTOM edge of the indicator circle, not its centre.
+     The old calc(size/2) caused the line to enter the circle from above when
+     themes used semi-transparent indicator backgrounds. */
+  top: var(--ai-steps-indicator-size);
   bottom: 0;
   left: calc(var(--ai-steps-indicator-size) / 2 - 1px);
   right: auto;

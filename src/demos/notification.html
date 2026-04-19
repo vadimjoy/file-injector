@@ -13,10 +13,10 @@
 
     <div class="demo-group">
       <h3 class="demo-group__title">Default</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
+      <div class="u-bordered-flush">
 
         <div class="ui-notification ui-notification--unread">
-          <div class="ui-notification__icon ui-notification__icon--primary">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--circle">
             <i class="fa fa-check-circle" aria-hidden="true"></i>
           </div>
           <div class="ui-notification__body">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="ui-notification ui-notification--unread">
-          <div class="ui-notification__icon ui-notification__icon--warning">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--warning ui-icon-tile--circle">
             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
           </div>
           <div class="ui-notification__body">
@@ -44,7 +44,7 @@
         </div>
 
         <div class="ui-notification">
-          <div class="ui-notification__icon">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--neutral ui-icon-tile--circle">
             <i class="fa fa-user" aria-hidden="true"></i>
           </div>
           <div class="ui-notification__body">
@@ -57,7 +57,7 @@
         </div>
 
         <div class="ui-notification">
-          <div class="ui-notification__icon ui-notification__icon--success">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--success ui-icon-tile--circle">
             <i class="fa fa-check" aria-hidden="true"></i>
           </div>
           <div class="ui-notification__body">
@@ -74,9 +74,9 @@
 
     <div class="demo-group">
       <h3 class="demo-group__title">With actions</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
+      <div class="u-bordered-flush">
         <div class="ui-notification ui-notification--unread">
-          <div class="ui-notification__icon ui-notification__icon--primary">
+          <div class="ui-notification__icon ui-icon-tile ui-icon-tile--primary ui-icon-tile--circle">
             <i class="fa fa-user-plus" aria-hidden="true"></i>
           </div>
           <div class="ui-notification__body">
@@ -95,39 +95,6 @@
       </div>
     </div>
 
-    <div class="demo-group">
-      <h3 class="demo-group__title">Sizes</h3>
-      <div style="border:1px solid var(--ui-color-border);border-radius:12px;overflow:hidden;">
-
-        <div class="ui-notification ui-notification--unread" style="padding:8px 12px;">
-          <div class="ui-notification__icon ui-notification__icon--primary">
-            <i class="fa fa-check-circle" aria-hidden="true"></i>
-          </div>
-          <div class="ui-notification__body">
-            <div class="ui-notification__header">
-              <p class="ui-notification__title">Task completed</p>
-              <span class="ui-notification__time">Just now</span>
-            </div>
-            <p class="ui-notification__text">Design review has been marked as done</p>
-          </div>
-          <span class="ui-notification__unread-dot"></span>
-        </div>
-
-        <div class="ui-notification" style="padding:8px 12px;">
-          <div class="ui-notification__icon">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </div>
-          <div class="ui-notification__body">
-            <div class="ui-notification__header">
-              <p class="ui-notification__title">New member</p>
-              <span class="ui-notification__time">1 hr ago</span>
-            </div>
-            <p class="ui-notification__text">Sarah joined your workspace</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </section>
   <script src="./shared/demo-theme.js"></script>
 </body>
