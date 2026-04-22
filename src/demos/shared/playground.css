@@ -253,32 +253,6 @@
   border-bottom: 1px solid var(--ui-color-border);
 }
 
-.ui-playground__global-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--ui-space-1);
-  padding: var(--ui-space-1) var(--ui-space-2);
-  font-size: var(--ui-font-size-xs);
-  font-weight: 500;
-  color: var(--ui-color-text-secondary);
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-sm);
-  cursor: pointer;
-  transition: var(--ui-transition-fast);
-}
-
-.ui-playground__global-btn:hover {
-  background: var(--ui-color-bg-hover);
-  color: var(--ui-color-text);
-}
-
-.ui-playground__global-btn--active {
-  background: var(--ui-color-primary);
-  color: var(--ui-color-text-inverse);
-  border-color: var(--ui-color-primary);
-}
-
 /* Responsive */
 @media (max-width: 860px) {
   .ui-playground {

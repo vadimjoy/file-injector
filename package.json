@@ -4,14 +4,19 @@
   "description": "AI-first modular CSS component library with tokens, themes, and demo blocks.",
   "main": "dist/ai-css-kit.css",
   "style": "dist/ai-css-kit.css",
+  "type": "module",
   "files": [
     "dist"
   ],
+  "bin": {
+    "ai-css-kit": "./cli/bin/ai-css-kit.js"
+  },
   "exports": {
     ".": {
       "style": "./dist/ai-css-kit.css",
       "default": "./dist/ai-css-kit.css"
     },
+    "./cli": "./cli/src/index.js",
     "./tokens": "./dist/tokens.css",
     "./base": "./dist/base.css",
     "./states": "./dist/states.css",
@@ -22,15 +27,17 @@
     "clean": "rimraf dist",
     "lint:coupling": "node scripts/audit-coupling.js",
     "lint:atomic-level": "node scripts/audit-atomic-level.js",
-    "lint:inline-styles": "node scripts/audit-inline-styles.js",
     "lint:atomic-imports": "node scripts/audit-atomic-imports.js",
+    "lint:tokens": "node scripts/lint-tokens.js",
+    "lint:inline-styles": "node scripts/audit-inline-styles.js",
+    "lint:demo-purity": "node scripts/lint-demo-purity.js",
     "build:css": "postcss src/css/index.css -o dist/ai-css-kit.css",
     "build:css:min": "cross-env NODE_ENV=production postcss src/css/index.css -o dist/ai-css-kit.min.css",
-    "build:modules": "node scripts/build-modules.js",
-    "build:themes": "node scripts/build-themes.js",
-    "theme-map": "node scripts/theme-map.js",
+    "build:modules": "node scripts/build-modules.mjs",
+    "build:themes": "node scripts/build-themes.mjs",
+    "theme-map": "node scripts/theme-map.cjs",
     "test": "node --test tests/theme-map.test.js",
-    "build": "npm run lint:coupling && npm run lint:atomic-level && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
+    "build": "npm run lint:coupling && npm run lint:atomic-level && npm run lint:atomic-imports && npm run lint:tokens && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
     "prepare": "npm run build"
   },
   "keywords": [
@@ -53,6 +60,7 @@
   },
   "homepage": "https://github.com/vadimjoy/ai-css-kit#readme",
   "dependencies": {
+    "commander": "^12.1.0",
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {

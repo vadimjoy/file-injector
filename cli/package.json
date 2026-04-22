@@ -1,0 +1,26 @@
+{
+  "name": "ai-css-kit",
+  "version": "0.0.5",
+  "description": "AI-first modular CSS component library with tokens, themes, and demo blocks.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "ai-css-kit": "./bin/ai-css-kit.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./cli": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./providers/*": "./src/providers/*.js",
+    "./pipeline/*": "./src/pipeline/*.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {}
+}

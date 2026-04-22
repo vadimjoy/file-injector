@@ -20,11 +20,12 @@
  *
  * Exit 1 on violations, 0 on clean.
  */
-'use strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import postcss from 'postcss';
 
-const fs   = require('fs');
-const path = require('path');
-const postcss = require('postcss');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ── directories to scan ──────────────────────────────────────────────────────
 const ROOTS = [
@@ -60,9 +61,6 @@ function isColorProp(prop) {
 function hasHardcodedColor(value) {
   const lower = value.toLowerCase().trim();
   if (ALLOWED_LITERALS.has(lower)) return false;
-  // Allow values that are purely var() calls (or combinations thereof)
-  // A quick heuristic: if it contains var( it might mix tokens + literals
-  // We still need to check whether the literal part exists.
   return COLOR_PATTERNS.some((re) => re.test(value));
 }
 

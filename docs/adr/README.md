@@ -23,7 +23,7 @@ An ADR is a short document that captures a specific architectural decision: what
 | [0002](0002-context-modifier-pattern.md) | Context Modifier Pattern for icons and contextual padding | Accepted | 2026-04-04 |
 | [0003](0003-ai-token-naming.md) | `--ai-[component]-[prop]` naming standard: component tokens | Accepted | 2026-04-04 |
 | [0004](0004-theme-mapper-and-presets.md) | Theme Mapper, cascade layers, and preset library | Accepted | 2026-04-07 |
-| [0005](0005-cli-agent-architecture.md) | CLI Agent Architecture: split pipeline and provider abstraction | Proposed | 2026-04-09 |
+| [0005](0005-cli-agent-architecture.md) | CLI Agent Architecture: split pipeline and provider abstraction | Accepted | 2026-04-09 |
 
 ## Creating a New ADR
 

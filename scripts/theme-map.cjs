@@ -1,10 +1,37 @@
-#!/usr/bin/env node
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+/**
+ * theme-map.js — AI CSS Kit Theme Mapper
+ *
+ * Converts a JSON theme file to a CSS file with [data-theme="name"] overrides.
+ * Supports three input formats:
+ *   - Native ai-css-kit format  { meta: {...}, tokens: { "color.primary": "#..." } }
+ *   - W3C Design Tokens Format  { "color": { "primary": { "$value": "#...", "$type": "color" } } }
+ *   - Figma Tokens Plugin format { "color": { "primary": { "value": "#...", "type": "color" } } }
+ *
+ * Token key → CSS variable mapping:
+ *   - Keys starting with '--' are used verbatim as CSS variable names
+ *   - Keys whose first segment is a known component name → --ai-<key>
+ *   - All other keys → --ui-<key>  (dots replaced with hyphens)
+ *
+ * Usage (CLI):
+ *   node scripts/theme-map.js <theme.json> [-o <output.css>] [--name <override-name>]
+ *
+ * Usage (API):
+ *   const { parseTheme, generateCSS, tokenKeyToCssVar } = require('./scripts/theme-map');
+ */
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+'use strict';
 
+const fs   = require('fs');
+const path = require('path');
+
+/* --------------------------------------------------------------------------
+   Constants
+   -------------------------------------------------------------------------- */
+
+/**
+ * Component names whose tokens live in the --ai-* namespace.
+ * Order matters for prefix-match: longer names first to avoid prefix collision.
+ */
 const COMPONENT_PREFIXES = new Set([
   'button',
   'input',
@@ -23,6 +50,16 @@ const COMPONENT_PREFIXES = new Set([
   'calendar',
 ]);
 
+/* --------------------------------------------------------------------------
+   Core API
+   -------------------------------------------------------------------------- */
+
+/**
+ * Convert a dot-notation token key to a CSS custom property name.
+ *
+ * @param {string} key  e.g. "color.primary", "button.bg", "--ui-foo"
+ * @returns {string}    e.g. "--ui-color-primary", "--ai-button-bg", "--ui-foo"
+ */
 function tokenKeyToCssVar(key) {
   if (key.startsWith('--')) return key;
 
@@ -35,25 +72,56 @@ function tokenKeyToCssVar(key) {
   return '--ui-' + cssKey;
 }
 
+/**
+ * Detect the format of a parsed theme JSON object.
+ *
+ * @param {object} json
+ * @returns {'native' | 'w3c' | 'figma'}
+ */
+function detectFormat(json) {
+  // Native: top-level "meta" and "tokens" keys
+  if (json && typeof json.tokens === 'object' && json.tokens !== null) {
+    return 'native';
+  }
+
+  // W3C Design Tokens (DTCG): leaf nodes have "$value" key
+  if (hasLeafKey(json, '$value')) return 'w3c';
+
+  // Figma Tokens Plugin: leaf nodes have "value" key
+  if (hasLeafKey(json, 'value')) return 'figma';
+
+  // Fallback: treat as native with a flat tokens object
+  return 'native';
+}
+
+/**
+ * Recursively check if any leaf-like node in the object has the given key.
+ *
+ * @param {*}      obj
+ * @param {string} leafKey  "$value" or "value"
+ * @returns {boolean}
+ */
 function hasLeafKey(obj, leafKey) {
   if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) return false;
   if (leafKey in obj) return true;
   return Object.values(obj).some(v => hasLeafKey(v, leafKey));
 }
 
-function detectFormat(json) {
-  if (json && typeof json.tokens === 'object' && json.tokens !== null) {
-    return 'native';
-  }
-  if (hasLeafKey(json, '$value')) return 'w3c';
-  if (hasLeafKey(json, 'value')) return 'figma';
-  return 'native';
-}
-
+/**
+ * Recursively flatten a nested token object into a flat key → value map.
+ * Stops descending when it reaches a leaf node (a node with the format's
+ * value key, or a non-object value).
+ *
+ * @param {object} obj
+ * @param {string} prefix   Accumulated dot-notation prefix
+ * @param {'w3c' | 'figma' | 'native'} format
+ * @returns {Record<string, string>}
+ */
 function flattenTokens(obj, prefix, format) {
   const result = {};
 
   for (const [key, value] of Object.entries(obj)) {
+    // Skip metadata keys used by W3C / Figma formats
     if (key.startsWith('$') && key !== '$value') continue;
     if (key === 'type' || key === '$type') continue;
     if (key === 'description' || key === '$description') continue;
@@ -62,13 +130,17 @@ function flattenTokens(obj, prefix, format) {
 
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       if (format === 'w3c' && '$value' in value) {
+        // W3C leaf node
         result[fullKey] = String(value['$value']);
       } else if (format === 'figma' && 'value' in value) {
+        // Figma leaf node
         result[fullKey] = String(value['value']);
       } else {
+        // Nested group — recurse
         Object.assign(result, flattenTokens(value, fullKey, format));
       }
     } else if (typeof value !== 'object') {
+      // Primitive value (native flat format or inline values)
       result[fullKey] = String(value);
     }
   }
@@ -76,6 +148,12 @@ function flattenTokens(obj, prefix, format) {
   return result;
 }
 
+/**
+ * Parse a raw JSON theme object into a normalised { meta, tokens } shape.
+ *
+ * @param {object} json  Parsed JSON from theme file
+ * @returns {{ meta: object, tokens: Record<string, string> }}
+ */
 function parseTheme(json) {
   const format = detectFormat(json);
 
@@ -86,10 +164,19 @@ function parseTheme(json) {
     };
   }
 
+  // W3C or Figma: flatten the whole object
   const tokens = flattenTokens(json, '', format);
   return { meta: {}, tokens };
 }
 
+/**
+ * Generate a CSS string from a parsed theme.
+ *
+ * @param {object} meta    Theme metadata (name, version, author)
+ * @param {Record<string, string>} tokens  Flat key→value map
+ * @param {string} [nameOverride]  Override the theme name used in [data-theme]
+ * @returns {string}  Full CSS content
+ */
 function generateCSS(meta, tokens, nameOverride) {
   const displayName = nameOverride || meta.name || 'custom';
   const safeName    = displayName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -120,9 +207,24 @@ ${cssVars}
 `;
 }
 
-export { tokenKeyToCssVar, detectFormat, hasLeafKey, flattenTokens, parseTheme, generateCSS };
+/* --------------------------------------------------------------------------
+   Exports
+   -------------------------------------------------------------------------- */
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+module.exports = {
+  tokenKeyToCssVar,
+  detectFormat,
+  hasLeafKey,
+  flattenTokens,
+  parseTheme,
+  generateCSS,
+};
+
+/* --------------------------------------------------------------------------
+   CLI entry point
+   -------------------------------------------------------------------------- */
+
+if (require.main === module) {
   const args = process.argv.slice(2);
 
   if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {

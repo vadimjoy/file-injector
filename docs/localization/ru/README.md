@@ -43,6 +43,39 @@ npm install ai-css-kit font-awesome
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
+## CLI — Генерация UI из естественного языка
+
+```bash
+npm install ai-css-kit --save-dev
+npx ai-css-kit generate "основная кнопка"
+```
+
+CLI трансформирует естественный язык в HTML:
+
+```bash
+# Форма
+npx ai-css-kit generate "форма входа: email и пароль"
+
+# С темой
+npx ai-css-kit generate "карточка с заголовком" --theme midnight
+
+# Валидация
+npx ai-css-kit validate output.html
+```
+
+Полная документация: [cli.md](cli.md)
+
+## Playground — Интерактивные демо
+
+51 интерактивная демо-схема в `src/demos/schemas/`. Подключение в любом HTML:
+
+```html
+<div id="playground" data-schema="./schemas/button.js"></div>
+<script type="module" src="/shared/playground.js"></script>
+```
+
+См. [docs/plans/DEMO_PLAYGROUND.md](../../plans/DEMO_PLAYGROUND.md).
+
 ## Быстрый старт
 
 ```html
@@ -103,18 +136,19 @@ npm run theme-map -- ./my-theme.json -o ./dist/themes/my-theme.css
 ## Разработка и сборка
 
 ```bash
-npm install          # установить dev-инструменты PostCSS
-npm run build        # dist/ai-css-kit.css и dist/ai-css-kit.min.css
-npm run build:themes # dist/themes/*.css из src/themes/*.json
-npm test             # запуск unit-тестов theme-map.js
+npm install             # установить зависимости
+npm run build           # dist/ai-css-kit.css + 58 модульных CSS + 5 тем
+npm run lint:coupling    # проверка coupling-нарушений
+npm run lint:atomic-level # порядок импортов слоёв
 ```
 
-Сборка основана на `postcss-cli` + `postcss-import` + `postcss-nesting`. Минификация включается автоматически для `ai-css-kit.min.css`.
+Все скрипты сборки — ESM (`.mjs`).
 
 ## Документация
 
 - Подробные примеры, состояния и токены — [SPEC.md](SPEC.md)
 - Темизация, CLI-маппер и формат JSON — [theming.md](theming.md)
+- **CLI** — [cli.md](cli.md)
 - Живые примеры компонентов — `src/demos/*.html`
 - Архитектурные решения — [adr/README.md](../../adr/README.md)
 - Дорожная карта проекта — [MASTER_PLAN.md](MASTER_PLAN.md)

@@ -15,10 +15,11 @@
  *   0  — all clean
  *   1  — violations found
  */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const fs   = require('fs');
-const path = require('path');
-const glob = require('fs');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DEMOS_DIR = path.join(__dirname, '..', 'src', 'demos');
 

@@ -1,47 +1,18 @@
 #!/usr/bin/env node
-/**
- * audit-atomic-level.js
- * Enforces the Module Contract rule: a CSS file may only define selectors
- * whose base class it "owns".  An organism-level file must NOT introduce
- * element/modifier selectors that belong to a DIFFERENT organism.
- *
- * Atomic level classification (derived from src/css/index.css import order)
- * --------------------------------------------------------------------------
- *  foundations/   → level 1 (typography, icon, color palette)
- *  components/    → level 2 (atoms & molecules)
- *
- * Rules checked
- * -------------
- * 1. Every CSS file may reference (style) ANY class from a lower or equal
- *    level — e.g. a molecule may style atoms inside it using BEM child
- *    selectors.
- * 2. A file at level N must NOT *define* (appear as the sole selector) a
- *    base that belongs to a DIFFERENT file at the SAME level.
- *    e.g.  button.css  must not define  .ui-badge { … }
- *
- * Exemptions
- * ----------
- * - "GLOBAL_ALLOWED_BASES" — classes shared across layers (ui-field etc.)
- * - Preceding comment:  /* audit-atomic: ignore * /
- *
- * Exit 1 on violations, 0 on clean.
- */
-'use strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import postcss from 'postcss';
 
-const fs      = require('fs');
-const path    = require('path');
-const postcss = require('postcss');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// ── directories and their level numbers ─────────────────────────────────────
 const LEVEL_DIRS = [
   { dir: path.join(__dirname, '..', 'src', 'css', 'foundations'), level: 1 },
   { dir: path.join(__dirname, '..', 'src', 'css', 'components'),  level: 2 },
 ];
 
-// Bases that are intentionally shared / don't belong to a single file
 const GLOBAL_ALLOWED_BASES = new Set(['ui-field']);
 
-// ── helpers ──────────────────────────────────────────────────────────────────
 function collectCssFiles(dir, level) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir)
@@ -68,19 +39,17 @@ function isPrecedingExemption(rule) {
     prev.text.trim().toLowerCase() === 'audit-atomic: ignore';
 }
 
-/** True if the file header declares it is entirely a backward-compat stub file. */
 function isStubsFile(root) {
   let found = false;
   root.each((node) => {
     if (node.type === 'comment' && node.text.includes('audit-atomic: stubs-file')) {
       found = true;
     }
-    return false; // stop after first node
+    return false;
   });
   return found;
 }
 
-/** Build a Set of bases that appear AFTER a `stubs-section` marker in this file. */
 function getStubsSectionBases(root) {
   const bases = new Set();
   let inStubsSection = false;
@@ -99,11 +68,9 @@ function getStubsSectionBases(root) {
   return bases;
 }
 
-// ── build a registry: base-class → { file, level } ──────────────────────────
 const allFiles = LEVEL_DIRS.flatMap(({ dir, level }) => collectCssFiles(dir, level));
 
-// First pass: collect which file "owns" each base (first file to define it solo)
-const baseOwner = new Map(); // base → { filePath, level }
+const baseOwner = new Map();
 
 allFiles.forEach(({ filePath, level }) => {
   const css  = fs.readFileSync(filePath, 'utf8');
@@ -123,17 +90,14 @@ allFiles.forEach(({ filePath, level }) => {
   });
 });
 
-// ── second pass: detect cross-ownership violations ───────────────────────────
 const violations = [];
 
 allFiles.forEach(({ filePath, level }) => {
   const css  = fs.readFileSync(filePath, 'utf8');
   const root = postcss.parse(css, { from: filePath });
 
-  // Skip files that are entirely backward-compat stub collections
   if (isStubsFile(root)) return;
 
-  // Collect bases exempt because they live in a stubs-section of this file
   const stubsSectionBases = getStubsSectionBases(root);
 
   root.walkRules((rule) => {
@@ -142,14 +106,14 @@ allFiles.forEach(({ filePath, level }) => {
 
     rule.selectors.forEach((sel) => {
       const classes = extractClasses(sel);
-      if (classes.length !== 1) return; // compound selectors are contextual — OK
+      if (classes.length !== 1) return;
 
       const base  = getBase(classes[0]);
       if (GLOBAL_ALLOWED_BASES.has(base)) return;
-      if (stubsSectionBases.has(base)) return; // within a declared stubs-section
+      if (stubsSectionBases.has(base)) return;
 
       const owner = baseOwner.get(base);
-      if (!owner) return; // not registered (shouldn't happen in second pass)
+      if (!owner) return;
 
       if (owner.filePath !== filePath && owner.level === level) {
         violations.push({

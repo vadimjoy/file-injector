@@ -43,6 +43,39 @@ npm install ai-css-kit font-awesome
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
+## CLI — Generate UI from Natural Language
+
+```bash
+npm install ai-css-kit --save-dev
+npx ai-css-kit generate "primary button"
+```
+
+The CLI transforms natural language into standards-compliant HTML using ai-css-kit components:
+
+```bash
+# Form generation
+npx ai-css-kit generate "login form with email and password"
+
+# With theme
+npx ai-css-kit generate "card with title" --theme midnight
+
+# Validate HTML output
+npx ai-css-kit validate output.html
+```
+
+Full CLI documentation: [cli.md](cli.md)
+
+## Playground — Interactive Component Demos
+
+51 schema-driven interactive demos at `src/demos/schemas/`. Each component has a JSON schema controlling size, variant, state, and token overrides. Mount a playground in any demo HTML:
+
+```html
+<div id="playground" data-schema="./schemas/button.js"></div>
+<script type="module" src="/shared/playground.js"></script>
+```
+
+See [docs/plans/DEMO_PLAYGROUND.md](../../plans/DEMO_PLAYGROUND.md) for the full specification.
+
 ## Quick Start
 
 ```html
@@ -103,18 +136,19 @@ npm run theme-map -- ./my-theme.json -o ./dist/themes/my-theme.css
 ## Development & Build
 
 ```bash
-npm install          # install PostCSS dev tools
-npm run build        # dist/ai-css-kit.css and dist/ai-css-kit.min.css
-npm run build:themes # dist/themes/*.css from src/themes/*.json
-npm test             # run theme-map.js unit tests
+npm install          # install dependencies
+npm run build        # dist/ai-css-kit.css + dist/ai-css-kit.min.css + 58 modular CSS files + 5 themes
+npm run lint:coupling  # check atomic-level coupling violations
+npm run lint:atomic-level # enforce import layer order
 ```
 
-The build is based on `postcss-cli` + `postcss-import` + `postcss-nesting`. Minification is applied automatically for `ai-css-kit.min.css`.
+The build uses `postcss-cli` + `postcss-import` + `postcss-nesting`. All build scripts are ESM (`.mjs`).
 
 ## Documentation
 
 - Component examples, states, and tokens — [SPEC.md](SPEC.md)
 - Theming, CLI mapper, and JSON format — [theming.md](theming.md)
+- **CLI guide** — [cli.md](cli.md)
 - Live component demos are in `src/demos/*.html`
 - Architectural decisions — [adr/README.md](../../adr/README.md)
 - Project roadmap — [MASTER_PLAN.md](MASTER_PLAN.md)

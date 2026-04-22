@@ -6,19 +6,22 @@
  * Run:  node --test tests/theme-map.test.js
  */
 
-'use strict';
+import { test, describe } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const { test, describe } = require('node:test');
-const assert             = require('node:assert/strict');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const {
+import {
   tokenKeyToCssVar,
   detectFormat,
   hasLeafKey,
   flattenTokens,
   parseTheme,
   generateCSS,
-} = require('../scripts/theme-map');
+} from '../scripts/theme-map.js';
 
 /* --------------------------------------------------------------------------
    tokenKeyToCssVar
@@ -253,8 +256,6 @@ describe('generateCSS', () => {
 
 describe('integration: native theme file round-trip', () => {
   test('default.json produces correct CSS', () => {
-    const fs   = require('fs');
-    const path = require('path');
     const raw  = fs.readFileSync(
       path.resolve(__dirname, '../src/themes/default.json'), 'utf8'
     );
@@ -268,8 +269,6 @@ describe('integration: native theme file round-trip', () => {
   });
 
   test('dark.json produces dark token overrides', () => {
-    const fs   = require('fs');
-    const path = require('path');
     const raw  = fs.readFileSync(
       path.resolve(__dirname, '../src/themes/dark.json'), 'utf8'
     );
@@ -282,8 +281,6 @@ describe('integration: native theme file round-trip', () => {
   });
 
   test('midnight.json uses --ai-* component token override', () => {
-    const fs   = require('fs');
-    const path = require('path');
     const raw  = fs.readFileSync(
       path.resolve(__dirname, '../src/themes/midnight.json'), 'utf8'
     );

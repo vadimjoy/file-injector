@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-const fs = require('fs');
-const path = require('path');
-const postcss = require('postcss');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import postcss from 'postcss';
 
-const COMPONENT_DIR   = path.join(__dirname, '..', 'src', 'css', 'components');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const COMPONENT_DIR = path.join(__dirname, '..', 'src', 'css', 'components');
 const FOUNDATIONS_DIR = path.join(__dirname, '..', 'src', 'css', 'foundations');
 const GLOBAL_ALLOWED_BASES = new Set(['ui-field']);
 
