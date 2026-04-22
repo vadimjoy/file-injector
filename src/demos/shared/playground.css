@@ -46,19 +46,29 @@
 
 .ui-playground__preview-inner {
   width: 100%;
-  transition: max-width var(--ui-transition-normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width var(--ui-transition-normal), max-width var(--ui-transition-normal);
+  box-sizing: border-box;
+  /* Слой превью отдельно от оболочки: меньше залезаний z-index/overflow из демо */
+  isolation: isolate;
 }
 
+/* Доля ширины колонки превью: на узкой сетке tablet ≠ desktop; лимиты — типичные брейкпоинты. */
 .ui-playground__preview-inner[data-viewport="mobile"] {
+  width: 72%;
   max-width: 360px;
 }
 
 .ui-playground__preview-inner[data-viewport="tablet"] {
+  width: 88%;
   max-width: 768px;
 }
 
 .ui-playground__preview-inner[data-viewport="desktop"] {
-  max-width: 100%;
+  width: 100%;
+  max-width: none;
 }
 
 .ui-playground__preview-inner[data-theme] {
@@ -69,6 +79,27 @@
   direction: rtl;
 }
 
+.ui-playground__globals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-3);
+  margin-bottom: var(--ui-space-2);
+}
+
+.ui-playground__globals-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.ui-playground__globals-label {
+  font-size: var(--ui-font-size-xs);
+  font-weight: 600;
+  color: var(--ui-color-text-secondary);
+  margin-right: var(--ui-space-1);
+}
+
 .ui-playground__controls {
   grid-area: controls;
   display: flex;
@@ -76,10 +107,8 @@
   gap: var(--ui-space-4);
 }
 
-.ui-playground__section {
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-md);
+/* Панель Controls — поверхность из кита (.ui-card), без дублирующей «самодельной» карточки */
+.ui-playground__section.ui-card {
   padding: var(--ui-space-4);
 }
 
@@ -105,6 +134,11 @@
   font-size: var(--ui-font-size-xs);
   color: var(--ui-color-text-muted);
   margin-bottom: var(--ui-space-1);
+}
+
+/* Сегменты в панели — компактный шрифт как у глобальных чипов */
+.ui-playground__control .ui-chip {
+  font-weight: 500;
 }
 
 .ui-playground__code {
@@ -135,23 +169,7 @@
 }
 
 .ui-playground__code-copy {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--ui-space-1);
-  padding: var(--ui-space-1) var(--ui-space-2);
-  font-size: var(--ui-font-size-xs);
-  font-weight: 500;
-  color: var(--ui-color-text-secondary);
-  background: var(--ui-color-bg);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-sm);
-  cursor: pointer;
-  transition: var(--ui-transition-fast);
-}
-
-.ui-playground__code-copy:hover {
-  background: var(--ui-color-bg-hover);
-  color: var(--ui-color-text);
+  flex-shrink: 0;
 }
 
 .ui-playground__code-copy--copied {

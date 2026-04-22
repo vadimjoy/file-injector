@@ -3,305 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI CSS Kit — CSS Components</title>
+  <title>AI CSS Kit — Демо компонентов</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfZ6PfrE0tMumjHgNsx3Rp3bIanFkFJxuxMxkvZWS9Vyhi3F7S3Uz+jD06P88GJEY2c7fsa+X1JdZx+X0hm4Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./src/css/index.css">
-  <link rel="stylesheet" href="./src/demos/shared/showcase-page.css">
+  <link rel="stylesheet" href="./src/demos/shared/playground.css">
+  <link rel="stylesheet" href="./src/demos/showcase-app.css">
 </head>
-<body class="showcase-page">
-  <div class="showcase">
-    <header class="showcase__header">
-      <h1 class="showcase__title">AI CSS Kit</h1>
-      <p class="showcase__subtitle">AI-first CSS-library</p>
-      <div class="showcase__theme-panel ui-field ui-field--sm">
+<body class="showcase-app">
+  <div class="showcase-app__layout">
+    <aside class="showcase-app__sidebar" aria-label="Каталог компонентов">
+      <div class="showcase-app__brand">
+        <h1 class="showcase-app__title">AI CSS Kit</h1>
+        <p class="showcase-app__tagline">Одна страница — одно демо. Без сетки iframe.</p>
+      </div>
+      <div class="ui-field ui-field--sm">
         <label class="ui-label" for="theme-select">
           <i class="fa fa-paint-brush" aria-hidden="true"></i>
-          Theme preset
+          Тема
         </label>
         <select class="ui-select" id="theme-select">
-          <option value="default">Default (Light)</option>
+          <option value="default">Default (light)</option>
           <option value="dark">Dark</option>
           <option value="midnight">Midnight</option>
           <option value="corporate">Corporate</option>
           <option value="warm">Warm</option>
         </select>
       </div>
-    </header>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/button.html" target="_blank" rel="noreferrer"><i class="fa fa-bolt" aria-hidden="true"></i>Button</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/button.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/input.html" target="_blank" rel="noreferrer"><i class="fa fa-i-cursor" aria-hidden="true"></i>Input</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/input.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/select.html" target="_blank" rel="noreferrer"><i class="fa fa-list" aria-hidden="true"></i>Select</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/select.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/textarea.html" target="_blank" rel="noreferrer"><i class="fa fa-align-left" aria-hidden="true"></i>Textarea</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/textarea.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/checkbox.html" target="_blank" rel="noreferrer"><i class="fa fa-check-square-o" aria-hidden="true"></i>Checkbox</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/checkbox.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/radio.html" target="_blank" rel="noreferrer"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>Radio</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/radio.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/toggle.html" target="_blank" rel="noreferrer"><i class="fa fa-sliders" aria-hidden="true"></i>Toggle</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/toggle.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/badge.html" target="_blank" rel="noreferrer"><i class="fa fa-tag" aria-hidden="true"></i>Badge</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/badge.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/progress.html" target="_blank" rel="noreferrer"><i class="fa fa-tasks" aria-hidden="true"></i>Progress</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/progress.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/slider.html" target="_blank" rel="noreferrer"><i class="fa fa-arrows-h" aria-hidden="true"></i>Slider</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/slider.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/card.html" target="_blank" rel="noreferrer"><i class="fa fa-clone" aria-hidden="true"></i>Card</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/card.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/file-upload.html" target="_blank" rel="noreferrer"><i class="fa fa-upload" aria-hidden="true"></i>File Upload</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/file-upload.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/tooltip.html" target="_blank" rel="noreferrer"><i class="fa fa-commenting-o" aria-hidden="true"></i>Tooltip</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/tooltip.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/autocomplete.html" target="_blank" rel="noreferrer"><i class="fa fa-search" aria-hidden="true"></i>Autocomplete</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/autocomplete.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/datepicker.html" target="_blank" rel="noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i>Datepicker</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/datepicker.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/tabs.html" target="_blank" rel="noreferrer"><i class="fa fa-folder-open-o" aria-hidden="true"></i>Tabs</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/tabs.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/alert.html" target="_blank" rel="noreferrer"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Alert</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/alert.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/spinner.html" target="_blank" rel="noreferrer"><i class="fa fa-spinner" aria-hidden="true"></i>Spinner</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/spinner.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/avatar.html" target="_blank" rel="noreferrer"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Avatar</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/avatar.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/tag.html" target="_blank" rel="noreferrer"><i class="fa fa-tags" aria-hidden="true"></i>Tag</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/tag.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/breadcrumb.html" target="_blank" rel="noreferrer"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Breadcrumb</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/breadcrumb.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/pagination.html" target="_blank" rel="noreferrer"><i class="fa fa-ellipsis-h" aria-hidden="true"></i>Pagination</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/pagination.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/table.html" target="_blank" rel="noreferrer"><i class="fa fa-table" aria-hidden="true"></i>Table</a></div>
-      <iframe class="showcase__iframe" style="min-height:420px" src="./src/demos/table.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/steps.html" target="_blank" rel="noreferrer"><i class="fa fa-list-ol" aria-hidden="true"></i>Steps</a></div>
-      <iframe class="showcase__iframe" style="min-height:600px" src="./src/demos/steps.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/modal.html" target="_blank" rel="noreferrer"><i class="fa fa-window-maximize" aria-hidden="true"></i>Modal</a></div>
-      <iframe class="showcase__iframe" style="min-height:700px" src="./src/demos/modal.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/dropdown.html" target="_blank" rel="noreferrer"><i class="fa fa-caret-down" aria-hidden="true"></i>Dropdown</a></div>
-      <iframe class="showcase__iframe" style="min-height:520px" src="./src/demos/dropdown.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/chip.html" target="_blank" rel="noreferrer"><i class="fa fa-filter" aria-hidden="true"></i>Chip</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/chip.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/divider.html" target="_blank" rel="noreferrer"><i class="fa fa-minus" aria-hidden="true"></i>Divider</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/divider.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/empty-state.html" target="_blank" rel="noreferrer"><i class="fa fa-inbox" aria-hidden="true"></i>Empty State</a></div>
-      <iframe class="showcase__iframe" style="min-height:520px" src="./src/demos/empty-state.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/banner.html" target="_blank" rel="noreferrer"><i class="fa fa-bullhorn" aria-hidden="true"></i>Banner</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/banner.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/callout.html" target="_blank" rel="noreferrer"><i class="fa fa-quote-left" aria-hidden="true"></i>Callout</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/callout.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/skeleton.html" target="_blank" rel="noreferrer"><i class="fa fa-hourglass-half" aria-hidden="true"></i>Skeleton</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/skeleton.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/stat-card.html" target="_blank" rel="noreferrer"><i class="fa fa-line-chart" aria-hidden="true"></i>Stat Card</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/stat-card.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/section-header.html" target="_blank" rel="noreferrer"><i class="fa fa-header" aria-hidden="true"></i>Section Header</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/section-header.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/feed.html" target="_blank" rel="noreferrer"><i class="fa fa-list-ul" aria-hidden="true"></i>Feed / Timeline</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/feed.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/rating.html" target="_blank" rel="noreferrer"><i class="fa fa-star" aria-hidden="true"></i>Rating</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/rating.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/search.html" target="_blank" rel="noreferrer"><i class="fa fa-search" aria-hidden="true"></i>Search</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/search.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/status.html" target="_blank" rel="noreferrer"><i class="fa fa-circle" aria-hidden="true"></i>Status</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/status.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/notification.html" target="_blank" rel="noreferrer"><i class="fa fa-bell" aria-hidden="true"></i>Notification</a></div>
-      <iframe class="showcase__iframe" style="min-height:480px" src="./src/demos/notification.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/sidebar.html" target="_blank" rel="noreferrer"><i class="fa fa-bars" aria-hidden="true"></i>Sidebar</a></div>
-      <iframe class="showcase__iframe" style="min-height:560px" src="./src/demos/sidebar.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/navbar.html" target="_blank" rel="noreferrer"><i class="fa fa-navicon" aria-hidden="true"></i>Navbar</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/navbar.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/typography.html" target="_blank" rel="noreferrer"><i class="fa fa-font" aria-hidden="true"></i>Typography</a></div>
-      <iframe class="showcase__iframe" style="min-height:640px" src="./src/demos/typography.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/accordion.html" target="_blank" rel="noreferrer"><i class="fa fa-chevron-down" aria-hidden="true"></i>Accordion</a></div>
-      <iframe class="showcase__iframe" style="min-height:520px" src="./src/demos/accordion.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/kbd.html" target="_blank" rel="noreferrer"><i class="fa fa-keyboard-o" aria-hidden="true"></i>Kbd</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/kbd.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/timeline.html" target="_blank" rel="noreferrer"><i class="fa fa-history" aria-hidden="true"></i>Timeline</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/timeline.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/pricing-card.html" target="_blank" rel="noreferrer"><i class="fa fa-credit-card" aria-hidden="true"></i>Pricing Card</a></div>
-      <iframe class="showcase__iframe" style="min-height:560px" src="./src/demos/pricing-card.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/feature-item.html" target="_blank" rel="noreferrer"><i class="fa fa-th-large" aria-hidden="true"></i>Feature Item</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/feature-item.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/chat.html" target="_blank" rel="noreferrer"><i class="fa fa-comments" aria-hidden="true"></i>Chat</a></div>
-      <iframe class="showcase__iframe" style="min-height:560px" src="./src/demos/chat.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/toggle-item.html" target="_blank" rel="noreferrer"><i class="fa fa-toggle-on" aria-hidden="true"></i>Toggle Item</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/toggle-item.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/color-swatch.html" target="_blank" rel="noreferrer"><i class="fa fa-paint-brush" aria-hidden="true"></i>Color Swatch</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/color-swatch.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/logo-cloud.html" target="_blank" rel="noreferrer"><i class="fa fa-building" aria-hidden="true"></i>Logo Cloud</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/logo-cloud.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/chart-legend.html" target="_blank" rel="noreferrer"><i class="fa fa-pie-chart" aria-hidden="true"></i>Chart Legend</a></div>
-      <iframe class="showcase__iframe" src="./src/demos/chart-legend.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/footer.html" target="_blank" rel="noreferrer"><i class="fa fa-align-center" aria-hidden="true"></i>Footer</a></div>
-      <iframe class="showcase__iframe" style="min-height:480px" src="./src/demos/footer.html"></iframe>
-    </div>
-
-    <div class="showcase__section">
-      <div class="showcase__section-title"><a href="./src/demos/icons.html" target="_blank" rel="noreferrer"><i class="fa fa-th" aria-hidden="true"></i>Icons</a></div>
-      <iframe class="showcase__iframe" style="min-height:600px" src="./src/demos/icons.html"></iframe>
-    </div>
+      <p class="showcase-app__hint">Из корня: <code>npm run build</code> (нужны <code>dist/themes/*.css</code>), затем <code>npm run demo</code> — открывайте по HTTP, не через <code>file://</code>.</p>
+      <nav class="showcase-app__nav" aria-label="Компоненты">
+        <ul class="showcase-app__nav-list" id="showcase-nav"></ul>
+      </nav>
+    </aside>
+    <div class="showcase-app__main" id="showcase-stage" role="main" aria-live="polite"></div>
   </div>
-
-  <script defer src="./src/demos/shared/showcase-page.js"></script>
+  <script type="module" src="./src/demos/showcase-app.js"></script>
 </body>
 </html>

@@ -413,11 +413,13 @@ Track H is **not** complete; this records tooling and fixes merged so far toward
 
 #### 4.3.1 Playground skeleton
 
-`src/demos/playground/` with four panels:
-- **Preview** — live component render inside an iframe for isolation
+`src/demos/shared/playground.js` plus schemas in `src/demos/schemas/*.js`, four panels:
+- **Preview** — live render inside `.ui-playground__preview-inner`; preset theme (`data-theme`), width (`data-viewport`), and RTL are applied on that host — **no iframe required** (optional only if strict `document` isolation is needed).
 - **Controls** — segmented, select, range, text, toggle, color inputs — all generated from schema
 - **Code** — rendered HTML with a "Copy" button
 - **Tokens** — live `--ai-*` token values with inline overrides
+
+On the root demo hub, the preset theme is chosen **once** in the sidebar; the playground’s duplicate “Theme” chip row is turned off (`hideThemeControls`) so it does not fight the shell.
 
 No framework. ES modules, no build step.
 

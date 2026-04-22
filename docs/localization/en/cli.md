@@ -6,11 +6,13 @@
 > **Related ADR:** [ADR-0005 CLI Agent Architecture](../adr/0005-cli-agent-architecture.md)  
 > **Architecture spec:** [Phase 4.1 CLI Architecture](../design/phase-4.1-cli-architecture.md)
 
+> **Maturity status:** the CLI layer is partially implemented, but should not yet be treated as a fully stable product layer. In the roadmap, the playground (subphase 4.3) is still a blocker for end-to-end CLI maturity.
+
 ---
 
 ## Overview
 
-The AI CSS Kit CLI generates standards-compliant HTML markup from natural language descriptions. It transforms prompts like `"registration form with email, password and submit button"` into production-ready HTML using ai-css-kit component classes.
+The AI CSS Kit CLI generates HTML markup from natural language descriptions. It is the intended top layer of the system: it transforms prompts like `"registration form with email, password and submit button"` into HTML using ai-css-kit component contracts.
 
 ```
 npm install ai-css-kit

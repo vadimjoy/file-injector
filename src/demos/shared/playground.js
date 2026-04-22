@@ -7,8 +7,14 @@
 const html = (strings, ...values) => strings.reduce((acc, str, i) => acc + str + (values[i] ?? ''), '');
 
 class Playground {
-  constructor(host, schemaUrl) {
+  /**
+   * @param {HTMLElement} host
+   * @param {string} schemaUrl
+   * @param {{ hideThemeControls?: boolean }} [options] — в каталоге (`showcase-app`) тема задаётся снаружи; дублирующий ряд Theme в playground скрывают.
+   */
+  constructor(host, schemaUrl, options = {}) {
     this.host = host;
+    this.options = { hideThemeControls: false, ...options };
     this.schema = null;
     this.state = {};
     this.originalTokens = {};
@@ -16,30 +22,56 @@ class Playground {
     this.previewInner = null;
     this.codeBody = null;
     this.tokensBody = null;
+    /** Состояние глобальной панели (синхрон с чипами и с preview-inner). */
+    this._global = { theme: 'default', viewport: 'desktop', rtl: false };
+    if (this.options.hideThemeControls && typeof document !== 'undefined') {
+      const shell = document.documentElement.getAttribute('data-theme');
+      this._global.theme = shell && shell !== 'light' ? shell : 'default';
+    }
 
     this.loadSchema(schemaUrl);
   }
 
   async loadSchema(url) {
+    let resolved = url;
+    if (typeof document !== 'undefined' && document.baseURI) {
+      try {
+        resolved = new URL(url, document.baseURI).href;
+      } catch {
+        resolved = url;
+      }
+    }
     try {
-      const module = await import(/* @vite-ignore */ url);
+      const module = await import(/* @vite-ignore */ resolved);
       this.schema = module.default || module;
       this.init();
     } catch (err) {
-      console.error('Failed to load schema:', url, err);
-      this.host.innerHTML = `<div class="ui-alert ui-alert--error">Failed to load schema: ${url}</div>`;
+      console.error('Failed to load schema:', resolved, err);
+      this.host.innerHTML = `<div class="ui-alert ui-alert--error">Failed to load schema: ${url}<br><small>Resolved: ${resolved}</small></div>`;
     }
   }
 
   init() {
     if (!this.schema) return;
 
-    this.collectOriginalTokens();
     this.renderShell();
+    this.initState();
+    this.renderControls();
     this.bindGlobalControls();
     this.updatePreview();
     this.updateCode();
+    this.collectOriginalTokens();
     this.updateTokens();
+    this.host.dispatchEvent(new Event('playground-ready'));
+  }
+
+  initState() {
+    this.state = {};
+    this.schema.controls?.forEach((ctrl) => {
+      if (ctrl.default !== undefined) {
+        this.state[ctrl.key] = ctrl.default;
+      }
+    });
   }
 
   collectOriginalTokens() {
@@ -65,8 +97,8 @@ class Playground {
       <div class="ui-playground__code" data-section="code">
         <div class="ui-playground__code-header">
           <span class="ui-playground__code-title">HTML</span>
-          <button class="ui-playground__code-copy" data-copy-btn>
-            <i class="fa fa-copy"></i> Copy
+          <button type="button" class="ui-button ui-button--ghost ui-button--sm ui-playground__code-copy" data-copy-btn>
+            <i class="fa fa-copy" aria-hidden="true"></i> Copy
           </button>
         </div>
         <div class="ui-playground__code-body">
@@ -97,7 +129,7 @@ class Playground {
     const controlsHtml = controls.map(ctrl => this.renderControl(ctrl)).join('');
 
     const section = document.createElement('div');
-    section.className = 'ui-playground__section';
+    section.className = 'ui-card ui-playground__section';
     section.innerHTML = html`
       <div class="ui-playground__section-title">Controls</div>
       ${controlsHtml}
@@ -118,7 +150,8 @@ class Playground {
       case 'segmented':
         inputHtml = ctrl.options.map(opt => html`
           <button
-            class="ui-chip ${this.state[ctrl.key] === opt ? 'ui-chip--active' : ''}"
+            type="button"
+            class="ui-chip ui-chip--sm ${this.state[ctrl.key] === opt ? 'ui-chip--active' : ''}"
             data-key="${ctrl.key}"
             data-value="${opt}"
             aria-pressed="${this.state[ctrl.key] === opt}"
@@ -137,11 +170,13 @@ class Playground {
         return html`
           <div class="ui-playground__control" data-control="${ctrl.key}">
             <label class="ui-playground__control-label">${ctrl.label || ctrl.key}</label>
-            <select class="ui-select ui-select--sm" data-key="${ctrl.key}" style="width:100%">
-              ${ctrl.options.map(opt => html`
-                <option value="${opt}" ${this.state[ctrl.key] === opt ? 'selected' : ''}>${opt}</option>
-              `).join('')}
-            </select>
+            <div class="ui-field ui-field--sm">
+              <select class="ui-select" data-key="${ctrl.key}" style="width:100%">
+                ${ctrl.options.map(opt => html`
+                  <option value="${opt}" ${this.state[ctrl.key] === opt ? 'selected' : ''}>${opt}</option>
+                `).join('')}
+              </select>
+            </div>
           </div>
         `;
 
@@ -194,11 +229,10 @@ class Playground {
       case 'toggle':
         return html`
           <div class="ui-playground__control" data-control="${ctrl.key}">
-            <label class="u-cluster">
-              <span>${ctrl.label || ctrl.key}</span>
+            <span class="ui-playground__control-label">${ctrl.label || ctrl.key}</span>
+            <label class="ui-toggle ui-toggle--sm">
               <input
                 type="checkbox"
-                class="ui-toggle ui-toggle--sm"
                 data-key="${ctrl.key}"
                 ${this.state[ctrl.key] ? 'checked' : ''}
               />
@@ -297,78 +331,70 @@ class Playground {
     if (!ctrl) return;
 
     this.state[key] = value;
-    this.applyBinding(ctrl);
+    if (ctrl.bindsVar) {
+      this.changedTokens.add(ctrl.bindsVar);
+    }
     this.updatePreview();
     this.updateCode();
     this.updateTokens();
+    this.refreshSegmentedControlUI();
   }
 
-  applyBinding(ctrl) {
-    if (ctrl.bindsClass) {
-      const classes = ctrl.bindsClass.split('|').map(tmpl => {
-        const val = this.state[ctrl.key];
-        return tmpl.replace('{value}', val);
+  /** Синхронизация ui-chip--active с this.state (сегменты не перерисовываются целиком). */
+  refreshSegmentedControlUI() {
+    this.schema.controls?.forEach((c) => {
+      if (c.type !== 'segmented') return;
+      const container = this.host.querySelector(`[data-control="${c.key}"]`);
+      if (!container) return;
+      const val = this.state[c.key];
+      container.querySelectorAll('[data-key][data-value]').forEach((btn) => {
+        const on = btn.dataset.value === String(val);
+        btn.classList.toggle('ui-chip--active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
+    });
+  }
 
-      const base = this.schema.baseClass || '';
-      this.previewInner.className = 'ui-playground__preview-inner';
-      if (base) this.previewInner.classList.add(...base.split(' ').filter(Boolean));
+  applyTemplateBindings(html) {
+    let out = html;
+    this.schema.templateBindings?.forEach(({ placeholder, compute }) => {
+      const token = `{${placeholder}}`;
+      if (!out.includes(token)) return;
+      const val = compute(this.state);
+      out = out.split(token).join(val);
+    });
+    return out;
+  }
 
-      if (ctrl.type === 'segmented') {
-        this.previewInner.classList.remove(...ctrl.options.flatMap(o =>
-          ctrl.bindsClass.split('|').map(tmpl => tmpl.replace('{value}', o))
-        ));
-      }
-      this.previewInner.classList.add(...classes.filter(Boolean));
+  buildClassString() {
+    const parts = [];
+    if (this.schema.baseClass) {
+      parts.push(...this.schema.baseClass.split(' ').filter(Boolean));
     }
-
-    if (ctrl.bindsVar) {
-      const val = this.state[ctrl.key];
-      const cssValue = ctrl.unit ? `${val}${ctrl.unit}` : val;
-      this.previewInner.style.setProperty(ctrl.bindsVar, cssValue);
-      this.changedTokens.add(ctrl.bindsVar);
-    }
-
-    if (ctrl.bindsAttr) {
-      if (ctrl.bindsAttr === 'disabled') {
-        const el = this.previewInner.querySelector('[data-target]') || this.previewInner.firstElementChild;
-        if (el) {
-          if (this.state[ctrl.key]) {
-            el.setAttribute('disabled', '');
-          } else {
-            el.removeAttribute('disabled');
-          }
-        }
-      }
-    }
-
-    if (ctrl.bindsText) {
-      const target = this.previewInner.querySelector(ctrl.target || '[data-target]') || this.previewInner.firstElementChild;
-      if (target) {
-        target.textContent = this.state[ctrl.key];
-      }
-    }
+    Object.entries(this.state).forEach(([key, value]) => {
+      const ctrl = this.schema.controls?.find(c => c.key === key);
+      if (!ctrl?.bindsClass) return;
+      if (ctrl.omitClassForValues?.includes(value)) return;
+      if (ctrl.type === 'toggle' && !value) return;
+      ctrl.bindsClass.split('|').forEach((tmpl) => {
+        const c = tmpl.replace('{value}', value);
+        if (c) parts.push(c);
+      });
+    });
+    return parts.join(' ');
   }
 
   updatePreview() {
-    if (!this.schema.template) return;
+    if (!this.schema.template || !this.previewInner) return;
 
-    let html = this.schema.template;
+    let html = this.applyTemplateBindings(this.schema.template);
+    html = html.replace('{class}', this.buildClassString());
+
     Object.entries(this.state).forEach(([key, value]) => {
       const ctrl = this.schema.controls?.find(c => c.key === key);
-      if (!ctrl) return;
-
-      if (ctrl.bindsClass) {
-        const classes = ctrl.bindsClass.split('|').map(tmpl => tmpl.replace('{value}', value)).join(' ');
-        html = html.replace('{class}', classes);
-      }
-      if (ctrl.bindsText) {
-        html = html.replace('{text}', value);
-      }
+      if (!ctrl?.bindsText) return;
+      html = html.replace('{text}', value);
     });
-
-    const defaultClass = this.schema.baseClass || '';
-    html = html.replace('{class}', defaultClass);
 
     this.previewInner.innerHTML = html;
 
@@ -378,34 +404,28 @@ class Playground {
       if (ctrl.bindsVar) {
         const cssValue = ctrl.unit ? `${value}${ctrl.unit}` : value;
         this.previewInner.style.setProperty(ctrl.bindsVar, cssValue);
-        this.changedTokens.add(ctrl.bindsVar);
       }
-      if (ctrl.bindsAttr === 'disabled' && value) {
-        const el = this.previewInner.firstElementChild;
-        if (el) el.setAttribute('disabled', '');
+      if (ctrl.bindsAttr) {
+        const el = this.previewInner.querySelector('[data-target]') || this.previewInner.firstElementChild;
+        if (el) {
+          if (value) el.setAttribute(ctrl.bindsAttr, '');
+          else el.removeAttribute(ctrl.bindsAttr);
+        }
       }
     });
   }
 
   updateCode() {
-    if (!this.schema.template) return;
+    if (!this.schema.template || !this.codeBody) return;
 
-    let code = this.schema.template;
+    let code = this.applyTemplateBindings(this.schema.template);
+    code = code.replace('{class}', this.buildClassString());
+
     Object.entries(this.state).forEach(([key, value]) => {
       const ctrl = this.schema.controls?.find(c => c.key === key);
-      if (!ctrl) return;
-
-      if (ctrl.bindsClass) {
-        const classes = ctrl.bindsClass.split('|').map(tmpl => tmpl.replace('{value}', value)).join(' ');
-        code = code.replace('{class}', classes);
-      }
-      if (ctrl.bindsText) {
-        code = code.replace('{text}', this.escapeHtml(value));
-      }
+      if (!ctrl?.bindsText) return;
+      code = code.replace('{text}', this.escapeHtml(String(value)));
     });
-
-    const defaultClass = this.schema.baseClass || '';
-    code = code.replace('{class}', defaultClass);
 
     code = this.formatHtml(code);
     this.codeBody.textContent = code;
@@ -438,6 +458,7 @@ class Playground {
   }
 
   updateTokens() {
+    if (!this.tokensBody || !this.previewInner) return;
     if (!this.schema.tokens?.length) {
       this.tokensBody.innerHTML = '<div class="ui-text-body" style="color:var(--ui-color-text-muted);font-size:var(--ui-font-size-xs)">No tokens defined</div>';
       return;
@@ -462,21 +483,30 @@ class Playground {
     const themeValues = ['default', 'dark', 'midnight', 'corporate', 'warm'];
     const viewportValues = ['mobile', 'tablet', 'desktop'];
 
-    const globalsHtml = html`
-      <div style="display:flex;gap:var(--ui-space-2);flex-wrap:wrap;align-items:center">
-        <span style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted)">Theme:</span>
+    const themeRow = this.options.hideThemeControls
+      ? ''
+      : html`
+      <div class="ui-playground__globals-row" role="group" aria-label="Theme preset for preview">
+        <span class="ui-playground__globals-label">Theme:</span>
         ${themeValues.map(t => html`
-          <button class="ui-chip ui-chip--sm" data-theme="${t}">${t}</button>
+          <button type="button" class="ui-chip ui-chip--sm" data-theme="${t}">${t}</button>
         `).join('')}
       </div>
-      <div style="display:flex;gap:var(--ui-space-2);flex-wrap:wrap;align-items:center">
-        <span style="font-size:var(--ui-font-size-xs);color:var(--ui-color-text-muted)">Viewport:</span>
+    `;
+
+    const globalsHtml = html`
+      ${themeRow}
+      <div class="ui-playground__globals-row" role="group" aria-label="Preview width">
+        <span class="ui-playground__globals-label">Viewport:</span>
         ${viewportValues.map(v => html`
-          <button class="ui-chip ui-chip--sm" data-viewport="${v}">${v}</button>
+          <button type="button" class="ui-chip ui-chip--sm" data-viewport="${v}">${v}</button>
         `).join('')}
       </div>
-      <button class="ui-chip ui-chip--sm ui-chip--active" data-rtl="false">LTR</button>
-      <button class="ui-chip ui-chip--sm" data-rtl="true">RTL</button>
+      <div class="ui-playground__globals-row" role="group" aria-label="Text direction">
+        <span class="ui-playground__globals-label">Direction:</span>
+        <button type="button" class="ui-chip ui-chip--sm" data-rtl="false">LTR</button>
+        <button type="button" class="ui-chip ui-chip--sm" data-rtl="true">RTL</button>
+      </div>
     `;
 
     this.globalsSection.innerHTML = globalsHtml;
@@ -498,22 +528,69 @@ class Playground {
         this.setRTL(btn.dataset.rtl === 'true');
       });
     });
+
+    this.applyGlobalLayoutToPreview();
+    this.refreshGlobalChips();
+  }
+
+  /** Только атрибуты превью + чипы; без updateTokens (контент ещё не собран). */
+  applyGlobalLayoutToPreview() {
+    if (!this.previewInner) return;
+    const { theme, viewport, rtl } = this._global;
+    this.previewInner.setAttribute('data-viewport', viewport);
+    this.previewInner.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+    if (theme !== 'default') {
+      this.previewInner.setAttribute('data-theme', theme);
+    } else {
+      this.previewInner.removeAttribute('data-theme');
+    }
+  }
+
+  refreshGlobalChips() {
+    if (!this.globalsSection) return;
+    const { theme, viewport, rtl } = this._global;
+
+    this.globalsSection.querySelectorAll('[data-theme]').forEach((btn) => {
+      const on = btn.dataset.theme === theme;
+      btn.classList.toggle('ui-chip--active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    this.globalsSection.querySelectorAll('[data-viewport]').forEach((btn) => {
+      const on = btn.dataset.viewport === viewport;
+      btn.classList.toggle('ui-chip--active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    this.globalsSection.querySelectorAll('[data-rtl]').forEach((btn) => {
+      const wantRtl = btn.dataset.rtl === 'true';
+      const on = rtl === wantRtl;
+      btn.classList.toggle('ui-chip--active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
   }
 
   setTheme(theme) {
+    if (!this.previewInner) return;
+    this._global.theme = theme;
     this.previewInner.removeAttribute('data-theme');
     if (theme !== 'default') {
       this.previewInner.setAttribute('data-theme', theme);
     }
+    this.refreshGlobalChips();
     this.updateTokens();
   }
 
   setViewport(viewport) {
+    if (!this.previewInner) return;
+    this._global.viewport = viewport;
     this.previewInner.setAttribute('data-viewport', viewport);
+    this.refreshGlobalChips();
   }
 
   setRTL(rtl) {
+    if (!this.previewInner) return;
+    this._global.rtl = rtl;
     this.previewInner.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+    this.refreshGlobalChips();
   }
 
   copyCode() {

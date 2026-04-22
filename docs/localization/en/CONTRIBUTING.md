@@ -14,9 +14,35 @@ Every component in `ai-css-kit` must be:
 
 - **Deterministic** — given the same HTML structure and tokens, any AI agent must produce an identical, predictable result
 - **Atomic** — one block, one file, one responsibility. No hidden coupling
-- **Self-contained** — a Calendar is not a child of an Input. A Dropdown is not owned by an Autocomplete. Each is an independent CSS entity
+- **Self-contained** — a reusable subpart should not secretly live inside another component. A Dropdown should not be owned by an Autocomplete, and popup/grid/trigger-like parts should graduate into standalone contracts when they become shared
 
 The end goal: an AI agent should be able to compose any UI from this kit without ambiguity, without magic, and without reading source code.
+
+## Understand The Project Boundaries First
+
+Before your first change, keep this model in mind:
+
+```text
+CSS kit -> themes -> showcase/playground -> CLI
+```
+
+Where:
+
+- `CSS kit` is the canonical layer of tokens, utilities, foundations, and components
+- `showcase/playground` is the lab that proves the component contract actually works
+- `CLI` is the top layer; it should assemble HTML from stable contracts, not invent CSS from scratch
+
+If you are unsure where a change belongs, it is usually safer to improve the kit/showcase layers before touching the CLI.
+
+## Safest Contribution Areas
+
+If you want to get productive quickly without breaking direction, start here:
+
+1. tokens and themes
+2. utilities, grid, and layout primitives
+3. cleanup of component CSS contracts
+4. schemas and playground coverage for existing components
+5. documentation and onboarding
 
 ---
 
@@ -31,13 +57,13 @@ Components that co-locate state (e.g., a calendar popup wired into an input's DO
 ```
 src/css/components/
 ├── input.css          # text input only
-├── calendar.css       # calendar grid — standalone CSS entity
-├── autocomplete.css   # suggestion list — standalone CSS entity
 ├── dropdown.css       # generic dropdown shell
-└── datepicker.css     # composition: input + calendar (via Anchor Positioning)
+├── autocomplete.css   # suggestion list as a standalone contract
+├── datepicker.css     # composition built on simpler contracts
+└── ...
 ```
 
-`datepicker.css` can *reference* `calendar.css` tokens, but `calendar.css` must render correctly in isolation.
+When a subpart becomes shared and reusable, it should be promoted into its own module instead of being hidden inside another component's DOM contract.
 
 **CSS-first, JS-last.** Before reaching for JavaScript:
 
@@ -117,7 +143,7 @@ Any component that breaks under an arbitrary theme is a defect.
 
 ### For Major Refactors — Write an ADR
 
-Any structural change (e.g., decoupling Calendar from Input, migrating to Anchor Positioning, renaming token schema) requires an **Architectural Decision Record** before implementation.
+Any structural change (e.g., decomposing a complex component into standalone contracts, migrating to Anchor Positioning, renaming token schema) requires an **Architectural Decision Record** before implementation.
 
 Create a file at:
 
@@ -159,7 +185,13 @@ npm install
 npm run build
 ```
 
-Open `index.html` in a browser to see the component showcase.
+Use HTTP mode for the current showcase and module-based demos:
+
+```bash
+npm run demo
+```
+
+Do not treat `file://` as the canonical way to inspect the project.
 
 ### Development Workflow
 
@@ -177,7 +209,7 @@ Open `index.html` in a browser to see the component showcase.
    npm run build
    ```
 
-5. Test both `data-theme="light"` and `data-theme="dark"` manually.
+5. Test the default theme and at least one preset theme (`dark`, `midnight`, `corporate`, or `warm`) manually.
 
 ### Commit Convention
 
@@ -217,16 +249,17 @@ ai-css-kit/
 │   │   └── components/
 │   │       ├── input.css
 │   │       ├── button.css
-│   │       ├── calendar.css    # standalone — no input dependency
+│   │       ├── dropdown.css
 │   │       ├── autocomplete.css
 │   │       └── ...
 │   └── demos/
 │       ├── *.html              # one demo per component
-│       └── shared/             # showcase + iframe assets
+│       └── shared/             # showcase, playground, and shared demo assets
 │           ├── demo-page.css
-│           ├── showcase-page.css
-│           ├── demo-theme.js   # iframe theme sync
-│           └── showcase-page.js# landing toggle logic
+│           ├── playground.css
+│           ├── playground.js
+│           ├── demo-theme.js
+│           └── showcase-page.js / showcase-app.js
 ├── docs/
 │   ├── localization/
 │   │   ├── en/                 # English documentation
@@ -247,7 +280,7 @@ ai-css-kit/
 - **Nesting:** Use PostCSS nesting (`postcss-nesting`). Max 3 levels deep
 - **Comments:** Mark component sections with a block header:
   ```css
-  /* ─── Calendar Header ─── */
+  /* ─── Component Header ─── */
   ```
 - **Units:** `px` for fixed geometry, `em`/`rem` for typography-relative values, `%` for fluid layout
 

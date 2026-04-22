@@ -1,6 +1,6 @@
 # ADR-0005 — CLI Agent Architecture: split pipeline and provider abstraction
 
-**Status:** Proposed  
+**Status:** Accepted
 **Date:** 2026-04-09  
 **Author:** vadimjoy  
 **Related ADRs:** [0001](0001-atomic-decoupling.md), [0002](0002-context-modifier-pattern.md), [0003](0003-ai-token-naming.md), [0004](0004-theme-mapper-and-presets.md)  

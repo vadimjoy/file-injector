@@ -61,22 +61,25 @@
   box-shadow: 0 0 0 3px var(--ui-color-warning-soft);
 }
 
+/* padding-right оставляет место под chevron (общий .ui-select ниже); иначе иконка наезжает на текст */
 .ui-field--sm .ui-select {
-  padding: 6px 10px;
+  padding: 6px 36px 6px 10px;
   font-size: var(--ui-font-size-sm);
   border-radius: var(--ui-radius-sm);
+  background-position: right 8px center;
 }
 
 .ui-field--md .ui-select {
-  padding: 9px 13px;
+  padding: 9px 36px 9px 13px;
   font-size: var(--ui-font-size-md);
   border-radius: var(--ui-radius-md);
 }
 
 .ui-field--lg .ui-select {
-  padding: 13px 17px;
+  padding: 13px 40px 13px 17px;
   font-size: var(--ui-font-size-lg);
   border-radius: var(--ui-radius-lg);
+  background-position: right 12px center;
 }
 
 .ui-select {

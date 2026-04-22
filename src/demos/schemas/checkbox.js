@@ -2,13 +2,8 @@ export default {
   component: 'checkbox',
   atomicLevel: 'atom',
   baseClass: 'ui-checkbox',
-  template: `
-    <label class="ui-field">
-      <input type="checkbox" class="{class}" data-target>
-      <span class="ui-checkbox__box"><i class="fa fa-check"></i></span>
-      <span class="ui-checkbox__label">Checkbox label</span>
-    </label>
-  `,
+  template:
+    '<label class="{class}"><input type="checkbox" data-target><span>Checkbox label</span></label>',
   controls: [
     {
       key: 'size',

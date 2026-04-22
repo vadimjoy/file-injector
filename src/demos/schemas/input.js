@@ -2,7 +2,14 @@ export default {
   component: 'input',
   atomicLevel: 'atom',
   baseClass: 'ui-input',
-  template: '<input class="{class}" type="text" placeholder="Enter text..." data-target>',
+  template:
+    '<div class="ui-field {fieldSize}"><input class="{class}" type="text" placeholder="Enter text..." data-target></div>',
+  templateBindings: [
+    {
+      placeholder: 'fieldSize',
+      compute: (s) => `ui-field--${s.size ?? 'md'}`,
+    },
+  ],
   controls: [
     {
       key: 'size',
@@ -10,15 +17,15 @@ export default {
       label: 'Size',
       options: ['sm', 'md', 'lg'],
       default: 'md',
-      bindsClass: 'ui-field--{value}'
     },
     {
       key: 'icon',
       type: 'segmented',
       label: 'Icon',
-      options: ['none', 'left', 'right'],
+      options: ['none', 'icon-left', 'icon-right'],
       default: 'none',
-      bindsClass: 'ui-input--{value}'
+      bindsClass: 'ui-input--{value}',
+      omitClassForValues: ['none'],
     },
     {
       key: 'state',
@@ -26,7 +33,8 @@ export default {
       label: 'State',
       options: ['default', 'error', 'success', 'warning'],
       default: 'default',
-      bindsClass: 'ui-input--{value}'
+      bindsClass: 'ui-input--{value}',
+      omitClassForValues: ['default'],
     },
     {
       key: 'readonly',

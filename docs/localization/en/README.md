@@ -2,7 +2,40 @@
 
 > **Language:** English | [Русский](../ru/README.md)
 
-AI CSS Kit is a modular CSS library of form components and UI patterns for AI services and internal tools. It contains only HTML/CSS and a theme synchronisation script for demo pages; there are no runtime third-party dependencies beyond Font Awesome icons.
+AI CSS Kit is a deterministic visual platform for building precise interfaces from constrained tokens, CSS primitives, themes, schemas, and reusable component contracts.
+
+> New to the project? Start with [START_HERE.md](START_HERE.md).
+
+## What This Is
+
+The project has four layers:
+
+1. **CSS kit** — tokens, foundations, utilities, and components
+2. **Theme system** — preset themes and JSON → CSS theme mapping
+3. **Showcase / playground** — a component lab for testing states, tokens, and controlled variations
+4. **CLI** — a future HTML generation and validation layer built on top of the kit contracts
+
+Core idea:
+
+> We do not redesign a complex UI element every time.
+> We define its contract once, expose controlled variations, and extend the system through schemas instead of ad hoc CSS and markup.
+
+## What This Is Not
+
+- not a free-form visual builder
+- not an LLM that writes arbitrary CSS from scratch
+- not just a demo gallery
+- not a React/Vue component framework
+
+This is a constrained UI system: interfaces should be assembled from pre-validated building blocks and produce predictable output.
+
+## What Exists vs What Is Still Stabilizing
+
+- **ready now**: CSS kit, tokens, themes, most of the component layer, audit scripts, and core contracts
+- **actively being stabilized**: `showcase-app` and the schema-driven playground
+- **depends on playground maturity**: the CLI end-to-end flow
+
+This matters for contributors: the playground is not decorative. It is the visual contract and feedback loop for the rest of the system.
 
 ## Why AI CSS Kit
 
@@ -43,6 +76,17 @@ npm install ai-css-kit font-awesome
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
+## How To Read The Project
+
+If you need a quick mental model, read it like this:
+
+```text
+ai-css-kit = deterministic UI lego
+showcase-app = lab and control stand
+schemas = contract for allowed variations
+CLI = future HTML assembler using those contracts
+```
+
 ## CLI — Generate UI from Natural Language
 
 ```bash
@@ -50,7 +94,11 @@ npm install ai-css-kit --save-dev
 npx ai-css-kit generate "primary button"
 ```
 
-The CLI transforms natural language into standards-compliant HTML using ai-css-kit components:
+The CLI is intended as the top layer: it turns natural language into standards-compliant HTML using the already defined kit contracts.
+
+Important: by the current roadmap, this layer should not yet be treated as fully mature until the playground is stabilized.
+
+Target usage examples:
 
 ```bash
 # Form generation
@@ -67,7 +115,14 @@ Full CLI documentation: [cli.md](cli.md)
 
 ## Playground — Interactive Component Demos
 
-51 schema-driven interactive demos at `src/demos/schemas/`. Each component has a JSON schema controlling size, variant, state, and token overrides. Mount a playground in any demo HTML:
+`showcase-app` and the playground exist as a lab and validation surface. This is where a component must prove that it survives:
+
+- state and size variations
+- theme switching
+- token overrides
+- future CLI/validator integration
+
+Schema-driven demos live in `src/demos/schemas/`. Mount a playground in any demo HTML:
 
 ```html
 <div id="playground" data-schema="./schemas/button.js"></div>
@@ -75,6 +130,22 @@ Full CLI documentation: [cli.md](cli.md)
 ```
 
 See [docs/plans/DEMO_PLAYGROUND.md](../../plans/DEMO_PLAYGROUND.md) for the full specification.
+
+## Safe Contribution Areas
+
+If someone is new to the codebase, the safest contribution tracks are:
+
+1. tokens, themes, and theme mapping
+2. foundations / utilities / grid and layout primitives
+3. component contract cleanup in existing CSS modules
+4. schema-driven playground coverage for existing components
+5. documentation and contributor onboarding
+
+The CLI layer is easier to work on after understanding this pipeline:
+
+```text
+component CSS -> schema -> showcase/playground -> validation -> CLI generation
+```
 
 ## Quick Start
 
@@ -121,7 +192,7 @@ The kit ships with 5 pre-built themes: `default`, `dark`, `midnight`, `corporate
 <html data-theme="midnight">...</html>
 ```
 
-To revert to the default light theme, remove the `data-theme` attribute. The main showcase (`index.html`) includes a preset selector and synchronises the chosen theme across all iframes via `postMessage`.
+To revert to the default light theme, remove the `data-theme` attribute. The main showcase (`index.html`) is evolving toward a single `showcase-app` shell, without a required iframe grid.
 
 ### Theme Mapper CLI
 
@@ -146,10 +217,11 @@ The build uses `postcss-cli` + `postcss-import` + `postcss-nesting`. All build s
 
 ## Documentation
 
+- Quick onboarding and project boundaries — [START_HERE.md](START_HERE.md)
 - Component examples, states, and tokens — [SPEC.md](SPEC.md)
 - Theming, CLI mapper, and JSON format — [theming.md](theming.md)
 - **CLI guide** — [cli.md](cli.md)
-- Live component demos are in `src/demos/*.html`
+- Live component demos and playground infrastructure are in `src/demos/*.html`, `src/demos/shared/*`, and `src/demos/schemas/*`
 - Architectural decisions — [adr/README.md](../../adr/README.md)
 - Project roadmap — [MASTER_PLAN.md](MASTER_PLAN.md)
 - Glossary of terms — [../glossary.md](../../glossary.md)

@@ -2,7 +2,14 @@ export default {
   component: 'textarea',
   atomicLevel: 'atom',
   baseClass: 'ui-textarea',
-  template: '<textarea class="{class}" placeholder="Enter text..." rows="3" data-target></textarea>',
+  template:
+    '<div class="ui-field {fieldSize}"><textarea class="{class}" placeholder="Enter text..." rows="3" data-target></textarea></div>',
+  templateBindings: [
+    {
+      placeholder: 'fieldSize',
+      compute: (s) => `ui-field--${s.size ?? 'md'}`,
+    },
+  ],
   controls: [
     {
       key: 'size',
@@ -10,7 +17,6 @@ export default {
       label: 'Size',
       options: ['sm', 'md', 'lg'],
       default: 'md',
-      bindsClass: 'ui-field--{value}'
     },
     {
       key: 'disabled',

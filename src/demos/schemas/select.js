@@ -2,13 +2,17 @@ export default {
   component: 'select',
   atomicLevel: 'atom',
   baseClass: 'ui-select',
-  template: `
-    <select class="{class}" data-target>
+  template: `<div class="ui-field {fieldSize}"><select class="{class}" data-target>
       <option>Option 1</option>
       <option>Option 2</option>
       <option>Option 3</option>
-    </select>
-  `,
+    </select></div>`,
+  templateBindings: [
+    {
+      placeholder: 'fieldSize',
+      compute: (s) => `ui-field--${s.size ?? 'md'}`,
+    },
+  ],
   controls: [
     {
       key: 'size',
@@ -16,7 +20,6 @@ export default {
       label: 'Size',
       options: ['sm', 'md', 'lg'],
       default: 'md',
-      bindsClass: 'ui-field--{value}'
     },
     {
       key: 'disabled',

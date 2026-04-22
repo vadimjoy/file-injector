@@ -68,7 +68,7 @@
 └─────────────────────────────────────────────────────┘
 ```
 
-Playground целиком помещается в один iframe (как сейчас) — `index.html` просто вырастает визуально.
+Превью **не обязано** быть во вложенном `iframe`: изоляция темы/направления/ширины достигается контейнером `.ui-playground__preview-inner` (`data-theme`, `data-viewport`, `dir`). Отдельный iframe допустим только если понадобится изолировать `document` (редкий случай). Каталог демо (`index.html`) — одна страница с боковой навигацией и одним экземпляром playground, без сетки iframe.
 
 ### 3.2 Механика связывания
 
@@ -249,21 +249,19 @@ itemCount: { type: 'range', min: 1, max: 10, bindsRepeat: { template: '.ui-feed_
 }
 ```
 
-Внутри `iframe` в `index.html` playground выглядит пропорционально (iframe minimum 480px).
+Корневой `index.html` — **одна** страница (`showcase-app`): сайдбар + один полноразмерный playground; отдельные `src/demos/*.html` по-прежнему можно открывать напрямую.
 
 ---
 
 ## 9. Дефолтное превью (без контролов)
 
-Чтобы `index.html` — витрина — не превращался в лес слайдеров, у playground есть режим `minimal`:
+У playground есть режим `minimal` (пустой массив `controls` в схеме):
 
 ```html
 <main class="ui-playground ui-playground--minimal" data-component="button">...</main>
 ```
 
-В этом режиме рендерится **только preview** со значениями defaults. Controls и code panel появляются, когда пользователь открывает демо в отдельном табе (`?mode=full`) или разворачивает `<details>` «Settings».
-
-`index.html` остаётся быстрым обзорным мозаиком; клик на заголовок компонента открывает playground `?mode=full`.
+В этом режиме сетка упрощается (только preview и глобальная панель при необходимости).
 
 ---
 
@@ -271,7 +269,7 @@ itemCount: { type: 'range', min: 1, max: 10, bindsRepeat: { template: '.ui-feed_
 
 ### 10.1 Theme preview в playground
 
-Подпанель «Theme» — 5 чипсов (default/dark/midnight/corporate/warm). Меняет `data-theme` на preview-root, не на всей странице. Это **изолированный превью** — удобно сравнивать тему без перезагрузки всего демо.
+На **отдельной** странице демо (`button.html` и т.д.) — ряд чипов «Theme» (5 пресетов) меняет `data-theme` на **только** `.ui-playground__preview-inner`, не на весь `document`. В **корневом каталоге** (`index.html` + `showcase-app.js`) тема задаётся селектом в сайдбаре; ряд Theme в playground **отключён** (`hideThemeControls: true`), чтобы не дублировать и не спорить с оболочкой.
 
 ### 10.2 Density / compact mode
 
@@ -358,15 +356,15 @@ JSON-пресеты могут быть загружены в `npx ai-css-kit ge
 
 ### 12.2 Изоляция preview
 
-Preview живёт в `div.ui-playground__preview` с классом-скопером. Все `--ai-*` переменные применяются к этому корню. Это не ломает остальную страницу (controls, code panel), потому что они в том же iframe, но в другом CSS-скоупе.
+Превью компонента живёт в `.ui-playground__preview-inner`: на него вешаются `data-theme`, `data-viewport`, `dir`, а оверрайды слайдеров — `style` с `--ai-*`. Панели Controls / Code / Tokens — соседи в сетке, глобальные стили страницы на них влияют так же, как на любую разметку кита; **визуальная** изоляция пресета темы для виджета — за счёт `data-theme` на внутреннем узле, а не обязательного `iframe`.
 
 ### 12.3 Fallback без JS
 
 Если JS отключён — рендерим дефолтный HTML в `<noscript>`-превью. Это продиктовано политикой «демо показывает результат даже без скриптов».
 
-### 12.4 Совместимость с iframe-showcase
+### 12.4 Каталог демо
 
-`index.html` грузит каждое демо в iframe. Playground работает внутри iframe так же, как на отдельной странице. Высота iframe адаптируется через `ResizeObserver` + `postMessage('resize', height)` от playground к showcase.
+Ранее обсуждалась витрина из множества `iframe`; **текущая цель** — один playground на корневой странице без сетки iframe. Отдельные `*.html` остаются для глубоких статических матриц и прямых ссылок.
 
 ---
 

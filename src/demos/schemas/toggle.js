@@ -2,14 +2,8 @@ export default {
   component: 'toggle',
   atomicLevel: 'atom',
   baseClass: 'ui-toggle',
-  template: `
-    <label class="ui-field">
-      <input type="checkbox" class="{class}" data-target role="switch" aria-checked="false">
-      <span class="ui-toggle__track">
-        <span class="ui-toggle__thumb"></span>
-      </span>
-    </label>
-  `,
+  template:
+    '<label class="{class}"><input type="checkbox" data-target role="switch"><span>Toggle label</span></label>',
   controls: [
     {
       key: 'size',

@@ -37,6 +37,7 @@
     "build:themes": "node scripts/build-themes.mjs",
     "theme-map": "node scripts/theme-map.cjs",
     "test": "node --test tests/theme-map.test.js",
+    "demo": "npx --yes serve@14 . -l 5173",
     "build": "npm run lint:coupling && npm run lint:atomic-level && npm run lint:atomic-imports && npm run lint:tokens && npm run clean && npm run build:css && npm run build:modules && npm run build:css:min && npm run build:themes",
     "prepare": "npm run build"
   },

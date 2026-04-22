@@ -6,10 +6,20 @@
   <title>Input Component - AI CSS Kit</title>
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="./shared/demo-page.css">
+  <link rel="stylesheet" href="./shared/playground.css">
 </head>
 <body class="demo-page">
   <section class="demo-section">
-    <h2 class="demo-section__title">Inputs</h2>
+    <h2 class="demo-section__title">Input</h2>
+    <main
+      class="ui-playground"
+      data-component="input"
+      data-schema="./schemas/input.js"
+    ></main>
+  </section>
+
+  <section class="demo-section">
+    <h2 class="demo-section__title">Inputs — статическая сетка</h2>
     
     <div class="demo-group">
       <h3 class="demo-group__title">Small</h3>
@@ -295,6 +305,17 @@
     </div>
 
   </section>
-<script src="./shared/demo-theme.js"></script>
+  <script type="module" src="./shared/playground.js"></script>
+  <script type="module">
+    import { Playground } from './shared/playground.js';
+
+    document.querySelectorAll('.ui-playground').forEach((host) => {
+      const schemaUrl = host.dataset.schema;
+      if (schemaUrl) {
+        new Playground(host, schemaUrl);
+      }
+    });
+  </script>
+  <script src="./shared/demo-theme.js"></script>
 </body>
 </html>

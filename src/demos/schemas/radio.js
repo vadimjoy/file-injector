@@ -2,13 +2,8 @@ export default {
   component: 'radio',
   atomicLevel: 'atom',
   baseClass: 'ui-radio',
-  template: `
-    <label class="ui-field">
-      <input type="radio" class="{class}" name="radio-group" data-target>
-      <span class="ui-radio__box"></span>
-      <span class="ui-radio__label">Radio option</span>
-    </label>
-  `,
+  template:
+    '<label class="{class}"><input type="radio" name="playground-radio" data-target><span>Radio option</span></label>',
   controls: [
     {
       key: 'size',
