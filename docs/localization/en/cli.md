@@ -21,6 +21,24 @@ npx ai-css-kit generate "primary large button"
 
 **Key design principle:** 3 of 4 pipeline stages are fully deterministic and unit-testable. Only the Intent Parser requires an LLM call.
 
+## Responsibility Boundary
+
+The `ai-css-kit` CLI is a **domain UI generator/validator**, not a universal workspace orchestrator.
+
+It is responsible for:
+
+- generating HTML from `ai-css-kit` contracts;
+- validating generated markup against the Module Contract;
+- exposing UI-generation context for AI tooling.
+
+It should **not** absorb:
+
+- task routing across Claude / OpenCode / Cursor / Codex;
+- project session control and resume flows across tools;
+- workspace navigation or portfolio orchestration.
+
+Those concerns belong to a separate `domains-cli` + `ai-pack` layer. The tools may integrate later, but `ai-css-kit` should stay focused on deterministic UI generation.
+
 ---
 
 ## Installation

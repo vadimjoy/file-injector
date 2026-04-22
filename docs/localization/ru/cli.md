@@ -21,6 +21,24 @@ npx ai-css-kit generate "основная кнопка"
 
 **Ключевой принцип:** 3 из 4 этапов пайплайна полностью детерминированы и тестируемы без LLM. Только Intent Parser требует вызов LLM.
 
+## Граница ответственности
+
+`ai-css-kit` CLI - это **доменный UI generator/validator**, а не универсальный оркестратор рабочих проектов.
+
+Он отвечает за:
+
+- генерацию HTML на контрактах `ai-css-kit`;
+- валидацию HTML по Module Contract;
+- дамп AI-контекста для UI generation.
+
+Он **не должен** брать на себя:
+
+- routing задач между Claude / OpenCode / Cursor / Codex;
+- управление project sessions и resume across tools;
+- workspace navigation и portfolio orchestration.
+
+Для этого нужен отдельный слой `domains-cli` + `ai-pack.loc`. Позже эти инструменты могут интегрироваться, но `ai-css-kit` должен оставаться сфокусированным на детерминированной генерации UI.
+
 ---
 
 ## Установка
